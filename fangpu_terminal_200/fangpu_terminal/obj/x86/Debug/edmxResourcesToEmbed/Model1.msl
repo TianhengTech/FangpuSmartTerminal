@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FangpuDatacenterModelStoreContainer" CdmEntityContainer="FangpuDatacenterEntities">
+    <EntitySetMapping Name="deviceinfo">
+      <EntityTypeMapping TypeName="FangpuDatacenterModel.deviceinfo">
+        <MappingFragment StoreEntitySet="deviceinfo">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="devicename" ColumnName="devicename" />
+          <ScalarProperty Name="regdate" ColumnName="regdate" />
+          <ScalarProperty Name="lastonlinetime" ColumnName="lastonlinetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historydata">
+      <EntityTypeMapping TypeName="FangpuDatacenterModel.historydata">
+        <MappingFragment StoreEntitySet="historydata">
+          <ScalarProperty Name="historydataid" ColumnName="historydataid" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="shuayou_consume_seconds" ColumnName="shuayou_consume_seconds" />
+          <ScalarProperty Name="kaomo_consume_seconds" ColumnName="kaomo_consume_seconds" />
+          <ScalarProperty Name="kaoliao_consume_seconds" ColumnName="kaoliao_consume_seconds" />
+          <ScalarProperty Name="lengque_consume_seconds" ColumnName="lengque_consume_seconds" />
+          <ScalarProperty Name="jinliao_consume_seconds" ColumnName="jinliao_consume_seconds" />
+          <ScalarProperty Name="kaomo_temp" ColumnName="kaomo_temp" />
+          <ScalarProperty Name="kaoliao_temp" ColumnName="kaoliao_temp" />
+          <ScalarProperty Name="storetime" ColumnName="storetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="operationlog">
+      <EntityTypeMapping TypeName="FangpuDatacenterModel.operationlog">
+        <MappingFragment StoreEntitySet="operationlog">
+          <ScalarProperty Name="operationlogid" ColumnName="operationlogid" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="operationtime" ColumnName="operationtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="realtimedata">
+      <EntityTypeMapping TypeName="FangpuDatacenterModel.realtimedata">
+        <MappingFragment StoreEntitySet="realtimedata">
+          <ScalarProperty Name="realtimedataid" ColumnName="realtimedataid" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="shuayou_consume_seconds" ColumnName="shuayou_consume_seconds" />
+          <ScalarProperty Name="kaomo_consume_seconds" ColumnName="kaomo_consume_seconds" />
+          <ScalarProperty Name="kaoliao_consume_seconds" ColumnName="kaoliao_consume_seconds" />
+          <ScalarProperty Name="lengque_consume_seconds" ColumnName="lengque_consume_seconds" />
+          <ScalarProperty Name="jinliao_consume_seconds" ColumnName="jinliao_consume_seconds" />
+          <ScalarProperty Name="kaomo_temp" ColumnName="kaomo_temp" />
+          <ScalarProperty Name="kaoliao_temp" ColumnName="kaoliao_temp" />
+          <ScalarProperty Name="storetime" ColumnName="storetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

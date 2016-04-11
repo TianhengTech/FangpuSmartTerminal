@@ -1,0 +1,232 @@
+
+ 
+记录时间：2015-12-30 11:15:13,338 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:15:22,061 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:15:32,102 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:15:42,053 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:16:02,357 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:16:08,742 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:16:28,285 
+线程ID:[13] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:17:14,698 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:19:14,796 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:19:24,052 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:21:40,297 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:21:53,322 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:22:13,184 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:22:23,121 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:24:33,547 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:24:42,603 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:25:00,799 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:25:10,971 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:25:20,787 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:26:05,213 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:26:14,666 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:26:24,655 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:29:13,410 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:29:22,570 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:31:46,577 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 11:31:55,610 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 16:34:00,540 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2015-12-30 16:34:06,481 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2015/12/30 16:34:06
+ 
+
+ 
+记录时间：2015-12-30 16:34:06,539 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 

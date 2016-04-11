@@ -1,0 +1,88 @@
+
+ 
+记录时间：2016-01-20 13:38:47,560 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-20 13:38:47,576 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/20 13:38:47
+ 
+
+ 
+记录时间：2016-01-20 13:40:39,616 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2016-01-20 13:40:39,710 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-20 13:43:42,776 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-20 13:43:42,793 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/20 13:43:42
+ 
+
+ 
+记录时间：2016-01-20 13:45:32,701 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：tcp发送线程出错！
+ 
+
+ 
+记录时间：2016-01-20 13:45:34,690 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-20 13:45:34,721 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/20 13:45:34
+ 
+
+ 
+记录时间：2016-01-20 13:51:23,423 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-20 13:51:23,423 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/20 13:51:23
+ 

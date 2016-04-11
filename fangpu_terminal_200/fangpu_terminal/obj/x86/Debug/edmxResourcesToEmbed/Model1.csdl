@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FangpuDatacenterModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="deviceinfo">
+    <Key>
+      <PropertyRef Name="deviceid" />
+    </Key>
+    <Property Name="deviceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="devicename" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="regdate" Type="DateTime" Nullable="false" />
+    <Property Name="lastonlinetime" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="historydata">
+    <Key>
+      <PropertyRef Name="historydataid" />
+    </Key>
+    <Property Name="historydataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="deviceid" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="shuayou_consume_seconds" Type="Single" />
+    <Property Name="kaomo_consume_seconds" Type="Single" />
+    <Property Name="kaoliao_consume_seconds" Type="Single" />
+    <Property Name="lengque_consume_seconds" Type="Single" />
+    <Property Name="jinliao_consume_seconds" Type="Single" />
+    <Property Name="kaomo_temp" Type="Single" />
+    <Property Name="kaoliao_temp" Type="Single" />
+    <Property Name="storetime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="operationlog">
+    <Key>
+      <PropertyRef Name="operationlogid" />
+    </Key>
+    <Property Name="operationlogid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="deviceid" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="operationtime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="realtimedata">
+    <Key>
+      <PropertyRef Name="realtimedataid" />
+    </Key>
+    <Property Name="realtimedataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="deviceid" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="shuayou_consume_seconds" Type="Single" />
+    <Property Name="kaomo_consume_seconds" Type="Single" />
+    <Property Name="kaoliao_consume_seconds" Type="Single" />
+    <Property Name="lengque_consume_seconds" Type="Single" />
+    <Property Name="jinliao_consume_seconds" Type="Single" />
+    <Property Name="kaomo_temp" Type="Single" />
+    <Property Name="kaoliao_temp" Type="Single" />
+    <Property Name="storetime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FangpuDatacenterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="deviceinfo" EntityType="Self.deviceinfo" />
+    <EntitySet Name="historydata" EntityType="Self.historydata" />
+    <EntitySet Name="operationlog" EntityType="Self.operationlog" />
+    <EntitySet Name="realtimedata" EntityType="Self.realtimedata" />
+  </EntityContainer>
+</Schema>

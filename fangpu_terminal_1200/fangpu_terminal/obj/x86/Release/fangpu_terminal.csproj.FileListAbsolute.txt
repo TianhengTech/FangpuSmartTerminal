@@ -1,0 +1,78 @@
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe.config
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.pdb
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Common.dll
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Pro.dll
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Std.dll
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\bin\Release\log4net.dll
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\bin\Release\log4net.xml
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.FangpuTerminal.resources
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Properties.Resources.resources
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.csproj.GenerateResource.Cache
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe.licenses
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe
+F:\tianheng_projects\industrial dev\fangpu_terminal\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.pdb
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe.config
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.pdb
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.pdb
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\bin\Release\Newtonsoft.Json.dll
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\bin\Release\Newtonsoft.Json.xml
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.FangpuTerminal.resources
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Properties.Resources.resources
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.csproj.GenerateResource.Cache
+E:\PLC\VS_C#\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe.licenses
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe.config
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.pdb
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.pdb
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Common.dll
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Pro.dll
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Std.dll
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\bin\Release\Newtonsoft.Json.dll
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\bin\Release\Newtonsoft.Json.xml
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.csprojResolveAssemblyReference.cache
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.FangpuTerminal.resources
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Properties.Resources.resources
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.csproj.GenerateResource.Cache
+D:\visual studio 2010\xx\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe.licenses
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe.config
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.pdb
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.csprojResolveAssemblyReference.cache
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.FangpuTerminal.resources
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Form2.resources
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Form3.resources
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Form4.resources
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Properties.Resources.resources
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.csproj.GenerateResource.Cache
+E:\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe.licenses
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe.config
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.exe
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\fangpu_terminal.pdb
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\EntityFramework.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Common.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Pro.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\Iocomp.Instrumentation.WF40.Std.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\MySql.Data.Entity.EF6.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\Newtonsoft.Json.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\System.Data.SQLite.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\System.Data.SQLite.EF6.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\System.Data.SQLite.Linq.dll
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\Newtonsoft.Json.xml
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\bin\Release\System.Data.SQLite.xml
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.FangpuTerminal.resources
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Dailycheck.resources
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Bandcheck.resources
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Fieldcheck.resources
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.numberboard.resources
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Passwordinput.resources
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.Properties.Resources.resources
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.TianhengLogin.resources
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.csproj.GenerateResource.Cache
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe.licenses
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.exe
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.pdb
+D:\visual studio 2013\fangpu_terminal1024_2\fangpu_terminal\fangpu_terminal\obj\x86\Release\fangpu_terminal.csprojResolveAssemblyReference.cache

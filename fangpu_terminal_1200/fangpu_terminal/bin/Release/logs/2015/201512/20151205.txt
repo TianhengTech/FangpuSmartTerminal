@@ -1,0 +1,5288 @@
+
+ 
+记录时间：2015-12-05 14:11:32,354 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:33,571 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:34,648 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:36,816 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:37,892 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:39,062 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:40,186 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:41,231 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:42,494 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:43,540 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:44,585 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:46,691 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:47,861 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:49,982 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:51,433 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:52,853 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:54,007 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:55,115 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:57,970 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:11:59,218 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:00,575 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:01,636 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:03,757 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:04,849 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:06,082 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:07,111 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:09,186 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:11,495 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:12,649 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:13,866 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:14,942 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:15,988 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:18,047 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:19,310 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:21,448 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:22,555 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:24,661 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:26,518 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:27,610 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:28,702 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:29,872 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:31,026 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:33,116 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:35,472 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:36,580 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:37,641 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:38,857 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:40,027 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:42,118 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:43,210 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:44,317 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:46,517 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:49,699 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:50,745 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:51,883 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:52,944 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:54,021 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:56,142 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:57,531 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:12:58,576 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:00,666 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:01,821 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:03,022 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:04,129 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:05,393 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:07,577 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:08,685 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:11,025 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:12,070 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:13,131 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:15,268 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:16,453 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:17,608 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:18,903 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:19,963 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:21,196 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:22,397 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:24,487 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:25,642 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:26,749 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:28,871 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:29,916 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:31,024 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:34,425 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:35,579 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:36,811 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:37,935 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:40,056 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:41,164 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:42,240 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:43,395 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:44,689 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:45,813 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:46,941 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:49,027 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:50,107 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:51,144 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:52,216 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:53,288 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:54,449 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:55,520 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:56,716 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:57,801 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:13:58,893 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:00,328 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:01,500 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:02,635 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:03,823 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:04,890 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:05,986 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:07,110 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:08,193 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:09,332 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:10,411 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:11,452 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:12,512 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:13,548 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:14,743 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:15,831 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:16,889 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:18,033 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:19,067 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:20,228 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:21,297 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:22,396 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:23,442 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:24,489 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:25,593 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:26,643 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:27,773 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:28,852 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:29,894 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:30,982 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:32,061 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:33,160 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:34,316 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:35,393 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:36,444 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:37,549 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:38,622 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:39,704 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:40,744 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:41,775 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:42,923 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:43,966 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:45,045 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:46,121 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:47,272 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:48,413 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:49,437 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:50,554 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:51,609 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:52,702 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:53,804 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:54,835 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:55,913 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:57,048 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:58,097 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:14:59,218 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:00,424 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:01,474 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:02,589 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:03,656 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:04,707 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:05,753 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:06,823 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:08,083 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:09,222 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:10,262 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:11,326 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:12,387 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:13,631 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:14,687 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:15,768 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:17,047 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:18,085 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:19,167 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:20,259 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:21,564 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:22,663 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:23,759 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:24,816 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:25,931 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:27,068 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:28,194 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:29,359 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:30,399 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:31,434 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:32,529 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:33,579 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:34,619 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:35,732 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:36,817 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:37,919 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:39,074 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:40,125 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:41,230 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:42,331 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:43,367 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:44,553 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:45,633 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:46,687 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:47,742 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:48,767 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:49,897 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:51,123 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:52,406 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:53,571 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:54,770 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:55,852 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:56,917 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:58,000 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:15:59,099 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:00,183 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:01,208 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:02,285 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:03,356 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:04,577 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:05,616 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:06,699 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:07,912 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:08,996 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:10,049 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:11,115 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:12,236 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:13,290 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:14,367 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:15,416 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:16,648 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:17,774 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:19,086 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:20,150 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:21,235 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:22,308 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:23,367 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:24,445 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:25,512 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:26,598 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:27,705 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:28,777 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:29,839 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:31,148 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:32,211 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:33,287 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:34,335 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:35,411 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:36,452 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:37,520 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:38,660 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:39,729 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:40,784 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:41,878 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:42,984 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:45,745 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:46,803 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:47,849 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:48,935 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:50,108 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:51,279 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:53,355 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:54,384 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:56,477 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:57,601 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:58,716 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:16:59,888 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:01,091 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:02,214 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:03,240 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:04,382 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:05,445 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:06,577 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:07,655 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:08,833 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:09,995 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:12,052 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:13,143 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:14,292 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:15,327 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:16,379 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:17,422 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:18,511 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:19,573 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:20,637 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:21,663 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:22,749 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:23,826 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:24,967 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:26,065 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:27,189 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:28,229 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:29,308 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:30,450 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:31,481 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:32,532 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:33,664 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:34,778 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:35,871 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:36,942 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:37,976 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:39,102 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:40,129 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:41,230 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:42,293 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:43,354 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:44,406 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:46,491 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:47,523 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:48,636 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:49,682 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:50,728 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:51,767 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:52,830 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:53,846 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:54,966 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:56,036 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:57,401 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:58,460 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:17:59,646 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:00,698 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:01,884 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:02,961 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:03,988 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:05,088 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:06,254 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:07,420 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:08,674 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:09,773 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:10,866 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:11,991 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:13,038 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:14,110 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:15,175 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:16,190 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:17,303 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:18,360 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:19,395 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:20,466 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:21,514 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:22,559 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:23,592 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:24,647 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:25,704 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:26,805 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:27,853 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:28,891 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:29,929 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:30,978 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:32,039 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:33,081 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:34,123 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:35,178 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:36,231 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:37,250 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:38,324 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:39,403 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:40,463 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:41,511 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:42,546 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:43,600 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:18:44,668 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:07,464 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:08,525 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:09,648 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:10,693 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:11,754 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:12,877 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:14,047 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:15,170 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:16,481 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:18,602 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:20,225 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:21,270 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:22,471 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:23,548 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:24,640 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:25,732 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:26,855 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:28,009 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:30,084 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:31,160 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:32,221 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:33,344 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:34,452 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:35,528 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:36,917 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:37,978 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:39,101 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:40,208 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:42,361 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:43,516 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:45,013 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:46,246 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:47,384 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:48,468 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:49,552 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:51,866 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:53,021 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:54,072 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:55,138 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:56,277 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:57,484 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:58,597 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:19:59,736 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:00,823 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:01,928 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:03,067 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:04,159 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:05,268 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:06,344 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:07,387 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:09,526 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:10,807 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:11,983 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:13,125 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:14,257 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:15,408 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:16,999 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:18,497 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:19,896 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:21,213 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:22,274 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:23,356 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:24,430 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:25,498 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:26,559 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:27,624 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:28,888 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:30,050 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:31,072 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:32,156 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:33,240 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:34,394 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:35,618 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:36,669 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:37,737 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:38,956 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:40,010 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:41,094 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:42,176 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:43,385 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:44,477 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:45,526 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:46,611 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:47,653 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:48,701 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:49,753 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:50,843 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:51,925 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:53,074 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:55,135 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:56,229 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:57,322 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:58,369 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:20:59,463 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:00,618 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:01,692 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:02,794 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:03,888 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:05,941 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:07,073 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:08,115 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:09,166 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:10,280 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:11,336 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:12,545 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:13,585 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:21:13,605 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:25:57,486 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:25:58,235 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:13,444 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:14,571 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:15,671 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:16,791 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:17,838 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:18,902 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:19,983 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:21,132 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:22,197 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:23,240 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:24,261 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:25,360 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:26,421 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:27,468 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:28,558 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:29,629 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:30,675 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:31,728 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:32,772 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:33,841 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:34,875 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:36,929 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:37,982 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:39,040 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:40,110 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:41,164 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:42,199 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:43,285 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:44,375 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:45,407 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:47,417 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:48,491 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:49,518 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:50,634 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:51,708 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:52,737 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:53,813 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:54,858 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:55,921 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:56,980 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:26:59,023 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:00,071 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:01,146 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:02,203 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:03,306 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:04,321 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:05,369 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:06,407 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:07,495 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:08,541 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:09,582 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:10,686 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:11,718 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:12,790 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:13,824 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:14,912 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:15,996 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:17,047 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:18,088 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:20,137 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:21,171 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:22,236 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:23,282 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:24,317 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:25,367 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:26,473 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:27:26,935 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:37,841 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:38,995 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:40,077 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:41,132 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:42,177 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:43,234 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:44,318 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:45,405 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:46,494 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:48,546 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:49,645 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:50,694 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:51,763 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:52,844 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:53,910 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:55,970 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:57,034 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:58,093 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:36:59,175 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:00,212 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:01,234 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:02,266 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:03,323 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:04,389 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:05,427 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:06,524 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:07,573 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:09,614 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:10,656 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:11,733 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:12,862 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:13,929 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:14,986 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:16,022 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:17,069 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:18,125 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:19,703 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:20,747 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:21,834 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:22,895 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:24,238 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:26,282 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:27,347 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:28,389 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:29,460 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:30,502 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:31,551 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:32,573 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:33,673 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:34,725 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:35,789 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:36,821 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:37,873 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:39,954 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:40,986 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:42,028 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:43,140 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:44,190 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:45,224 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:46,334 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:47,371 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:48,435 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:49,485 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:50,542 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:51,599 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:52,628 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:53,683 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:54,722 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:55,744 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:57,794 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:58,836 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:37:59,875 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:38:00,945 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:38:02,052 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:38:03,103 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:38:04,202 
+线程ID:[16] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:38:04,691 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:38:58,441 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:38:59,493 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:00,521 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:01,541 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:02,578 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:03,705 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:04,873 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:06,046 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:07,224 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:08,413 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:09,457 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:10,474 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:11,508 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:12,530 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:13,535 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:14,556 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:15,620 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:16,702 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:17,766 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:18,820 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:19,911 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:20,954 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:21,981 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:23,000 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:24,046 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:25,157 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:26,203 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:27,231 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:28,271 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:29,310 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:30,337 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:31,400 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:32,496 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:33,538 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:34,575 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:35,672 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:36,699 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:37,732 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:38,753 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:39,809 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:40,865 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:41,922 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:42,969 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:44,035 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:45,122 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:46,186 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：plc数据处理线程出错！
+ 
+
+ 
+记录时间：2015-12-05 14:39:46,488 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2015-12-05 15:50:30,332 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 

@@ -1,0 +1,1408 @@
+
+ 
+记录时间：2016-01-06 15:08:45,321 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:45
+ 
+
+ 
+记录时间：2016-01-06 15:08:46,355 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:46
+ 
+
+ 
+记录时间：2016-01-06 15:08:48,114 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:48
+ 
+
+ 
+记录时间：2016-01-06 15:08:48,480 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:08:49,693 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:08:49,756 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:49
+ 
+
+ 
+记录时间：2016-01-06 15:08:50,957 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:08:51,209 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:51
+ 
+
+ 
+记录时间：2016-01-06 15:08:52,460 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:08:53,048 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:53
+ 
+
+ 
+记录时间：2016-01-06 15:08:53,996 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:08:54,688 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:54
+ 
+
+ 
+记录时间：2016-01-06 15:08:55,861 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:08:56,512 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:56
+ 
+
+ 
+记录时间：2016-01-06 15:08:57,706 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:08:58,350 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:08:58
+ 
+
+ 
+记录时间：2016-01-06 15:08:59,566 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:00,020 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:00
+ 
+
+ 
+记录时间：2016-01-06 15:09:01,294 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:02,044 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:02
+ 
+
+ 
+记录时间：2016-01-06 15:09:02,974 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:03,452 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:03
+ 
+
+ 
+记录时间：2016-01-06 15:09:04,524 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:05,334 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:05
+ 
+
+ 
+记录时间：2016-01-06 15:09:06,483 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:06,971 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:06
+ 
+
+ 
+记录时间：2016-01-06 15:09:08,122 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:08,790 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:08
+ 
+
+ 
+记录时间：2016-01-06 15:09:09,873 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:10,431 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:10
+ 
+
+ 
+记录时间：2016-01-06 15:09:11,604 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:12,070 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:12
+ 
+
+ 
+记录时间：2016-01-06 15:09:13,260 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:14,031 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:14
+ 
+
+ 
+记录时间：2016-01-06 15:09:15,184 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:15,899 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:15
+ 
+
+ 
+记录时间：2016-01-06 15:09:16,882 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:17,333 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:17
+ 
+
+ 
+记录时间：2016-01-06 15:09:18,445 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:18,981 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:18
+ 
+
+ 
+记录时间：2016-01-06 15:09:20,157 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:20,616 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:20
+ 
+
+ 
+记录时间：2016-01-06 15:09:21,775 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:22,304 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:22
+ 
+
+ 
+记录时间：2016-01-06 15:09:23,439 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:24,145 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:24
+ 
+
+ 
+记录时间：2016-01-06 15:09:25,407 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:26,085 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:26
+ 
+
+ 
+记录时间：2016-01-06 15:09:27,266 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:28,005 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:28
+ 
+
+ 
+记录时间：2016-01-06 15:09:29,021 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:29,558 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:29
+ 
+
+ 
+记录时间：2016-01-06 15:09:30,707 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:31,178 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:31
+ 
+
+ 
+记录时间：2016-01-06 15:09:32,448 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:32,846 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:32
+ 
+
+ 
+记录时间：2016-01-06 15:09:33,907 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:34,501 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:34
+ 
+
+ 
+记录时间：2016-01-06 15:09:35,436 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:36,133 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:36
+ 
+
+ 
+记录时间：2016-01-06 15:09:37,054 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:38,008 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:38
+ 
+
+ 
+记录时间：2016-01-06 15:09:39,108 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:39,693 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:39
+ 
+
+ 
+记录时间：2016-01-06 15:09:40,812 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:41,328 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:41
+ 
+
+ 
+记录时间：2016-01-06 15:09:42,455 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:42,981 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:42
+ 
+
+ 
+记录时间：2016-01-06 15:09:44,018 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:44,628 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:44
+ 
+
+ 
+记录时间：2016-01-06 15:09:45,718 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:46,278 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:46
+ 
+
+ 
+记录时间：2016-01-06 15:09:47,349 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:47,908 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:47
+ 
+
+ 
+记录时间：2016-01-06 15:09:49,076 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:49,542 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:49
+ 
+
+ 
+记录时间：2016-01-06 15:09:50,758 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:51,574 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:51
+ 
+
+ 
+记录时间：2016-01-06 15:09:52,643 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:53,028 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:53
+ 
+
+ 
+记录时间：2016-01-06 15:09:54,160 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 15:09:54,851 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 15:09:54
+ 
+
+ 
+记录时间：2016-01-06 15:09:56,173 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 
+
+ 
+记录时间：2016-01-06 17:34:36,698 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:36
+ 
+
+ 
+记录时间：2016-01-06 17:34:37,784 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:37
+ 
+
+ 
+记录时间：2016-01-06 17:34:39,567 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:39
+ 
+
+ 
+记录时间：2016-01-06 17:34:40,987 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:40
+ 
+
+ 
+记录时间：2016-01-06 17:34:42,396 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:42
+ 
+
+ 
+记录时间：2016-01-06 17:34:43,791 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:43
+ 
+
+ 
+记录时间：2016-01-06 17:34:45,413 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:45
+ 
+
+ 
+记录时间：2016-01-06 17:34:46,834 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:46
+ 
+
+ 
+记录时间：2016-01-06 17:34:48,308 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:48
+ 
+
+ 
+记录时间：2016-01-06 17:34:49,946 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:49
+ 
+
+ 
+记录时间：2016-01-06 17:34:51,383 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:51
+ 
+
+ 
+记录时间：2016-01-06 17:34:52,801 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:52
+ 
+
+ 
+记录时间：2016-01-06 17:34:55,108 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:55
+ 
+
+ 
+记录时间：2016-01-06 17:34:56,583 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:56
+ 
+
+ 
+记录时间：2016-01-06 17:34:58,029 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:58
+ 
+
+ 
+记录时间：2016-01-06 17:34:59,677 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:34:59
+ 
+
+ 
+记录时间：2016-01-06 17:35:01,102 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:01
+ 
+
+ 
+记录时间：2016-01-06 17:35:02,761 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:02
+ 
+
+ 
+记录时间：2016-01-06 17:35:04,188 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:04
+ 
+
+ 
+记录时间：2016-01-06 17:35:05,593 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:05
+ 
+
+ 
+记录时间：2016-01-06 17:35:07,064 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:07
+ 
+
+ 
+记录时间：2016-01-06 17:35:08,506 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:08
+ 
+
+ 
+记录时间：2016-01-06 17:35:09,722 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:09
+ 
+
+ 
+记录时间：2016-01-06 17:35:11,407 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:11
+ 
+
+ 
+记录时间：2016-01-06 17:35:13,059 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:13
+ 
+
+ 
+记录时间：2016-01-06 17:35:27,420 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:27
+ 
+
+ 
+记录时间：2016-01-06 17:35:28,620 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:28
+ 
+
+ 
+记录时间：2016-01-06 17:35:30,039 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:30
+ 
+
+ 
+记录时间：2016-01-06 17:35:31,458 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:31
+ 
+
+ 
+记录时间：2016-01-06 17:35:32,910 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:32
+ 
+
+ 
+记录时间：2016-01-06 17:35:34,530 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:34
+ 
+
+ 
+记录时间：2016-01-06 17:35:35,951 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:35
+ 
+
+ 
+记录时间：2016-01-06 17:35:37,578 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:37
+ 
+
+ 
+记录时间：2016-01-06 17:35:38,813 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:38
+ 
+
+ 
+记录时间：2016-01-06 17:35:40,474 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:40
+ 
+
+ 
+记录时间：2016-01-06 17:35:42,113 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:42
+ 
+
+ 
+记录时间：2016-01-06 17:35:43,775 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:43
+ 
+
+ 
+记录时间：2016-01-06 17:35:45,028 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:45
+ 
+
+ 
+记录时间：2016-01-06 17:35:46,460 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:46
+ 
+
+ 
+记录时间：2016-01-06 17:35:48,160 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:48
+ 
+
+ 
+记录时间：2016-01-06 17:35:49,603 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:49
+ 
+
+ 
+记录时间：2016-01-06 17:35:51,401 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:51
+ 
+
+ 
+记录时间：2016-01-06 17:35:53,046 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:53
+ 
+
+ 
+记录时间：2016-01-06 17:35:54,477 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:54
+ 
+
+ 
+记录时间：2016-01-06 17:35:55,877 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:55
+ 
+
+ 
+记录时间：2016-01-06 17:35:57,296 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:57
+ 
+
+ 
+记录时间：2016-01-06 17:35:58,718 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:35:58
+ 
+
+ 
+记录时间：2016-01-06 17:36:00,215 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:00
+ 
+
+ 
+记录时间：2016-01-06 17:36:01,609 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:01
+ 
+
+ 
+记录时间：2016-01-06 17:36:03,014 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:03
+ 
+
+ 
+记录时间：2016-01-06 17:36:04,431 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:04
+ 
+
+ 
+记录时间：2016-01-06 17:36:06,089 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:06
+ 
+
+ 
+记录时间：2016-01-06 17:36:07,714 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:07
+ 
+
+ 
+记录时间：2016-01-06 17:36:09,340 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:09
+ 
+
+ 
+记录时间：2016-01-06 17:36:10,745 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:10
+ 
+
+ 
+记录时间：2016-01-06 17:36:12,174 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:12
+ 
+
+ 
+记录时间：2016-01-06 17:36:13,593 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:13
+ 
+
+ 
+记录时间：2016-01-06 17:36:15,288 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:15
+ 
+
+ 
+记录时间：2016-01-06 17:36:16,776 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:16
+ 
+
+ 
+记录时间：2016-01-06 17:36:18,421 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:18
+ 
+
+ 
+记录时间：2016-01-06 17:36:19,877 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:19
+ 
+
+ 
+记录时间：2016-01-06 17:36:21,275 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:21
+ 
+
+ 
+记录时间：2016-01-06 17:36:22,705 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:22
+ 
+
+ 
+记录时间：2016-01-06 17:36:24,136 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:24
+ 
+
+ 
+记录时间：2016-01-06 17:36:25,589 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:25
+ 
+
+ 
+记录时间：2016-01-06 17:36:27,491 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:27
+ 
+
+ 
+记录时间：2016-01-06 17:36:28,882 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:28
+ 
+
+ 
+记录时间：2016-01-06 17:36:30,531 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:30
+ 
+
+ 
+记录时间：2016-01-06 17:36:31,759 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:31
+ 
+
+ 
+记录时间：2016-01-06 17:36:33,176 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:33
+ 
+
+ 
+记录时间：2016-01-06 17:36:35,032 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:35
+ 
+
+ 
+记录时间：2016-01-06 17:36:36,473 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:36
+ 
+
+ 
+记录时间：2016-01-06 17:36:37,928 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:37
+ 
+
+ 
+记录时间：2016-01-06 17:36:39,380 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:39
+ 
+
+ 
+记录时间：2016-01-06 17:36:40,594 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:40
+ 
+
+ 
+记录时间：2016-01-06 17:36:42,428 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:42
+ 
+
+ 
+记录时间：2016-01-06 17:36:43,879 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:43
+ 
+
+ 
+记录时间：2016-01-06 17:36:45,289 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:45
+ 
+
+ 
+记录时间：2016-01-06 17:36:46,710 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:46
+ 
+
+ 
+记录时间：2016-01-06 17:36:48,348 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:48
+ 
+
+ 
+记录时间：2016-01-06 17:36:49,844 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:49
+ 
+
+ 
+记录时间：2016-01-06 17:36:51,271 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:51
+ 
+
+ 
+记录时间：2016-01-06 17:36:52,896 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:52
+ 
+
+ 
+记录时间：2016-01-06 17:36:54,310 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:54
+ 
+
+ 
+记录时间：2016-01-06 17:36:55,792 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:55
+ 
+
+ 
+记录时间：2016-01-06 17:36:57,220 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:57
+ 
+
+ 
+记录时间：2016-01-06 17:36:58,835 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:36:58
+ 
+
+ 
+记录时间：2016-01-06 17:37:00,244 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:37:00
+ 
+
+ 
+记录时间：2016-01-06 17:37:01,667 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:37:01
+ 
+
+ 
+记录时间：2016-01-06 17:37:03,082 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:37:03
+ 
+
+ 
+记录时间：2016-01-06 17:37:04,319 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:37:04
+ 
+
+ 
+记录时间：2016-01-06 17:37:05,180 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！2016/1/6 17:37:05
+ 
+
+ 
+记录时间：2016-01-06 17:37:05,381 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 

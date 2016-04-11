@@ -1,0 +1,966 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="fangpu_datacenterModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bandchecklist">
+          <Key>
+            <PropertyRef Name="idchecklist2" />
+          </Key>
+          <Property Name="idchecklist2" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deviceid" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="sn" Type="varchar" MaxLength="45" />
+          <Property Name="date" Type="datetime" Precision="0" />
+          <Property Name="position" Type="varchar" MaxLength="45" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
+          <Property Name="producesn" Type="varchar" MaxLength="45" />
+          <Property Name="cardnumber" Type="varchar" MaxLength="45" />
+          <Property Name="weight" Type="varchar" MaxLength="45" />
+          <Property Name="singleweight" Type="varchar" MaxLength="45" />
+          <Property Name="materialnumber" Type="varchar" MaxLength="45" />
+          <Property Name="waste" Type="varchar" MaxLength="45" />
+          <Property Name="producttype" Type="varchar" MaxLength="45" />
+          <Property Name="remark" Type="varchar" MaxLength="45" />
+          <Property Name="subtotal" Type="double" />
+          <Property Name="total" Type="double" />
+        </EntityType>
+        <EntityType Name="dailychecklist">
+          <Key>
+            <PropertyRef Name="idchecklist" />
+          </Key>
+          <Property Name="idchecklist" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deviceid" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="procedure" Type="varchar" MaxLength="45" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
+          <Property Name="shift" Type="varchar" MaxLength="45" />
+          <Property Name="checkdate" Type="datetime" Precision="0" />
+          <Property Name="airpressure_check" Type="bool" />
+          <Property Name="gaspressure_check" Type="bool" />
+          <Property Name="airleak_check" Type="bool" />
+          <Property Name="gasleak_check" Type="bool" />
+          <Property Name="belt_check" Type="bool" />
+          <Property Name="furnacecylinder_check" Type="bool" />
+          <Property Name="surfacesensor_check" Type="bool" />
+          <Property Name="demouldcylinder_check" Type="bool" />
+          <Property Name="airtap_check" Type="bool" />
+          <Property Name="ventilator_check" Type="bool" />
+          <Property Name="screen_check" Type="bool" />
+          <Property Name="groundclean_check" Type="bool" />
+          <Property Name="tableclean_check" Type="bool" />
+          <Property Name="normal" Type="float" />
+          <Property Name="debug" Type="float" />
+          <Property Name="tempup" Type="float" />
+          <Property Name="cleanmould" Type="float" />
+          <Property Name="changemoud" Type="float" />
+          <Property Name="changematerial" Type="float" />
+          <Property Name="device_error" Type="float" />
+          <Property Name="wait" Type="float" />
+          <Property Name="else" Type="float" />
+          <Property Name="tablename" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="deviceinfo">
+          <Key>
+            <PropertyRef Name="deviceid" />
+          </Key>
+          <Property Name="deviceid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="devicename" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="ipaddress" Type="varchar" MaxLength="45" />
+          <Property Name="regdate" Type="datetime" Precision="0" />
+          <Property Name="lastonlinetime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="fieldchecklist">
+          <Key>
+            <PropertyRef Name="idchecklist_3" />
+          </Key>
+          <Property Name="idchecklist_3" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deviceid" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="producer" Type="varchar" MaxLength="45" />
+          <Property Name="type" Type="varchar" MaxLength="45" />
+          <Property Name="datetime" Type="varchar" MaxLength="45" />
+          <Property Name="material" Type="varchar" MaxLength="45" />
+          <Property Name="singleweight" Type="double" />
+          <Property Name="standardlength" Type="double" />
+          <Property Name="actuallength" Type="double" />
+          <Property Name="standardthickness" Type="double" />
+          <Property Name="actualthickness" Type="double" />
+          <Property Name="burn" Type="bool" />
+          <Property Name="bubble" Type="bool" />
+          <Property Name="irregular" Type="bool" />
+          <Property Name="impurity" Type="bool" />
+          <Property Name="deformation" Type="bool" />
+          <Property Name="injure" Type="bool" />
+          <Property Name="raw" Type="bool" />
+          <Property Name="band" Type="bool" />
+          <Property Name="spot" Type="bool" />
+          <Property Name="internalfail" Type="bool" />
+          <Property Name="double" Type="bool" />
+          <Property Name="judge" Type="bool" />
+          <Property Name="handle" Type="varchar" MaxLength="45" />
+          <Property Name="monitorcheck" Type="varchar" MaxLength="45" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
+          <Property Name="datetime2" Type="datetime" Precision="0" />
+          <Property Name="confirm" Type="varchar" MaxLength="45" />
+          <Property Name="sn" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="haltinfo">
+          <Key>
+            <PropertyRef Name="idhaltinfo" />
+          </Key>
+          <Property Name="idhaltinfo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="device_name" Type="varchar" MaxLength="45" />
+          <Property Name="halt_reason" Type="varchar" MaxLength="45" />
+          <Property Name="time_start" Type="datetime" Precision="0" />
+          <Property Name="time_end" Type="datetime" Precision="0" />
+          <Property Name="storetime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="historydata">
+          <Key>
+            <PropertyRef Name="historydataid" />
+          </Key>
+          <Property Name="historydataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deviceid" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="shuayou_consume_seconds" Type="float" />
+          <Property Name="kaomo_consume_seconds" Type="float" />
+          <Property Name="kaoliao_consume_seconds" Type="float" />
+          <Property Name="lengque_consume_seconds" Type="float" />
+          <Property Name="jinliao_consume_seconds" Type="float" />
+          <Property Name="kaomo_temp" Type="float" />
+          <Property Name="kaoliao_temp" Type="float" />
+          <Property Name="cycletime" Type="float" />
+          <Property Name="storetime" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="systus" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="historydata_1200">
+          <Key>
+            <PropertyRef Name="idhistorydata" />
+          </Key>
+          <Property Name="idhistorydata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="device_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="pre_furnance1_temp" Type="float" />
+          <Property Name="pre_furnance2_temp" Type="float" />
+          <Property Name="pre_furnance3_temp" Type="float" />
+          <Property Name="burn_furnance1_temp" Type="float" />
+          <Property Name="burn_furnance2_temp" Type="float" />
+          <Property Name="storetime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="historydata_jsoncopy">
+          <Key>
+            <PropertyRef Name="historydataid" />
+          </Key>
+          <Property Name="historydataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deviceid" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="data_json" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="storetime" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="systus" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="operationlog">
+          <Key>
+            <PropertyRef Name="operationlogid" />
+          </Key>
+          <Property Name="operationlogid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deviceid" Type="int" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="operationtime" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proceduretechnologybase">
+          <Key>
+            <PropertyRef Name="idproceduretechnologybase" />
+          </Key>
+          <Property Name="idproceduretechnologybase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="device_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="product_id" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="material" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="shuayou_base" Type="double" />
+          <Property Name="shuayou_upper" Type="double" />
+          <Property Name="shuayou_lower" Type="double" />
+          <Property Name="yurelu_temp_base" Type="double" />
+          <Property Name="yurelu_temp_upper" Type="double" />
+          <Property Name="yurelu_temp_lower" Type="double" />
+          <Property Name="kaomo_consume_base" Type="double" />
+          <Property Name="kaomo_consume_upper" Type="double" />
+          <Property Name="kaomo_consume_lower" Type="double" />
+          <Property Name="kaoliaolu_temp_base" Type="double" />
+          <Property Name="kaoliaolu_temp_upper" Type="double" />
+          <Property Name="kaoliaolu_temp_lower" Type="double" />
+          <Property Name="kaoliao_consume_base" Type="double" />
+          <Property Name="kaoliao_consume_upper" Type="double" />
+          <Property Name="kaoliao_consume_lower" Type="double" />
+          <Property Name="qigangjinliao_consume_base" Type="double" />
+          <Property Name="qigangjinliao_consume_upper" Type="double" />
+          <Property Name="qigangjinliao_consume_lower" Type="double" />
+          <Property Name="lengque_consume_base" Type="double" />
+          <Property Name="lengque_consume_upper" Type="double" />
+          <Property Name="lengque_consume_lower" Type="double" />
+          <Property Name="shangsheng_speed_base" Type="double" />
+          <Property Name="shangsheng_speed_upper" Type="double" />
+          <Property Name="shangsheng_speed_lower" Type="double" />
+          <Property Name="xiajiang_speed_base" Type="double" />
+          <Property Name="xiajiang_speed_upper" Type="double" />
+          <Property Name="xiajiang_speed_lower" Type="double" />
+          <Property Name="jinliao_consume_base" Type="double" />
+          <Property Name="jinliao_consume_lower" Type="double" />
+          <Property Name="jinliao_consume_upper" Type="double" />
+          <Property Name="hutao_length_base" Type="double" />
+          <Property Name="hutao_length_upper" Type="double" />
+          <Property Name="hutao_length_lower" Type="double" />
+          <Property Name="yemian_distance_base" Type="double" />
+          <Property Name="yemian_distance_upper" Type="double" />
+          <Property Name="yemian_distance_lower" Type="double" />
+          <Property Name="uniqueidentifier" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ID" Type="varchar" MaxLength="45" />
+          <Property Name="timestamp" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="proceduretechnologybase_work">
+          <Key>
+            <PropertyRef Name="idproceduretechnologybasework" />
+          </Key>
+          <Property Name="idproceduretechnologybasework" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="device_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="product_id" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="material" Type="varchar" MaxLength="45" />
+          <Property Name="shuayou_base" Type="float" />
+          <Property Name="shuayou_upper" Type="float" />
+          <Property Name="shuayou_lower" Type="float" />
+          <Property Name="yurelu_temp_base" Type="float" />
+          <Property Name="yurelu_temp_upper" Type="float" />
+          <Property Name="yurelu_temp_lower" Type="float" />
+          <Property Name="kaomo_consume_base" Type="float" />
+          <Property Name="kaomo_consume_upper" Type="float" />
+          <Property Name="kaomo_consume_lower" Type="float" />
+          <Property Name="kaoliaolu_temp_base" Type="float" />
+          <Property Name="kaoliaolu_temp_upper" Type="float" />
+          <Property Name="kaoliaolu_temp_lower" Type="float" />
+          <Property Name="kaoliao_consume_base" Type="float" />
+          <Property Name="kaoliao_consume_upper" Type="float" />
+          <Property Name="kaoliao_consume_lower" Type="float" />
+          <Property Name="qigangjinliao_consume_base" Type="float" />
+          <Property Name="qigangjinliao_consume_upper" Type="float" />
+          <Property Name="qigangjinliao_consume_lower" Type="float" />
+          <Property Name="lengque_consume_base" Type="float" />
+          <Property Name="lengque_consume_upper" Type="float" />
+          <Property Name="lengque_consume_lower" Type="float" />
+          <Property Name="shangsheng_speed_base" Type="float" />
+          <Property Name="shangsheng_speed_upper" Type="float" />
+          <Property Name="shangsheng_speed_lower" Type="float" />
+          <Property Name="xiajiang_speed_base" Type="float" />
+          <Property Name="xiajiang_speed_upper" Type="float" />
+          <Property Name="xiajiang_speed_lower" Type="float" />
+          <Property Name="jinliao_consume_base" Type="float" />
+          <Property Name="jinliao_consume_lower" Type="float" />
+          <Property Name="jinliao_consume_upper" Type="float" />
+          <Property Name="hutao_length_base" Type="float" />
+          <Property Name="hutao_length_upper" Type="float" />
+          <Property Name="hutao_length_lower" Type="float" />
+          <Property Name="yemian_distance_base" Type="float" />
+          <Property Name="yemian_distance_upper" Type="float" />
+          <Property Name="yemian_distance_lower" Type="float" />
+          <Property Name="storetime" Type="datetime" Precision="0" />
+          <Property Name="reason" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="realtimedata">
+          <Key>
+            <PropertyRef Name="realtimedataid" />
+          </Key>
+          <Property Name="realtimedataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deviceid" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="2000" />
+          <Property Name="shuayou_consume_seconds" Type="float" />
+          <Property Name="kaomo_consume_seconds" Type="float" />
+          <Property Name="kaoliao_consume_seconds" Type="float" />
+          <Property Name="lengque_consume_seconds" Type="float" />
+          <Property Name="jinliao_consume_seconds" Type="float" />
+          <Property Name="kaomo_temp" Type="float" />
+          <Property Name="kaoliao_temp" Type="float" />
+          <Property Name="cycletime" Type="float" />
+          <Property Name="storetime" Type="datetime" Precision="0" />
+          <Property Name="systus" Type="varchar" MaxLength="2000" />
+          <Property Name="device_on_time" Type="varchar" MaxLength="45" />
+          <Property Name="produce_time" Type="varchar" MaxLength="45" />
+          <Property Name="furnace_on_time" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="warn_info">
+          <Key>
+            <PropertyRef Name="idwarn_info" />
+          </Key>
+          <Property Name="idwarn_info" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="device_name" Type="varchar" MaxLength="45" />
+          <Property Name="warn_message" Type="varchar" MaxLength="100" />
+          <Property Name="storetime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="fangpu_datacenterModelStoreContainer">
+          <EntitySet Name="bandchecklist" EntityType="Self.bandchecklist" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="dailychecklist" EntityType="Self.dailychecklist" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="deviceinfo" EntityType="Self.deviceinfo" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="fieldchecklist" EntityType="Self.fieldchecklist" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="haltinfo" EntityType="Self.haltinfo" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="historydata" EntityType="Self.historydata" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="historydata_1200" EntityType="Self.historydata_1200" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="historydata_jsoncopy" EntityType="Self.historydata_jsoncopy" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="operationlog" EntityType="Self.operationlog" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="proceduretechnologybase" EntityType="Self.proceduretechnologybase" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="proceduretechnologybase_work" EntityType="Self.proceduretechnologybase_work" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="realtimedata" EntityType="Self.realtimedata" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="fangpu_datacenter" store:Type="Tables" />
+          <EntitySet Name="warn_info" EntityType="Self.warn_info" Schema="fangpu_datacenter" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fangpu_datacenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="deviceinfo">
+          <Key>
+            <PropertyRef Name="deviceid" />
+          </Key>
+          <Property Name="deviceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="devicename" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ipaddress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="regdate" Type="DateTime" />
+          <Property Name="lastonlinetime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="operationlog">
+          <Key>
+            <PropertyRef Name="operationlogid" />
+          </Key>
+          <Property Name="operationlogid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deviceid" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="operationtime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FangpuDatacenterModelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="deviceinfo" EntityType="Self.deviceinfo" />
+          <EntitySet Name="operationlog" EntityType="Self.operationlog" />
+          <EntitySet Name="bandchecklist" EntityType="fangpu_datacenterModel.bandchecklist" />
+          <EntitySet Name="dailychecklist" EntityType="fangpu_datacenterModel.dailychecklist" />
+          <EntitySet Name="fieldchecklist" EntityType="fangpu_datacenterModel.fieldchecklist" />
+          <EntitySet Name="historydata" EntityType="fangpu_datacenterModel.historydata" />
+          <EntitySet Name="userinfo" EntityType="fangpu_datacenterModel.userinfo" />
+          <EntitySet Name="proceduretechnologybase_work" EntityType="fangpu_datacenterModel.proceduretechnologybase_work" />
+          <EntitySet Name="proceduretechnologybase" EntityType="fangpu_datacenterModel.proceduretechnologybase" />
+          <EntitySet Name="historydata_1200" EntityType="fangpu_datacenterModel.historydata_1200" />
+          <EntitySet Name="warn_info" EntityType="fangpu_datacenterModel.warn_info" />
+          <EntitySet Name="haltinfo" EntityType="fangpu_datacenterModel.haltinfo" />
+          <EntitySet Name="historydata_jsoncopy" EntityType="fangpu_datacenterModel.historydata_jsoncopy" />
+          <EntitySet Name="realtimedata" EntityType="fangpu_datacenterModel.realtimedata" />
+          </EntityContainer>
+        <EntityType Name="bandchecklist">
+          <Key>
+            <PropertyRef Name="idchecklist2" />
+          </Key>
+          <Property Name="idchecklist2" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deviceid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="sn" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" />
+          <Property Name="position" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="producesn" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="cardnumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="weight" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="singleweight" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="materialnumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="waste" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="producttype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="subtotal" Type="Double" />
+          <Property Name="total" Type="Double" />
+        </EntityType>
+        <EntityType Name="dailychecklist">
+          <Key>
+            <PropertyRef Name="idchecklist" />
+          </Key>
+          <Property Name="idchecklist" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deviceid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="procedure" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="shift" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="checkdate" Type="DateTime" />
+          <Property Name="airpressure_check" Type="Boolean" />
+          <Property Name="gaspressure_check" Type="Boolean" />
+          <Property Name="airleak_check" Type="Boolean" />
+          <Property Name="gasleak_check" Type="Boolean" />
+          <Property Name="belt_check" Type="Boolean" />
+          <Property Name="furnacecylinder_check" Type="Boolean" />
+          <Property Name="surfacesensor_check" Type="Boolean" />
+          <Property Name="demouldcylinder_check" Type="Boolean" />
+          <Property Name="airtap_check" Type="Boolean" />
+          <Property Name="ventilator_check" Type="Boolean" />
+          <Property Name="screen_check" Type="Boolean" />
+          <Property Name="groundclean_check" Type="Boolean" />
+          <Property Name="tableclean_check" Type="Boolean" />
+          <Property Name="normal" Type="Single" />
+          <Property Name="debug" Type="Single" />
+          <Property Name="tempup" Type="Single" />
+          <Property Name="cleanmould" Type="Single" />
+          <Property Name="changemoud" Type="Single" />
+          <Property Name="changematerial" Type="Single" />
+          <Property Name="device_error" Type="Single" />
+          <Property Name="wait" Type="Single" />
+          <Property Name="else" Type="Single" />
+          <Property Name="tablename" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="fieldchecklist">
+          <Key>
+            <PropertyRef Name="idchecklist_3" />
+          </Key>
+          <Property Name="idchecklist_3" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deviceid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="producer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="datetime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="material" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="singleweight" Type="Double" />
+          <Property Name="standardlength" Type="Double" />
+          <Property Name="actuallength" Type="Double" />
+          <Property Name="standardthickness" Type="Double" />
+          <Property Name="actualthickness" Type="Double" />
+          <Property Name="burn" Type="Boolean" />
+          <Property Name="bubble" Type="Boolean" />
+          <Property Name="irregular" Type="Boolean" />
+          <Property Name="impurity" Type="Boolean" />
+          <Property Name="deformation" Type="Boolean" />
+          <Property Name="injure" Type="Boolean" />
+          <Property Name="raw" Type="Boolean" />
+          <Property Name="band" Type="Boolean" />
+          <Property Name="spot" Type="Boolean" />
+          <Property Name="internalfail" Type="Boolean" />
+          <Property Name="double" Type="Boolean" />
+          <Property Name="judge" Type="Boolean" />
+          <Property Name="handle" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="monitorcheck" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="datetime2" Type="DateTime" />
+          <Property Name="confirm" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="sn" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="historydata">
+          <Key>
+            <PropertyRef Name="historydataid" />
+          </Key>
+          <Property Name="historydataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deviceid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="value" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="shuayou_consume_seconds" Type="Single" />
+          <Property Name="kaomo_consume_seconds" Type="Single" />
+          <Property Name="kaoliao_consume_seconds" Type="Single" />
+          <Property Name="lengque_consume_seconds" Type="Single" />
+          <Property Name="jinliao_consume_seconds" Type="Single" />
+          <Property Name="kaomo_temp" Type="Single" />
+          <Property Name="kaoliao_temp" Type="Single" />
+          <Property Name="cycletime" Type="Single" />
+          <Property Name="storetime" Type="DateTime" Nullable="false" />
+          <Property Name="systus" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="proceduretechnologybase_work">
+          <Key>
+            <PropertyRef Name="idproceduretechnologybasework" />
+          </Key>
+          <Property Name="idproceduretechnologybasework" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="device_name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="product_id" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="material" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="shuayou_base" Type="Single" />
+          <Property Name="shuayou_upper" Type="Single" />
+          <Property Name="shuayou_lower" Type="Single" />
+          <Property Name="yurelu_temp_base" Type="Single" />
+          <Property Name="yurelu_temp_upper" Type="Single" />
+          <Property Name="yurelu_temp_lower" Type="Single" />
+          <Property Name="kaomo_consume_base" Type="Single" />
+          <Property Name="kaomo_consume_upper" Type="Single" />
+          <Property Name="kaomo_consume_lower" Type="Single" />
+          <Property Name="kaoliaolu_temp_base" Type="Single" />
+          <Property Name="kaoliaolu_temp_upper" Type="Single" />
+          <Property Name="kaoliaolu_temp_lower" Type="Single" />
+          <Property Name="kaoliao_consume_base" Type="Single" />
+          <Property Name="kaoliao_consume_upper" Type="Single" />
+          <Property Name="kaoliao_consume_lower" Type="Single" />
+          <Property Name="qigangjinliao_consume_base" Type="Single" />
+          <Property Name="qigangjinliao_consume_upper" Type="Single" />
+          <Property Name="qigangjinliao_consume_lower" Type="Single" />
+          <Property Name="lengque_consume_base" Type="Single" />
+          <Property Name="lengque_consume_upper" Type="Single" />
+          <Property Name="lengque_consume_lower" Type="Single" />
+          <Property Name="shangsheng_speed_base" Type="Single" />
+          <Property Name="shangsheng_speed_upper" Type="Single" />
+          <Property Name="shangsheng_speed_lower" Type="Single" />
+          <Property Name="xiajiang_speed_base" Type="Single" />
+          <Property Name="xiajiang_speed_upper" Type="Single" />
+          <Property Name="xiajiang_speed_lower" Type="Single" />
+          <Property Name="jinliao_consume_base" Type="Single" />
+          <Property Name="jinliao_consume_lower" Type="Single" />
+          <Property Name="jinliao_consume_upper" Type="Single" />
+          <Property Name="hutao_length_base" Type="Single" />
+          <Property Name="hutao_length_upper" Type="Single" />
+          <Property Name="hutao_length_lower" Type="Single" />
+          <Property Name="yemian_distance_base" Type="Single" />
+          <Property Name="yemian_distance_upper" Type="Single" />
+          <Property Name="yemian_distance_lower" Type="Single" />
+          <Property Name="storetime" Type="DateTime" />
+          <Property Name="reason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="proceduretechnologybase">
+          <Key>
+            <PropertyRef Name="idproceduretechnologybase" />
+          </Key>
+          <Property Name="idproceduretechnologybase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="device_name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="product_id" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="material" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="shuayou_base" Type="Single" />
+          <Property Name="shuayou_upper" Type="Single" />
+          <Property Name="shuayou_lower" Type="Single" />
+          <Property Name="yurelu_temp_base" Type="Single" />
+          <Property Name="yurelu_temp_upper" Type="Single" />
+          <Property Name="yurelu_temp_lower" Type="Single" />
+          <Property Name="kaomo_consume_base" Type="Single" />
+          <Property Name="kaomo_consume_upper" Type="Single" />
+          <Property Name="kaomo_consume_lower" Type="Single" />
+          <Property Name="kaoliaolu_temp_base" Type="Single" />
+          <Property Name="kaoliaolu_temp_upper" Type="Single" />
+          <Property Name="kaoliaolu_temp_lower" Type="Single" />
+          <Property Name="kaoliao_consume_base" Type="Single" />
+          <Property Name="kaoliao_consume_upper" Type="Single" />
+          <Property Name="kaoliao_consume_lower" Type="Single" />
+          <Property Name="qigangjinliao_consume_base" Type="Single" />
+          <Property Name="qigangjinliao_consume_upper" Type="Single" />
+          <Property Name="qigangjinliao_consume_lower" Type="Single" />
+          <Property Name="lengque_consume_base" Type="Single" />
+          <Property Name="lengque_consume_upper" Type="Single" />
+          <Property Name="lengque_consume_lower" Type="Single" />
+          <Property Name="shangsheng_speed_base" Type="Single" />
+          <Property Name="shangsheng_speed_upper" Type="Single" />
+          <Property Name="shangsheng_speed_lower" Type="Single" />
+          <Property Name="xiajiang_speed_base" Type="Single" />
+          <Property Name="xiajiang_speed_upper" Type="Single" />
+          <Property Name="xiajiang_speed_lower" Type="Single" />
+          <Property Name="jinliao_consume_base" Type="Double" />
+          <Property Name="jinliao_consume_lower" Type="Single" />
+          <Property Name="jinliao_consume_upper" Type="Single" />
+          <Property Name="hutao_length_base" Type="Single" />
+          <Property Name="hutao_length_upper" Type="Single" />
+          <Property Name="hutao_length_lower" Type="Single" />
+          <Property Name="yemian_distance_base" Type="Single" />
+          <Property Name="yemian_distance_upper" Type="Single" />
+          <Property Name="yemian_distance_lower" Type="Single" />
+          <Property Name="uniqueidentifier" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="timestamp" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="historydata_1200">
+          <Key>
+            <PropertyRef Name="idhistorydata" />
+          </Key>
+          <Property Name="idhistorydata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="device_name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="pre_furnance1_temp" Type="Single" />
+          <Property Name="pre_furnance2_temp" Type="Single" />
+          <Property Name="pre_furnance3_temp" Type="Single" />
+          <Property Name="burn_furnance1_temp" Type="Single" />
+          <Property Name="burn_furnance2_temp" Type="Single" />
+          <Property Name="storetime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="warn_info">
+          <Key>
+            <PropertyRef Name="idwarn_info" />
+          </Key>
+          <Property Name="idwarn_info" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="device_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="warn_message" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="storetime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="haltinfo">
+          <Key>
+            <PropertyRef Name="idhaltinfo" />
+          </Key>
+          <Property Name="idhaltinfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="device_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="halt_reason" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="time_start" Type="DateTime" />
+          <Property Name="time_end" Type="DateTime" />
+          <Property Name="storetime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="historydata_jsoncopy">
+          <Key>
+            <PropertyRef Name="historydataid" />
+          </Key>
+          <Property Name="historydataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deviceid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="data_json" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="storetime" Type="DateTime" Nullable="false" />
+          <Property Name="systus" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="realtimedata">
+          <Key>
+            <PropertyRef Name="realtimedataid" />
+          </Key>
+          <Property Name="realtimedataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deviceid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="value" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="shuayou_consume_seconds" Type="Single" />
+          <Property Name="kaomo_consume_seconds" Type="Single" />
+          <Property Name="kaoliao_consume_seconds" Type="Single" />
+          <Property Name="lengque_consume_seconds" Type="Single" />
+          <Property Name="jinliao_consume_seconds" Type="Single" />
+          <Property Name="kaomo_temp" Type="Single" />
+          <Property Name="kaoliao_temp" Type="Single" />
+          <Property Name="cycletime" Type="Single" />
+          <Property Name="storetime" Type="DateTime" />
+          <Property Name="systus" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="device_on_time" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="produce_time" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="furnace_on_time" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fangpu_datacenterModelStoreContainer" CdmEntityContainer="FangpuDatacenterModelEntities">
+          <EntitySetMapping Name="deviceinfo">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.deviceinfo">
+              <MappingFragment StoreEntitySet="deviceinfo">
+                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+                <ScalarProperty Name="devicename" ColumnName="devicename" />
+                <ScalarProperty Name="ipaddress" ColumnName="ipaddress" />
+                <ScalarProperty Name="regdate" ColumnName="regdate" />
+                <ScalarProperty Name="lastonlinetime" ColumnName="lastonlinetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="operationlog">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.operationlog">
+              <MappingFragment StoreEntitySet="operationlog">
+                <ScalarProperty Name="operationlogid" ColumnName="operationlogid" />
+                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="operationtime" ColumnName="operationtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bandchecklist">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.bandchecklist">
+              <MappingFragment StoreEntitySet="bandchecklist">
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="producttype" ColumnName="producttype" />
+                <ScalarProperty Name="waste" ColumnName="waste" />
+                <ScalarProperty Name="materialnumber" ColumnName="materialnumber" />
+                <ScalarProperty Name="singleweight" ColumnName="singleweight" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="cardnumber" ColumnName="cardnumber" />
+                <ScalarProperty Name="producesn" ColumnName="producesn" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+                <ScalarProperty Name="idchecklist2" ColumnName="idchecklist2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dailychecklist">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.dailychecklist">
+              <MappingFragment StoreEntitySet="dailychecklist">
+                <ScalarProperty Name="tablename" ColumnName="tablename" />
+                <ScalarProperty Name="else" ColumnName="else" />
+                <ScalarProperty Name="wait" ColumnName="wait" />
+                <ScalarProperty Name="device_error" ColumnName="device_error" />
+                <ScalarProperty Name="changematerial" ColumnName="changematerial" />
+                <ScalarProperty Name="changemoud" ColumnName="changemoud" />
+                <ScalarProperty Name="cleanmould" ColumnName="cleanmould" />
+                <ScalarProperty Name="tempup" ColumnName="tempup" />
+                <ScalarProperty Name="debug" ColumnName="debug" />
+                <ScalarProperty Name="normal" ColumnName="normal" />
+                <ScalarProperty Name="tableclean_check" ColumnName="tableclean_check" />
+                <ScalarProperty Name="groundclean_check" ColumnName="groundclean_check" />
+                <ScalarProperty Name="screen_check" ColumnName="screen_check" />
+                <ScalarProperty Name="ventilator_check" ColumnName="ventilator_check" />
+                <ScalarProperty Name="airtap_check" ColumnName="airtap_check" />
+                <ScalarProperty Name="demouldcylinder_check" ColumnName="demouldcylinder_check" />
+                <ScalarProperty Name="surfacesensor_check" ColumnName="surfacesensor_check" />
+                <ScalarProperty Name="furnacecylinder_check" ColumnName="furnacecylinder_check" />
+                <ScalarProperty Name="belt_check" ColumnName="belt_check" />
+                <ScalarProperty Name="gasleak_check" ColumnName="gasleak_check" />
+                <ScalarProperty Name="airleak_check" ColumnName="airleak_check" />
+                <ScalarProperty Name="gaspressure_check" ColumnName="gaspressure_check" />
+                <ScalarProperty Name="airpressure_check" ColumnName="airpressure_check" />
+                <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+                <ScalarProperty Name="shift" ColumnName="shift" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="procedure" ColumnName="procedure" />
+                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+                <ScalarProperty Name="idchecklist" ColumnName="idchecklist" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fieldchecklist">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.fieldchecklist">
+              <MappingFragment StoreEntitySet="fieldchecklist">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="confirm" ColumnName="confirm" />
+                <ScalarProperty Name="datetime2" ColumnName="datetime2" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="monitorcheck" ColumnName="monitorcheck" />
+                <ScalarProperty Name="handle" ColumnName="handle" />
+                <ScalarProperty Name="judge" ColumnName="judge" />
+                <ScalarProperty Name="double" ColumnName="double" />
+                <ScalarProperty Name="internalfail" ColumnName="internalfail" />
+                <ScalarProperty Name="spot" ColumnName="spot" />
+                <ScalarProperty Name="band" ColumnName="band" />
+                <ScalarProperty Name="raw" ColumnName="raw" />
+                <ScalarProperty Name="injure" ColumnName="injure" />
+                <ScalarProperty Name="deformation" ColumnName="deformation" />
+                <ScalarProperty Name="impurity" ColumnName="impurity" />
+                <ScalarProperty Name="irregular" ColumnName="irregular" />
+                <ScalarProperty Name="bubble" ColumnName="bubble" />
+                <ScalarProperty Name="burn" ColumnName="burn" />
+                <ScalarProperty Name="actualthickness" ColumnName="actualthickness" />
+                <ScalarProperty Name="standardthickness" ColumnName="standardthickness" />
+                <ScalarProperty Name="actuallength" ColumnName="actuallength" />
+                <ScalarProperty Name="standardlength" ColumnName="standardlength" />
+                <ScalarProperty Name="singleweight" ColumnName="singleweight" />
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="producer" ColumnName="producer" />
+                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+                <ScalarProperty Name="idchecklist_3" ColumnName="idchecklist_3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="historydata">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.historydata">
+              <MappingFragment StoreEntitySet="historydata">
+                <ScalarProperty Name="systus" ColumnName="systus" />
+                <ScalarProperty Name="storetime" ColumnName="storetime" />
+                <ScalarProperty Name="cycletime" ColumnName="cycletime" />
+                <ScalarProperty Name="kaoliao_temp" ColumnName="kaoliao_temp" />
+                <ScalarProperty Name="kaomo_temp" ColumnName="kaomo_temp" />
+                <ScalarProperty Name="jinliao_consume_seconds" ColumnName="jinliao_consume_seconds" />
+                <ScalarProperty Name="lengque_consume_seconds" ColumnName="lengque_consume_seconds" />
+                <ScalarProperty Name="kaoliao_consume_seconds" ColumnName="kaoliao_consume_seconds" />
+                <ScalarProperty Name="kaomo_consume_seconds" ColumnName="kaomo_consume_seconds" />
+                <ScalarProperty Name="shuayou_consume_seconds" ColumnName="shuayou_consume_seconds" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+                <ScalarProperty Name="historydataid" ColumnName="historydataid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userinfo">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.userinfo">
+              <MappingFragment StoreEntitySet="userinfo">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proceduretechnologybase_work">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.proceduretechnologybase_work">
+              <MappingFragment StoreEntitySet="proceduretechnologybase_work">
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="storetime" ColumnName="storetime" />
+                <ScalarProperty Name="yemian_distance_lower" ColumnName="yemian_distance_lower" />
+                <ScalarProperty Name="yemian_distance_upper" ColumnName="yemian_distance_upper" />
+                <ScalarProperty Name="yemian_distance_base" ColumnName="yemian_distance_base" />
+                <ScalarProperty Name="hutao_length_lower" ColumnName="hutao_length_lower" />
+                <ScalarProperty Name="hutao_length_upper" ColumnName="hutao_length_upper" />
+                <ScalarProperty Name="hutao_length_base" ColumnName="hutao_length_base" />
+                <ScalarProperty Name="jinliao_consume_upper" ColumnName="jinliao_consume_upper" />
+                <ScalarProperty Name="jinliao_consume_lower" ColumnName="jinliao_consume_lower" />
+                <ScalarProperty Name="jinliao_consume_base" ColumnName="jinliao_consume_base" />
+                <ScalarProperty Name="xiajiang_speed_lower" ColumnName="xiajiang_speed_lower" />
+                <ScalarProperty Name="xiajiang_speed_upper" ColumnName="xiajiang_speed_upper" />
+                <ScalarProperty Name="xiajiang_speed_base" ColumnName="xiajiang_speed_base" />
+                <ScalarProperty Name="shangsheng_speed_lower" ColumnName="shangsheng_speed_lower" />
+                <ScalarProperty Name="shangsheng_speed_upper" ColumnName="shangsheng_speed_upper" />
+                <ScalarProperty Name="shangsheng_speed_base" ColumnName="shangsheng_speed_base" />
+                <ScalarProperty Name="lengque_consume_lower" ColumnName="lengque_consume_lower" />
+                <ScalarProperty Name="lengque_consume_upper" ColumnName="lengque_consume_upper" />
+                <ScalarProperty Name="lengque_consume_base" ColumnName="lengque_consume_base" />
+                <ScalarProperty Name="qigangjinliao_consume_lower" ColumnName="qigangjinliao_consume_lower" />
+                <ScalarProperty Name="qigangjinliao_consume_upper" ColumnName="qigangjinliao_consume_upper" />
+                <ScalarProperty Name="qigangjinliao_consume_base" ColumnName="qigangjinliao_consume_base" />
+                <ScalarProperty Name="kaoliao_consume_lower" ColumnName="kaoliao_consume_lower" />
+                <ScalarProperty Name="kaoliao_consume_upper" ColumnName="kaoliao_consume_upper" />
+                <ScalarProperty Name="kaoliao_consume_base" ColumnName="kaoliao_consume_base" />
+                <ScalarProperty Name="kaoliaolu_temp_lower" ColumnName="kaoliaolu_temp_lower" />
+                <ScalarProperty Name="kaoliaolu_temp_upper" ColumnName="kaoliaolu_temp_upper" />
+                <ScalarProperty Name="kaoliaolu_temp_base" ColumnName="kaoliaolu_temp_base" />
+                <ScalarProperty Name="kaomo_consume_lower" ColumnName="kaomo_consume_lower" />
+                <ScalarProperty Name="kaomo_consume_upper" ColumnName="kaomo_consume_upper" />
+                <ScalarProperty Name="kaomo_consume_base" ColumnName="kaomo_consume_base" />
+                <ScalarProperty Name="yurelu_temp_lower" ColumnName="yurelu_temp_lower" />
+                <ScalarProperty Name="yurelu_temp_upper" ColumnName="yurelu_temp_upper" />
+                <ScalarProperty Name="yurelu_temp_base" ColumnName="yurelu_temp_base" />
+                <ScalarProperty Name="shuayou_lower" ColumnName="shuayou_lower" />
+                <ScalarProperty Name="shuayou_upper" ColumnName="shuayou_upper" />
+                <ScalarProperty Name="shuayou_base" ColumnName="shuayou_base" />
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="device_name" ColumnName="device_name" />
+                <ScalarProperty Name="idproceduretechnologybasework" ColumnName="idproceduretechnologybasework" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proceduretechnologybase">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.proceduretechnologybase">
+              <MappingFragment StoreEntitySet="proceduretechnologybase">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="uniqueidentifier" ColumnName="uniqueidentifier" />
+                <ScalarProperty Name="yemian_distance_lower" ColumnName="yemian_distance_lower" />
+                <ScalarProperty Name="yemian_distance_upper" ColumnName="yemian_distance_upper" />
+                <ScalarProperty Name="yemian_distance_base" ColumnName="yemian_distance_base" />
+                <ScalarProperty Name="hutao_length_lower" ColumnName="hutao_length_lower" />
+                <ScalarProperty Name="hutao_length_upper" ColumnName="hutao_length_upper" />
+                <ScalarProperty Name="hutao_length_base" ColumnName="hutao_length_base" />
+                <ScalarProperty Name="jinliao_consume_upper" ColumnName="jinliao_consume_upper" />
+                <ScalarProperty Name="jinliao_consume_lower" ColumnName="jinliao_consume_lower" />
+                <ScalarProperty Name="jinliao_consume_base" ColumnName="jinliao_consume_base" />
+                <ScalarProperty Name="xiajiang_speed_lower" ColumnName="xiajiang_speed_lower" />
+                <ScalarProperty Name="xiajiang_speed_upper" ColumnName="xiajiang_speed_upper" />
+                <ScalarProperty Name="xiajiang_speed_base" ColumnName="xiajiang_speed_base" />
+                <ScalarProperty Name="shangsheng_speed_lower" ColumnName="shangsheng_speed_lower" />
+                <ScalarProperty Name="shangsheng_speed_upper" ColumnName="shangsheng_speed_upper" />
+                <ScalarProperty Name="shangsheng_speed_base" ColumnName="shangsheng_speed_base" />
+                <ScalarProperty Name="lengque_consume_lower" ColumnName="lengque_consume_lower" />
+                <ScalarProperty Name="lengque_consume_upper" ColumnName="lengque_consume_upper" />
+                <ScalarProperty Name="lengque_consume_base" ColumnName="lengque_consume_base" />
+                <ScalarProperty Name="qigangjinliao_consume_lower" ColumnName="qigangjinliao_consume_lower" />
+                <ScalarProperty Name="qigangjinliao_consume_upper" ColumnName="qigangjinliao_consume_upper" />
+                <ScalarProperty Name="qigangjinliao_consume_base" ColumnName="qigangjinliao_consume_base" />
+                <ScalarProperty Name="kaoliao_consume_lower" ColumnName="kaoliao_consume_lower" />
+                <ScalarProperty Name="kaoliao_consume_upper" ColumnName="kaoliao_consume_upper" />
+                <ScalarProperty Name="kaoliao_consume_base" ColumnName="kaoliao_consume_base" />
+                <ScalarProperty Name="kaoliaolu_temp_lower" ColumnName="kaoliaolu_temp_lower" />
+                <ScalarProperty Name="kaoliaolu_temp_upper" ColumnName="kaoliaolu_temp_upper" />
+                <ScalarProperty Name="kaoliaolu_temp_base" ColumnName="kaoliaolu_temp_base" />
+                <ScalarProperty Name="kaomo_consume_lower" ColumnName="kaomo_consume_lower" />
+                <ScalarProperty Name="kaomo_consume_upper" ColumnName="kaomo_consume_upper" />
+                <ScalarProperty Name="kaomo_consume_base" ColumnName="kaomo_consume_base" />
+                <ScalarProperty Name="yurelu_temp_lower" ColumnName="yurelu_temp_lower" />
+                <ScalarProperty Name="yurelu_temp_upper" ColumnName="yurelu_temp_upper" />
+                <ScalarProperty Name="yurelu_temp_base" ColumnName="yurelu_temp_base" />
+                <ScalarProperty Name="shuayou_lower" ColumnName="shuayou_lower" />
+                <ScalarProperty Name="shuayou_upper" ColumnName="shuayou_upper" />
+                <ScalarProperty Name="shuayou_base" ColumnName="shuayou_base" />
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="device_name" ColumnName="device_name" />
+                <ScalarProperty Name="idproceduretechnologybase" ColumnName="idproceduretechnologybase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="historydata_1200">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.historydata_1200">
+              <MappingFragment StoreEntitySet="historydata_1200">
+                <ScalarProperty Name="storetime" ColumnName="storetime" />
+                <ScalarProperty Name="burn_furnance2_temp" ColumnName="burn_furnance2_temp" />
+                <ScalarProperty Name="burn_furnance1_temp" ColumnName="burn_furnance1_temp" />
+                <ScalarProperty Name="pre_furnance3_temp" ColumnName="pre_furnance3_temp" />
+                <ScalarProperty Name="pre_furnance2_temp" ColumnName="pre_furnance2_temp" />
+                <ScalarProperty Name="pre_furnance1_temp" ColumnName="pre_furnance1_temp" />
+                <ScalarProperty Name="device_name" ColumnName="device_name" />
+                <ScalarProperty Name="idhistorydata" ColumnName="idhistorydata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="warn_info">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.warn_info">
+              <MappingFragment StoreEntitySet="warn_info">
+                <ScalarProperty Name="storetime" ColumnName="storetime" />
+                <ScalarProperty Name="warn_message" ColumnName="warn_message" />
+                <ScalarProperty Name="device_name" ColumnName="device_name" />
+                <ScalarProperty Name="idwarn_info" ColumnName="idwarn_info" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="haltinfo">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.haltinfo">
+              <MappingFragment StoreEntitySet="haltinfo">
+                <ScalarProperty Name="storetime" ColumnName="storetime" />
+                <ScalarProperty Name="time_end" ColumnName="time_end" />
+                <ScalarProperty Name="time_start" ColumnName="time_start" />
+                <ScalarProperty Name="halt_reason" ColumnName="halt_reason" />
+                <ScalarProperty Name="device_name" ColumnName="device_name" />
+                <ScalarProperty Name="idhaltinfo" ColumnName="idhaltinfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="historydata_jsoncopy">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.historydata_jsoncopy">
+              <MappingFragment StoreEntitySet="historydata_jsoncopy">
+                <ScalarProperty Name="systus" ColumnName="systus" />
+                <ScalarProperty Name="storetime" ColumnName="storetime" />
+                <ScalarProperty Name="data_json" ColumnName="data_json" />
+                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+                <ScalarProperty Name="historydataid" ColumnName="historydataid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="realtimedata">
+            <EntityTypeMapping TypeName="fangpu_datacenterModel.realtimedata">
+              <MappingFragment StoreEntitySet="realtimedata">
+                <ScalarProperty Name="furnace_on_time" ColumnName="furnace_on_time" />
+                <ScalarProperty Name="produce_time" ColumnName="produce_time" />
+                <ScalarProperty Name="device_on_time" ColumnName="device_on_time" />
+                <ScalarProperty Name="systus" ColumnName="systus" />
+                <ScalarProperty Name="storetime" ColumnName="storetime" />
+                <ScalarProperty Name="cycletime" ColumnName="cycletime" />
+                <ScalarProperty Name="kaoliao_temp" ColumnName="kaoliao_temp" />
+                <ScalarProperty Name="kaomo_temp" ColumnName="kaomo_temp" />
+                <ScalarProperty Name="jinliao_consume_seconds" ColumnName="jinliao_consume_seconds" />
+                <ScalarProperty Name="lengque_consume_seconds" ColumnName="lengque_consume_seconds" />
+                <ScalarProperty Name="kaoliao_consume_seconds" ColumnName="kaoliao_consume_seconds" />
+                <ScalarProperty Name="kaomo_consume_seconds" ColumnName="kaomo_consume_seconds" />
+                <ScalarProperty Name="shuayou_consume_seconds" ColumnName="shuayou_consume_seconds" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+                <ScalarProperty Name="realtimedataid" ColumnName="realtimedataid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

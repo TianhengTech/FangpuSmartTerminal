@@ -1,0 +1,112 @@
+
+ 
+记录时间：2016-03-24 15:12:54,533 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 15:14:32,856 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 15:20:02,177 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 15:46:48,752 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 15:50:10,963 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 16:16:03,310 
+线程ID:[22] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 16:23:43,539 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 16:24:32,616 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 17:27:05,687 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 17:31:01,051 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 17:31:44,625 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 17:32:50,068 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 17:36:01,239 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
+
+ 
+记录时间：2016-03-24 17:36:23,821 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：停机原因存储出错
+ 
