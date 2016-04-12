@@ -1,0 +1,4 @@
+D:\visual studio 2013\BaseClass\BaseClass\bin\Debug\BaseClass.exe.config
+D:\visual studio 2013\BaseClass\BaseClass\obj\Debug\BaseClass.csprojResolveAssemblyReference.cache
+D:\visual studio 2013\BaseClass\BaseClass\obj\Debug\BaseClass.Properties.Resources.resources
+D:\visual studio 2013\BaseClass\BaseClass\obj\Debug\BaseClass.csproj.GenerateResource.Cache
