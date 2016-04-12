@@ -1,0 +1,13 @@
+c:\users\userx\documents\visual studio 2013\Projects\SNAP7TEST\SNAP7TEST\bin\Debug\SNAP7TEST.exe.config
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\bin\Debug\SNAP7TEST.exe
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\bin\Debug\SNAP7TEST.pdb
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\obj\Debug\SNAP7TEST.csprojResolveAssemblyReference.cache
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\obj\Debug\SNAP7TEST.Properties.Resources.resources
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\obj\Debug\SNAP7TEST.csproj.GenerateResource.Cache
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\obj\Debug\SNAP7TEST.exe
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\obj\Debug\SNAP7TEST.pdb
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\bin\Debug\Newtonsoft.Json.dll
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\bin\Debug\Newtonsoft.Json.xml
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\obj\Debug\SNAP7TEST.Mainform.resources
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\bin\Debug\MySql.Data.dll
+C:\Users\UserX\Documents\Visual Studio 2013\Projects\SNAP7TEST\SNAP7TEST\obj\Debug\SNAP7TEST.exe.licenses
