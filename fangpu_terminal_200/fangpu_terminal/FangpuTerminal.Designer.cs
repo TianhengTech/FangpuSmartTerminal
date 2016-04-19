@@ -73,8 +73,8 @@ namespace fangpu_terminal
             Iocomp.Classes.ScaleDiscreetItem scaleDiscreetItem41 = new Iocomp.Classes.ScaleDiscreetItem();
             Iocomp.Classes.ScaleDiscreetItem scaleDiscreetItem42 = new Iocomp.Classes.ScaleDiscreetItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FangpuTerminal));
-            this.button_resetwarn = new System.Windows.Forms.Button();
-            this.button_system_init = new System.Windows.Forms.Button();
+            this.button_resetwarn = new CustomGUI.Forms.CustomButton();
+            this.button_system_init = new CustomGUI.Forms.CustomButton();
             this.keyboard = new System.Windows.Forms.Button();
             this.restart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -115,43 +115,44 @@ namespace fangpu_terminal
             this.label2 = new System.Windows.Forms.Label();
             this.switchSlider_pg1_no1qianxiao = new Iocomp.Instrumentation.Standard.SwitchSlider();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_pg1_kaoliaoludiandonghoutui = new System.Windows.Forms.Button();
-            this.button_pg1_kaoliaoludiandongqianjin = new System.Windows.Forms.Button();
-            this.button_pg1_kaoliaolushedinglingdian = new System.Windows.Forms.Button();
-            this.button_pg1_kaoliaoluzidonghuiling = new System.Windows.Forms.Button();
-            this.button_pg1_kongweidaowei = new System.Windows.Forms.Button();
-            this.button_pg1_kaoliaoludaowei = new System.Windows.Forms.Button();
-            this.button_pg1_tuomojidaowei = new System.Windows.Forms.Button();
-            this.button_pg1_yureludiandonghoutui = new System.Windows.Forms.Button();
-            this.button_pg1_yureludiandongqianjin = new System.Windows.Forms.Button();
-            this.button_pg1_yurelushedinglingdian = new System.Windows.Forms.Button();
-            this.button_pg1_yureluzidonghuiling = new System.Windows.Forms.Button();
-            this.button_pg1_shengliaojidaowei = new System.Windows.Forms.Button();
-            this.button_pg1_yureludaowei = new System.Windows.Forms.Button();
-            this.button_pg1_shuayoujidaowei = new System.Windows.Forms.Button();
+            this.button_pg1_kaoliaoludiandonghoutui = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_kaoliaoludiandongqianjin = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_kaoliaolushedinglingdian = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_kaoliaoluzidonghuiling = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_kongweidaowei = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_kaoliaoludaowei = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_tuomojidaowei = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_yureludiandonghoutui = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_yureludiandongqianjin = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_yurelushedinglingdian = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_yureluzidonghuiling = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_shengliaojidaowei = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_yureludaowei = new CustomGUI.Forms.CustomButton();
+            this.button_pg1_shuayoujidaowei = new CustomGUI.Forms.CustomButton();
             this.tabPage_pg2 = new System.Windows.Forms.TabPage();
             this.switchSlider_pg2_jinliaoqigang = new Iocomp.Instrumentation.Standard.SwitchSlider();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button_pg2_tuomoyici = new System.Windows.Forms.Button();
+            this.button_pg2_tuomoyici = new CustomGUI.Forms.CustomButton(); 
             this.label16 = new System.Windows.Forms.Label();
-            this.button_pg2_shuayoujihoutui = new System.Windows.Forms.Button();
-            this.button_pg2_shuayoujiqianjin = new System.Windows.Forms.Button();
+            this.button_pg2_shuayoujihoutui = new CustomGUI.Forms.CustomButton();
+            this.button_pg2_shuayoujiqianjin = new CustomGUI.Forms.CustomButton();
             this.label15 = new System.Windows.Forms.Label();
-            this.button_pg2_tuomojihoutui = new System.Windows.Forms.Button();
-            this.button_pg2_tuomojiqianjin = new System.Windows.Forms.Button();
+            this.button_pg2_tuomojihoutui = new CustomGUI.Forms.CustomButton();
+            this.button_pg2_tuomojiqianjin = new CustomGUI.Forms.CustomButton();
             this.label14 = new System.Windows.Forms.Label();
-            this.button_pg2_jinliaoxiaochehoutui = new System.Windows.Forms.Button();
-            this.button_pg2_jinliaoxiaocheqianjin = new System.Windows.Forms.Button();
+            this.button_pg2_jinliaoxiaochehoutui = new CustomGUI.Forms.CustomButton();
+            this.button_pg2_jinliaoxiaocheqianjin = new CustomGUI.Forms.CustomButton();
             this.label13 = new System.Windows.Forms.Label();
-            this.button_pg2_tuomoxiaochehoutui = new System.Windows.Forms.Button();
-            this.button_pg2_tuomoxiaocheqianjin = new System.Windows.Forms.Button();
+            this.button_pg2_tuomoxiaochehoutui = new CustomGUI.Forms.CustomButton();
+            this.button_pg2_tuomoxiaocheqianjin = new CustomGUI.Forms.CustomButton();
             this.switchSlider_pg2_shuixiang = new Iocomp.Instrumentation.Standard.SwitchSlider();
             this.switchRotary_pg2_choufengji = new Iocomp.Instrumentation.Standard.SwitchRotary();
             this.switchRotary_pg2_tuomoqigang = new Iocomp.Instrumentation.Standard.SwitchRotary();
             this.tabPage_pg3 = new System.Windows.Forms.TabPage();
+            this.buzuoguan_layer = new System.Windows.Forms.Button();
             this.displayDouble_pg3_buzuoguanshijianset = new Iocomp.Instrumentation.Standard.DisplayDouble();
             this.yincang = new System.Windows.Forms.TextBox();
             this.jinliaoshezhi = new System.Windows.Forms.TextBox();
@@ -283,6 +284,7 @@ namespace fangpu_terminal
             this.type_accept = new System.Windows.Forms.Button();
             this.typelabel = new System.Windows.Forms.Label();
             this.typeselect = new System.Windows.Forms.ComboBox();
+            this.jinliaoshezhi_layer = new System.Windows.Forms.Button();
             this.tabControl_terminal.SuspendLayout();
             this.tabPage_pg1.SuspendLayout();
             this.tabPage_pg2.SuspendLayout();
@@ -303,8 +305,8 @@ namespace fangpu_terminal
             this.button_resetwarn.TabIndex = 5;
             this.button_resetwarn.Text = "复位报警";
             this.button_resetwarn.UseVisualStyleBackColor = false;
-            this.button_resetwarn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_resetwarn_MouseDown);
-            this.button_resetwarn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_resetwarn_MouseUp);
+            this.button_resetwarn.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_resetwarn_TouchDown);
+            this.button_resetwarn.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_resetwarn_TouchUp);
             // 
             // button_system_init
             // 
@@ -316,8 +318,8 @@ namespace fangpu_terminal
             this.button_system_init.TabIndex = 16;
             this.button_system_init.Text = "初始化";
             this.button_system_init.UseVisualStyleBackColor = false;
-            this.button_system_init.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_system_init_MouseDown);
-            this.button_system_init.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_system_init_MouseUp);
+            this.button_system_init.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_system_init_TouchDown);
+            this.button_system_init.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_system_init_TouchUp);
             // 
             // keyboard
             // 
@@ -898,8 +900,8 @@ namespace fangpu_terminal
             this.button_pg1_kaoliaoludiandonghoutui.TabIndex = 60;
             this.button_pg1_kaoliaoludiandonghoutui.Text = "点动后退";
             this.button_pg1_kaoliaoludiandonghoutui.UseVisualStyleBackColor = false;
-            this.button_pg1_kaoliaoludiandonghoutui.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaoludiandonghoutui_MouseDown);
-            this.button_pg1_kaoliaoludiandonghoutui.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaoludiandonghoutui_MouseUp);
+            this.button_pg1_kaoliaoludiandonghoutui.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_kaoliaoludiandonghoutui_TouchDown);
+            this.button_pg1_kaoliaoludiandonghoutui.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_kaoliaoludiandonghoutui_TouchUp);
             // 
             // button_pg1_kaoliaoludiandongqianjin
             // 
@@ -912,8 +914,8 @@ namespace fangpu_terminal
             this.button_pg1_kaoliaoludiandongqianjin.TabIndex = 59;
             this.button_pg1_kaoliaoludiandongqianjin.Text = "点动前进";
             this.button_pg1_kaoliaoludiandongqianjin.UseVisualStyleBackColor = false;
-            this.button_pg1_kaoliaoludiandongqianjin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaoludiandongqianjin_MouseDown);
-            this.button_pg1_kaoliaoludiandongqianjin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaoludiandongqianjin_MouseUp);
+            this.button_pg1_kaoliaoludiandongqianjin.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_kaoliaoludiandongqianjin_TouchDown);
+            this.button_pg1_kaoliaoludiandongqianjin.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_kaoliaoludiandongqianjin_TouchUp);
             // 
             // button_pg1_kaoliaolushedinglingdian
             // 
@@ -926,8 +928,8 @@ namespace fangpu_terminal
             this.button_pg1_kaoliaolushedinglingdian.TabIndex = 58;
             this.button_pg1_kaoliaolushedinglingdian.Text = "设定零点";
             this.button_pg1_kaoliaolushedinglingdian.UseVisualStyleBackColor = false;
-            this.button_pg1_kaoliaolushedinglingdian.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaolushedinglingdian_MouseDown);
-            this.button_pg1_kaoliaolushedinglingdian.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaolushedinglingdian_MouseUp);
+            this.button_pg1_kaoliaolushedinglingdian.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_kaoliaolushedinglingdian_TouchDown);
+            this.button_pg1_kaoliaolushedinglingdian.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_kaoliaolushedinglingdian_TouchUp);
             // 
             // button_pg1_kaoliaoluzidonghuiling
             // 
@@ -940,8 +942,8 @@ namespace fangpu_terminal
             this.button_pg1_kaoliaoluzidonghuiling.TabIndex = 57;
             this.button_pg1_kaoliaoluzidonghuiling.Text = "自动回零";
             this.button_pg1_kaoliaoluzidonghuiling.UseVisualStyleBackColor = false;
-            this.button_pg1_kaoliaoluzidonghuiling.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaoluzidonghuiling_MouseDown);
-            this.button_pg1_kaoliaoluzidonghuiling.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaoluzidonghuiling_MouseUp);
+            this.button_pg1_kaoliaoluzidonghuiling.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_kaoliaoluzidonghuiling_TouchDown);
+            this.button_pg1_kaoliaoluzidonghuiling.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_kaoliaoluzidonghuiling_TouchUp);
             // 
             // button_pg1_kongweidaowei
             // 
@@ -954,8 +956,8 @@ namespace fangpu_terminal
             this.button_pg1_kongweidaowei.TabIndex = 56;
             this.button_pg1_kongweidaowei.Text = "空位到位";
             this.button_pg1_kongweidaowei.UseVisualStyleBackColor = false;
-            this.button_pg1_kongweidaowei.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kongweidaowei_MouseDown);
-            this.button_pg1_kongweidaowei.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kongweidaowei_MouseUp);
+            this.button_pg1_kongweidaowei.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_kongweidaowei_TouchDown);
+            this.button_pg1_kongweidaowei.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_kongweidaowei_TouchUp);
             // 
             // button_pg1_kaoliaoludaowei
             // 
@@ -968,8 +970,8 @@ namespace fangpu_terminal
             this.button_pg1_kaoliaoludaowei.TabIndex = 55;
             this.button_pg1_kaoliaoludaowei.Text = "烤料炉到位";
             this.button_pg1_kaoliaoludaowei.UseVisualStyleBackColor = false;
-            this.button_pg1_kaoliaoludaowei.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaoludaowei_MouseDown);
-            this.button_pg1_kaoliaoludaowei.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_kaoliaoludaowei_MouseUp);
+            this.button_pg1_kaoliaoludaowei.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_kaoliaoludaowei_TouchDown);
+            this.button_pg1_kaoliaoludaowei.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_kaoliaoludaowei_TouchUp);
             // 
             // button_pg1_tuomojidaowei
             // 
@@ -982,8 +984,8 @@ namespace fangpu_terminal
             this.button_pg1_tuomojidaowei.TabIndex = 54;
             this.button_pg1_tuomojidaowei.Text = "脱模机到位";
             this.button_pg1_tuomojidaowei.UseVisualStyleBackColor = false;
-            this.button_pg1_tuomojidaowei.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_tuomojidaowei_MouseDown);
-            this.button_pg1_tuomojidaowei.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_tuomojidaowei_MouseUp);
+            this.button_pg1_tuomojidaowei.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_tuomojidaowei_TouchDown);
+            this.button_pg1_tuomojidaowei.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_tuomojidaowei_TouchUp);
             // 
             // button_pg1_yureludiandonghoutui
             // 
@@ -996,8 +998,8 @@ namespace fangpu_terminal
             this.button_pg1_yureludiandonghoutui.TabIndex = 53;
             this.button_pg1_yureludiandonghoutui.Text = "点动后退";
             this.button_pg1_yureludiandonghoutui.UseVisualStyleBackColor = false;
-            this.button_pg1_yureludiandonghoutui.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yureludiandonghoutui_MouseDown);
-            this.button_pg1_yureludiandonghoutui.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yureludiandonghoutui_MouseUp);
+            this.button_pg1_yureludiandonghoutui.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_yureludiandonghoutui_TouchDown);
+            this.button_pg1_yureludiandonghoutui.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_yureludiandonghoutui_TouchUp);
             // 
             // button_pg1_yureludiandongqianjin
             // 
@@ -1010,8 +1012,8 @@ namespace fangpu_terminal
             this.button_pg1_yureludiandongqianjin.TabIndex = 52;
             this.button_pg1_yureludiandongqianjin.Text = "点动前进";
             this.button_pg1_yureludiandongqianjin.UseVisualStyleBackColor = false;
-            this.button_pg1_yureludiandongqianjin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yureludiandongqianjin_MouseDown);
-            this.button_pg1_yureludiandongqianjin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yureludiandongqianjin_MouseUp);
+            this.button_pg1_yureludiandongqianjin.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_yureludiandongqianjin_TouchDown);
+            this.button_pg1_yureludiandongqianjin.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_yureludiandongqianjin_TouchUp);
             // 
             // button_pg1_yurelushedinglingdian
             // 
@@ -1024,8 +1026,8 @@ namespace fangpu_terminal
             this.button_pg1_yurelushedinglingdian.TabIndex = 51;
             this.button_pg1_yurelushedinglingdian.Text = "设定零点";
             this.button_pg1_yurelushedinglingdian.UseVisualStyleBackColor = false;
-            this.button_pg1_yurelushedinglingdian.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yurelushedinglingdian_MouseDown);
-            this.button_pg1_yurelushedinglingdian.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yurelushedinglingdian_MouseUp);
+            this.button_pg1_yurelushedinglingdian.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_yurelushedinglingdian_TouchDown);
+            this.button_pg1_yurelushedinglingdian.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_yurelushedinglingdian_TouchUp);
             // 
             // button_pg1_yureluzidonghuiling
             // 
@@ -1038,8 +1040,8 @@ namespace fangpu_terminal
             this.button_pg1_yureluzidonghuiling.TabIndex = 50;
             this.button_pg1_yureluzidonghuiling.Text = "自动回零";
             this.button_pg1_yureluzidonghuiling.UseVisualStyleBackColor = false;
-            this.button_pg1_yureluzidonghuiling.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yureluzidonghuiling_MouseDown);
-            this.button_pg1_yureluzidonghuiling.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yureluzidonghuiling_MouseUp);
+            this.button_pg1_yureluzidonghuiling.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_yureluzidonghuiling_TouchDown);
+            this.button_pg1_yureluzidonghuiling.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_yureluzidonghuiling_TouchUp);
             // 
             // button_pg1_shengliaojidaowei
             // 
@@ -1052,8 +1054,8 @@ namespace fangpu_terminal
             this.button_pg1_shengliaojidaowei.TabIndex = 49;
             this.button_pg1_shengliaojidaowei.Text = "升料机到位";
             this.button_pg1_shengliaojidaowei.UseVisualStyleBackColor = false;
-            this.button_pg1_shengliaojidaowei.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_shengliaojidaowei_MouseDown);
-            this.button_pg1_shengliaojidaowei.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_shengliaojidaowei_MouseUp);
+            this.button_pg1_shengliaojidaowei.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_shengliaojidaowei_TouchDown);
+            this.button_pg1_shengliaojidaowei.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_shengliaojidaowei_TouchUp);
             // 
             // button_pg1_yureludaowei
             // 
@@ -1066,8 +1068,8 @@ namespace fangpu_terminal
             this.button_pg1_yureludaowei.TabIndex = 48;
             this.button_pg1_yureludaowei.Text = "预热炉到位";
             this.button_pg1_yureludaowei.UseVisualStyleBackColor = false;
-            this.button_pg1_yureludaowei.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yureludaowei_MouseDown);
-            this.button_pg1_yureludaowei.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_yureludaowei_MouseUp);
+            this.button_pg1_yureludaowei.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_yureludaowei_TouchDown);
+            this.button_pg1_yureludaowei.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_yureludaowei_TouchUp);
             // 
             // button_pg1_shuayoujidaowei
             // 
@@ -1080,8 +1082,8 @@ namespace fangpu_terminal
             this.button_pg1_shuayoujidaowei.TabIndex = 25;
             this.button_pg1_shuayoujidaowei.Text = "刷油机到位";
             this.button_pg1_shuayoujidaowei.UseVisualStyleBackColor = false;
-            this.button_pg1_shuayoujidaowei.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg1_shuayoujidaowei_MouseDown);
-            this.button_pg1_shuayoujidaowei.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg1_shuayoujidaowei_MouseUp);
+            this.button_pg1_shuayoujidaowei.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg1_shuayoujidaowei_TouchDown);
+            this.button_pg1_shuayoujidaowei.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg1_shuayoujidaowei_TouchUp);
             // 
             // tabPage_pg2
             // 
@@ -1187,8 +1189,8 @@ namespace fangpu_terminal
             this.button_pg2_tuomoyici.TabIndex = 73;
             this.button_pg2_tuomoyici.Text = "脱模一次";
             this.button_pg2_tuomoyici.UseVisualStyleBackColor = false;
-            this.button_pg2_tuomoyici.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomoyici_MouseDown);
-            this.button_pg2_tuomoyici.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomoyici_MouseUp);
+            this.button_pg2_tuomoyici.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_tuomoyici_TouchDown);
+            this.button_pg2_tuomoyici.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_tuomoyici_TouchUp);
             // 
             // label16
             // 
@@ -1211,8 +1213,8 @@ namespace fangpu_terminal
             this.button_pg2_shuayoujihoutui.TabIndex = 71;
             this.button_pg2_shuayoujihoutui.Text = "后退";
             this.button_pg2_shuayoujihoutui.UseVisualStyleBackColor = false;
-            this.button_pg2_shuayoujihoutui.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_shuayoujihoutui_MouseDown);
-            this.button_pg2_shuayoujihoutui.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_shuayoujihoutui_MouseUp);
+            this.button_pg2_shuayoujihoutui.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_shuayoujihoutui_TouchDown);
+            this.button_pg2_shuayoujihoutui.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_shuayoujihoutui_TouchUp);
             // 
             // button_pg2_shuayoujiqianjin
             // 
@@ -1225,8 +1227,8 @@ namespace fangpu_terminal
             this.button_pg2_shuayoujiqianjin.TabIndex = 70;
             this.button_pg2_shuayoujiqianjin.Text = "前进";
             this.button_pg2_shuayoujiqianjin.UseVisualStyleBackColor = false;
-            this.button_pg2_shuayoujiqianjin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_shuayoujiqianjin_MouseDown);
-            this.button_pg2_shuayoujiqianjin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_shuayoujiqianjin_MouseUp);
+            this.button_pg2_shuayoujiqianjin.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_shuayoujiqianjin_TouchDown);
+            this.button_pg2_shuayoujiqianjin.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_shuayoujiqianjin_TouchUp);
             // 
             // label15
             // 
@@ -1249,8 +1251,8 @@ namespace fangpu_terminal
             this.button_pg2_tuomojihoutui.TabIndex = 68;
             this.button_pg2_tuomojihoutui.Text = "后退";
             this.button_pg2_tuomojihoutui.UseVisualStyleBackColor = false;
-            this.button_pg2_tuomojihoutui.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomojihoutui_MouseDown);
-            this.button_pg2_tuomojihoutui.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomojihoutui_MouseUp);
+            this.button_pg2_tuomojihoutui.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_tuomojihoutui_TouchDown);
+            this.button_pg2_tuomojihoutui.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_tuomojihoutui_TouchUp);
             // 
             // button_pg2_tuomojiqianjin
             // 
@@ -1263,8 +1265,8 @@ namespace fangpu_terminal
             this.button_pg2_tuomojiqianjin.TabIndex = 67;
             this.button_pg2_tuomojiqianjin.Text = "前进";
             this.button_pg2_tuomojiqianjin.UseVisualStyleBackColor = false;
-            this.button_pg2_tuomojiqianjin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomojiqianjin_MouseDown);
-            this.button_pg2_tuomojiqianjin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomojiqianjin_MouseUp);
+            this.button_pg2_tuomojiqianjin.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_tuomojiqianjin_TouchDown);
+            this.button_pg2_tuomojiqianjin.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_tuomojiqianjin_TouchUp);
             // 
             // label14
             // 
@@ -1288,8 +1290,8 @@ namespace fangpu_terminal
             this.button_pg2_jinliaoxiaochehoutui.TabIndex = 65;
             this.button_pg2_jinliaoxiaochehoutui.Text = "后退";
             this.button_pg2_jinliaoxiaochehoutui.UseVisualStyleBackColor = false;
-            this.button_pg2_jinliaoxiaochehoutui.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_jinliaoxiaochehoutui_MouseDown);
-            this.button_pg2_jinliaoxiaochehoutui.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_jinliaoxiaochehoutui_MouseUp);
+            this.button_pg2_jinliaoxiaochehoutui.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_jinliaoxiaochehoutui_TouchDown);
+            this.button_pg2_jinliaoxiaochehoutui.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_jinliaoxiaochehoutui_TouchUp);
             // 
             // button_pg2_jinliaoxiaocheqianjin
             // 
@@ -1302,8 +1304,8 @@ namespace fangpu_terminal
             this.button_pg2_jinliaoxiaocheqianjin.TabIndex = 64;
             this.button_pg2_jinliaoxiaocheqianjin.Text = "前进";
             this.button_pg2_jinliaoxiaocheqianjin.UseVisualStyleBackColor = false;
-            this.button_pg2_jinliaoxiaocheqianjin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_jinliaoxiaocheqianjin_MouseDown);
-            this.button_pg2_jinliaoxiaocheqianjin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_jinliaoxiaocheqianjin_MouseUp);
+            this.button_pg2_jinliaoxiaocheqianjin.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_jinliaoxiaocheqianjin_TouchDown);
+            this.button_pg2_jinliaoxiaocheqianjin.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_jinliaoxiaocheqianjin_TouchUp);
             // 
             // label13
             // 
@@ -1327,8 +1329,8 @@ namespace fangpu_terminal
             this.button_pg2_tuomoxiaochehoutui.TabIndex = 27;
             this.button_pg2_tuomoxiaochehoutui.Text = "后退";
             this.button_pg2_tuomoxiaochehoutui.UseVisualStyleBackColor = false;
-            this.button_pg2_tuomoxiaochehoutui.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomoxiaochehoutui_MouseDown);
-            this.button_pg2_tuomoxiaochehoutui.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomoxiaochehoutui_MouseUp);
+            this.button_pg2_tuomoxiaochehoutui.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_tuomoxiaochehoutui_TouchDown);
+            this.button_pg2_tuomoxiaochehoutui.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_tuomoxiaochehoutui_TouchUp);
             // 
             // button_pg2_tuomoxiaocheqianjin
             // 
@@ -1341,8 +1343,8 @@ namespace fangpu_terminal
             this.button_pg2_tuomoxiaocheqianjin.TabIndex = 26;
             this.button_pg2_tuomoxiaocheqianjin.Text = "前进";
             this.button_pg2_tuomoxiaocheqianjin.UseVisualStyleBackColor = false;
-            this.button_pg2_tuomoxiaocheqianjin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomoxiaocheqianjin_MouseDown);
-            this.button_pg2_tuomoxiaocheqianjin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_pg2_tuomoxiaocheqianjin_MouseUp);
+            this.button_pg2_tuomoxiaocheqianjin.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_pg2_tuomoxiaocheqianjin_TouchDown);
+            this.button_pg2_tuomoxiaocheqianjin.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_pg2_tuomoxiaocheqianjin_TouchUp);
             // 
             // switchSlider_pg2_shuixiang
             // 
@@ -1461,6 +1463,8 @@ namespace fangpu_terminal
             this.tabPage_pg3.Controls.Add(this.switchRotary_pg3_jinliaoqigang);
             this.tabPage_pg3.Controls.Add(this.switchRotary_pg3_shuixiang);
             this.tabPage_pg3.Controls.Add(this.switchRotary_pg3_shuayouji);
+            this.tabPage_pg3.Controls.Add(this.buzuoguan_layer);
+            this.tabPage_pg3.Controls.Add(this.jinliaoshezhi_layer);
             this.tabPage_pg3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold);
             this.tabPage_pg3.Location = new System.Drawing.Point(4, 44);
             this.tabPage_pg3.Name = "tabPage_pg3";
@@ -1468,6 +1472,21 @@ namespace fangpu_terminal
             this.tabPage_pg3.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg3.TabIndex = 2;
             this.tabPage_pg3.Text = "  运行操作界面  ";
+            // 
+            // buzuoguan_layer
+            // 
+            this.buzuoguan_layer.BackColor = System.Drawing.Color.Transparent;
+            this.buzuoguan_layer.FlatAppearance.BorderSize = 0;
+            this.buzuoguan_layer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buzuoguan_layer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buzuoguan_layer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buzuoguan_layer.ForeColor = System.Drawing.Color.Transparent;
+            this.buzuoguan_layer.Location = new System.Drawing.Point(254, 304);
+            this.buzuoguan_layer.Name = "buzuoguan_layer";
+            this.buzuoguan_layer.Size = new System.Drawing.Size(121, 67);
+            this.buzuoguan_layer.TabIndex = 224;
+            this.buzuoguan_layer.UseVisualStyleBackColor = false;
+            this.buzuoguan_layer.Click += new System.EventHandler(this.buzuoguan_Click);
             // 
             // displayDouble_pg3_buzuoguanshijianset
             // 
@@ -1489,7 +1508,7 @@ namespace fangpu_terminal
             // 
             this.jinliaoshezhi.Location = new System.Drawing.Point(255, 456);
             this.jinliaoshezhi.Name = "jinliaoshezhi";
-            this.jinliaoshezhi.Size = new System.Drawing.Size(54, 30);
+            this.jinliaoshezhi.Size = new System.Drawing.Size(76, 30);
             this.jinliaoshezhi.TabIndex = 201;
             this.jinliaoshezhi.Click += new System.EventHandler(this.jinliaoshezhi_Click);
             this.jinliaoshezhi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.jinliaoshezhi_KeyPress);
@@ -1498,7 +1517,7 @@ namespace fangpu_terminal
             // 
             this.buzuoguan.Location = new System.Drawing.Point(254, 308);
             this.buzuoguan.Name = "buzuoguan";
-            this.buzuoguan.Size = new System.Drawing.Size(54, 30);
+            this.buzuoguan.Size = new System.Drawing.Size(77, 30);
             this.buzuoguan.TabIndex = 200;
             this.buzuoguan.Click += new System.EventHandler(this.buzuoguan_Click);
             this.buzuoguan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buzuoguan_KeyPress);
@@ -2948,6 +2967,21 @@ namespace fangpu_terminal
             this.typeselect.SelectedIndexChanged += new System.EventHandler(this.typeselect_SelectedIndexChanged);
             this.typeselect.Click += new System.EventHandler(this.typeselect_Click_1);
             // 
+            // jinliaoshezhi_layer
+            // 
+            this.jinliaoshezhi_layer.BackColor = System.Drawing.Color.Transparent;
+            this.jinliaoshezhi_layer.FlatAppearance.BorderSize = 0;
+            this.jinliaoshezhi_layer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.jinliaoshezhi_layer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.jinliaoshezhi_layer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.jinliaoshezhi_layer.ForeColor = System.Drawing.Color.Transparent;
+            this.jinliaoshezhi_layer.Location = new System.Drawing.Point(236, 446);
+            this.jinliaoshezhi_layer.Name = "jinliaoshezhi_layer";
+            this.jinliaoshezhi_layer.Size = new System.Drawing.Size(115, 67);
+            this.jinliaoshezhi_layer.TabIndex = 237;
+            this.jinliaoshezhi_layer.UseVisualStyleBackColor = false;
+            this.jinliaoshezhi_layer.Click += new System.EventHandler(this.jinliaoshezhi_Click);
+            // 
             // FangpuTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3001,25 +3035,25 @@ namespace fangpu_terminal
 
         private Iocomp.Instrumentation.Standard.Led led_manul;
         private Iocomp.Instrumentation.Standard.Led led_pause;
-        private System.Windows.Forms.Button button_resetwarn;
+        private CustomGUI.Forms.CustomButton button_resetwarn;
         private System.Windows.Forms.TabPage tabPage_pg1;
         private System.Windows.Forms.TabPage tabPage_pg2;
         private Iocomp.Instrumentation.Standard.Led led_warn;
         private System.Windows.Forms.TabPage tabPage_pg3;
-        private System.Windows.Forms.Button button_pg1_shuayoujidaowei;
-        private System.Windows.Forms.Button button_pg1_kaoliaoludiandonghoutui;
-        private System.Windows.Forms.Button button_pg1_kaoliaoludiandongqianjin;
-        private System.Windows.Forms.Button button_pg1_kaoliaolushedinglingdian;
-        private System.Windows.Forms.Button button_pg1_kaoliaoluzidonghuiling;
-        private System.Windows.Forms.Button button_pg1_kongweidaowei;
-        private System.Windows.Forms.Button button_pg1_kaoliaoludaowei;
-        private System.Windows.Forms.Button button_pg1_tuomojidaowei;
-        private System.Windows.Forms.Button button_pg1_yureludiandonghoutui;
-        private System.Windows.Forms.Button button_pg1_yureludiandongqianjin;
-        private System.Windows.Forms.Button button_pg1_yurelushedinglingdian;
-        private System.Windows.Forms.Button button_pg1_yureluzidonghuiling;
-        private System.Windows.Forms.Button button_pg1_shengliaojidaowei;
-        private System.Windows.Forms.Button button_pg1_yureludaowei;
+        private CustomGUI.Forms.CustomButton button_pg1_shuayoujidaowei;
+        private CustomGUI.Forms.CustomButton button_pg1_kaoliaoludiandonghoutui;
+        private CustomGUI.Forms.CustomButton button_pg1_kaoliaoludiandongqianjin;
+        private CustomGUI.Forms.CustomButton button_pg1_kaoliaolushedinglingdian;
+        private CustomGUI.Forms.CustomButton button_pg1_kaoliaoluzidonghuiling;
+        private CustomGUI.Forms.CustomButton button_pg1_kongweidaowei;
+        private CustomGUI.Forms.CustomButton button_pg1_kaoliaoludaowei;
+        private CustomGUI.Forms.CustomButton button_pg1_tuomojidaowei;
+        private CustomGUI.Forms.CustomButton button_pg1_yureludiandonghoutui;
+        private CustomGUI.Forms.CustomButton button_pg1_yureludiandongqianjin;
+        private CustomGUI.Forms.CustomButton button_pg1_yurelushedinglingdian;
+        private CustomGUI.Forms.CustomButton button_pg1_yureluzidonghuiling;
+        private CustomGUI.Forms.CustomButton button_pg1_shengliaojidaowei;
+        private CustomGUI.Forms.CustomButton button_pg1_yureludaowei;
         private System.Windows.Forms.Label label1;
         private Iocomp.Instrumentation.Standard.SwitchSlider switchSlider_pg1_no4qianxiao;
         private System.Windows.Forms.Label label4;
@@ -3044,20 +3078,20 @@ namespace fangpu_terminal
         private System.Windows.Forms.Label label12;
         private Iocomp.Instrumentation.Standard.SwitchRotary switchRotary_runmode;
         private Iocomp.Instrumentation.Standard.SwitchRotary switchRotary_runstatus;
-        private System.Windows.Forms.Button button_pg2_tuomoxiaocheqianjin;
+        private CustomGUI.Forms.CustomButton button_pg2_tuomoxiaocheqianjin;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button_pg2_tuomoyici;
+        private CustomGUI.Forms.CustomButton button_pg2_tuomoyici;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button_pg2_shuayoujihoutui;
-        private System.Windows.Forms.Button button_pg2_shuayoujiqianjin;
+        private CustomGUI.Forms.CustomButton button_pg2_shuayoujihoutui;
+        private CustomGUI.Forms.CustomButton button_pg2_shuayoujiqianjin;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button_pg2_tuomojihoutui;
-        private System.Windows.Forms.Button button_pg2_tuomojiqianjin;
+        private CustomGUI.Forms.CustomButton button_pg2_tuomojihoutui;
+        private CustomGUI.Forms.CustomButton button_pg2_tuomojiqianjin;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button_pg2_jinliaoxiaochehoutui;
-        private System.Windows.Forms.Button button_pg2_jinliaoxiaocheqianjin;
+        private CustomGUI.Forms.CustomButton button_pg2_jinliaoxiaochehoutui;
+        private CustomGUI.Forms.CustomButton button_pg2_jinliaoxiaocheqianjin;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button_pg2_tuomoxiaochehoutui;
+        private CustomGUI.Forms.CustomButton button_pg2_tuomoxiaochehoutui;
         private System.Windows.Forms.Label label18;
         private Iocomp.Instrumentation.Standard.SwitchRotary switchRotary_pg2_choufengji;
         private Iocomp.Instrumentation.Standard.SwitchRotary switchRotary_pg2_tuomoqigang;
@@ -3172,7 +3206,7 @@ namespace fangpu_terminal
         private Iocomp.Instrumentation.Standard.Label label70;
         private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no2;
         private Iocomp.Instrumentation.Standard.Label label69;
-        private System.Windows.Forms.Button button_system_init;
+        private CustomGUI.Forms.CustomButton button_system_init;
         private System.Windows.Forms.Button cloudpara;
         private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_pg3_lengqueshijian2;
         private System.Windows.Forms.Button paraupload;
@@ -3209,6 +3243,8 @@ namespace fangpu_terminal
         public Iocomp.Instrumentation.Standard.SevenSegmentClock sevenSegmentClock_end;
         public Iocomp.Instrumentation.Standard.SevenSegmentClock sevenSegmentClock_start;
         public Iocomp.Instrumentation.Professional.LedArrow ledArrow1;
+        private System.Windows.Forms.Button buzuoguan_layer;
+        private System.Windows.Forms.Button jinliaoshezhi_layer;
 
     }
 }

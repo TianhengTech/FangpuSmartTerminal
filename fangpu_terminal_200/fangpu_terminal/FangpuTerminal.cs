@@ -17,6 +17,7 @@ using System.Timers;
 using System.Runtime.InteropServices;
 using System.IO;
 using Snap7;
+using CustomGUI.Forms;
 //using DevExpress.XtraSplashScreen;
 
 
@@ -129,66 +130,66 @@ namespace fangpu_terminal
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
           InitGlobalParameter();
           //UpdateLoadGUIConfig("正在尝试连接...", 30);
-          S7S = new S7_Socket();
-          S7S.Connect();
-          //S7Client S7SNAP = new S7Client();
-          //S7SNAP.SetConnectionParams("192.168.1.51",0x1000,0x1001);
-          //int result =S7SNAP.Connect();
-          //Trace.WriteLine(result);
+          //S7S = new S7_Socket();
+          //S7S.Connect();
+          ////S7Client S7SNAP = new S7Client();
+          ////S7SNAP.SetConnectionParams("192.168.1.51",0x1000,0x1001);
+          ////int result =S7SNAP.Connect();
+          ////Trace.WriteLine(result);
 
 
 
-          //UpdateLoadGUIConfig("启动心跳连接...", 50);
-          thread_updateui_syncContext = SynchronizationContext.Current;
-          tcpobject = new TerminalTcpClientAsync();
+          ////UpdateLoadGUIConfig("启动心跳连接...", 50);
+          //thread_updateui_syncContext = SynchronizationContext.Current;
+          //tcpobject = new TerminalTcpClientAsync();
 
 
 
-          tcpuplink_dataprocess_thread = new Thread(TcpCommunicationThread);
-          tcpuplink_dataprocess_thread.IsBackground = true;
-          tcpuplink_dataprocess_thread.Priority = ThreadPriority.Lowest;
-          //          tcpuplink_dataprocess_thread.Start();
+          //tcpuplink_dataprocess_thread = new Thread(TcpCommunicationThread);
+          //tcpuplink_dataprocess_thread.IsBackground = true;
+          //tcpuplink_dataprocess_thread.Priority = ThreadPriority.Lowest;
+          ////          tcpuplink_dataprocess_thread.Start();
 
-          tcpdownlink_dataprocess_thread = new Thread(TcpDownlickDataProcessThread);
-          //tcpdownlink_dataprocess_thread.IsBackground=true;
-          //tcpdownlink_dataprocess_thread.Start();
+          //tcpdownlink_dataprocess_thread = new Thread(TcpDownlickDataProcessThread);
+          ////tcpdownlink_dataprocess_thread.IsBackground=true;
+          ////tcpdownlink_dataprocess_thread.Start();
 
-          // UpdateLoadGUIConfig("载入中", 60);
-          plcread_thread = new Thread(PlcReadCycle);
-          plcread_thread.IsBackground = true;
-          plcread_thread.Priority = ThreadPriority.BelowNormal;
-          plcread_thread.Start();
+          //// UpdateLoadGUIConfig("载入中", 60);
+          //plcread_thread = new Thread(PlcReadCycle);
+          //plcread_thread.IsBackground = true;
+          //plcread_thread.Priority = ThreadPriority.BelowNormal;
+          //plcread_thread.Start();
 
-          plccommunication_thread = new Thread(PlcCommunicationThread);
-          plccommunication_thread.IsBackground = true;
-          plccommunication_thread.Priority = ThreadPriority.BelowNormal;
-          //plccommunication_thread.Priority = ThreadPriority.Highest;
-          plccommunication_thread.Start();
+          //plccommunication_thread = new Thread(PlcCommunicationThread);
+          //plccommunication_thread.IsBackground = true;
+          //plccommunication_thread.Priority = ThreadPriority.BelowNormal;
+          ////plccommunication_thread.Priority = ThreadPriority.Highest;
+          //plccommunication_thread.Start();
 
-          plcdatahandler_thread = new Thread(PlcDataProcessThread);
-          plcdatahandler_thread.IsBackground = true;
-          plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
-          plcdatahandler_thread.Start();
+          //plcdatahandler_thread = new Thread(PlcDataProcessThread);
+          //plcdatahandler_thread.IsBackground = true;
+          //plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
+          //plcdatahandler_thread.Start();
 
-          //UpdateLoadGUIConfig("载入中", 80);
-          datacenter_storage_thread = new Thread(DataCenterStorageThread);
-          datacenter_storage_thread.IsBackground = true;
-          datacenter_storage_thread.Priority = ThreadPriority.BelowNormal;
-          datacenter_storage_thread.Start();
+          ////UpdateLoadGUIConfig("载入中", 80);
+          //datacenter_storage_thread = new Thread(DataCenterStorageThread);
+          //datacenter_storage_thread.IsBackground = true;
+          //datacenter_storage_thread.Priority = ThreadPriority.BelowNormal;
+          //datacenter_storage_thread.Start();
 
-          //UpdateLoadGUIConfig("载入中", 90);
-          local_storage_thread = new Thread(PlcDataLocalStorage);
-          local_storage_thread.IsBackground = true;
-          local_storage_thread.Priority = ThreadPriority.BelowNormal;
-          local_storage_thread.Start();
+          ////UpdateLoadGUIConfig("载入中", 90);
+          //local_storage_thread = new Thread(PlcDataLocalStorage);
+          //local_storage_thread.IsBackground = true;
+          //local_storage_thread.Priority = ThreadPriority.BelowNormal;
+          //local_storage_thread.Start();
 
 
 
-          timer_read_interval_60s = new System.Threading.Timer(new TimerCallback(Timer_60s_handler), null, 0, 60000);
-          timer_check_interval_60m = new System.Threading.Timer(new TimerCallback(DataAutoSync), null, 0, 600000);
-         // timer_tcp_heart_connection = new System.Threading.Timer(new TimerCallback(TcpToServerHeartConnect), null, 0, Properties.TerminalParameters.Default.heart_connect_interval * 1000);
-            //UpdateLoadGUIConfig("载入中", 100);
-            //SplashScreenManager.CloseForm();
+          //timer_read_interval_60s = new System.Threading.Timer(new TimerCallback(Timer_60s_handler), null, 0, 60000);
+          //timer_check_interval_60m = new System.Threading.Timer(new TimerCallback(DataAutoSync), null, 0, 600000);
+          //  // timer_tcp_heart_connection = new System.Threading.Timer(new TimerCallback(TcpToServerHeartConnect), null, 0, Properties.TerminalParameters.Default.heart_connect_interval * 1000);
+          //  //UpdateLoadGUIConfig("载入中", 100);
+          //  //SplashScreenManager.CloseForm();
         }
 
         //==================================================================
@@ -1343,232 +1344,236 @@ namespace fangpu_terminal
         //修改记录：
         //==================================================================
 
-        private void button_pg1_shuayoujidaowei_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_shuayoujidaowei_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 1, 4);
+            label11.ForeColor = Color.Red;
         }
 
-        private void button_pg1_shuayoujidaowei_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_shuayoujidaowei_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 1, 4);
+            label11.ForeColor = Color.Blue;
         }
 
-        private void button_pg1_yureludaowei_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_yureludaowei_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 1, 5);
         }
 
-        private void button_pg1_yureludaowei_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_yureludaowei_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 1, 5);
         }
 
-        private void button_pg1_shengliaojidaowei_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_shengliaojidaowei_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 1, 6);
         }
 
-        private void button_pg1_shengliaojidaowei_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_shengliaojidaowei_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 1, 6);
         }
 
-        private void button_pg1_yureluzidonghuiling_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_yureluzidonghuiling_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 2, 2);
         }
 
-        private void button_pg1_yureluzidonghuiling_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_yureluzidonghuiling_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 2, 2);
         }
 
-        private void button_pg1_yurelushedinglingdian_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_yurelushedinglingdian_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 2, 0);
         }
 
-        private void button_pg1_yurelushedinglingdian_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_yurelushedinglingdian_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 2, 0);
         }
 
-        private void button_pg1_yureludiandongqianjin_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_yureludiandongqianjin_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 2, 3);
         }
 
-        private void button_pg1_yureludiandongqianjin_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_yureludiandongqianjin_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 2, 3);
         }
 
-        private void button_pg1_yureludiandonghoutui_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_yureludiandonghoutui_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 2, 4);
         }
 
-        private void button_pg1_yureludiandonghoutui_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_yureludiandonghoutui_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 2, 4);
         }
 
-        private void button_pg1_tuomojidaowei_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_tuomojidaowei_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 3, 1);
         }
 
-        private void button_pg1_tuomojidaowei_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_tuomojidaowei_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 3, 1);
         }
 
-        private void button_pg1_kaoliaoludaowei_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaoludaowei_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 3, 0);
         }
 
-        private void button_pg1_kaoliaoludaowei_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaoludaowei_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 3, 0);
         }
 
-        private void button_pg1_kongweidaowei_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_kongweidaowei_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 2, 7);
         }
 
-        private void button_pg1_kongweidaowei_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_kongweidaowei_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 2, 7);
         }
 
-        private void button_pg1_kaoliaoluzidonghuiling_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaoluzidonghuiling_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 3, 4);
         }
 
-        private void button_pg1_kaoliaoluzidonghuiling_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaoluzidonghuiling_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 3, 4);
         }
 
-        private void button_pg1_kaoliaolushedinglingdian_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaolushedinglingdian_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 3, 2);
         }
 
-        private void button_pg1_kaoliaolushedinglingdian_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaolushedinglingdian_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 3, 2);
         }
 
-        private void button_pg1_kaoliaoludiandongqianjin_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaoludiandongqianjin_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 3, 5);
         }
 
-        private void button_pg1_kaoliaoludiandongqianjin_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaoludiandongqianjin_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 3, 5);
         }
 
-        private void button_pg1_kaoliaoludiandonghoutui_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaoludiandonghoutui_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 3, 6);
         }
 
-        private void button_pg1_kaoliaoludiandonghoutui_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg1_kaoliaoludiandonghoutui_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 3, 6);
         }
 
-        private void button_pg2_tuomoxiaocheqianjin_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_tuomoxiaocheqianjin_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 0, 7);
+            label13.ForeColor = Color.Red;
         }
 
-        private void button_pg2_tuomoxiaocheqianjin_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_tuomoxiaocheqianjin_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 0, 7);
+            label13.ForeColor = Color.Blue;
         }
 
-        private void button_pg2_tuomoxiaochehoutui_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_tuomoxiaochehoutui_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 1, 0);
         }
 
-        private void button_pg2_tuomoxiaochehoutui_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_tuomoxiaochehoutui_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 1, 0);
         }
 
-        private void button_pg2_jinliaoxiaocheqianjin_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_jinliaoxiaocheqianjin_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 1, 1);
         }
 
-        private void button_pg2_jinliaoxiaocheqianjin_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_jinliaoxiaocheqianjin_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 1, 1);
         }
 
-        private void button_pg2_jinliaoxiaochehoutui_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_jinliaoxiaochehoutui_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 1, 2);
         }
 
-        private void button_pg2_jinliaoxiaochehoutui_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_jinliaoxiaochehoutui_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 1, 2);
         }
 
-        private void button_pg2_tuomojiqianjin_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_tuomojiqianjin_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 4, 5);
         }
 
-        private void button_pg2_tuomojiqianjin_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_tuomojiqianjin_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 4, 5);
         }
 
-        private void button_pg2_tuomojihoutui_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_tuomojihoutui_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 4, 6);
         }
 
-        private void button_pg2_tuomojihoutui_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_tuomojihoutui_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 4, 6);
         }
 
-        private void button_pg2_tuomoyici_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_tuomoyici_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 5, 4);
         }
 
-        private void button_pg2_tuomoyici_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_tuomoyici_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 5, 4);
         }
 
-        private void button_pg2_shuayoujiqianjin_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_shuayoujiqianjin_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 4, 0);
         }
 
-        private void button_pg2_shuayoujiqianjin_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_shuayoujiqianjin_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 4, 0);
         }
 
-        private void button_pg2_shuayoujihoutui_MouseDown(object sender, MouseEventArgs e)
+        private void button_pg2_shuayoujihoutui_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 4, 1);
         }
 
-        private void button_pg2_shuayoujihoutui_MouseUp(object sender, MouseEventArgs e)
+        private void button_pg2_shuayoujihoutui_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 4, 1);
         }
@@ -1624,22 +1629,22 @@ namespace fangpu_terminal
             Application.ExitThread();
         }
 
-        private void button_resetwarn_MouseDown(object sender, MouseEventArgs e)
+        private void button_resetwarn_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 6, 2);
         }
 
-        private void button_resetwarn_MouseUp(object sender, MouseEventArgs e)
+        private void button_resetwarn_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 6, 2);
         }
 
-        private void button_system_init_MouseDown(object sender, MouseEventArgs e)
+        private void button_system_init_TouchDown(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 1, 6, 4);
         }
 
-        private void button_system_init_MouseUp(object sender, MouseEventArgs e)
+        private void button_system_init_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 6, 4);
         }
@@ -2542,6 +2547,7 @@ namespace fangpu_terminal
         }
         #endregion
         #region 辅助功能定义
+        
 
         //==================================================================
         //模块名： cloudpara_Click
@@ -2926,9 +2932,6 @@ namespace fangpu_terminal
             field_frm = new Fieldcheck(this);
             field_frm.Show(); 
         }
-
-
-
         private void buzuoguan_KeyPress(object sender, KeyPressEventArgs e)
         {        
             if(e.KeyChar==13)
@@ -3328,8 +3331,10 @@ namespace fangpu_terminal
                 return;
             button_halttable.BackColor = System.Drawing.Color.Salmon;
             button_halttable.PerformClick();
-     
+
         }
+
+
 
         
 
@@ -3435,6 +3440,7 @@ namespace fangpu_terminal
     }
     
         #endregion
+
     //public class MyMessager : IMessageFilter
     //{
     //    FangpuTerminal mainTerminal;
