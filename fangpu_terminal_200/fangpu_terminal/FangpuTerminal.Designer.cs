@@ -73,24 +73,23 @@ namespace fangpu_terminal
             Iocomp.Classes.ScaleDiscreetItem scaleDiscreetItem41 = new Iocomp.Classes.ScaleDiscreetItem();
             Iocomp.Classes.ScaleDiscreetItem scaleDiscreetItem42 = new Iocomp.Classes.ScaleDiscreetItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FangpuTerminal));
-            this.button_resetwarn = new CustomGUI.Forms.CustomButton();
-            this.button_system_init = new CustomGUI.Forms.CustomButton();
             this.keyboard = new System.Windows.Forms.Button();
             this.restart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.productlabel = new System.Windows.Forms.Label();
             this.restartsystem = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button_halttable = new System.Windows.Forms.Button();
+            this.sevenSegmentClock_start = new Iocomp.Instrumentation.Standard.SevenSegmentClock();
+            this.sevenSegmentClock_end = new Iocomp.Instrumentation.Standard.SevenSegmentClock();
+            this.ledArrow1 = new Iocomp.Instrumentation.Professional.LedArrow();
             this.switchRotary_runstatus = new Iocomp.Instrumentation.Standard.SwitchRotary();
             this.switchRotary_runmode = new Iocomp.Instrumentation.Standard.SwitchRotary();
             this.led_warn = new Iocomp.Instrumentation.Standard.Led();
             this.led_pause = new Iocomp.Instrumentation.Standard.Led();
             this.displayWarninfo = new Iocomp.Instrumentation.Standard.DisplayString();
             this.led_manul = new Iocomp.Instrumentation.Standard.Led();
-            this.sevenSegmentClock_end = new Iocomp.Instrumentation.Standard.SevenSegmentClock();
-            this.sevenSegmentClock_start = new Iocomp.Instrumentation.Standard.SevenSegmentClock();
-            this.button_halttable = new System.Windows.Forms.Button();
-            this.ledArrow1 = new Iocomp.Instrumentation.Professional.LedArrow();
+            this.button_system_init = new CustomGUI.Forms.CustomButton();
             this.tabControl_terminal = new WfGUI.Forms.NoFlashTabControl();
             this.tabPage_pg1 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
@@ -135,7 +134,7 @@ namespace fangpu_terminal
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button_pg2_tuomoyici = new CustomGUI.Forms.CustomButton(); 
+            this.button_pg2_tuomoyici = new CustomGUI.Forms.CustomButton();
             this.label16 = new System.Windows.Forms.Label();
             this.button_pg2_shuayoujihoutui = new CustomGUI.Forms.CustomButton();
             this.button_pg2_shuayoujiqianjin = new CustomGUI.Forms.CustomButton();
@@ -152,7 +151,6 @@ namespace fangpu_terminal
             this.switchRotary_pg2_choufengji = new Iocomp.Instrumentation.Standard.SwitchRotary();
             this.switchRotary_pg2_tuomoqigang = new Iocomp.Instrumentation.Standard.SwitchRotary();
             this.tabPage_pg3 = new System.Windows.Forms.TabPage();
-            this.buzuoguan_layer = new System.Windows.Forms.Button();
             this.displayDouble_pg3_buzuoguanshijianset = new Iocomp.Instrumentation.Standard.DisplayDouble();
             this.yincang = new System.Windows.Forms.TextBox();
             this.jinliaoshezhi = new System.Windows.Forms.TextBox();
@@ -211,6 +209,8 @@ namespace fangpu_terminal
             this.switchRotary_pg3_jinliaoqigang = new Iocomp.Instrumentation.Standard.SwitchRotary();
             this.switchRotary_pg3_shuixiang = new Iocomp.Instrumentation.Standard.SwitchRotary();
             this.switchRotary_pg3_shuayouji = new Iocomp.Instrumentation.Standard.SwitchRotary();
+            this.buzuoguan_layer = new System.Windows.Forms.Button();
+            this.jinliaoshezhi_layer = new System.Windows.Forms.Button();
             this.tabPage_pg4 = new System.Windows.Forms.TabPage();
             this.dataGridView_warn = new System.Windows.Forms.DataGridView();
             this.Column_warninfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -281,10 +281,11 @@ namespace fangpu_terminal
             this.label77 = new Iocomp.Instrumentation.Standard.Label();
             this.label43 = new Iocomp.Instrumentation.Standard.Label();
             this.tabPage_pg6 = new System.Windows.Forms.TabPage();
+            this.button_localdataoutput = new System.Windows.Forms.Button();
             this.type_accept = new System.Windows.Forms.Button();
             this.typelabel = new System.Windows.Forms.Label();
             this.typeselect = new System.Windows.Forms.ComboBox();
-            this.jinliaoshezhi_layer = new System.Windows.Forms.Button();
+            this.button_resetwarn = new CustomGUI.Forms.CustomButton();
             this.tabControl_terminal.SuspendLayout();
             this.tabPage_pg1.SuspendLayout();
             this.tabPage_pg2.SuspendLayout();
@@ -294,32 +295,6 @@ namespace fangpu_terminal
             this.tabPage_pg5.SuspendLayout();
             this.tabPage_pg6.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button_resetwarn
-            // 
-            this.button_resetwarn.BackColor = System.Drawing.Color.Lime;
-            this.button_resetwarn.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
-            this.button_resetwarn.Location = new System.Drawing.Point(882, 12);
-            this.button_resetwarn.Name = "button_resetwarn";
-            this.button_resetwarn.Size = new System.Drawing.Size(114, 60);
-            this.button_resetwarn.TabIndex = 5;
-            this.button_resetwarn.Text = "复位报警";
-            this.button_resetwarn.UseVisualStyleBackColor = false;
-            this.button_resetwarn.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_resetwarn_TouchDown);
-            this.button_resetwarn.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_resetwarn_TouchUp);
-            // 
-            // button_system_init
-            // 
-            this.button_system_init.BackColor = System.Drawing.Color.Red;
-            this.button_system_init.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
-            this.button_system_init.Location = new System.Drawing.Point(882, 78);
-            this.button_system_init.Name = "button_system_init";
-            this.button_system_init.Size = new System.Drawing.Size(114, 60);
-            this.button_system_init.TabIndex = 16;
-            this.button_system_init.Text = "初始化";
-            this.button_system_init.UseVisualStyleBackColor = false;
-            this.button_system_init.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_system_init_TouchDown);
-            this.button_system_init.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_system_init_TouchUp);
             // 
             // keyboard
             // 
@@ -371,6 +346,58 @@ namespace fangpu_terminal
             this.restartsystem.Text = "重启终端";
             this.restartsystem.UseVisualStyleBackColor = false;
             this.restartsystem.Click += new System.EventHandler(this.restartsystem_Click);
+            // 
+            // button_halttable
+            // 
+            this.button_halttable.BackColor = System.Drawing.SystemColors.Control;
+            this.button_halttable.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
+            this.button_halttable.Location = new System.Drawing.Point(882, 144);
+            this.button_halttable.Name = "button_halttable";
+            this.button_halttable.Size = new System.Drawing.Size(114, 60);
+            this.button_halttable.TabIndex = 147;
+            this.button_halttable.Text = "停机";
+            this.button_halttable.UseVisualStyleBackColor = false;
+            this.button_halttable.Click += new System.EventHandler(this.button_halttable_Click);
+            // 
+            // sevenSegmentClock_start
+            // 
+            this.sevenSegmentClock_start.LoadingBegin();
+            this.sevenSegmentClock_start.Border.Style = Iocomp.Types.BorderStyleControl.Sunken;
+            this.sevenSegmentClock_start.HourStyle = Iocomp.Types.ClockHourStyle.Hour24;
+            this.sevenSegmentClock_start.Location = new System.Drawing.Point(221, 55);
+            this.sevenSegmentClock_start.Name = "sevenSegmentClock_start";
+            this.sevenSegmentClock_start.Segment.ColorOff = System.Drawing.Color.Red;
+            this.sevenSegmentClock_start.Size = new System.Drawing.Size(207, 67);
+            this.sevenSegmentClock_start.Visible = false;
+            this.sevenSegmentClock_start.LoadingEnd();
+            // 
+            // sevenSegmentClock_end
+            // 
+            this.sevenSegmentClock_end.LoadingBegin();
+            this.sevenSegmentClock_end.Border.Style = Iocomp.Types.BorderStyleControl.Sunken;
+            this.sevenSegmentClock_end.HourStyle = Iocomp.Types.ClockHourStyle.Hour24;
+            this.sevenSegmentClock_end.Location = new System.Drawing.Point(541, 55);
+            this.sevenSegmentClock_end.Name = "sevenSegmentClock_end";
+            this.sevenSegmentClock_end.Segment.ColorOff = System.Drawing.Color.Red;
+            this.sevenSegmentClock_end.Segment.ColorOn = System.Drawing.Color.Red;
+            this.sevenSegmentClock_end.Size = new System.Drawing.Size(226, 67);
+            this.sevenSegmentClock_end.Visible = false;
+            this.sevenSegmentClock_end.LoadingEnd();
+            // 
+            // ledArrow1
+            // 
+            this.ledArrow1.LoadingBegin();
+            this.ledArrow1.BlinkerEnabled = true;
+            this.ledArrow1.Indicator.BodyLength = 71;
+            this.ledArrow1.Indicator.ColorActive = System.Drawing.Color.Yellow;
+            this.ledArrow1.Indicator.HeadSize = 47;
+            this.ledArrow1.Location = new System.Drawing.Point(426, 72);
+            this.ledArrow1.Name = "ledArrow1";
+            this.ledArrow1.Size = new System.Drawing.Size(118, 47);
+            this.ledArrow1.SnapShotTransparent = true;
+            this.ledArrow1.Value.AsBoolean = true;
+            this.ledArrow1.Visible = false;
+            this.ledArrow1.LoadingEnd();
             // 
             // switchRotary_runstatus
             // 
@@ -461,57 +488,18 @@ namespace fangpu_terminal
             this.led_manul.Size = new System.Drawing.Size(60, 60);
             this.led_manul.LoadingEnd();
             // 
-            // sevenSegmentClock_end
+            // button_system_init
             // 
-            this.sevenSegmentClock_end.LoadingBegin();
-            this.sevenSegmentClock_end.Border.Style = Iocomp.Types.BorderStyleControl.Sunken;
-            this.sevenSegmentClock_end.HourStyle = Iocomp.Types.ClockHourStyle.Hour24;
-            this.sevenSegmentClock_end.Location = new System.Drawing.Point(541, 55);
-            this.sevenSegmentClock_end.Name = "sevenSegmentClock_end";
-            this.sevenSegmentClock_end.Segment.ColorOff = System.Drawing.Color.Red;
-            this.sevenSegmentClock_end.Segment.ColorOn = System.Drawing.Color.Red;
-            this.sevenSegmentClock_end.Size = new System.Drawing.Size(226, 67);
-            this.sevenSegmentClock_end.Visible = false;
-            this.sevenSegmentClock_end.LoadingEnd();
-            // 
-            // sevenSegmentClock_start
-            // 
-            this.sevenSegmentClock_start.LoadingBegin();
-            this.sevenSegmentClock_start.Border.Style = Iocomp.Types.BorderStyleControl.Sunken;
-            this.sevenSegmentClock_start.HourStyle = Iocomp.Types.ClockHourStyle.Hour24;
-            this.sevenSegmentClock_start.Location = new System.Drawing.Point(221, 55);
-            this.sevenSegmentClock_start.Name = "sevenSegmentClock_start";
-            this.sevenSegmentClock_start.Segment.ColorOff = System.Drawing.Color.Red;
-            this.sevenSegmentClock_start.Size = new System.Drawing.Size(207, 67);
-            this.sevenSegmentClock_start.Visible = false;
-            this.sevenSegmentClock_start.LoadingEnd();
-            // 
-            // button_halttable
-            // 
-            this.button_halttable.BackColor = System.Drawing.SystemColors.Control;
-            this.button_halttable.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
-            this.button_halttable.Location = new System.Drawing.Point(882, 144);
-            this.button_halttable.Name = "button_halttable";
-            this.button_halttable.Size = new System.Drawing.Size(114, 60);
-            this.button_halttable.TabIndex = 147;
-            this.button_halttable.Text = "停机";
-            this.button_halttable.UseVisualStyleBackColor = false;
-            this.button_halttable.Click += new System.EventHandler(this.button_halttable_Click);
-            // 
-            // ledArrow1
-            // 
-            this.ledArrow1.LoadingBegin();
-            this.ledArrow1.BlinkerEnabled = true;
-            this.ledArrow1.Indicator.BodyLength = 71;
-            this.ledArrow1.Indicator.ColorActive = System.Drawing.Color.Yellow;
-            this.ledArrow1.Indicator.HeadSize = 47;
-            this.ledArrow1.Location = new System.Drawing.Point(426, 72);
-            this.ledArrow1.Name = "ledArrow1";
-            this.ledArrow1.Size = new System.Drawing.Size(118, 47);
-            this.ledArrow1.SnapShotTransparent = true;
-            this.ledArrow1.Value.AsBoolean = true;
-            this.ledArrow1.Visible = false;
-            this.ledArrow1.LoadingEnd();
+            this.button_system_init.BackColor = System.Drawing.Color.Red;
+            this.button_system_init.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
+            this.button_system_init.Location = new System.Drawing.Point(882, 78);
+            this.button_system_init.Name = "button_system_init";
+            this.button_system_init.Size = new System.Drawing.Size(114, 60);
+            this.button_system_init.TabIndex = 16;
+            this.button_system_init.Text = "初始化";
+            this.button_system_init.UseVisualStyleBackColor = false;
+            this.button_system_init.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_system_init_TouchDown);
+            this.button_system_init.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_system_init_TouchUp);
             // 
             // tabControl_terminal
             // 
@@ -1473,21 +1461,6 @@ namespace fangpu_terminal
             this.tabPage_pg3.TabIndex = 2;
             this.tabPage_pg3.Text = "  运行操作界面  ";
             // 
-            // buzuoguan_layer
-            // 
-            this.buzuoguan_layer.BackColor = System.Drawing.Color.Transparent;
-            this.buzuoguan_layer.FlatAppearance.BorderSize = 0;
-            this.buzuoguan_layer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buzuoguan_layer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buzuoguan_layer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buzuoguan_layer.ForeColor = System.Drawing.Color.Transparent;
-            this.buzuoguan_layer.Location = new System.Drawing.Point(254, 304);
-            this.buzuoguan_layer.Name = "buzuoguan_layer";
-            this.buzuoguan_layer.Size = new System.Drawing.Size(121, 67);
-            this.buzuoguan_layer.TabIndex = 224;
-            this.buzuoguan_layer.UseVisualStyleBackColor = false;
-            this.buzuoguan_layer.Click += new System.EventHandler(this.buzuoguan_Click);
-            // 
             // displayDouble_pg3_buzuoguanshijianset
             // 
             this.displayDouble_pg3_buzuoguanshijianset.LoadingBegin();
@@ -2114,6 +2087,36 @@ namespace fangpu_terminal
             this.switchRotary_pg3_shuayouji.TabIndex = 79;
             this.switchRotary_pg3_shuayouji.ValueChanged += new Iocomp.Delegates.ValueIntegerEventHandler(this.switchRotary_pg3_shuayouji_ValueChanged);
             this.switchRotary_pg3_shuayouji.LoadingEnd();
+            // 
+            // buzuoguan_layer
+            // 
+            this.buzuoguan_layer.BackColor = System.Drawing.Color.Transparent;
+            this.buzuoguan_layer.FlatAppearance.BorderSize = 0;
+            this.buzuoguan_layer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buzuoguan_layer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buzuoguan_layer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buzuoguan_layer.ForeColor = System.Drawing.Color.Transparent;
+            this.buzuoguan_layer.Location = new System.Drawing.Point(254, 304);
+            this.buzuoguan_layer.Name = "buzuoguan_layer";
+            this.buzuoguan_layer.Size = new System.Drawing.Size(121, 67);
+            this.buzuoguan_layer.TabIndex = 224;
+            this.buzuoguan_layer.UseVisualStyleBackColor = false;
+            this.buzuoguan_layer.Click += new System.EventHandler(this.buzuoguan_Click);
+            // 
+            // jinliaoshezhi_layer
+            // 
+            this.jinliaoshezhi_layer.BackColor = System.Drawing.Color.Transparent;
+            this.jinliaoshezhi_layer.FlatAppearance.BorderSize = 0;
+            this.jinliaoshezhi_layer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.jinliaoshezhi_layer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.jinliaoshezhi_layer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.jinliaoshezhi_layer.ForeColor = System.Drawing.Color.Transparent;
+            this.jinliaoshezhi_layer.Location = new System.Drawing.Point(236, 446);
+            this.jinliaoshezhi_layer.Name = "jinliaoshezhi_layer";
+            this.jinliaoshezhi_layer.Size = new System.Drawing.Size(115, 67);
+            this.jinliaoshezhi_layer.TabIndex = 237;
+            this.jinliaoshezhi_layer.UseVisualStyleBackColor = false;
+            this.jinliaoshezhi_layer.Click += new System.EventHandler(this.jinliaoshezhi_Click);
             // 
             // tabPage_pg4
             // 
@@ -2903,6 +2906,7 @@ namespace fangpu_terminal
             // tabPage_pg6
             // 
             this.tabPage_pg6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage_pg6.Controls.Add(this.button_localdataoutput);
             this.tabPage_pg6.Controls.Add(this.type_accept);
             this.tabPage_pg6.Controls.Add(this.typelabel);
             this.tabPage_pg6.Controls.Add(this.typeselect);
@@ -2912,6 +2916,18 @@ namespace fangpu_terminal
             this.tabPage_pg6.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg6.TabIndex = 5;
             this.tabPage_pg6.Text = "  产品规格   ";
+            // 
+            // button_localdataoutput
+            // 
+            this.button_localdataoutput.BackColor = System.Drawing.Color.Red;
+            this.button_localdataoutput.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
+            this.button_localdataoutput.Location = new System.Drawing.Point(13, 461);
+            this.button_localdataoutput.Name = "button_localdataoutput";
+            this.button_localdataoutput.Size = new System.Drawing.Size(218, 69);
+            this.button_localdataoutput.TabIndex = 153;
+            this.button_localdataoutput.Text = "拷贝本地数据到U盘";
+            this.button_localdataoutput.UseVisualStyleBackColor = false;
+            this.button_localdataoutput.Click += new System.EventHandler(this.button_localdataoutput_Click);
             // 
             // type_accept
             // 
@@ -2967,20 +2983,18 @@ namespace fangpu_terminal
             this.typeselect.SelectedIndexChanged += new System.EventHandler(this.typeselect_SelectedIndexChanged);
             this.typeselect.Click += new System.EventHandler(this.typeselect_Click_1);
             // 
-            // jinliaoshezhi_layer
+            // button_resetwarn
             // 
-            this.jinliaoshezhi_layer.BackColor = System.Drawing.Color.Transparent;
-            this.jinliaoshezhi_layer.FlatAppearance.BorderSize = 0;
-            this.jinliaoshezhi_layer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.jinliaoshezhi_layer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.jinliaoshezhi_layer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.jinliaoshezhi_layer.ForeColor = System.Drawing.Color.Transparent;
-            this.jinliaoshezhi_layer.Location = new System.Drawing.Point(236, 446);
-            this.jinliaoshezhi_layer.Name = "jinliaoshezhi_layer";
-            this.jinliaoshezhi_layer.Size = new System.Drawing.Size(115, 67);
-            this.jinliaoshezhi_layer.TabIndex = 237;
-            this.jinliaoshezhi_layer.UseVisualStyleBackColor = false;
-            this.jinliaoshezhi_layer.Click += new System.EventHandler(this.jinliaoshezhi_Click);
+            this.button_resetwarn.BackColor = System.Drawing.Color.Lime;
+            this.button_resetwarn.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
+            this.button_resetwarn.Location = new System.Drawing.Point(882, 12);
+            this.button_resetwarn.Name = "button_resetwarn";
+            this.button_resetwarn.Size = new System.Drawing.Size(114, 60);
+            this.button_resetwarn.TabIndex = 5;
+            this.button_resetwarn.Text = "复位报警";
+            this.button_resetwarn.UseVisualStyleBackColor = false;
+            this.button_resetwarn.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_resetwarn_TouchDown);
+            this.button_resetwarn.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_resetwarn_TouchUp);
             // 
             // FangpuTerminal
             // 
@@ -3245,6 +3259,7 @@ namespace fangpu_terminal
         public Iocomp.Instrumentation.Professional.LedArrow ledArrow1;
         private System.Windows.Forms.Button buzuoguan_layer;
         private System.Windows.Forms.Button jinliaoshezhi_layer;
+        private System.Windows.Forms.Button button_localdataoutput;
 
     }
 }
