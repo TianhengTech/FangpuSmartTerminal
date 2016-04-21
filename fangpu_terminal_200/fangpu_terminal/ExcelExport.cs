@@ -77,7 +77,7 @@ namespace fangpu_terminal
     /// <summary>
     /// Save Stream to File
     /// </summary>
-    /// <param name="ms"></param>
+    /// <param name="ms">The Memorystream to </param>
     /// <param name="fileName"></param>
     public static void SaveToFile(MemoryStream ms, string fileName)
         {
