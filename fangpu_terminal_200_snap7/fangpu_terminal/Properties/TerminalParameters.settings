@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="fangpu_terminal.Properties" GeneratedClassName="TerminalParameters">
+  <Profiles />
+  <Settings>
+    <Setting Name="terminal_server_port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="plc1_tcp_ip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.2.22</Value>
+    </Setting>
+    <Setting Name="plc1_tcp_port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="plc2_tcp_ip" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="plc2_tcp_port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="localdatapath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">data\datalocal.db</Value>
+    </Setting>
+    <Setting Name="plc_com_port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM12</Value>
+    </Setting>
+    <Setting Name="plc_com_baudrate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">187500</Value>
+    </Setting>
+    <Setting Name="terminal_id" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D17</Value>
+    </Setting>
+    <Setting Name="heart_connect_interval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="terminal_name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D17</Value>
+    </Setting>
+    <Setting Name="terminal_server_ip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.0.53</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

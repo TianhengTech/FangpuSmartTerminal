@@ -1,0 +1,8 @@
+
+ 
+记录时间：2015-12-01 11:39:53,963 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：test
+ 

@@ -1,0 +1,8 @@
+
+ 
+记录时间：2015-12-22 10:28:21,160 
+线程ID:[17] 
+日志级别：  ERROR 
+出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
+错误描述：数据中心存储线程出错！
+ 

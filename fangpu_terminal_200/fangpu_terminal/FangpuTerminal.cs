@@ -129,6 +129,8 @@ namespace fangpu_terminal
         {
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
           InitGlobalParameter();
+          QuartzSchedule.StartSchedule();
+
           //UpdateLoadGUIConfig("正在尝试连接...", 30);
           //S7S = new S7_Socket();
           //S7S.Connect();
@@ -1076,6 +1078,8 @@ namespace fangpu_terminal
                         jsonobj_2.M67 = ((plc_temp_data.aream_data["M6"] & 0x80) == 0x80);
                         jsonobj_2.M00 = ((plc_temp_data.aream_data["M0"] & 0x01) == 0x01);
                         jsonobj_2.M01 = ((plc_temp_data.aream_data["M0"] & 0x02) == 0x02);
+                        string tablename=DateTime.Today.ToString("yyyyMMdd");
+                        string sqlstr = "Insert into historydata";
 
                         historydata.value = JsonConvert.SerializeObject(jsonobj);
                         historydata.systus = JsonConvert.SerializeObject(jsonobj_2);
@@ -1183,7 +1187,6 @@ namespace fangpu_terminal
             {
                 UpdateText S1 = new UpdateText(UpdateTextMethod);
                 this.BeginInvoke(S1,daq_input);
-
         }
 
         //==================================================================
