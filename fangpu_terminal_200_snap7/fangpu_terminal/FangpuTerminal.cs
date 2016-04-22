@@ -31,6 +31,7 @@ namespace fangpu_terminal
         public static log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         TerminalTcpClientAsync tcpobject;
         S7_Socket S7S;
+        S7Client S7SNAP;
         S7_PPI PPI;
         SynchronizationContext thread_updateui_syncContext = null;
         
@@ -57,7 +58,6 @@ namespace fangpu_terminal
         bool kaoliao_consume_fudong = false;
         bool lengque_consume_fudong = false;
         bool jinliao_consume_fudong = false;
-        bool read_interval_60s_flag = false;
         bool isFirst = true;
         bool stopSendCmdtoPLC = false;
         bool enableWarn = false;
@@ -129,17 +129,12 @@ namespace fangpu_terminal
         {
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
           InitGlobalParameter();
-          QuartzSchedule.StartSchedule();
+          //QuartzSchedule.StartSchedule();
 
           //UpdateLoadGUIConfig("正在尝试连接...", 30);
-          //S7S = new S7_Socket();
-          //S7S.Connect();
-          ////S7Client S7SNAP = new S7Client();
-          ////S7SNAP.SetConnectionParams("192.168.1.51",0x1000,0x1001);
-          ////int result =S7SNAP.Connect();
-          ////Trace.WriteLine(result);
-
-
+          S7SNAP = new S7Client();
+          S7SNAP.SetConnectionParams("192.168.2.22", 0x1000, 0x1004);
+          int result = S7SNAP.Connect();
 
           ////UpdateLoadGUIConfig("启动心跳连接...", 50);
           //thread_updateui_syncContext = SynchronizationContext.Current;
@@ -157,21 +152,21 @@ namespace fangpu_terminal
           ////tcpdownlink_dataprocess_thread.Start();
 
           //// UpdateLoadGUIConfig("载入中", 60);
-          //plcread_thread = new Thread(PlcReadCycle);
-          //plcread_thread.IsBackground = true;
-          //plcread_thread.Priority = ThreadPriority.BelowNormal;
-          //plcread_thread.Start();
+          plcread_thread = new Thread(PlcReadCycle);
+          plcread_thread.IsBackground = true;
+          plcread_thread.Priority = ThreadPriority.BelowNormal;
+          plcread_thread.Start();
 
           //plccommunication_thread = new Thread(PlcCommunicationThread);
           //plccommunication_thread.IsBackground = true;
           //plccommunication_thread.Priority = ThreadPriority.BelowNormal;
           ////plccommunication_thread.Priority = ThreadPriority.Highest;
-          //plccommunication_thread.Start();
+          ////plccommunication_thread.Start();
 
-          //plcdatahandler_thread = new Thread(PlcDataProcessThread);
-          //plcdatahandler_thread.IsBackground = true;
-          //plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
-          //plcdatahandler_thread.Start();
+          plcdatahandler_thread = new Thread(PlcDataProcessThread);
+          plcdatahandler_thread.IsBackground = true;
+          plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
+          plcdatahandler_thread.Start();
 
           ////UpdateLoadGUIConfig("载入中", 80);
           //datacenter_storage_thread = new Thread(DataCenterStorageThread);
@@ -205,7 +200,6 @@ namespace fangpu_terminal
 
         void Timer_60s_handler(object sender)
         {
-            read_interval_60s_flag = true;
             GC.Collect();
         }
         //==================================================================
@@ -342,34 +336,34 @@ namespace fangpu_terminal
 
             if(tabControl_terminal.SelectedTab==tabPage_pg3)
             {
-                displayDouble_pg3_shuayoushijiandisplay.Value = daq_input.aream_data["T38"] / 10.0;
-                displayDouble_pg3_kaomushijiandisplay.Value = daq_input.aream_data["T39"] / 10.0;
-                displayDouble_pg3_kaoliaoshijiandisplay.Value = daq_input.aream_data["T40"] / 10.0;
-                displayDouble_pg3_lengqueshijiandisplay.Value = daq_input.aream_data["T37"] / 10.0;
-                displayDouble_pg3_jinliaoshijiandisplay.Value = daq_input.aream_data["T41"] / 10.0;
+                displayDouble_pg3_shuayoushijiandisplay.Value = daq_input.aream_data["VW50"] / 10.0;
+                displayDouble_pg3_kaomushijiandisplay.Value = daq_input.aream_data["VW52"] / 10.0;
+                displayDouble_pg3_kaoliaoshijiandisplay.Value = daq_input.aream_data["VW54"] / 10.0;
+                displayDouble_pg3_lengqueshijiandisplay.Value = daq_input.aream_data["VW48"] / 10.0;
+                displayDouble_pg3_jinliaoshijiandisplay.Value = daq_input.aream_data["VW56"] / 10.0;
 
-                displayDouble_pg3_shuayoushijianset.Value = daq_input.aream_data["VW2062"] / 10.0f;
-                displayDouble_pg3_kaomushijianset.Value = daq_input.aream_data["VW2066"] / 10.0f;
-                displayDouble_pg3_kaoliaoshijianset.Value = daq_input.aream_data["VW2068"] / 10.0f;
-                displayDouble_pg3_lengqueshijianset.Value = daq_input.aream_data["VW2072"] / 10.0f;
-                displayDouble_pg3_jinliaoshijianset.Value = daq_input.aream_data["VW2008"] / 10.0f;
-                displayDouble_pg3_buzuoguanshijianset.Value = (daq_input.aream_data["VW2070"] / 10.0f);
-                displayDouble_pg3_lengqueshijian2.Value = (daq_input.aream_data["VW2064"] / 10.0f);
+                displayDouble_pg3_shuayoushijianset.Value = daq_input.aream_data["VW0"] / 10.0f;
+                displayDouble_pg3_kaomushijianset.Value = daq_input.aream_data["VW2"] / 10.0f;
+                displayDouble_pg3_kaoliaoshijianset.Value = daq_input.aream_data["VW4"] / 10.0f;
+                displayDouble_pg3_lengqueshijianset.Value = daq_input.aream_data["VW12"] / 10.0f;
+                displayDouble_pg3_jinliaoshijianset.Value = daq_input.aream_data["VW6"] / 10.0f;
+                displayDouble_pg3_buzuoguanshijianset.Value = (daq_input.aream_data["VW10"] / 10.0f);
+                displayDouble_pg3_lengqueshijian2.Value = (daq_input.aream_data["VW8"] / 10.0f);
 
                 if (!buzuoguan.Focused)
                 {
-                    buzuoguan.Text = (daq_input.aream_data["VW2070"] / 10.0f).ToString();
+                    buzuoguan.Text = (daq_input.aream_data["VW10"] / 10.0f).ToString();
                 }
 
                 if (!jinliaoshezhi.Focused)
                 {
-                    jinliaoshezhi.Text = (daq_input.aream_data["VW2008"] / 10.0f).ToString();
+                    jinliaoshezhi.Text = (daq_input.aream_data["VW6"] / 10.0f).ToString();
                 }
             }
 
             //if (tabControl_terminal.SelectedIndex == 3)
             
-            if (enableWarn == true && (daq_input.aream_data["M5"] & 0x08) == 0x08)
+            if (enableWarn == true && (daq_input.aream_data["MB5"] & 0x08) == 0x08)
             {
                 List<string> results = WarnInfoProcess(daq_input.aream_data);
                 if (results.Count != 0)
@@ -398,25 +392,24 @@ namespace fangpu_terminal
 
             if (tabControl_terminal.SelectedTab == tabPage_pg5)
             {
-                if (daq_input.aream_data.ContainsKey("C2") == true)
-                {
-                    displayInteger_currentshift_kaijishijian_hour.Value = daq_input.aream_data["C2"];
-                    displayInteger_currentshift_kaijishijian_minute.Value = daq_input.aream_data["C1"];
-                    displayInteger_currentshift_zuoguanshijian_hour.Value = daq_input.aream_data["C4"];
-                    displayInteger_currentshift_zuoguanshijian_minute.Value = daq_input.aream_data["C3"];
-                    displayInteger_currentshift_kailushijian_hour.Value = daq_input.aream_data["C6"];
-                    displayInteger_currentshift_kailushijian_minute.Value = daq_input.aream_data["C5"];
+                
+                displayInteger_currentshift_kaijishijian_hour.Value = daq_input.aream_data["VW16"];
+                displayInteger_currentshift_kaijishijian_minute.Value = daq_input.aream_data["VW14"];
+                displayInteger_currentshift_zuoguanshijian_hour.Value = daq_input.aream_data["VW20"];
+                displayInteger_currentshift_zuoguanshijian_minute.Value = daq_input.aream_data["VW18"];
+                displayInteger_currentshift_kailushijian_hour.Value = daq_input.aream_data["VW24"];
+                displayInteger_currentshift_kailushijian_minute.Value = daq_input.aream_data["VW22"];
                     
-                }
-                displayDouble_chanliangtongji_danmomotou_count.Value=daq_input.aream_data["VW2040"];
-                displayDouble_chanliangtongji_jihua_count.Value = daq_input.aream_data["VW2052"];
-                displayDouble_chanliangtongji_shiji_count.Value = daq_input.aream_data["VW2048"];
+                
+                displayDouble_chanliangtongji_danmomotou_count.Value=daq_input.aream_data["VW26"];
+                displayDouble_chanliangtongji_jihua_count.Value = daq_input.aream_data["VW28"];
+                displayDouble_chanliangtongji_shiji_count.Value = daq_input.aream_data["VW30"];
 
                 //2024=1对应写2020,2024=0对应写2022
-                if ((daq_input.aream_data["VB2024"] & 0x01) == 0x01)
+                if ((daq_input.aream_data["VB100"] & 0x01) == 0x01)
                 {
-                    zuomoshijian.Value = daq_input.aream_data["VW2022"] / 10.0f;
-                    zuomotime = daq_input.aream_data["VW2022"] / 10.0f;
+                    zuomoshijian.Value = daq_input.aream_data["VW42"] / 10.0f;
+                    zuomotime = daq_input.aream_data["VW42"] / 10.0f;
                     if (onetime == false)
                     {
                         cyclenum = (cyclenum + 1) % 9;
@@ -425,8 +418,8 @@ namespace fangpu_terminal
                 }
                 else
                 {
-                    zuomoshijian.Value = daq_input.aream_data["VW2020"] / 10.0f;
-                    zuomotime = daq_input.aream_data["VW2020"] / 10.0f;
+                    zuomoshijian.Value = daq_input.aream_data["VW40"] / 10.0f;
+                    zuomotime = daq_input.aream_data["VW40"] / 10.0f;
                     if (onetime == true)
                     {
                         cyclenum = (cyclenum + 1) % 9;
@@ -464,7 +457,7 @@ namespace fangpu_terminal
                         break;
                 }
             }                       
-            if ((daq_input.aream_data["M5"] & 0x08) == 0x08)
+            if ((daq_input.aream_data["MB5"] & 0x08) == 0x08)
             {
                 enableWarn = false;
                 led_warn.BlinkerEnabled = true;
@@ -477,7 +470,7 @@ namespace fangpu_terminal
                 led_warn.BlinkerEnabled = false;
                 led_warn.Value.AsBoolean = false;
             }
-            if ((daq_input.aream_data["M0"] & 0x01) == 0x01 && (led_manul.BlinkerEnabled=true))
+            if ((daq_input.aream_data["MB0"] & 0x01) == 0x01 && (led_manul.BlinkerEnabled=true))
             {
                 led_manul.BlinkerEnabled = false;
                 led_manul.Value.AsBoolean = true;
@@ -489,7 +482,7 @@ namespace fangpu_terminal
                 led_manul.BlinkerEnabled = true;
                 led_manul.Indicator.Text = "手动";
             }
-            if ((daq_input.aream_data["M0"] & 0x02) == 0x02 && (led_pause.BlinkerEnabled = true))
+            if ((daq_input.aream_data["MB0"] & 0x02) == 0x02 && (led_pause.BlinkerEnabled = true))
             {
                 led_pause.BlinkerEnabled = false;
                 led_pause.Value.AsBoolean = true;
@@ -788,6 +781,11 @@ namespace fangpu_terminal
         {
             while (true)
             {
+                if(S7SNAP.Connected()==false)
+                {
+                    S7SNAP.Connect();
+                    continue;
+                }
                 try
                 {
                     Stopwatch sw = new Stopwatch();
@@ -795,54 +793,78 @@ namespace fangpu_terminal
                     PlcDAQCommunicationObject daq_data = new PlcDAQCommunicationObject();
                     foreach(var item in fangpu_config.addr)
                     {
+                        string[] range;
+                        byte[] buffer=new byte[2048];
+                        int start=0;
+                        int end=0;
+                        int size=0;
+                        int Wordlen = 0;
+                        if (item.Key.Contains("_"))
+                        {
+                            range = item.Value.Split('-');
+                            start = Convert.ToInt32(range[0]);
+                            end = Convert.ToInt32(range[1]);
+                            size=end-start+1;
+                        }
+                        else
+                        {
+                            start = Convert.ToInt32(item.Value);
+                            size = 1;
+                        }
+                        if (item.Key.Contains("W"))
+                            Wordlen = 2;
+                        else if (item.Key.Contains("B")||item.Key.Contains("I"))
+                            Wordlen = 1;
                         if(item.Key.Substring(0,1).Equals("M"))
                         {
-                            daq_data.aream_data[item.Key] = S7S.Read(S7S.AreaM, item.Value, S7S.LenB);
+                            if (S7SNAP.MBRead(start, size, buffer) == 0)
+                            {
+                                BufferConverter.BufferDump(daq_data, buffer, start, size, "M", Wordlen);
+                            }
+                            continue;                                
                         }
-                        else if (item.Key.Substring(0, 2).Equals("VW"))
+                        else if (item.Key.Substring(0, 1).Equals("V"))
                         {
-                            daq_data.aream_data[item.Key] = S7S.Read(S7S.AreaV, item.Value, S7S.LenW);
-                        }
-                        else if(item.Key.Substring(0,2).Equals("VB"))
-                        {
-                            daq_data.aream_data[item.Key] = S7S.Read(S7S.AreaV, item.Value, S7S.LenB);
+                            if (S7SNAP.DBRead(1,start, size, buffer) == 0)
+                            {
+                                BufferConverter.BufferDump(daq_data, buffer, start, size, "V", Wordlen);
+                            }
+                            continue;   
                         }
                         else if (item.Key.Substring(0, 1).Equals("I"))
                         {
-                            daq_data.aream_data[item.Key] = S7S.Read(S7S.AreaI, item.Value, S7S.LenB);
+                            if (S7SNAP.EBRead(start, size, buffer) == 0)
+                            {
+                                BufferConverter.BufferDump(daq_data, buffer, start, size, "I", Wordlen);
+                            }
+                            continue;
                         }
-                        else if (item.Key.Substring(0, 1).Equals("C") && read_interval_60s_flag == true)
-                        {
-                            daq_data.aream_data[item.Key] = S7S.Read(S7S.AreaC, item.Value, S7S.LenW);
-                        }
-                        else if (item.Key.Substring(0, 1).Equals("T"))
-                        {
-                            daq_data.aream_data[item.Key] = S7S.Read(S7S.AreaT, item.Value, S7S.LenW);
-                        }
+                        buffer = null;
                     }
-                    read_interval_60s_flag = false;
                     TerminalQueues.plcdataprocessqueue.Enqueue(daq_data);
                     sw.Stop();
-                    if (sw.ElapsedMilliseconds >= 950)
+                    Trace.WriteLine(sw.ElapsedMilliseconds);
+                   
+                    if (sw.ElapsedMilliseconds >= 1000)
                         continue;
                     else
-                    Thread.Sleep(950-Convert.ToInt32(sw.Elapsed.TotalMilliseconds));
+                    Thread.Sleep(1000-Convert.ToInt32(sw.Elapsed.TotalMilliseconds));
                     
                     }
                 
                 catch (Exception e)
                 {
-                    if (S7S.ClientSocket == null | S7S.ClientSocket.Connected == false)
-                    {
-                        S7S.Connect();
-                    }
-                    Thread.Sleep(580);
+                    //if (S7S.ClientSocket == null | S7S.ClientSocket.Connected == false)
+                    //{
+                    //    S7S.Connect();
+                    //}
+                    Thread.Sleep(600);
                 }
 
             }
-            
-        }
 
+        }
+            
         //==================================================================
         //模块名： PlcCommunicationThread
         //作者：    Yang Chuan
@@ -861,46 +883,49 @@ namespace fangpu_terminal
             {
                 try
                 {
-                    if (S7S.ClientSocket.Connected == true)
+                    if (S7SNAP.Connected() == true)
                     {                       
                         if (TerminalQueues.plccommandqueue.Count > 0)
                         {
+                            byte[] buffer = new byte[100];
+
                             enableSync = false;
                             PlcCommand temp_plccmd = new PlcCommand(TerminalCommon.S7200AreaI, TerminalCommon.S7200DataByte, 0, 0, 0);
                             for (; TerminalQueues.plccommandqueue.Count > 0; )
                             {
                                 TerminalQueues.plccommandqueue.TryDequeue(out temp_plccmd);
+                                buffer = System.BitConverter.GetBytes(temp_plccmd.data);
                                 if (temp_plccmd.area == "M")
                                 {
                                     S7S.Write_Bit(S7S.AreaM, temp_plccmd.addr, temp_plccmd.bitaddr, temp_plccmd.data);
+                                    S7SNAP.WriteArea(S7Client.S7AreaMK, 0, temp_plccmd.addr * 8 + temp_plccmd.bitaddr, 1, S7Client.S7WLBit, buffer);
                                     continue;
                                 }
                                 if (temp_plccmd.type == TerminalCommon.S7200DataByte)
                                 {
-                                    S7S.Write(S7S.AreaV, temp_plccmd.addr, temp_plccmd.data);
+                                    S7SNAP.WriteArea(S7Client.S7AreaDB, 1, temp_plccmd.addr, 1, S7Client.S7WLByte, buffer);
                                 }
                                 else if (temp_plccmd.type == TerminalCommon.S7200DataWord)
                                 {
                                     if (temp_plccmd.data < 0)
                                     { 
                                         temp_plccmd.data &= 0x0000ffff;
-                                    }                                   
-                                    S7S.Write(S7S.AreaV, temp_plccmd.addr, S7S.LenW,temp_plccmd.data );
+                                    }
+                                    S7SNAP.WriteArea(S7Client.S7AreaDB, 1, temp_plccmd.addr, 1, S7Client.S7WLWord, buffer);
                                 }
-                               // Trace.WriteLine(temp_plccmd.area.ToString() + temp_plccmd.addr.ToString() + temp_plccmd.bitaddr.ToString() + temp_plccmd.data.ToString());
                             }
                             enableSync = true;
-                        }
-                        
+                        }                       
                     }
                     else
                     {
-                        S7S.Connect();
+                        S7SNAP.Connect();
                     }
                 }
                 catch (Exception e)
                 {
                     enableSync = true;
+                    log.Error("写线程出错");
                 }
                 
             }
@@ -935,8 +960,8 @@ namespace fangpu_terminal
                         if (read_count > 10)
                         {
                             Dictionary<string, int> aream_data = new Dictionary<string, int>();
-                            aream_data["M0"] = PPI.Read(PPI.AreaM, 0, PPI.LenD);
-                            aream_data["M1"] = PPI.Read(PPI.AreaM, 4, PPI.LenD);
+                            aream_data["MB0"] = PPI.Read(PPI.AreaM, 0, PPI.LenD);
+                            aream_data["MB1"] = PPI.Read(PPI.AreaM, 4, PPI.LenD);
 
                             aream_data["VB4000"] = PPI.Read(PPI.AreaV, 4000, PPI.LenD);
                             aream_data["VB4004"] = PPI.Read(PPI.AreaV, 4004, PPI.LenD);
@@ -1011,7 +1036,7 @@ namespace fangpu_terminal
                             continue;
                         }
                         CycleUpdateGuiDisplay(plc_temp_data);
-                        if (S7S.S7SConnected == false)
+                        if (S7SNAP.Connected()==false)
                         {
                             continue;
                         }                           
@@ -1069,17 +1094,22 @@ namespace fangpu_terminal
                         jsonobj.V4006 = plc_temp_data.aream_data["VB4006"];
                         jsonobj.V4007 = plc_temp_data.aream_data["VB4007"];
                         jsonobj.V4008 = plc_temp_data.aream_data["VB4008"];
-                        jsonobj.M53 = ((plc_temp_data.aream_data["M5"] & 0x08) == 0x08);
+                        jsonobj.M53 = ((plc_temp_data.aream_data["MB5"] & 0x08) == 0x08);
 
-                        jsonobj_2.M37 = ((plc_temp_data.aream_data["M3"] & 0x80) == 0x80);
-                        jsonobj_2.M42 = ((plc_temp_data.aream_data["M4"] & 0x04) == 0x04);
-                        jsonobj_2.M52 = ((plc_temp_data.aream_data["M5"] & 0x04) == 0x04);
-                        jsonobj_2.M44 = ((plc_temp_data.aream_data["M4"] & 0x10) == 0x10);
-                        jsonobj_2.M67 = ((plc_temp_data.aream_data["M6"] & 0x80) == 0x80);
-                        jsonobj_2.M00 = ((plc_temp_data.aream_data["M0"] & 0x01) == 0x01);
-                        jsonobj_2.M01 = ((plc_temp_data.aream_data["M0"] & 0x02) == 0x02);
+                        jsonobj_2.M37 = ((plc_temp_data.aream_data["MB3"] & 0x80) == 0x80);
+                        jsonobj_2.M42 = ((plc_temp_data.aream_data["MB4"] & 0x04) == 0x04);
+                        jsonobj_2.M52 = ((plc_temp_data.aream_data["MB5"] & 0x04) == 0x04);
+                        jsonobj_2.M44 = ((plc_temp_data.aream_data["MB4"] & 0x10) == 0x10);
+                        jsonobj_2.M67 = ((plc_temp_data.aream_data["MB6"] & 0x80) == 0x80);
+                        jsonobj_2.M00 = ((plc_temp_data.aream_data["MB0"] & 0x01) == 0x01);
+                        jsonobj_2.M01 = ((plc_temp_data.aream_data["MB0"] & 0x02) == 0x02);
                         string tablename=DateTime.Today.ToString("yyyyMMdd");
-                        string sqlstr = "Insert into historydata";
+                        string columns="deviceid,value,shuayou_consume_seconds,kaomo_consume_seconds,"+
+                            "kaoliao_consume_seconds,lengque_consume_seconds,jinliao_consume_seconds,kaomo_temp,kaoliao_temp,cycletime,storetime,systus";
+                        string sqlstr = "insert into "+ tablename +" ("+columns+ ") values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10})";
+                        mysql.Database.ExecuteSqlCommand(sqlstr, Properties.TerminalParameters.Default.terminal_name, JsonConvert.SerializeObject(jsonobj),
+                            plc_temp_data.aream_data["VW50"] / 10.0f, plc_temp_data.aream_data["VW52"] / 10.0f, plc_temp_data.aream_data["VW54"] / 10.0f,
+                            plc_temp_data.aream_data["VW48"] / 10.0f, plc_temp_data.aream_data["VW56"] / 10.0f, 0, 0, (float)zuomotime, plc_temp_data.daq_time, JsonConvert.SerializeObject(jsonobj_2));
 
                         historydata.value = JsonConvert.SerializeObject(jsonobj);
                         historydata.systus = JsonConvert.SerializeObject(jsonobj_2);
@@ -1099,13 +1129,9 @@ namespace fangpu_terminal
                         historydata_json.Add("浸料时间", plc_temp_data.aream_data["T41"] / 10.0f);
                         historydata_json.Add("冷却时间", plc_temp_data.aream_data["T37"] / 10.0f);
                         historydata_json.Add("一板模时间", (float)zuomotime);
-                        historydata_jsoncopy.deviceid = Properties.TerminalParameters.Default.terminal_name;
-                        historydata_jsoncopy.data_json = JsonConvert.SerializeObject(historydata_json);
-                        historydata_jsoncopy.storetime = plc_temp_data.daq_time;
-                        historydata_jsoncopy.systus = JsonConvert.SerializeObject(jsonobj_2); 
-                        
-                        mysql.historydata.Add(historydata);
-                        mysql.historydata_jsoncopy.Add(historydata_jsoncopy);
+                        mysql.Database.ExecuteSqlCommand("insert into historydata_jsoncopy (deviceid,data_json,storetime,systus) values ({0},{1},{2},{3}",
+                            Properties.TerminalParameters.Default.terminal_name, JsonConvert.SerializeObject(historydata_json), plc_temp_data.daq_time,
+                            JsonConvert.SerializeObject(jsonobj_2));
                         try
                         {
                             realtimedata = mysql.realtimedata.SingleOrDefault(a => a.deviceid.Equals(Properties.TerminalParameters.Default.terminal_name));
@@ -1256,15 +1282,15 @@ namespace fangpu_terminal
                         jsonobj.V4006 = plc_temp_data.aream_data["VB4006"];
                         jsonobj.V4007 = plc_temp_data.aream_data["VB4007"];
                         jsonobj.V4008 = plc_temp_data.aream_data["VB4008"];
-                        jsonobj.M53 = ((plc_temp_data.aream_data["M5"] & 0x08) == 0x08);
+                        jsonobj.M53 = ((plc_temp_data.aream_data["MB5"] & 0x08) == 0x08);
 
-                        jsonobj_2.M37 = ((plc_temp_data.aream_data["M3"] & 0x80) == 0x80);
-                        jsonobj_2.M42 = ((plc_temp_data.aream_data["M4"] & 0x04) == 0x04);
-                        jsonobj_2.M52 = ((plc_temp_data.aream_data["M5"] & 0x04) == 0x04);
-                        jsonobj_2.M44 = ((plc_temp_data.aream_data["M4"] & 0x10) == 0x10);
-                        jsonobj_2.M67 = ((plc_temp_data.aream_data["M6"] & 0x80) == 0x80);
-                        jsonobj_2.M00 = ((plc_temp_data.aream_data["M0"] & 0x01) == 0x01);
-                        jsonobj_2.M01 = ((plc_temp_data.aream_data["M0"] & 0x02) == 0x02);
+                        jsonobj_2.M37 = ((plc_temp_data.aream_data["MB3"] & 0x80) == 0x80);
+                        jsonobj_2.M42 = ((plc_temp_data.aream_data["MB4"] & 0x04) == 0x04);
+                        jsonobj_2.M52 = ((plc_temp_data.aream_data["MB5"] & 0x04) == 0x04);
+                        jsonobj_2.M44 = ((plc_temp_data.aream_data["MB4"] & 0x10) == 0x10);
+                        jsonobj_2.M67 = ((plc_temp_data.aream_data["MB6"] & 0x80) == 0x80);
+                        jsonobj_2.M00 = ((plc_temp_data.aream_data["MB0"] & 0x01) == 0x01);
+                        jsonobj_2.M01 = ((plc_temp_data.aream_data["MB0"] & 0x02) == 0x02);
 
                         StringBuilder strSql = new StringBuilder();
                         strSql.Append("insert into historydata(");
@@ -2361,7 +2387,7 @@ namespace fangpu_terminal
         public void SwitchSync(PlcDAQCommunicationObject temp)
         {
             stopSendCmdtoPLC = true;
-            if ((temp.aream_data["M0"]&0x01) == 0x01)//自动
+            if ((temp.aream_data["MB0"]&0x01) == 0x01)//自动
             {
                 switchRotary_runmode.Value = 1;
               
@@ -2370,7 +2396,7 @@ namespace fangpu_terminal
             {
                 switchRotary_runmode.Value = 0;
             }
-            if ((temp.aream_data["M0"] & 0x02) == 0x02)//启动
+            if ((temp.aream_data["MB0"] & 0x02) == 0x02)//启动
             {
                 switchRotary_runstatus.Value = 1;
             
@@ -2382,7 +2408,7 @@ namespace fangpu_terminal
 
             if(tabControl_terminal.SelectedIndex==2)
             {
-                if ((temp.aream_data["M3"] & 0x80) == 0x80)//刷油机
+                if ((temp.aream_data["MB3"] & 0x80) == 0x80)//刷油机
                 {
                     switchRotary_pg3_shuayouji.Value = 1;
                 }
@@ -2390,7 +2416,7 @@ namespace fangpu_terminal
                 {
                     switchRotary_pg3_shuayouji.Value = 0;
                 }
-                if ((temp.aream_data["M4"] & 0x04) == 0x04)//水箱
+                if ((temp.aream_data["MB4"] & 0x04) == 0x04)//水箱
                 {
                     switchRotary_pg3_shuixiang.Value = 1;
 
@@ -2399,7 +2425,7 @@ namespace fangpu_terminal
                 {
                     switchRotary_pg3_shuixiang.Value = 0;
                 }
-                if ((temp.aream_data["M5"] & 0x04) == 0x04)//浸料气缸
+                if ((temp.aream_data["MB5"] & 0x04) == 0x04)//浸料气缸
                 {
                     switchRotary_pg3_jinliaoqigang.Value = 1;
                 }
@@ -2407,7 +2433,7 @@ namespace fangpu_terminal
                 {
                     switchRotary_pg3_jinliaoqigang.Value = 0;
                 }
-                if ((temp.aream_data["M4"] & 0x10) == 0x10)//脱模机
+                if ((temp.aream_data["MB4"] & 0x10) == 0x10)//脱模机
                 {
                     switchRotary_pg3_tuomoji.Value = 1;
                 }
@@ -2415,7 +2441,7 @@ namespace fangpu_terminal
                 {
                     switchRotary_pg3_tuomoji.Value = 0;
                 }
-                if ((temp.aream_data["M6"] & 0x80) == 0x80)//炉子电源
+                if ((temp.aream_data["MB6"] & 0x80) == 0x80)//炉子电源
                 {
                     switchRotary_pg3_luzidianyuan.Value = 1;
                 }
@@ -2427,7 +2453,7 @@ namespace fangpu_terminal
             
             if (tabControl_terminal.SelectedIndex == 1)
             {
-                if ((temp.aream_data["M4"] & 0x08) == 0x08)//水箱
+                if ((temp.aream_data["MB4"] & 0x08) == 0x08)//水箱
                 {
                     switchSlider_pg2_shuixiang.Value = 1;
                 }
@@ -2435,7 +2461,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg2_shuixiang.Value = 0;
                 }
-                if ((temp.aream_data["M5"] & 0x80) == 0x80)//浸料气缸
+                if ((temp.aream_data["MB5"] & 0x80) == 0x80)//浸料气缸
                 {
                     switchSlider_pg2_jinliaoqigang.Value = 1;
                 }
@@ -2443,7 +2469,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg2_jinliaoqigang.Value = 0;
                 }
-                if ((temp.aream_data["M5"] & 0x02) == 0x02)//脱模气缸
+                if ((temp.aream_data["MB5"] & 0x02) == 0x02)//脱模气缸
                 {
                     switchRotary_pg2_tuomoqigang.Value = 1;
                 }
@@ -2451,7 +2477,7 @@ namespace fangpu_terminal
                 {
                     switchRotary_pg2_tuomoqigang.Value = 0;
                 }
-                if ((temp.aream_data["M5"] & 0x40) == 0x40)//抽风机
+                if ((temp.aream_data["MB5"] & 0x40) == 0x40)//抽风机
                 {
                     switchRotary_pg2_choufengji.Value = 1;
                 }
@@ -2463,7 +2489,7 @@ namespace fangpu_terminal
             
             if (tabControl_terminal.SelectedIndex == 0)
             {
-                if ((temp.aream_data["M2"] & 0x02) == 0x02)//电机
+                if ((temp.aream_data["MB2"] & 0x02) == 0x02)//电机
                 {
                     switchSlider_pg1_yureludianji.Value = 0;
                 }
@@ -2471,7 +2497,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_yureludianji.Value = 1;
                 }
-                if ((temp.aream_data["M3"] & 0x08) == 0x08)//电机
+                if ((temp.aream_data["MB3"] & 0x08) == 0x08)//电机
                 {
                     switchSlider_pg1_kaoliaoludianji.Value = 0;
                 }
@@ -2479,7 +2505,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_kaoliaoludianji.Value = 1;
                 }
-                if ((temp.aream_data["M1"] & 0x80) == 0x80)//一号钳销
+                if ((temp.aream_data["MB1"] & 0x80) == 0x80)//一号钳销
                 {
                     switchSlider_pg1_no1qianxiao.Value = 1;
                 }
@@ -2487,7 +2513,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_no1qianxiao.Value = 0;
                 }
-                if ((temp.aream_data["M1"] & 0x08) == 0x08)//二号钳销
+                if ((temp.aream_data["MB1"] & 0x08) == 0x08)//二号钳销
                 {
                     switchSlider_pg1_no2qianxiao.Value = 1;
                 }
@@ -2495,7 +2521,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_no2qianxiao.Value = 0;
                 }
-                if ((temp.aream_data["M2"] & 0x40) == 0x40)//三号钳销
+                if ((temp.aream_data["MB2"] & 0x40) == 0x40)//三号钳销
                 {
                     switchSlider_pg1_no3qianxiao.Value = 1;
                 }
@@ -2503,7 +2529,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_no3qianxiao.Value = 0;
                 }
-                if ((temp.aream_data["M2"] & 0x20) == 0x20)//四号钳销
+                if ((temp.aream_data["MB2"] & 0x20) == 0x20)//四号钳销
                 {
                     switchSlider_pg1_no4qianxiao.Value = 1;
                 }
@@ -2511,7 +2537,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_no4qianxiao.Value = 0;
                 }
-                if ((temp.aream_data["M0"] & 0x08) == 0x08)//前门
+                if ((temp.aream_data["MB0"] & 0x08) == 0x08)//前门
                 {
                     switchSlider_pg1_yureluqianmen.Value = 1;
                 }
@@ -2519,7 +2545,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_yureluqianmen.Value = 0;
                 }
-                if ((temp.aream_data["M0"] & 0x10) == 0x10)//后门
+                if ((temp.aream_data["MB0"] & 0x10) == 0x10)//后门
                 {
                     switchSlider_pg1_yureluhoumen.Value = 1;
                 }
@@ -2527,7 +2553,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_yureluhoumen.Value = 0;
                 }
-                if ((temp.aream_data["M0"] & 0x20) == 0x20)//前门
+                if ((temp.aream_data["MB0"] & 0x20) == 0x20)//前门
                 {
                     switchSlider_pg1_kaoliaoluqianmen.Value = 1;
                 }
@@ -2535,7 +2561,7 @@ namespace fangpu_terminal
                 {
                     switchSlider_pg1_kaoliaoluqianmen.Value = 0;
                 }
-                if ((temp.aream_data["M0"] & 0x40) == 0x40)//后门
+                if ((temp.aream_data["MB0"] & 0x40) == 0x40)//后门
                 {
                     switchSlider_pg1_kaoliaoluhoumen.Value = 1;
                 }
