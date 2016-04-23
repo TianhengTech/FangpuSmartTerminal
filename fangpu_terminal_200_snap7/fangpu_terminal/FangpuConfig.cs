@@ -29,7 +29,7 @@ namespace fangpu_terminal
         private static extern int GetPrivateProfileString(string section, string key, string defVal, Byte[] retVal, int size, string filePath);
         #endregion
 
-        public static Dictionary<string, int> addr = new Dictionary<string, int>();
+        public static Dictionary<string, string> addr = new Dictionary<string, string>();
         public static Dictionary<string, string> warnmsg = new Dictionary<string, string>();
         public static string ReadIniData(string Section, string Key)
         {
@@ -111,7 +111,7 @@ namespace fangpu_terminal
                         string[] _Key_Value = Key_Value.Split('=');
                         string key = _Key_Value[0];
                         string value = _Key_Value[1];
-                        addr[key] = Convert.ToInt32(value);
+                        addr[key] = value;
                     }
                 }
             }
