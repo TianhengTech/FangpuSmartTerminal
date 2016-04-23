@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 namespace fangpu_terminal
 {
-    public class HelloJob : IJob
+    public class MySqlTableUpdate : IJob
     {
         public void Execute(IJobExecutionContext context)
         {
@@ -28,7 +28,7 @@ namespace fangpu_terminal
             IScheduler sche= sf.GetScheduler();
             sche.Start();
 
-            IJobDetail job1 = JobBuilder.Create<HelloJob>()  //创建一个作业
+            IJobDetail job1 = JobBuilder.Create<MySqlTableUpdate>()  //创建一个作业
              .WithIdentity("job1", "group1")
              .Build();
             ITrigger trigger1 = TriggerBuilder.Create()
