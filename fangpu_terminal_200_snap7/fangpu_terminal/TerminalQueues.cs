@@ -35,11 +35,13 @@ namespace fangpu_terminal
     public class PlcDAQCommunicationObject
     {
         public Dictionary<string, int> aream_data;
+        public Dictionary<string, byte[]> bytes_data;
         public DateTime daq_time;
 
         public PlcDAQCommunicationObject()
         {
             aream_data = new Dictionary<string, int>();
+            bytes_data = new Dictionary<string, byte[]>();
             daq_time = DateTime.Now;
         }
     }
