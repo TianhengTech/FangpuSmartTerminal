@@ -152,11 +152,12 @@
     <Compile Include="bandchecklist.cs">
       <DependentUpon>FangpuDatacenter.tt</DependentUpon>
     </Compile>
-    <Compile Include="ExcelExport.cs" />
-    <Compile Include="OutputForm.cs">
+    <Compile Include="Ultility\BufferConverter.cs" />
+    <Compile Include="Ultility\ExcelExport.cs" />
+    <Compile Include="Forms\OutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OutputForm.Designer.cs">
+    <Compile Include="Forms\OutputForm.Designer.cs">
       <DependentUpon>OutputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="haltinfo.cs">
@@ -168,7 +169,7 @@
     <Compile Include="historydata_jsoncopy.cs">
       <DependentUpon>FangpuDatacenter.tt</DependentUpon>
     </Compile>
-    <Compile Include="NewTabControl.cs">
+    <Compile Include="CustomComponent\NewTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="dailychecklist.cs">
@@ -177,7 +178,7 @@
     <Compile Include="deviceinfo.cs">
       <DependentUpon>FangpuDatacenter.tt</DependentUpon>
     </Compile>
-    <Compile Include="FangpuConfig.cs" />
+    <Compile Include="Ultility\FangpuConfig.cs" />
     <Compile Include="FangpuDatacenter.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -199,23 +200,23 @@
     <Compile Include="FangpuTerminal.Designer.cs">
       <DependentUpon>FangpuTerminal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FangpuTerminalJsonModel.cs" />
-    <Compile Include="Dailycheck.cs">
+    <Compile Include="Ultility\FangpuTerminalJsonModel.cs" />
+    <Compile Include="Forms\Dailycheck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dailycheck.Designer.cs">
+    <Compile Include="Forms\Dailycheck.Designer.cs">
       <DependentUpon>Dailycheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bandcheck.cs">
+    <Compile Include="Forms\Bandcheck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bandcheck.Designer.cs">
+    <Compile Include="Forms\Bandcheck.Designer.cs">
       <DependentUpon>Bandcheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fieldcheck.cs">
+    <Compile Include="Forms\Fieldcheck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fieldcheck.Designer.cs">
+    <Compile Include="Forms\Fieldcheck.Designer.cs">
       <DependentUpon>Fieldcheck.cs</DependentUpon>
     </Compile>
     <Compile Include="fieldchecklist.cs">
@@ -224,19 +225,19 @@
     <Compile Include="historydata.cs">
       <DependentUpon>FangpuDatacenter.tt</DependentUpon>
     </Compile>
-    <Compile Include="numberboard.cs">
+    <Compile Include="Forms\numberboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="numberboard.Designer.cs">
+    <Compile Include="Forms\numberboard.Designer.cs">
       <DependentUpon>numberboard.cs</DependentUpon>
     </Compile>
     <Compile Include="operationlog.cs">
       <DependentUpon>FangpuDatacenter.tt</DependentUpon>
     </Compile>
-    <Compile Include="Passwordinput.cs">
+    <Compile Include="Forms\Passwordinput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passwordinput.Designer.cs">
+    <Compile Include="Forms\Passwordinput.Designer.cs">
       <DependentUpon>Passwordinput.cs</DependentUpon>
     </Compile>
     <Compile Include="PlcCommand.cs" />
@@ -248,33 +249,33 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuartzSchedule.cs" />
+    <Compile Include="Ultility\QuartzSchedule.cs" />
     <Compile Include="realtimedata.cs">
       <DependentUpon>FangpuDatacenter.tt</DependentUpon>
     </Compile>
-    <Compile Include="Reasonform.cs">
+    <Compile Include="Forms\Reasonform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reasonform.Designer.cs">
+    <Compile Include="Forms\Reasonform.Designer.cs">
       <DependentUpon>Reasonform.cs</DependentUpon>
     </Compile>
-    <Compile Include="S7_PPI.cs" />
-    <Compile Include="S7_Socket.cs" />
+    <Compile Include="Communication\S7_PPI.cs" />
+    <Compile Include="Communication\S7_Socket.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="snap7.net.cs" />
-    <Compile Include="stoptable.cs">
+    <Compile Include="Communication\snap7.net.cs" />
+    <Compile Include="Forms\stoptable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="stoptable.Designer.cs">
+    <Compile Include="Forms\stoptable.Designer.cs">
       <DependentUpon>stoptable.cs</DependentUpon>
     </Compile>
-    <Compile Include="TerminalCommon.cs" />
-    <Compile Include="TerminalLocalDataStorage.cs" />
-    <Compile Include="TerminalLogWriter.cs" />
-    <Compile Include="TerminalQueues.cs" />
-    <Compile Include="TerminalTcpClientAsync.cs" />
-    <Compile Include="TextCommand.cs" />
-    <Compile Include="CustomButton.cs">
+    <Compile Include="Ultility\TerminalCommon.cs" />
+    <Compile Include="Ultility\TerminalLocalDataStorage.cs" />
+    <Compile Include="Ultility\TerminalLogWriter.cs" />
+    <Compile Include="Ultility\TerminalQueues.cs" />
+    <Compile Include="Ultility\TerminalTcpClientAsync.cs" />
+    <Compile Include="Ultility\TextCommand.cs" />
+    <Compile Include="CustomComponent\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="userinfo.cs">
@@ -287,25 +288,25 @@
       <DependentUpon>FangpuTerminal.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dailycheck.resx">
+    <EmbeddedResource Include="Forms\Dailycheck.resx">
       <DependentUpon>Dailycheck.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bandcheck.resx">
+    <EmbeddedResource Include="Forms\Bandcheck.resx">
       <DependentUpon>Bandcheck.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fieldcheck.resx">
+    <EmbeddedResource Include="Forms\Fieldcheck.resx">
       <DependentUpon>Fieldcheck.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="OutputForm.resx">
+    <EmbeddedResource Include="Forms\OutputForm.resx">
       <DependentUpon>OutputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="numberboard.resx">
+    <EmbeddedResource Include="Forms\numberboard.resx">
       <DependentUpon>numberboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passwordinput.resx">
+    <EmbeddedResource Include="Forms\Passwordinput.resx">
       <DependentUpon>Passwordinput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -319,10 +320,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reasonform.resx">
+    <EmbeddedResource Include="Forms\Reasonform.resx">
       <DependentUpon>Reasonform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="stoptable.resx">
+    <EmbeddedResource Include="Forms\stoptable.resx">
       <DependentUpon>stoptable.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
@@ -398,6 +399,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="resources\background.jpg" />
   </ItemGroup>
   <ItemGroup>

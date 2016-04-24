@@ -166,5 +166,29 @@ namespace fangpu_terminal.Properties {
                 this["terminal_server_ip"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4096")]
+        public int PLC_TSAP_Remote {
+            get {
+                return ((int)(this["PLC_TSAP_Remote"]));
+            }
+            set {
+                this["PLC_TSAP_Remote"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4100")]
+        public int PLC_TSAP_Local {
+            get {
+                return ((int)(this["PLC_TSAP_Local"]));
+            }
+            set {
+                this["PLC_TSAP_Local"] = value;
+            }
+        }
     }
 }

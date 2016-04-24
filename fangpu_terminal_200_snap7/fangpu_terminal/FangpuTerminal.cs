@@ -30,6 +30,7 @@ namespace fangpu_terminal
         
         public static log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         TerminalTcpClientAsync tcpobject;
+        QuartzSchedule schedule;
         S7_Socket S7S;
         S7Client S7SNAP;
         S7_PPI PPI;
@@ -129,11 +130,16 @@ namespace fangpu_terminal
         {
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
           InitGlobalParameter();
-          //QuartzSchedule.StartSchedule();
+          schedule=new QuartzSchedule();
+          schedule.StartSchedule();
+         
+         
 
           //UpdateLoadGUIConfig("正在尝试连接...", 30);
           S7SNAP = new S7Client();
-          S7SNAP.SetConnectionParams("192.168.2.22", 0x1000, 0x1004);
+          ushort localtsap=(ushort)Properties.TerminalParameters.Default.PLC_TSAP_Remote;
+          ushort remotetsap=(ushort)Properties.TerminalParameters.Default.PLC_TSAP_Local;
+          S7SNAP.SetConnectionParams(Properties.TerminalParameters.Default.plc1_tcp_ip,localtsap,remotetsap);
           int result = S7SNAP.Connect();
 
           ////UpdateLoadGUIConfig("启动心跳连接...", 50);
@@ -169,16 +175,16 @@ namespace fangpu_terminal
           plcdatahandler_thread.Start();
 
           ////UpdateLoadGUIConfig("载入中", 80);
-          //datacenter_storage_thread = new Thread(DataCenterStorageThread);
-          //datacenter_storage_thread.IsBackground = true;
-          //datacenter_storage_thread.Priority = ThreadPriority.BelowNormal;
-          //datacenter_storage_thread.Start();
+          datacenter_storage_thread = new Thread(DataCenterStorageThread);
+          datacenter_storage_thread.IsBackground = true;
+          datacenter_storage_thread.Priority = ThreadPriority.BelowNormal;
+          datacenter_storage_thread.Start();
 
-          ////UpdateLoadGUIConfig("载入中", 90);
-          //local_storage_thread = new Thread(PlcDataLocalStorage);
-          //local_storage_thread.IsBackground = true;
-          //local_storage_thread.Priority = ThreadPriority.BelowNormal;
-          //local_storage_thread.Start();
+          //UpdateLoadGUIConfig("载入中", 90);
+          local_storage_thread = new Thread(PlcDataLocalStorage);
+          local_storage_thread.IsBackground = true;
+          local_storage_thread.Priority = ThreadPriority.BelowNormal;
+          local_storage_thread.Start();
 
 
 
@@ -707,10 +713,13 @@ namespace fangpu_terminal
                 //}
                 
                 tcpobject.socket_stop_connect();
-                Application.ExitThread();
                 }
             }
-            catch { }               
+            catch { }
+            finally
+            {
+                Application.ExitThread();
+            }
         }
 
         //==================================================================
@@ -966,14 +975,14 @@ namespace fangpu_terminal
                             aream_data["VB4000"] = PPI.Read(PPI.AreaV, 4000, PPI.LenD);
                             aream_data["VB4004"] = PPI.Read(PPI.AreaV, 4004, PPI.LenD);
                             aream_data["VB4008"] = PPI.Read(PPI.AreaV, 4008, PPI.LenD);
-                            aream_data["T37"] = PPI.Read(PPI.AreaT, 37, PPI.LenW);
-                            aream_data["T38"] = PPI.Read(PPI.AreaT, 38, PPI.LenW);
-                            aream_data["T39"] = PPI.Read(PPI.AreaT, 39, PPI.LenW);
-                            aream_data["T40"] = PPI.Read(PPI.AreaT, 40, PPI.LenW);
-                            aream_data["T41"] = PPI.Read(PPI.AreaT, 41, PPI.LenW);
-                            aream_data["C1"] = PPI.Read(PPI.AreaC, 1, PPI.LenW);
-                            aream_data["C2"] = PPI.Read(PPI.AreaC, 2, PPI.LenW);
-                            aream_data["C4"] = PPI.Read(PPI.AreaC, 4, PPI.LenW);
+                            aream_data["VW48"] = PPI.Read(PPI.AreaT, 37, PPI.LenW);
+                            aream_data["VW50"] = PPI.Read(PPI.AreaT, 38, PPI.LenW);
+                            aream_data["VW52"] = PPI.Read(PPI.AreaT, 39, PPI.LenW);
+                            aream_data["VW54"] = PPI.Read(PPI.AreaT, 40, PPI.LenW);
+                            aream_data["VW56"] = PPI.Read(PPI.AreaT, 41, PPI.LenW);
+                            aream_data["VW14"] = PPI.Read(PPI.AreaC, 1, PPI.LenW);
+                            aream_data["VW16"] = PPI.Read(PPI.AreaC, 2, PPI.LenW);
+                            aream_data["VW20"] = PPI.Read(PPI.AreaC, 4, PPI.LenW);
                             read_count = 0;
                         }
 
@@ -1078,11 +1087,8 @@ namespace fangpu_terminal
                         {
                             continue;
                         }
-                        var historydata = new historydata();
                         var realtimedata = new realtimedata();
-                        var warn_info=new warn_info();
-                        var historydata_jsoncopy = new historydata_jsoncopy();               
-                        historydata.deviceid = Properties.TerminalParameters.Default.terminal_name;
+                        var warn_info=new warn_info();              
                         FangpuTerminalJsonModel jsonobj = new FangpuTerminalJsonModel();
                         FangpuTerminalJsonModel_systus jsonobj_2 = new FangpuTerminalJsonModel_systus();
                         jsonobj.V4000 = plc_temp_data.aream_data["VB4000"];
@@ -1095,7 +1101,6 @@ namespace fangpu_terminal
                         jsonobj.V4007 = plc_temp_data.aream_data["VB4007"];
                         jsonobj.V4008 = plc_temp_data.aream_data["VB4008"];
                         jsonobj.M53 = ((plc_temp_data.aream_data["MB5"] & 0x08) == 0x08);
-
                         jsonobj_2.M37 = ((plc_temp_data.aream_data["MB3"] & 0x80) == 0x80);
                         jsonobj_2.M42 = ((plc_temp_data.aream_data["MB4"] & 0x04) == 0x04);
                         jsonobj_2.M52 = ((plc_temp_data.aream_data["MB5"] & 0x04) == 0x04);
@@ -1103,33 +1108,25 @@ namespace fangpu_terminal
                         jsonobj_2.M67 = ((plc_temp_data.aream_data["MB6"] & 0x80) == 0x80);
                         jsonobj_2.M00 = ((plc_temp_data.aream_data["MB0"] & 0x01) == 0x01);
                         jsonobj_2.M01 = ((plc_temp_data.aream_data["MB0"] & 0x02) == 0x02);
-                        string tablename=DateTime.Today.ToString("yyyyMMdd");
+
+                        string tablename="historydata_"+DateTime.Today.ToString("yyyyMMdd");
                         string columns="deviceid,value,shuayou_consume_seconds,kaomo_consume_seconds,"+
                             "kaoliao_consume_seconds,lengque_consume_seconds,jinliao_consume_seconds,kaomo_temp,kaoliao_temp,cycletime,storetime,systus";
-                        string sqlstr = "insert into "+ tablename +" ("+columns+ ") values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10})";
-                        mysql.Database.ExecuteSqlCommand(sqlstr, Properties.TerminalParameters.Default.terminal_name, JsonConvert.SerializeObject(jsonobj),
+                        string sqlstr = "insert into "+ tablename +" ("+columns+ ") values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})";
+
+                        mysql.Database.ExecuteSqlCommand(sqlstr, 
+                            Properties.TerminalParameters.Default.terminal_name, JsonConvert.SerializeObject(jsonobj),
                             plc_temp_data.aream_data["VW50"] / 10.0f, plc_temp_data.aream_data["VW52"] / 10.0f, plc_temp_data.aream_data["VW54"] / 10.0f,
                             plc_temp_data.aream_data["VW48"] / 10.0f, plc_temp_data.aream_data["VW56"] / 10.0f, 0, 0, (float)zuomotime, plc_temp_data.daq_time, JsonConvert.SerializeObject(jsonobj_2));
 
-                        historydata.value = JsonConvert.SerializeObject(jsonobj);
-                        historydata.systus = JsonConvert.SerializeObject(jsonobj_2);
-
-                        historydata.storetime = plc_temp_data.daq_time;
-                        historydata.shuayou_consume_seconds = plc_temp_data.aream_data["T38"] / 10.0f;
-                        historydata.kaomo_consume_seconds = plc_temp_data.aream_data["T39"] / 10.0f;
-                        historydata.kaoliao_consume_seconds = plc_temp_data.aream_data["T40"] / 10.0f;
-                        historydata.jinliao_consume_seconds = plc_temp_data.aream_data["T41"] / 10.0f;
-                        historydata.lengque_consume_seconds = plc_temp_data.aream_data["T37"] / 10.0f;
-                        historydata.cycletime = (float)zuomotime;
-
                         Dictionary<string, object> historydata_json = new Dictionary<string, object>();
-                        historydata_json.Add("刷油时间", plc_temp_data.aream_data["T38"] / 10.0f);
-                        historydata_json.Add("烤模时间", plc_temp_data.aream_data["T39"] / 10.0f);
-                        historydata_json.Add("烤料时间", plc_temp_data.aream_data["T40"] / 10.0f);
-                        historydata_json.Add("浸料时间", plc_temp_data.aream_data["T41"] / 10.0f);
-                        historydata_json.Add("冷却时间", plc_temp_data.aream_data["T37"] / 10.0f);
+                        historydata_json.Add("刷油时间", plc_temp_data.aream_data["VW50"] / 10.0f);
+                        historydata_json.Add("烤模时间", plc_temp_data.aream_data["VW52"] / 10.0f);
+                        historydata_json.Add("烤料时间", plc_temp_data.aream_data["VW54"] / 10.0f);
+                        historydata_json.Add("浸料时间", plc_temp_data.aream_data["VW56"] / 10.0f);
+                        historydata_json.Add("冷却时间", plc_temp_data.aream_data["VW48"] / 10.0f);
                         historydata_json.Add("一板模时间", (float)zuomotime);
-                        mysql.Database.ExecuteSqlCommand("insert into historydata_jsoncopy (deviceid,data_json,storetime,systus) values ({0},{1},{2},{3}",
+                        mysql.Database.ExecuteSqlCommand("insert into historydata_jsoncopy (deviceid,data_json,storetime,systus) values ({0},{1},{2},{3})",
                             Properties.TerminalParameters.Default.terminal_name, JsonConvert.SerializeObject(historydata_json), plc_temp_data.daq_time,
                             JsonConvert.SerializeObject(jsonobj_2));
                         try
@@ -1137,16 +1134,17 @@ namespace fangpu_terminal
                             realtimedata = mysql.realtimedata.SingleOrDefault(a => a.deviceid.Equals(Properties.TerminalParameters.Default.terminal_name));
                             realtimedata.value = JsonConvert.SerializeObject(jsonobj);
                             realtimedata.storetime = plc_temp_data.daq_time;
-                            realtimedata.shuayou_consume_seconds = plc_temp_data.aream_data["T38"] / 10.0f;
-                            realtimedata.kaomo_consume_seconds = plc_temp_data.aream_data["T39"] / 10.0f;
-                            realtimedata.kaoliao_consume_seconds = plc_temp_data.aream_data["T40"] / 10.0f;
-                            realtimedata.jinliao_consume_seconds = plc_temp_data.aream_data["T41"] / 10.0f;
-                            realtimedata.lengque_consume_seconds = plc_temp_data.aream_data["T37"] / 10.0f;
-                            realtimedata.device_on_time = plc_temp_data.aream_data["C2"].ToString() + "小时" + plc_temp_data.aream_data["C1"].ToString() + "分钟";
-                            realtimedata.furnace_on_time = plc_temp_data.aream_data["C6"].ToString() + "小时" + plc_temp_data.aream_data["C5"].ToString() + "分钟";
-                            realtimedata.produce_time=plc_temp_data.aream_data["C4"].ToString() + "小时" + plc_temp_data.aream_data["C3"].ToString() + "分钟";
+                            realtimedata.shuayou_consume_seconds = plc_temp_data.aream_data["VW50"] / 10.0f;
+                            realtimedata.kaomo_consume_seconds = plc_temp_data.aream_data["VW52"] / 10.0f;
+                            realtimedata.kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"] / 10.0f;
+                            realtimedata.jinliao_consume_seconds = plc_temp_data.aream_data["VW56"] / 10.0f;
+                            realtimedata.lengque_consume_seconds = plc_temp_data.aream_data["VW48"] / 10.0f;
+                            realtimedata.device_on_time = plc_temp_data.aream_data["VW16"].ToString() + "小时" + plc_temp_data.aream_data["VW14"].ToString() + "分钟";
+                            realtimedata.furnace_on_time = plc_temp_data.aream_data["VW24"].ToString() + "小时" + plc_temp_data.aream_data["VW22"].ToString() + "分钟";
+                            realtimedata.produce_time=plc_temp_data.aream_data["VW20"].ToString() + "小时" + plc_temp_data.aream_data["VW18"].ToString() + "分钟";
                             realtimedata.cycletime = (float)zuomotime;
                             realtimedata.systus = JsonConvert.SerializeObject(jsonobj_2);
+              
                                                        
                         }
                         catch (Exception ex)
@@ -1302,11 +1300,11 @@ namespace fangpu_terminal
                         TerminalLocalDataStorage.MakeSQLiteParameter("@data", DbType.String,100,JsonConvert.SerializeObject(jsonobj)), 
                         TerminalLocalDataStorage.MakeSQLiteParameter("@systus", DbType.String,100,JsonConvert.SerializeObject(jsonobj_2)), 
                         TerminalLocalDataStorage.MakeSQLiteParameter("@recordtime", DbType.DateTime,30,plc_temp_data.daq_time),
-                        TerminalLocalDataStorage.MakeSQLiteParameter("@shuayou_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["T38"]/10.0),
-                        TerminalLocalDataStorage.MakeSQLiteParameter("@kaomo_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["T39"]/10.0),
-                        TerminalLocalDataStorage.MakeSQLiteParameter("@kaoliao_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["T40"]/10.0),
-                        TerminalLocalDataStorage.MakeSQLiteParameter("@jinliao_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["T41"]/10.0),
-                        TerminalLocalDataStorage.MakeSQLiteParameter("@lengque_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["T37"]/10.0),
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@shuayou_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["VW50"]/10.0),
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@kaomo_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["VW52"]/10.0),
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@kaoliao_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["VW54"]/10.0),
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@jinliao_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["VW56"]/10.0),
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@lengque_consume_seconds", DbType.Double,100,plc_temp_data.aream_data["VW48"]/10.0),
                         TerminalLocalDataStorage.MakeSQLiteParameter("@cycletime", DbType.Double,100,(float)zuomotime),
                         };                                                                                      
                                                                                                                 
@@ -1611,6 +1609,7 @@ namespace fangpu_terminal
         {
             try
             {
+
                 if (tcpuplink_dataprocess_thread.IsAlive == true)
                 {
                     tcpuplink_dataprocess_thread.Abort();
@@ -1647,15 +1646,16 @@ namespace fangpu_terminal
                 //    PPI.SPort.Close();
                 //}
 
-                if (S7S.ClientSocket.Connected == true)
+                if (S7SNAP.Connected() == true)
                 {
-                    S7S.ClientSocket.Close();
+                    S7SNAP.Disconnect();
                 }
 
                 tcpobject.socket_stop_connect();
             }
             catch { }
             Application.ExitThread();
+            Application.Exit();
         }
 
         private void button_resetwarn_TouchDown(object sender, EventArgs e)
