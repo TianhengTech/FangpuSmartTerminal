@@ -27,17 +27,25 @@ namespace fangpu_terminal
         {
             ISchedulerFactory sf = new StdSchedulerFactory();//执行者  
             sche= sf.GetScheduler();
-            sche.Start();
-
             IJobDetail job1 = JobBuilder.Create<MySqlTableUpdate>()  //创建一个作业
              .WithIdentity("job1", "group1")
              .Build();
             ITrigger trigger1 = TriggerBuilder.Create()
-                                       .WithIdentity("trigger1", "grop1")
+                                       .WithIdentity("trigger1", "gruop1")
                                        .StartNow()
                                        .WithCronSchedule("0 0 0 ? * *")
                                        .Build();
-            sche.ScheduleJob(job1, trigger1);  
+            IJobDetail job2 = JobBuilder.Create<fangpu_terminal.DataAutoSync>()  //创建一个作业
+            .WithIdentity("job1", "group1")
+            .Build();
+            ITrigger trigger2 = TriggerBuilder.Create()
+                                       .WithIdentity("trigger2", "gruop1")
+                                       .StartNow()
+                                       .WithCronSchedule("0 0 * ? * *")
+                                       .Build();
+            sche.ScheduleJob(job1, trigger1);
+            sche.ScheduleJob(job2, trigger2);
+            sche.Start();
         }
         ~QuartzSchedule()
         {
