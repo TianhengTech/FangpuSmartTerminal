@@ -16,7 +16,12 @@ namespace fangpu_terminal
         public TerminalLocalDataStorage() { }
 
         #region 公用方法
-
+        /// <summary>
+        /// 获取表最大ID
+        /// </summary>
+        /// <param name="FieldName"></param>
+        /// <param name="TableName"></param>
+        /// <returns></returns>
         public static int GetMaxID(string FieldName, string TableName)
         {
             string strsql = "select max(" + FieldName + ")+1 from " + TableName;
@@ -30,7 +35,11 @@ namespace fangpu_terminal
                 return int.Parse(obj.ToString());
             }
         }
-
+        /// <summary>
+        /// 判断返回结果是否为空
+        /// </summary>
+        /// <param name="strSql"></param>
+        /// <returns></returns>
         public static bool Exists(string strSql)
         {
             object obj = GetSingle(strSql);
@@ -52,7 +61,12 @@ namespace fangpu_terminal
                 return true;
             }
         }
-
+        /// <summary>
+        /// 判断返回结果是否为空
+        /// </summary>
+        /// <param name="strSql"></param>
+        /// <param name="cmdParms"></param>
+        /// <returns></returns>
         public static bool Exists(string strSql, params SQLiteParameter[] cmdParms)
         {
             object obj = GetSingle(strSql, cmdParms);
