@@ -11,6 +11,7 @@ using log4net;
 using System.Threading;
 using System.Data.SQLite;
 using System.Data.Objects;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using Newtonsoft.Json;
 using System.Timers;
@@ -18,6 +19,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using Snap7;
 using CustomGUI.Forms;
+using MySql.Data.MySqlClient;
 //using DevExpress.XtraSplashScreen;
 
 
@@ -131,60 +133,60 @@ namespace fangpu_terminal
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
           InitGlobalParameter();
           schedule=new QuartzSchedule();
-          schedule.StartSchedule();
-         
-         
+         // schedule.StartSchedule();
+
+            DataAutoSync(this);
 
           //UpdateLoadGUIConfig("正在尝试连接...", 30);
-          S7SNAP = new S7Client();
-          ushort localtsap=(ushort)Properties.TerminalParameters.Default.PLC_TSAP_Remote;
-          ushort remotetsap=(ushort)Properties.TerminalParameters.Default.PLC_TSAP_Local;
-          S7SNAP.SetConnectionParams(Properties.TerminalParameters.Default.plc1_tcp_ip,localtsap,remotetsap);
-          int result = S7SNAP.Connect();
+   //       S7SNAP = new S7Client();
+   //       ushort localtsap=(ushort)Properties.TerminalParameters.Default.PLC_TSAP_Remote;
+   //       ushort remotetsap=(ushort)Properties.TerminalParameters.Default.PLC_TSAP_Local;
+   //       S7SNAP.SetConnectionParams(Properties.TerminalParameters.Default.plc1_tcp_ip,localtsap,remotetsap);
+   //       int result = S7SNAP.Connect();
 
-          ////UpdateLoadGUIConfig("启动心跳连接...", 50);
-          //thread_updateui_syncContext = SynchronizationContext.Current;
-          //tcpobject = new TerminalTcpClientAsync();
+   //       ////UpdateLoadGUIConfig("启动心跳连接...", 50);
+   //       //thread_updateui_syncContext = SynchronizationContext.Current;
+   //       //tcpobject = new TerminalTcpClientAsync();
 
 
 
-          //tcpuplink_dataprocess_thread = new Thread(TcpCommunicationThread);
-          //tcpuplink_dataprocess_thread.IsBackground = true;
-          //tcpuplink_dataprocess_thread.Priority = ThreadPriority.Lowest;
-          ////          tcpuplink_dataprocess_thread.Start();
+   //       //tcpuplink_dataprocess_thread = new Thread(TcpCommunicationThread);
+   //       //tcpuplink_dataprocess_thread.IsBackground = true;
+   //       //tcpuplink_dataprocess_thread.Priority = ThreadPriority.Lowest;
+   //       ////          tcpuplink_dataprocess_thread.Start();
 
-          //tcpdownlink_dataprocess_thread = new Thread(TcpDownlickDataProcessThread);
-          ////tcpdownlink_dataprocess_thread.IsBackground=true;
-          ////tcpdownlink_dataprocess_thread.Start();
+   //       //tcpdownlink_dataprocess_thread = new Thread(TcpDownlickDataProcessThread);
+   //       ////tcpdownlink_dataprocess_thread.IsBackground=true;
+   //       ////tcpdownlink_dataprocess_thread.Start();
 
-          //// UpdateLoadGUIConfig("载入中", 60);
-          plcread_thread = new Thread(PlcReadCycle);
-          plcread_thread.IsBackground = true;
-          plcread_thread.Priority = ThreadPriority.BelowNormal;
-          plcread_thread.Start();
+   //       //// UpdateLoadGUIConfig("载入中", 60);
+   //       plcread_thread = new Thread(PlcReadCycle);
+   //       plcread_thread.IsBackground = true;
+   //       plcread_thread.Priority = ThreadPriority.BelowNormal;
+   //       plcread_thread.Start();
 
-          //plccommunication_thread = new Thread(PlcCommunicationThread);
-          //plccommunication_thread.IsBackground = true;
-          //plccommunication_thread.Priority = ThreadPriority.BelowNormal;
-          ////plccommunication_thread.Priority = ThreadPriority.Highest;
-          ////plccommunication_thread.Start();
+   //       //plccommunication_thread = new Thread(PlcCommunicationThread);
+   //       //plccommunication_thread.IsBackground = true;
+   //       //plccommunication_thread.Priority = ThreadPriority.BelowNormal;
+   //       ////plccommunication_thread.Priority = ThreadPriority.Highest;
+   //       ////plccommunication_thread.Start();
 
-          plcdatahandler_thread = new Thread(PlcDataProcessThread);
-          plcdatahandler_thread.IsBackground = true;
-          plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
-          plcdatahandler_thread.Start();
+   //       plcdatahandler_thread = new Thread(PlcDataProcessThread);
+   //       plcdatahandler_thread.IsBackground = true;
+   //       plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
+   //       plcdatahandler_thread.Start();
 
-          ////UpdateLoadGUIConfig("载入中", 80);
-          datacenter_storage_thread = new Thread(DataCenterStorageThread);
-          datacenter_storage_thread.IsBackground = true;
-          datacenter_storage_thread.Priority = ThreadPriority.BelowNormal;
-          datacenter_storage_thread.Start();
+   //       ////UpdateLoadGUIConfig("载入中", 80);
+   //       datacenter_storage_thread = new Thread(DataCenterStorageThread);
+   //       datacenter_storage_thread.IsBackground = true;
+   //       datacenter_storage_thread.Priority = ThreadPriority.BelowNormal;
+   ////       datacenter_storage_thread.Start();
 
-          //UpdateLoadGUIConfig("载入中", 90);
-          local_storage_thread = new Thread(PlcDataLocalStorage);
-          local_storage_thread.IsBackground = true;
-          local_storage_thread.Priority = ThreadPriority.BelowNormal;
-          local_storage_thread.Start();
+   //       //UpdateLoadGUIConfig("载入中", 90);
+   //       local_storage_thread = new Thread(PlcDataLocalStorage);
+   //       local_storage_thread.IsBackground = true;
+   //       local_storage_thread.Priority = ThreadPriority.BelowNormal;
+   //       local_storage_thread.Start();
 
 
 
@@ -588,23 +590,26 @@ namespace fangpu_terminal
         //==================================================================
         public void DataAutoSync(object sender)
         {
+            string columns="deviceid,value,shuayou_consume_seconds,kaomo_consume_seconds,"+
+                           "kaoliao_consume_seconds,lengque_consume_seconds,jinliao_consume_seconds,kaomo_temp,kaoliao_temp,cycletime,storetime,systus";
+            string tablename = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
             try
             {
-                MySql.Data.MySqlClient.MySqlConnection dbConn = new MySql.Data.MySqlClient.MySqlConnection("Persist Security Info=False;server=192.168.0.53;database=fangpu_datacenter;uid=root;password=tianheng123");
-                MySql.Data.MySqlClient.MySqlCommand cmd = dbConn.CreateCommand();
-                cmd.CommandText = "select d.storetime,n.storetime from historydata d join historydata n on(n.historydataid=d.historydataid+1) where timediff(n.storetime, d.storetime) >5 AND d.storetime BETWEEN DATE_SUB(now(), INTERVAL 1 HOUR ) AND NOW();";
+                MySqlConnection dbConn =
+                    new MySqlConnection(
+                        "Persist Security Info=False;server=192.168.1.25;database=fangpu_datacenter;uid=root;password=tianheng123");     
+                MySqlCommand cmd = dbConn.CreateCommand();
+                cmd.CommandText = "select d.storetime,n.storetime from "+tablename+" d join "+tablename+" n on(n.historydataid=d.historydataid+1) where timediff(n.storetime, d.storetime) >5 AND d.storetime BETWEEN DATE_SUB(now(), INTERVAL 10 HOUR ) AND NOW();";
                 dbConn.Open();
-                MySql.Data.MySqlClient.MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
                 DataTable dTable = new DataTable();
-                if (reader.Read())
-                {
-                    dTable.Load(reader);
-                }
+                dTable.Load(reader);
+                reader.Close();
                 dbConn.Close();
                 int i = dTable.Rows.Count;
                 int j;
                 try
-                {
+                {                    
                     var mysql = new FangpuDatacenterModelEntities();
                     string strSql = "select * from historydata where recordtime>@time1 and recordtime<@time2";
                     for (j = 0; j < i; j++)
@@ -621,34 +626,94 @@ namespace fangpu_terminal
                         for (int n = 0; n < synctable.Rows.Count; n++)
                         {
                             var mytable = new historydata();
-                            mytable.deviceid = Properties.TerminalParameters.Default.terminal_name;
+                            string sqlstr = "insert into "+ tablename +" ("+columns+ ") values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})";
+                            object[] paras = new object[12];
+                            paras[0] = Properties.TerminalParameters.Default.terminal_name;
                             if (Convert.IsDBNull(synctable.Rows[n][1]) == false)
-                            mytable.value = Convert.ToString(synctable.Rows[n][1]);
+                            {
+                                paras[1] = Convert.ToString(synctable.Rows[n][1]);
+                            }
+                            else
+                            {
+                                paras[1] = synctable.Rows[n][1];
+                            }
+                            
                             if (Convert.IsDBNull(synctable.Rows[n][2]) == false)
-                            mytable.storetime = Convert.ToDateTime(synctable.Rows[n][2]);
+                            {
+                                paras[2] = (float)Convert.ToDouble(synctable.Rows[n][2]);
+                            }
+                            else
+                            {
+                                paras[2] = synctable.Rows[n][2];
+                            }
                             if (Convert.IsDBNull(synctable.Rows[n][3]) == false)
-                            mytable.shuayou_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][3]);
+                            {
+                                paras[3] = (float) Convert.ToDouble(synctable.Rows[n][3]);
+                            }
+                            else
+                            {
+                                paras[3] = synctable.Rows[n][3];
+                            }
                             if (Convert.IsDBNull(synctable.Rows[n][4]) == false)
-                            mytable.kaomo_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][4]);
+                            {
+                                paras[4] = (float) Convert.ToDouble(synctable.Rows[n][4]);
+                            }
+                            else
+                            {
+                                paras[4] = synctable.Rows[n][4];
+                            }
                             if (Convert.IsDBNull(synctable.Rows[n][5]) == false)
-                            mytable.kaoliao_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][5]);
+                            {
+                                paras[5] = (float)Convert.ToDouble(synctable.Rows[n][5]);
+                            }
+                            else
+                            {
+                                paras[5] = synctable.Rows[n][5];
+                            }
                             if(Convert.IsDBNull(synctable.Rows[n][6])==false)
-                            mytable.lengque_consume_seconds=(float)Convert.ToDouble(synctable.Rows[n][6]);
+                            {
+                                paras[6] = (float)Convert.ToDouble(synctable.Rows[n][6]);
+                            }
+                            else
+                            {
+                                paras[6] = synctable.Rows[n][6];
+                            }
                             if (Convert.IsDBNull(synctable.Rows[n][7])==false)
-                            mytable.jinliao_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][7]);
+                            {
+                                paras[7] = (float)Convert.ToDouble(synctable.Rows[n][7]);
+                            }
+                            else
+                            {
+                                paras[7] = synctable.Rows[n][7];
+                            }
                             if (Convert.IsDBNull(synctable.Rows[n][8])==false)
-                            mytable.kaomo_temp = (float)Convert.ToDouble(synctable.Rows[n][8]);
+                            {
+                                paras[8] = (float)Convert.ToDouble(synctable.Rows[n][8]);
+                            }
+                            else
+                            {
+                                paras[8] = synctable.Rows[n][8];
+                            }
                             if (Convert.IsDBNull(synctable.Rows[n][9])==false)
-                            mytable.kaoliao_temp = (float)Convert.ToDouble(synctable.Rows[n][9]);
+                            {
+                                paras[9] = (float)Convert.ToDouble(synctable.Rows[n][9]);
+                            }
+                            else
+                            {
+                                paras[9] = synctable.Rows[n][9];
+                            }
                             if (Convert.IsDBNull(synctable.Rows[n][10]) == false)
-                            mytable.cycletime = (float)Convert.ToDouble(synctable.Rows[n][10]);
-                            if (Convert.IsDBNull(synctable.Rows[n][11]) == false)
-                            mytable.systus = Convert.ToString(synctable.Rows[n][11]);
-                            mysql.historydata.Add(mytable);
+                            {
+                                paras[10] = Convert.ToDateTime(synctable.Rows[n][10]);
+                            }
+                            else
+                            {
+                                paras[10] = synctable.Rows[n][10];
+                            }
+                            paras[11] = Convert.ToString(synctable.Rows[n][11]);
+                            mysql.Database.ExecuteSqlCommand(sqlstr, paras);                            
                         }
                     }
-                    mysql.SaveChanges();
-                    dbConn.Close();
                 }
                 catch (Exception ex)
                 {
@@ -657,8 +722,7 @@ namespace fangpu_terminal
             catch (Exception ex)
             {
             }
-
-        }   
+        }
 
         //==================================================================
         //模块名： FangpuTerminal_FormClosed
@@ -673,49 +737,52 @@ namespace fangpu_terminal
         {
             try
             {
-                if(restartbutton==false)
+                if (restartbutton == false)
                 {
                     if (tcpuplink_dataprocess_thread.IsAlive == true)
-                {
-                    tcpuplink_dataprocess_thread.Abort();
-                }
+                    {
+                        tcpuplink_dataprocess_thread.Abort();
+                    }
 
 
-                if (tcpdownlink_dataprocess_thread.IsAlive == true)
-                {
-                    tcpdownlink_dataprocess_thread.Abort();
-                }
+                    if (tcpdownlink_dataprocess_thread.IsAlive == true)
+                    {
+                        tcpdownlink_dataprocess_thread.Abort();
+                    }
 
-                if (plccommunication_thread.IsAlive == true)
-                {
-                    plccommunication_thread.Abort();
-                }
+                    if (plccommunication_thread.IsAlive == true)
+                    {
+                        plccommunication_thread.Abort();
+                    }
 
 
-                if (plcdatahandler_thread.IsAlive == true)
-                {
-                    plcdatahandler_thread.Abort();
-                }
+                    if (plcdatahandler_thread.IsAlive == true)
+                    {
+                        plcdatahandler_thread.Abort();
+                    }
 
-                if (datacenter_storage_thread.IsAlive == true)
-                {
-                    datacenter_storage_thread.Abort();
-                }
+                    if (datacenter_storage_thread.IsAlive == true)
+                    {
+                        datacenter_storage_thread.Abort();
+                    }
 
-                if (local_storage_thread.IsAlive == true)
-                {
-                    local_storage_thread.Abort();
-                }
+                    if (local_storage_thread.IsAlive == true)
+                    {
+                        local_storage_thread.Abort();
+                    }
 
-                //if (PPI.SPort.IsOpen == true)
-                //{
-                //    PPI.SPort.Close();
-                //}
-                
-                tcpobject.socket_stop_connect();
+                    //if (PPI.SPort.IsOpen == true)
+                    //{
+                    //    PPI.SPort.Close();
+                    //}
+
+                    tcpobject.socket_stop_connect();
                 }
             }
-            catch { }
+            catch
+            {
+                
+            }
             finally
             {
                 Application.ExitThread();
