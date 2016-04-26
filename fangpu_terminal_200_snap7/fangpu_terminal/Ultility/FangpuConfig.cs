@@ -31,27 +31,12 @@ namespace fangpu_terminal
 
         public static Dictionary<string, string> addr = new Dictionary<string, string>();
         public static Dictionary<string, string> warnmsg = new Dictionary<string, string>();
-        public static string ReadIniData(string Section, string Key)
-        {
-            string NoText = ""; string iniFilePath = "./fangpu_config.ini";
-            if (File.Exists(iniFilePath))
-            {
-                StringBuilder temp = new StringBuilder();
-                GetPrivateProfileString(Section, Key, NoText, temp, 255, iniFilePath);
-                return temp.ToString();
-            }
-            else
-            {
-                return String.Empty;
-            }
-        }
-        public static byte[] IniReadValues(string section, string key)
-        {
-            byte[] temp = new byte[255];
-
-            GetPrivateProfileString(section, key, "", temp, 255, "./fangpu_config.ini");
-            return temp;
-        }
+        /// <summary>
+        /// Read all keys from a section
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static string[] ReadIniAllKeys(string section, string filePath)
         {
             UInt32 MAX_BUFFER = 32767;
@@ -73,6 +58,11 @@ namespace fangpu_terminal
 
             return items;
         }
+        /// <summary>
+        /// Get all Section names
+        /// </summary>
+        /// <param name="iniFile"></param>
+        /// <returns></returns>
         public static string[] INIGetAllSectionNames(string iniFile)
         {
             uint MAX_BUFFER = 32767;    //默认为32767  
@@ -96,7 +86,10 @@ namespace fangpu_terminal
 
             return sections;
         }
-        
+        /// <summary>
+        /// Read PLC Address
+        /// </summary>
+        /// <param name="path"></param>
         public static void ReadAddrIniFile(string path)
         {
             
@@ -120,6 +113,10 @@ namespace fangpu_terminal
             }
            
         }
+        /// <summary>
+        /// Read warnning message
+        /// </summary>
+        /// <param name="path"></param>
         public static void ReadInfoIniFile(string path)
         {
             try
