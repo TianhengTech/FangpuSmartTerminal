@@ -1,8 +1,9 @@
-﻿using Quartz;
-using Quartz.Impl;
-using System;
+﻿using System;
 using System.Diagnostics;
-namespace fangpu_terminal
+using Quartz;
+using Quartz.Impl;
+
+namespace fangpu_terminal.Ultility
 {
     public class MySqlTableUpdate : IJob
     {
@@ -16,10 +17,18 @@ namespace fangpu_terminal
                 string tablename = "historydata_" + nextmonth + i.ToString().PadLeft(2, '0');
                 string sqlstr = "CREATE TABLE IF NOT EXISTS " + tablename + " LIKE historydata";
                 int x = entity.Database.ExecuteSqlCommand(sqlstr); 
-            }                    
-            Trace.WriteLine("作业执行!"+DateTime.Now.ToString());
+            }
+            TerminalLogWriter.WriteInfoLog(typeof(MySqlTableUpdate), "作业建立"+DateTime.Now);
         }
     }
+    public class DataSync : IJob
+    {
+        public void Execute(IJobExecutionContext context)
+        {
+            FangpuTerminal.DataAutoSync();
+        }
+    }
+
     public class QuartzSchedule
     {
         IScheduler sche;
@@ -35,8 +44,8 @@ namespace fangpu_terminal
                                        .StartNow()
                                        .WithCronSchedule("0 0 0 ? * *")
                                        .Build();
-            IJobDetail job2 = JobBuilder.Create<fangpu_terminal.DataAutoSync>()  //创建一个作业
-            .WithIdentity("job1", "group1")
+            IJobDetail job2 = JobBuilder.Create<DataSync>()  //创建一个作业
+            .WithIdentity("job2", "group1")
             .Build();
             ITrigger trigger2 = TriggerBuilder.Create()
                                        .WithIdentity("trigger2", "gruop1")
