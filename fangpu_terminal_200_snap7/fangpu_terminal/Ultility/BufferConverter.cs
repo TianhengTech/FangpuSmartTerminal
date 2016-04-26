@@ -7,7 +7,13 @@ namespace fangpu_terminal
 {
     class BufferConverter
     {
-        
+        /// <summary>
+        /// Convert buffer to integer from start byte to end byte
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public static int BufferToInt(byte[] buffer, int start, int end)
         {
 
@@ -22,7 +28,7 @@ namespace fangpu_terminal
             }
             return result;
         }
-        static char[] wtype = "BWD".ToCharArray();
+        static readonly char[] wtype = "BWD".ToCharArray();
         /// <summary>
         /// Buffer to Dictionary
         /// </summary>
