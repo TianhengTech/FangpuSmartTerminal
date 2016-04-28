@@ -29,7 +29,6 @@ namespace fangpu_terminal
     public partial class FangpuTerminal : Form
     {
         #region 成员定义
-
         public static ILog log =
             LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -52,6 +51,7 @@ namespace fangpu_terminal
         private Thread local_storage_thread; //本地数据缓存
         private Thread plcread_thread; //PLC读线程
         private Thread proceduretimeread_thread; //读工艺时间线程
+        private Thread controlcmdread_thread; //读WEB指令线程
         private Timer timer_read_interval_60s; //60s读一次
         private Timer timer_check_interval_60m;
         private Timer timer_tcp_heart_connection; //tcp心跳连接
@@ -136,7 +136,7 @@ namespace fangpu_terminal
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
             InitGlobalParameter();
             schedule = new QuartzSchedule();
-            // schedule.StartSchedule();
+            schedule.StartSchedule();
 
 
 
@@ -147,51 +147,51 @@ namespace fangpu_terminal
             S7SNAP.SetConnectionParams(Properties.TerminalParameters.Default.plc1_tcp_ip, localtsap, remotetsap);
             int result = S7SNAP.Connect();
 
-            //       ////UpdateLoadGUIConfig("启动心跳连接...", 50);
-            //       //thread_updateui_syncContext = SynchronizationContext.Current;
-            //       //tcpobject = new TerminalTcpClientAsync();
+            ////UpdateLoadGUIConfig("启动心跳连接...", 50);
+            //thread_updateui_syncContext = SynchronizationContext.Current;
+            //tcpobject = new TerminalTcpClientAsync();
 
 
-            //       //tcpuplink_dataprocess_thread = new Thread(TcpCommunicationThread);
-            //       //tcpuplink_dataprocess_thread.IsBackground = true;
-            //       //tcpuplink_dataprocess_thread.Priority = ThreadPriority.Lowest;
-            //       ////          tcpuplink_dataprocess_thread.Start();
+            //tcpuplink_dataprocess_thread = new Thread(TcpCommunicationThread);
+            //tcpuplink_dataprocess_thread.IsBackground = true;
+            //tcpuplink_dataprocess_thread.Priority = ThreadPriority.Lowest;
+            ////          tcpuplink_dataprocess_thread.Start();
 
-            //       //tcpdownlink_dataprocess_thread = new Thread(TcpDownlickDataProcessThread);
-            //       ////tcpdownlink_dataprocess_thread.IsBackground=true;
-            //       ////tcpdownlink_dataprocess_thread.Start();
+            //tcpdownlink_dataprocess_thread = new Thread(TcpDownlickDataProcessThread);
+            ////tcpdownlink_dataprocess_thread.IsBackground=true;
+            ////tcpdownlink_dataprocess_thread.Start();
 
-            //       //// UpdateLoadGUIConfig("载入中", 60);
+            //// UpdateLoadGUIConfig("载入中", 60);
             plcread_thread = new Thread(PlcReadCycle);
             plcread_thread.IsBackground = true;
             plcread_thread.Priority = ThreadPriority.BelowNormal;
             plcread_thread.Start();
 
-            //       //plccommunication_thread = new Thread(PlcCommunicationThread);
-            //       //plccommunication_thread.IsBackground = true;
-            //       //plccommunication_thread.Priority = ThreadPriority.BelowNormal;
-            //       ////plccommunication_thread.Priority = ThreadPriority.Highest;
-            //       ////plccommunication_thread.Start();
+            plccommunication_thread = new Thread(PlcCommunicationThread);
+            plccommunication_thread.IsBackground = true;
+            plccommunication_thread.Priority = ThreadPriority.BelowNormal;
+            //plccommunication_thread.Priority = ThreadPriority.Highest;
+            plccommunication_thread.Start();
 
             plcdatahandler_thread = new Thread(PlcDataProcessThread);
             plcdatahandler_thread.IsBackground = true;
             plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
             plcdatahandler_thread.Start();
 
-            //       ////UpdateLoadGUIConfig("载入中", 80);
+            ////UpdateLoadGUIConfig("载入中", 80);
             datacenter_storage_thread = new Thread(DataCenterStorageThread);
             datacenter_storage_thread.IsBackground = true;
             datacenter_storage_thread.Priority = ThreadPriority.BelowNormal;
-                   datacenter_storage_thread.Start();
+            datacenter_storage_thread.Start();
 
-            //       //UpdateLoadGUIConfig("载入中", 90);
-            //       local_storage_thread = new Thread(PlcDataLocalStorage);
-            //       local_storage_thread.IsBackground = true;
-            //       local_storage_thread.Priority = ThreadPriority.BelowNormal;
-            //       local_storage_thread.Start();
+            //UpdateLoadGUIConfig("载入中", 90);
+            local_storage_thread = new Thread(PlcDataLocalStorage);
+            local_storage_thread.IsBackground = true;
+            local_storage_thread.Priority = ThreadPriority.BelowNormal;
+            local_storage_thread.Start();
 
 
-            //timer_read_interval_60s = new System.Threading.Timer(new TimerCallback(Timer_60s_handler), null, 0, 60000);
+            timer_read_interval_60s = new System.Threading.Timer(new TimerCallback(Timer_60s_handler), null, 0, 60000);
             //timer_check_interval_60m = new System.Threading.Timer(new TimerCallback(DataAutoSync), null, 0, 600000);
             //  // timer_tcp_heart_connection = new System.Threading.Timer(new TimerCallback(TcpToServerHeartConnect), null, 0, Properties.TerminalParameters.Default.heart_connect_interval * 1000);
             //  //UpdateLoadGUIConfig("载入中", 100);
@@ -917,7 +917,7 @@ namespace fangpu_terminal
                     }
                     TerminalQueues.plcdataprocessqueue.Enqueue(daq_data);
                     sw.Stop();
-                    Trace.WriteLine(sw.ElapsedMilliseconds);
+                    //Trace.WriteLine(sw.ElapsedMilliseconds);
 
                     if (sw.ElapsedMilliseconds >= 1000)
                         continue;
@@ -1242,7 +1242,7 @@ namespace fangpu_terminal
                         }
                         catch (Exception ex)
                         {
-                            log.log.Error("数据中心存储线程出错！"+ex);
+                            log.Error("数据中心存储线程出错！"+ex);
                         }
                         if (TerminalQueues.warninfoqueue.Count > 0)
                         {
@@ -1421,8 +1421,7 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
-                    Trace.Write(ex);
-                    log.Error("本地数据存储线程出错！" + DateTime.Now);
+                    log.Error("本地数据存储线程出错！" + DateTime.Now+" "+ex);
                 }
                 try
                 {
@@ -3525,9 +3524,8 @@ namespace fangpu_terminal
                             {
                                 if (drive.DriveType == DriveType.Removable)
                                 {
-                                    Trace.WriteLine(DateTime.Now + "--> U盘已插入，盘符为:" + drive.Name);
+                                    log.Info(DateTime.Now + "--> U盘已插入，盘符为:" + drive.Name);
                                     UsbName = drive.Name;
-
                                     if (outputform != null && !outputform.IsDisposed)
                                     {
                                         outputform.label_info.Text = "U盘已插入，盘符为:" + UsbName;
@@ -3549,7 +3547,7 @@ namespace fangpu_terminal
                         case DBT_DEVICEQUERYREMOVEFAILED:
                             break;
                         case DBT_DEVICEREMOVECOMPLETE: //U盘卸载
-                            Trace.WriteLine(DateTime.Now + "--> U盘已卸载！");
+                            log.Info(DateTime.Now + "--> U盘已卸载！");
                             if (outputform != null && !outputform.IsDisposed)
                             {
                                 outputform.label_info.Text = "U盘已卸载！";
@@ -3592,7 +3590,7 @@ namespace fangpu_terminal
             }
             else
             {
-                Trace.WriteLine("asd");
+                return;
             }
         }
 
