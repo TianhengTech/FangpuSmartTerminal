@@ -68,7 +68,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
             Mappings mappings = cfg.CreateMappings(null);
             foreach (PersistentClass persistClass in cfg.ClassMappings)
             {
-                if(persistClass.MappedClass == typeof(historydata))
+                if(persistClass.MappedClass == typeof(historydata_hiber))
                 persistClass.Table.Name = "historydata_20160426";
             }
             var sessionFactory = cfg.BuildSessionFactory();
@@ -76,7 +76,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
             wa.device_name = "dynamic";
             wa.storetime = DateTime.Now;
             wa.warn_message = "dynamic test";
-            historydata his =new historydata
+            historydata_hiber his =new historydata_hiber
             {
                 deviceid="DXX",value="te",storetime=DateTime.Now
             };
