@@ -30,7 +30,6 @@ namespace fangpu_terminal
         public virtual DbSet<bandchecklist> bandchecklist { get; set; }
         public virtual DbSet<dailychecklist> dailychecklist { get; set; }
         public virtual DbSet<fieldchecklist> fieldchecklist { get; set; }
-        public virtual DbSet<historydata> historydata { get; set; }
         public virtual DbSet<userinfo> userinfo { get; set; }
         public virtual DbSet<proceduretechnologybase_work> proceduretechnologybase_work { get; set; }
         public virtual DbSet<proceduretechnologybase> proceduretechnologybase { get; set; }

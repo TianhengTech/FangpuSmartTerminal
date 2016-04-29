@@ -10,12 +10,11 @@
         <EntityTypeShape EntityType="fangpu_datacenterModel.bandchecklist" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.dailychecklist" Width="1.5" PointX="3.75" PointY="8.75" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.fieldchecklist" Width="1.5" PointX="9.375" PointY="10.75" />
-        <EntityTypeShape EntityType="fangpu_datacenterModel.historydata" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.userinfo" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.proceduretechnologybase_work" Width="1.5" PointX="10.25" PointY="1.375" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.proceduretechnologybase" Width="2" PointX="6.375" PointY="8.75" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.historydata_1200" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="fangpu_datacenterModel.warn_info" Width="1.5" PointX="11.75" PointY="11.75" />
+        <EntityTypeShape EntityType="fangpu_datacenterModel.warn_info" PointX="11.375" PointY="11.75" Width="1.5" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.haltinfo" Width="1.5" PointX="12.375" PointY="0.75" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.historydata_jsoncopy" Width="1.5" PointX="0.75" PointY="5.75" />
         <EntityTypeShape EntityType="fangpu_datacenterModel.realtimedata" Width="1.5" PointX="12.75" PointY="3.75" />

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+ <!--assembly:程序集，namespace:命名空间-->
+ <hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2" assembly="fangpu_terminal"  namespace="fangpu_terminal.Ultility.Nhibernate">
+     <class name="fangpu_terminal.Ultility.Nhibernate.warn_info_hiber,fangpu_terminal" table="warn_info">
+         <!--主键-->
+         <id name="idwarn_info" type="int" unsaved-value="null">
+             <column name="idwarn_info" sql-type= "int" not-null="true" unique="true" />
+             <generator class="identity"></generator>      
+         </id>
+         <property name="device_name" type="String">
+             <column name="device_name" sql-type="varchar"  not-null="false" />     
+         </property>
+          <property name="warn_message" type="String">
+             <column name="warn_message" sql-type="varchar"  not-null="false"/>      
+         </property>
+         <property name="storetime" type="DateTime">
+           <column name="storetime" sql-type="DATETIME"  not-null="false"/>
+         </property>       
+     </class>
+   
+  <class name="fangpu_terminal.Ultility.Nhibernate.user_info,fangpu_terminal" table="userinfo">
+     <!--主键-->
+     <id name="iduser" type="int" unsaved-value="null">
+       <column name="iduser" sql-type= "int" not-null="true" unique="true" />
+       <generator class="identity"></generator>
+     </id>
+     <property name="username" type="String">
+       <column name="username" sql-type="varchar"  not-null="false" />
+     </property>
+     <property name="password" type="String">
+       <column name="password" sql-type="varchar"  not-null="false"/>
+     </property>     
+  </class>
+</hibernate-mapping>

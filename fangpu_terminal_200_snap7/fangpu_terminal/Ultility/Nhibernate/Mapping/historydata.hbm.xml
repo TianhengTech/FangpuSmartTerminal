@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2" assembly="fangpu_terminal"  namespace="fangpu_terminal.Ultility.Nhibernate">
+  <class name="fangpu_terminal.Ultility.Nhibernate.historydata_hiber,fangpu_terminal" table="historydata">
+    <!--主键-->
+    <id name="historydataid" type="int" unsaved-value="null">
+      <column name="historydataid" sql-type= "int" not-null="true" unique="true" />
+      <generator class="identity"></generator>
+    </id>
+    <property name="deviceid" type="String">
+      <column name="deviceid" sql-type="varchar"  not-null="true" />
+    </property>
+    <property name="value" type="String">
+      <column name="value" sql-type="varchar"  not-null="true"/>
+    </property>
+    <property name="shuayou_consume_seconds" type="float">
+      <column name="shuayou_consume_seconds" sql-type="float"  not-null="false"/>
+    </property>
+    <property name="kaomo_consume_seconds" type="float">
+      <column name="kaomo_consume_seconds" sql-type="float"  not-null="false"/>
+    </property>
+    <property name="kaoliao_consume_seconds" type="float">
+      <column name="kaoliao_consume_seconds" sql-type="float"  not-null="false"/>
+    </property>
+    <property name="lengque_consume_seconds" type="float">
+      <column name="lengque_consume_seconds" sql-type="float"  not-null="false"/>
+    </property>
+    <property name="jinliao_consume_seconds" type="float">
+      <column name="jinliao_consume_seconds" sql-type="float"  not-null="false"/>
+    </property>
+    <property name="kaomo_temp" type="float">
+      <column name="kaomo_temp" sql-type="float"  not-null="false"/>
+    </property>
+    <property name="kaoliao_temp" type="float">
+      <column name="kaoliao_temp" sql-type="float"  not-null="false"/>
+    </property>
+    <property name="cycletime" type="float">
+      <column name="cycletime" sql-type="float"  not-null="false"/>
+    </property>
+    <property name="storetime" type="DateTime">
+      <column name="storetime" sql-type="DATETIME"  not-null="true"/>
+    </property>
+    <property name="systus" type="string">
+      <column name="systus" sql-type="string"  not-null="false"/>
+    </property>    
+  </class>
+</hibernate-mapping>

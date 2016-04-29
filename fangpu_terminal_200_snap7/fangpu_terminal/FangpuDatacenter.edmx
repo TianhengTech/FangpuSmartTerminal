@@ -115,24 +115,6 @@
           <Property Name="time_end" Type="datetime" Precision="0" />
           <Property Name="storetime" Type="datetime" Precision="0" />
         </EntityType>
-        <EntityType Name="historydata">
-          <Key>
-            <PropertyRef Name="historydataid" />
-          </Key>
-          <Property Name="historydataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="deviceid" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="value" Type="varchar" MaxLength="2000" Nullable="false" />
-          <Property Name="shuayou_consume_seconds" Type="float" />
-          <Property Name="kaomo_consume_seconds" Type="float" />
-          <Property Name="kaoliao_consume_seconds" Type="float" />
-          <Property Name="lengque_consume_seconds" Type="float" />
-          <Property Name="jinliao_consume_seconds" Type="float" />
-          <Property Name="kaomo_temp" Type="float" />
-          <Property Name="kaoliao_temp" Type="float" />
-          <Property Name="cycletime" Type="float" />
-          <Property Name="storetime" Type="datetime" Precision="0" Nullable="false" />
-          <Property Name="systus" Type="varchar" MaxLength="2000" />
-        </EntityType>
         <EntityType Name="historydata_1200">
           <Key>
             <PropertyRef Name="idhistorydata" />
@@ -293,10 +275,10 @@
           <Key>
             <PropertyRef Name="idwarn_info" />
           </Key>
-          <Property Name="idwarn_info" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="device_name" Type="varchar" MaxLength="45" />
-          <Property Name="warn_message" Type="varchar" MaxLength="100" />
-          <Property Name="storetime" Type="datetime" Precision="0" />
+          <Property Name="idwarn_info" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="device_name" MaxLength="45" Type="varchar" />
+          <Property Name="warn_message" MaxLength="100" Type="varchar" />
+          <Property Name="storetime" Precision="0" Type="datetime" />
         </EntityType>
         <EntityContainer Name="fangpu_datacenterModelStoreContainer">
           <EntitySet Name="bandchecklist" EntityType="Self.bandchecklist" Schema="fangpu_datacenter" store:Type="Tables" />
@@ -304,7 +286,6 @@
           <EntitySet Name="deviceinfo" EntityType="Self.deviceinfo" Schema="fangpu_datacenter" store:Type="Tables" />
           <EntitySet Name="fieldchecklist" EntityType="Self.fieldchecklist" Schema="fangpu_datacenter" store:Type="Tables" />
           <EntitySet Name="haltinfo" EntityType="Self.haltinfo" Schema="fangpu_datacenter" store:Type="Tables" />
-          <EntitySet Name="historydata" EntityType="Self.historydata" Schema="fangpu_datacenter" store:Type="Tables" />
           <EntitySet Name="historydata_1200" EntityType="Self.historydata_1200" Schema="fangpu_datacenter" store:Type="Tables" />
           <EntitySet Name="historydata_jsoncopy" EntityType="Self.historydata_jsoncopy" Schema="fangpu_datacenter" store:Type="Tables" />
           <EntitySet Name="operationlog" EntityType="Self.operationlog" Schema="fangpu_datacenter" store:Type="Tables" />
@@ -343,7 +324,6 @@
           <EntitySet Name="bandchecklist" EntityType="fangpu_datacenterModel.bandchecklist" />
           <EntitySet Name="dailychecklist" EntityType="fangpu_datacenterModel.dailychecklist" />
           <EntitySet Name="fieldchecklist" EntityType="fangpu_datacenterModel.fieldchecklist" />
-          <EntitySet Name="historydata" EntityType="fangpu_datacenterModel.historydata" />
           <EntitySet Name="userinfo" EntityType="fangpu_datacenterModel.userinfo" />
           <EntitySet Name="proceduretechnologybase_work" EntityType="fangpu_datacenterModel.proceduretechnologybase_work" />
           <EntitySet Name="proceduretechnologybase" EntityType="fangpu_datacenterModel.proceduretechnologybase" />
@@ -441,24 +421,6 @@
           <Property Name="datetime2" Type="DateTime" />
           <Property Name="confirm" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="sn" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="historydata">
-          <Key>
-            <PropertyRef Name="historydataid" />
-          </Key>
-          <Property Name="historydataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="deviceid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="value" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Name="shuayou_consume_seconds" Type="Single" />
-          <Property Name="kaomo_consume_seconds" Type="Single" />
-          <Property Name="kaoliao_consume_seconds" Type="Single" />
-          <Property Name="lengque_consume_seconds" Type="Single" />
-          <Property Name="jinliao_consume_seconds" Type="Single" />
-          <Property Name="kaomo_temp" Type="Single" />
-          <Property Name="kaoliao_temp" Type="Single" />
-          <Property Name="cycletime" Type="Single" />
-          <Property Name="storetime" Type="DateTime" Nullable="false" />
-          <Property Name="systus" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="userinfo">
           <Key>
@@ -580,9 +542,9 @@
           <Key>
             <PropertyRef Name="idwarn_info" />
           </Key>
-          <Property Name="idwarn_info" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="device_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="warn_message" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idwarn_info" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="device_name" MaxLength="45" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="warn_message" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
           <Property Name="storetime" Type="DateTime" />
         </EntityType>
         <EntityType Name="haltinfo">
@@ -743,25 +705,6 @@
                 <ScalarProperty Name="producer" ColumnName="producer" />
                 <ScalarProperty Name="deviceid" ColumnName="deviceid" />
                 <ScalarProperty Name="idchecklist_3" ColumnName="idchecklist_3" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="historydata">
-            <EntityTypeMapping TypeName="fangpu_datacenterModel.historydata">
-              <MappingFragment StoreEntitySet="historydata">
-                <ScalarProperty Name="systus" ColumnName="systus" />
-                <ScalarProperty Name="storetime" ColumnName="storetime" />
-                <ScalarProperty Name="cycletime" ColumnName="cycletime" />
-                <ScalarProperty Name="kaoliao_temp" ColumnName="kaoliao_temp" />
-                <ScalarProperty Name="kaomo_temp" ColumnName="kaomo_temp" />
-                <ScalarProperty Name="jinliao_consume_seconds" ColumnName="jinliao_consume_seconds" />
-                <ScalarProperty Name="lengque_consume_seconds" ColumnName="lengque_consume_seconds" />
-                <ScalarProperty Name="kaoliao_consume_seconds" ColumnName="kaoliao_consume_seconds" />
-                <ScalarProperty Name="kaomo_consume_seconds" ColumnName="kaomo_consume_seconds" />
-                <ScalarProperty Name="shuayou_consume_seconds" ColumnName="shuayou_consume_seconds" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="deviceid" ColumnName="deviceid" />
-                <ScalarProperty Name="historydataid" ColumnName="historydataid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

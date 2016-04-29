@@ -29,6 +29,7 @@ namespace fangpu_terminal
     public partial class FangpuTerminal : Form
     {
         #region 成员定义
+
         public static ILog log =
             LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -137,15 +138,23 @@ namespace fangpu_terminal
             InitGlobalParameter();
             schedule = new QuartzSchedule();
             schedule.StartSchedule();
-
+            log.Info("Schedule Start");
 
 
             //UpdateLoadGUIConfig("正在尝试连接...", 30);
             S7SNAP = new S7Client();
-            ushort localtsap = (ushort)Properties.TerminalParameters.Default.PLC_TSAP_Remote;
-            ushort remotetsap = (ushort)Properties.TerminalParameters.Default.PLC_TSAP_Local;
+            ushort localtsap = (ushort) Properties.TerminalParameters.Default.PLC_TSAP_Remote;
+            ushort remotetsap = (ushort) Properties.TerminalParameters.Default.PLC_TSAP_Local;
             S7SNAP.SetConnectionParams(Properties.TerminalParameters.Default.plc1_tcp_ip, localtsap, remotetsap);
             int result = S7SNAP.Connect();
+            if (result == 0)
+            {
+                log.Info("First touch established!");
+            }
+            else
+            {
+                log.Warn("First touch failed!");
+            }
 
             ////UpdateLoadGUIConfig("启动心跳连接...", 50);
             //thread_updateui_syncContext = SynchronizationContext.Current;
@@ -166,32 +175,37 @@ namespace fangpu_terminal
             plcread_thread.IsBackground = true;
             plcread_thread.Priority = ThreadPriority.BelowNormal;
             plcread_thread.Start();
+            log.Info("PlcReadCycle Thread Start");
 
             plccommunication_thread = new Thread(PlcCommunicationThread);
             plccommunication_thread.IsBackground = true;
             plccommunication_thread.Priority = ThreadPriority.BelowNormal;
             //plccommunication_thread.Priority = ThreadPriority.Highest;
-            plccommunication_thread.Start();
+            //        plccommunication_thread.Start();
+            log.Info("PlcCommunicationThread Thread Start");
 
             plcdatahandler_thread = new Thread(PlcDataProcessThread);
             plcdatahandler_thread.IsBackground = true;
             plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
             plcdatahandler_thread.Start();
+            log.Info("PlcDataProcessThread Thread Start");
 
             ////UpdateLoadGUIConfig("载入中", 80);
             datacenter_storage_thread = new Thread(DataCenterStorageThread);
             datacenter_storage_thread.IsBackground = true;
             datacenter_storage_thread.Priority = ThreadPriority.BelowNormal;
             datacenter_storage_thread.Start();
+            log.Info("DataCenterStorageThread Thread Start");
 
             //UpdateLoadGUIConfig("载入中", 90);
             local_storage_thread = new Thread(PlcDataLocalStorage);
             local_storage_thread.IsBackground = true;
             local_storage_thread.Priority = ThreadPriority.BelowNormal;
             local_storage_thread.Start();
+            log.Info("PlcDataLocalStorage Thread Start");
 
 
-            timer_read_interval_60s = new System.Threading.Timer(new TimerCallback(Timer_60s_handler), null, 0, 60000);
+            timer_read_interval_60s = new Timer(new TimerCallback(Timer_60s_handler), null, 0, 60000);
             //timer_check_interval_60m = new System.Threading.Timer(new TimerCallback(DataAutoSync), null, 0, 600000);
             //  // timer_tcp_heart_connection = new System.Threading.Timer(new TimerCallback(TcpToServerHeartConnect), null, 0, Properties.TerminalParameters.Default.heart_connect_interval * 1000);
             //  //UpdateLoadGUIConfig("载入中", 100);
@@ -523,7 +537,7 @@ namespace fangpu_terminal
             }
             catch (Exception e)
             {
-                log.Error("Tcp Uplink Data Process Error!");
+                log.Error("Tcp Uplink Data Process Error!", e);
             }
         }
 
@@ -594,7 +608,7 @@ namespace fangpu_terminal
             {
                 var dbConn =
                     new MySqlConnection(
-                        "Persist Security Info=False;server=192.168.1.25;database=fangpu_datacenter;uid=root;password=tianheng123");
+                        "Persist Security Info=False;server=192.168.0.53;database=fangpu_datacenter;uid=root;password=tianheng123");
                 var cmd = dbConn.CreateCommand();
                 cmd.CommandText = "select d.storetime,n.storetime from " + tablename + " d join " + tablename +
                                   " n on(n.historydataid=d.historydataid+1) where timediff(n.storetime, d.storetime) >5 AND d.storetime BETWEEN DATE_SUB(now(), INTERVAL 1 HOUR ) AND NOW();";
@@ -624,7 +638,7 @@ namespace fangpu_terminal
                         synctable = ds.Tables[0];
                         for (var n = 0; n < synctable.Rows.Count; n++)
                         {
-                            var mytable = new historydata();
+                            var mytable = new historydata_hiber();
                             var sqlstr = "insert into " + tablename + " (" + columns +
                                          ") values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})";
                             var paras = new object[12];
@@ -717,10 +731,12 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
+                    log.Error("同步出错", ex);
                 }
             }
             catch (Exception ex)
             {
+                log.Error("同步查询阶段出错", ex);
             }
         }
 
@@ -810,7 +826,7 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
-                    log.Error("tcp发送线程出错！");
+                    log.Error("tcp发送线程出错！", ex);
                 }
                 Thread.Sleep(100);
             }
@@ -837,7 +853,7 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
-                    log.Error("tcp发送线程出错！");
+                    log.Error("tcp发送线程出错！", ex);
                 }
                 Thread.Sleep(100);
             }
@@ -857,6 +873,7 @@ namespace fangpu_terminal
             {
                 if (S7SNAP.Connected() == false)
                 {
+                    log.Warn("Plc not conneted!");
                     S7SNAP.Connect();
                     continue;
                 }
@@ -924,12 +941,9 @@ namespace fangpu_terminal
                     Thread.Sleep(1000 - Convert.ToInt32(sw.Elapsed.TotalMilliseconds));
                 }
 
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    //if (S7S.ClientSocket == null | S7S.ClientSocket.Connected == false)
-                    //{
-                    //    S7S.Connect();
-                    //}
+                    log.Error("读数据线程出错！", ex);
                     Thread.Sleep(600);
                 }
             }
@@ -946,9 +960,6 @@ namespace fangpu_terminal
         //==================================================================
         public void PlcCommunicationThread()
         {
-            //S7S = new S7_Socket();
-            //S7S.Connect();
-            //int read_count = 0;
             while (true)
             {
                 try
@@ -996,10 +1007,10 @@ namespace fangpu_terminal
                         S7SNAP.Connect();
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
                     enableSync = true;
-                    log.Error("写线程出错");
+                    log.Error("写线程出错", ex);
                 }
             }
         }
@@ -1079,7 +1090,7 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
-                    log.Error("tcp发送线程出错！");
+                    log.Error("tcp发送线程出错！", ex);
                 }
             }
         }
@@ -1115,7 +1126,7 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
-                    log.Error("plc数据处理线程出错！");
+                    log.Error("plc数据处理线程出错！", ex);
                     Thread.Sleep(200);
                 }
                 Thread.Sleep(200);
@@ -1133,13 +1144,13 @@ namespace fangpu_terminal
         //==================================================================
         public void DataCenterStorageThread()
         {
-            NHibernateHelper helper = new NHibernateHelper();
-            var cfg = helper.GetConfiguration();
+            var cfg = FluentNhibernateHelper.GetSessionConfig();
+
+            var mysql = new FangpuDatacenterModelEntities();
             while (true)
             {
                 try
                 {
-                    var mysql = new FangpuDatacenterModelEntities();
                     while (TerminalQueues.datacenterprocessqueue.Count > 0)
                     {
                         var plc_temp_data = new PlcDAQCommunicationObject();
@@ -1148,7 +1159,7 @@ namespace fangpu_terminal
                         {
                             continue;
                         }
-                        var realtimedata = new realtimedata();
+                        // var realtimedata = new realtimedata();
                         var warn_info = new warn_info();
                         var jsonobj = new FangpuTerminalJsonModel();
                         var jsonobj_2 = new FangpuTerminalJsonModel_systus();
@@ -1183,9 +1194,8 @@ namespace fangpu_terminal
                         //plc_temp_data.aream_data["VW48"]/10.0f, plc_temp_data.aream_data["VW56"]/10.0f, 0, 0,
                         //(float) zuomotime, plc_temp_data.daq_time, JsonConvert.SerializeObject(jsonobj_2));
 
-                        helper.MappingTablenames(cfg, typeof(Ultility.Nhibernate.historydata), tablename);
-                        var sessionFactory=cfg.BuildSessionFactory();
-                        Ultility.Nhibernate.historydata historyDb = new Ultility.Nhibernate.historydata
+                        FluentNhibernateHelper.MappingTablenames(cfg, typeof(Ultility.Nhibernate.historydata_hiber), tablename);
+                        Ultility.Nhibernate.historydata_hiber historyDb = new Ultility.Nhibernate.historydata_hiber
                         {
                             deviceid = TerminalParameters.Default.terminal_name,
                             value = JsonConvert.SerializeObject(jsonobj),
@@ -1200,11 +1210,7 @@ namespace fangpu_terminal
                             storetime = plc_temp_data.daq_time,
                             systus = JsonConvert.SerializeObject(jsonobj_2)
                         };
-                        using (var sf = sessionFactory.OpenSession())
-                        {
-                            sf.Save(historyDb);
-                            sf.Flush();
-                        }
+
                         var historydata_json = new Dictionary<string, object>();
                         historydata_json.Add("刷油时间", plc_temp_data.aream_data["VW50"]/10.0f);
                         historydata_json.Add("烤模时间", plc_temp_data.aream_data["VW52"]/10.0f);
@@ -1217,33 +1223,34 @@ namespace fangpu_terminal
                             TerminalParameters.Default.terminal_name,
                             JsonConvert.SerializeObject(historydata_json), plc_temp_data.daq_time,
                             JsonConvert.SerializeObject(jsonobj_2));
-                        try
+                        using (var sf = cfg.BuildSessionFactory().OpenSession())
                         {
-                            realtimedata = mysql.realtimedata.SingleOrDefault(
-                                    a => a.deviceid.Equals(TerminalParameters.Default.terminal_name));
-                            if (realtimedata != null)
+                        var realtimedata = sf.QueryOver<realtimedata_hiber>().Where(p => p.deviceid == "D17").SingleOrDefault();
+                        realtimedata.deviceid = TerminalParameters.Default.terminal_name;
+                        realtimedata.value = JsonConvert.SerializeObject(jsonobj);
+                        realtimedata.storetime = plc_temp_data.daq_time;
+                        realtimedata.shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f;
+                        realtimedata.kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f;
+                        realtimedata.kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f;
+                        realtimedata.jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f;
+                        realtimedata.lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f;
+                        realtimedata.device_on_time = plc_temp_data.aream_data["VW16"] + "小时" +
+                                                      plc_temp_data.aream_data["VW14"] + "分钟";
+                        realtimedata.furnace_on_time = plc_temp_data.aream_data["VW24"] + "小时" +
+                                                       plc_temp_data.aream_data["VW22"] + "分钟";
+                        realtimedata.produce_time = plc_temp_data.aream_data["VW20"] + "小时" +
+                                                    plc_temp_data.aream_data["VW18"] + "分钟";
+                        realtimedata.cycletime = (float) zuomotime;
+                        realtimedata.systus = JsonConvert.SerializeObject(jsonobj_2);
+
+                            using (var tran = sf.BeginTransaction())
                             {
-                                realtimedata.value = JsonConvert.SerializeObject(jsonobj);
-                                realtimedata.storetime = plc_temp_data.daq_time;
-                                realtimedata.shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f;
-                                realtimedata.kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f;
-                                realtimedata.kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f;
-                                realtimedata.jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f;
-                                realtimedata.lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f;
-                                realtimedata.device_on_time = plc_temp_data.aream_data["VW16"] + "小时" +
-                                                              plc_temp_data.aream_data["VW14"] + "分钟";
-                                realtimedata.furnace_on_time = plc_temp_data.aream_data["VW24"] + "小时" +
-                                                               plc_temp_data.aream_data["VW22"] + "分钟";
-                                realtimedata.produce_time = plc_temp_data.aream_data["VW20"] + "小时" +
-                                                            plc_temp_data.aream_data["VW18"] + "分钟";
-                                realtimedata.cycletime = (float) zuomotime;
-                                realtimedata.systus = JsonConvert.SerializeObject(jsonobj_2);
+                                sf.Save(historyDb);
+                                sf.SaveOrUpdate(realtimedata);
+                                tran.Commit();
                             }
                         }
-                        catch (Exception ex)
-                        {
-                            log.Error("数据中心存储线程出错！"+ex);
-                        }
+
                         if (TerminalQueues.warninfoqueue.Count > 0)
                         {
                             var plc_warn_data = new PLCWarningObject();
@@ -1267,7 +1274,7 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
-                    log.Error("数据中心存储线程出错！");
+                    log.Error("数据中心存储线程出错！" + ex);
                 }
             }
         }
@@ -1288,7 +1295,7 @@ namespace fangpu_terminal
         public void SendCommandToPlc(string area, string type, int data, int addr, int bitaddr = 0)
         {
             var cmd = new PlcCommand(area, type, data, addr, bitaddr);
-            TerminalQueues.plccommandqueue.Enqueue(cmd);
+            //TerminalQueues.plccommandqueue.Enqueue(cmd);
         }
 
         //==================================================================
@@ -1421,7 +1428,7 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
-                    log.Error("本地数据存储线程出错！" + DateTime.Now+" "+ex);
+                    log.Error("本地数据存储线程出错!" + ex);
                 }
                 try
                 {
@@ -1434,7 +1441,7 @@ namespace fangpu_terminal
                 }
                 catch (Exception ex)
                 {
-                    log.Error("警告存储出错！" + DateTime.Now);
+                    log.Error("警告存储出错！" + ex);
                 }
 
                 //Thread.Sleep(10000);

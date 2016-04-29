@@ -38,9 +38,10 @@ namespace fangpu_terminal
         private int Daddr;
         public S7_PPI(String PortName, int BaudRate)
         {
+           
             this.SPort.PortName = PortName;
             this.SPort.BaudRate = BaudRate;
-            this.SPort.ReadTimeout = 2000;
+            this.SPort.ReadTimeout = 1000;
         }
 		//连接服务器
         public bool Creat_Com()

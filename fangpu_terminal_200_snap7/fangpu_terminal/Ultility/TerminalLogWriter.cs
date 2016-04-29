@@ -11,8 +11,8 @@ namespace fangpu_terminal
         /// <summary>
         /// 输出日志到Log4Net
         /// </summary>
-        /// <param name="t"></param>
-        /// <param name="msg"></param>
+        /// <param name="t">类</param>
+        /// <param name="msg">消息</param>
 
         public static void WriteErroLog(Type t, string msg)
         {
