@@ -56,11 +56,14 @@ namespace fangpu_terminal.Ultility
             sche.ScheduleJob(job2, trigger2);
             sche.Start();
         }
-        ~QuartzSchedule()
+
+        public void Dispose()
         {
-            if(!sche.IsShutdown)
+            if (sche!=null&&!sche.IsShutdown)
             {
+                sche.Clear();
                 sche.Shutdown();
+                
             }
         }
     }

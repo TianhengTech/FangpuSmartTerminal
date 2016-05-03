@@ -286,6 +286,12 @@ namespace fangpu_terminal
             this.typelabel = new System.Windows.Forms.Label();
             this.typeselect = new System.Windows.Forms.ComboBox();
             this.button_resetwarn = new CustomGUI.Forms.CustomButton();
+            this.displayDouble_tuomushijian = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.label80 = new Iocomp.Instrumentation.Standard.Label();
+            this.displayDouble_shuayoushijian = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.label81 = new Iocomp.Instrumentation.Standard.Label();
+            this.displayDouble_jinliaoshijian = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.label82 = new Iocomp.Instrumentation.Standard.Label();
             this.tabControl_terminal.SuspendLayout();
             this.tabPage_pg1.SuspendLayout();
             this.tabPage_pg2.SuspendLayout();
@@ -2159,6 +2165,12 @@ namespace fangpu_terminal
             // tabPage_pg5
             // 
             this.tabPage_pg5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage_pg5.Controls.Add(this.displayDouble_jinliaoshijian);
+            this.tabPage_pg5.Controls.Add(this.label82);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_shuayoushijian);
+            this.tabPage_pg5.Controls.Add(this.label81);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_tuomushijian);
+            this.tabPage_pg5.Controls.Add(this.label80);
             this.tabPage_pg5.Controls.Add(this.zuomoshijian);
             this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no9);
             this.tabPage_pg5.Controls.Add(this.label74);
@@ -2996,6 +3008,69 @@ namespace fangpu_terminal
             this.button_resetwarn.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_resetwarn_TouchDown);
             this.button_resetwarn.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_resetwarn_TouchUp);
             // 
+            // displayDouble_tuomushijian
+            // 
+            this.displayDouble_tuomushijian.LoadingBegin();
+            this.displayDouble_tuomushijian.AutoSize = false;
+            this.displayDouble_tuomushijian.Location = new System.Drawing.Point(244, 504);
+            this.displayDouble_tuomushijian.Name = "displayDouble_tuomushijian";
+            this.displayDouble_tuomushijian.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_tuomushijian.LoadingEnd();
+            // 
+            // label80
+            // 
+            this.label80.LoadingBegin();
+            this.label80.AutoSize = false;
+            this.label80.BackColor = System.Drawing.Color.Peru;
+            this.label80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label80.Location = new System.Drawing.Point(123, 504);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(114, 43);
+            this.label80.Text = "脱模时间";
+            this.label80.LoadingEnd();
+            // 
+            // displayDouble_shuayoushijian
+            // 
+            this.displayDouble_shuayoushijian.LoadingBegin();
+            this.displayDouble_shuayoushijian.AutoSize = false;
+            this.displayDouble_shuayoushijian.Location = new System.Drawing.Point(478, 504);
+            this.displayDouble_shuayoushijian.Name = "displayDouble_shuayoushijian";
+            this.displayDouble_shuayoushijian.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_shuayoushijian.LoadingEnd();
+            // 
+            // label81
+            // 
+            this.label81.LoadingBegin();
+            this.label81.AutoSize = false;
+            this.label81.BackColor = System.Drawing.Color.Peru;
+            this.label81.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label81.Location = new System.Drawing.Point(357, 504);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(114, 43);
+            this.label81.Text = "刷油时间";
+            this.label81.LoadingEnd();
+            // 
+            // displayDouble_jinliaoshijian
+            // 
+            this.displayDouble_jinliaoshijian.LoadingBegin();
+            this.displayDouble_jinliaoshijian.AutoSize = false;
+            this.displayDouble_jinliaoshijian.Location = new System.Drawing.Point(715, 504);
+            this.displayDouble_jinliaoshijian.Name = "displayDouble_jinliaoshijian";
+            this.displayDouble_jinliaoshijian.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_jinliaoshijian.LoadingEnd();
+            // 
+            // label82
+            // 
+            this.label82.LoadingBegin();
+            this.label82.AutoSize = false;
+            this.label82.BackColor = System.Drawing.Color.Peru;
+            this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label82.Location = new System.Drawing.Point(594, 504);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(114, 43);
+            this.label82.Text = "浸料时间";
+            this.label82.LoadingEnd();
+            // 
             // FangpuTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3025,7 +3100,6 @@ namespace fangpu_terminal
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "终端";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FangpuTerminal_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FangpuTerminal_FormClosed);
             this.Load += new System.EventHandler(this.FangpuTerminal_Load);
             this.tabControl_terminal.ResumeLayout(false);
@@ -3260,6 +3334,12 @@ namespace fangpu_terminal
         private System.Windows.Forms.Button buzuoguan_layer;
         private System.Windows.Forms.Button jinliaoshezhi_layer;
         private System.Windows.Forms.Button button_localdataoutput;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_jinliaoshijian;
+        private Iocomp.Instrumentation.Standard.Label label82;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_shuayoushijian;
+        private Iocomp.Instrumentation.Standard.Label label81;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_tuomushijian;
+        private Iocomp.Instrumentation.Standard.Label label80;
 
     }
 }

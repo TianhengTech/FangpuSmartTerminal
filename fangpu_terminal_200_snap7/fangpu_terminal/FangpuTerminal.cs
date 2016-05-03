@@ -426,17 +426,19 @@ namespace fangpu_terminal
                 displayInteger_currentshift_zuoguanshijian_minute.Value = daq_input.aream_data["VW18"];
                 displayInteger_currentshift_kailushijian_hour.Value = daq_input.aream_data["VW24"];
                 displayInteger_currentshift_kailushijian_minute.Value = daq_input.aream_data["VW22"];
-
-
                 displayDouble_chanliangtongji_danmomotou_count.Value = daq_input.aream_data["VW26"];
                 displayDouble_chanliangtongji_jihua_count.Value = daq_input.aream_data["VW28"];
                 displayDouble_chanliangtongji_shiji_count.Value = daq_input.aream_data["VW30"];
 
+                displayDouble_tuomushijian.Value = (daq_input.aream_data["VB100"] & 0x02) == 0x02 ? daq_input.aream_data["VW38"] / 10.0d : daq_input.aream_data["VW36"] / 10.0d;
+                displayDouble_shuayoushijian.Value = (daq_input.aream_data["VB100"] & 0x04) == 0x04 ? daq_input.aream_data["VW42"] / 10.0d : daq_input.aream_data["VW40"] / 10.0d;
+                displayDouble_jinliaoshijian.Value = (daq_input.aream_data["VB100"] & 0x08) == 0x08 ? daq_input.aream_data["VW46"] / 10.0d : daq_input.aream_data["VW44"] / 10.0d;
+
                 //2024=1对应写2020,2024=0对应写2022
                 if ((daq_input.aream_data["VB100"] & 0x01) == 0x01)
                 {
-                    zuomoshijian.Value = daq_input.aream_data["VW42"]/10.0f;
-                    zuomotime = daq_input.aream_data["VW42"]/10.0f;
+                    zuomoshijian.Value = daq_input.aream_data["VW34"]/10.0f;
+                    zuomotime = daq_input.aream_data["VW34"]/10.0f;
                     if (onetime == false)
                     {
                         cyclenum = (cyclenum + 1)%9;
@@ -445,8 +447,8 @@ namespace fangpu_terminal
                 }
                 else
                 {
-                    zuomoshijian.Value = daq_input.aream_data["VW40"]/10.0f;
-                    zuomotime = daq_input.aream_data["VW40"]/10.0f;
+                    zuomoshijian.Value = daq_input.aream_data["VW32"]/10.0f;
+                    zuomotime = daq_input.aream_data["VW32"]/10.0f;
                     if (onetime)
                     {
                         cyclenum = (cyclenum + 1)%9;
@@ -757,49 +759,58 @@ namespace fangpu_terminal
                     if (tcpuplink_dataprocess_thread.IsAlive)
                     {
                         tcpuplink_dataprocess_thread.Abort();
+                        log.Info("tcpuplink_dataprocess_thread Abort");
                     }
 
 
                     if (tcpdownlink_dataprocess_thread.IsAlive)
                     {
                         tcpdownlink_dataprocess_thread.Abort();
+                        log.Info("tcpdownlink_dataprocess_thread Abort");
                     }
 
                     if (plccommunication_thread.IsAlive)
                     {
                         plccommunication_thread.Abort();
+                        log.Info("plccommunication_thread Abort");
                     }
 
 
                     if (plcdatahandler_thread.IsAlive)
                     {
                         plcdatahandler_thread.Abort();
+                        log.Info("plcdatahandler_thread Abort");
                     }
 
                     if (datacenter_storage_thread.IsAlive)
                     {
                         datacenter_storage_thread.Abort();
+                        log.Info("datacenter_storage_thread Abort");
                     }
 
                     if (local_storage_thread.IsAlive)
                     {
                         local_storage_thread.Abort();
+                        log.Info("local_storage_thread Abort");
+                    }
+                    if (S7SNAP.Connected())
+                    {
+                        S7SNAP.Disconnect();
                     }
 
-                    //if (PPI.SPort.IsOpen == true)
-                    //{
-                    //    PPI.SPort.Close();
-                    //}
-
-                    tcpobject.socket_stop_connect();
+                   
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                log.Error("Abort Error!", ex);
             }
             finally
             {
+                schedule.Dispose();
+                log.Info("Application is about to exit.");
                 Application.ExitThread();
+                
             }
         }
 
@@ -872,7 +883,8 @@ namespace fangpu_terminal
             {
                 if (S7SNAP.Connected() == false)
                 {
-                    log.Warn("Plc not conneted!");
+                    log.Warn("Plc not connected!");
+                    Thread.Sleep(1000);
                     S7SNAP.Connect();
                     continue;
                 }
@@ -1183,18 +1195,6 @@ namespace fangpu_terminal
                         jsonobj_2.M01 = (plc_temp_data.aream_data["MB0"] & 0x02) == 0x02;
 
                         var tablename = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
-                        //var columns = "deviceid,value,shuayou_consume_seconds,kaomo_consume_seconds," +
-                        //              "kaoliao_consume_seconds,lengque_consume_seconds,jinliao_consume_seconds,kaomo_temp,kaoliao_temp,cycletime,storetime,systus";
-                        //var sqlstr = "insert into " + tablename + " (" + columns +
-                        //             ") values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})";
-
-                        //mysql.Database.ExecuteSqlCommand(sqlstr,
-                        //TerminalParameters.Default.terminal_name, JsonConvert.SerializeObject(jsonobj),
-                        //plc_temp_data.aream_data["VW50"]/10.0f, plc_temp_data.aream_data["VW52"]/10.0f,
-                        //plc_temp_data.aream_data["VW54"]/10.0f,
-                        //plc_temp_data.aream_data["VW48"]/10.0f, plc_temp_data.aream_data["VW56"]/10.0f, 0, 0,
-                        //(float) zuomotime, plc_temp_data.daq_time, JsonConvert.SerializeObject(jsonobj_2));
-
                         FluentNhibernateHelper.MappingTablenames(cfg, typeof(Ultility.Nhibernate.historydata_hiber), tablename);
                         Ultility.Nhibernate.historydata_hiber historyDb = new Ultility.Nhibernate.historydata_hiber
                         {
@@ -1211,7 +1211,6 @@ namespace fangpu_terminal
                             storetime = plc_temp_data.daq_time,
                             systus = JsonConvert.SerializeObject(jsonobj_2)
                         };
-
                         var historydata_json = new Dictionary<string, object>();
                         historydata_json.Add("刷油时间", plc_temp_data.aream_data["VW50"]/10.0f);
                         historydata_json.Add("烤模时间", plc_temp_data.aream_data["VW52"]/10.0f);
@@ -1943,60 +1942,6 @@ namespace fangpu_terminal
         private void button_pg2_shuayoujihoutui_TouchUp(object sender, EventArgs e)
         {
             SendCommandToPlc(TerminalCommon.S7200AreaM, TerminalCommon.S7200DataBit, 0, 4, 1);
-        }
-
-        private void FangpuTerminal_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                if (tcpuplink_dataprocess_thread.IsAlive)
-                {
-                    tcpuplink_dataprocess_thread.Abort();
-                }
-
-                if (tcpdownlink_dataprocess_thread.IsAlive)
-                {
-                    tcpdownlink_dataprocess_thread.Abort();
-                }
-
-                if (plccommunication_thread.IsAlive)
-                {
-                    plccommunication_thread.Abort();
-                }
-
-
-                if (plcdatahandler_thread.IsAlive)
-                {
-                    plcdatahandler_thread.Abort();
-                }
-
-                if (datacenter_storage_thread.IsAlive)
-                {
-                    datacenter_storage_thread.Abort();
-                }
-
-                if (local_storage_thread.IsAlive)
-                {
-                    local_storage_thread.Abort();
-                }
-
-                //if (PPI.SPort.IsOpen == true)
-                //{
-                //    PPI.SPort.Close();
-                //}
-
-                if (S7SNAP.Connected())
-                {
-                    S7SNAP.Disconnect();
-                }
-
-                tcpobject.socket_stop_connect();
-            }
-            catch
-            {
-            }
-            Application.ExitThread();
-            Application.Exit();
         }
 
         private void button_resetwarn_TouchDown(object sender, EventArgs e)

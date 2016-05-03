@@ -119,9 +119,9 @@ namespace fangpu_terminal
                     {
                         TextCommand.DeleteFile("haltinfo.txt");
                     }
-                    catch
+                    catch(Exception ex)
                     {
-
+                     
                     }
                     break;
                 }
