@@ -71,13 +71,14 @@ namespace fangpu_terminal
         private bool enableWarn;
         private bool typeexist = true;
         private bool enableSync = true;
+        private bool warnflag=true;
         private bool onetime = true;
         private bool buzuo = true;
         private bool jinliao = true;
         private int cyclenum = -1;
         private int syncount;
         private double zuomotime;
-        private int vw2010, vw2014, vw2016, vw2012;
+        private int vw68, vw70, vw72, vw74;
         public numberboard numberBoard;
 
 
@@ -379,14 +380,14 @@ namespace fangpu_terminal
 
             //if (tabControl_terminal.SelectedIndex == 3)
 
+
             if (enableWarn && (daq_input.aream_data["MB5"] & 0x08) == 0x08)
             {
-                var results = WarnInfoProcess(daq_input.aream_data);
+                var results = GetWarnInfo(daq_input.aream_data);
                 if (results.Count != 0)
                 {
                     foreach (var Warn in results)
                     {
-                        var plcwarn = new PLCWarningObject();
                         if (dataGridView_warn.Rows.Count >= 500)
                         {
                             dataGridView_warn.Rows.RemoveAt(499);
@@ -395,16 +396,26 @@ namespace fangpu_terminal
                         dataGridView_warn.Rows[index].Cells[0].Value = Warn;
                         dataGridView_warn.Rows[index].Cells[1].Value = daq_input.daq_time;
                         warntext = Warn;
-                        plcwarn.warndata = Warn;
-                        plcwarn.warn_time = daq_input.daq_time;
-                        TerminalQueues.warninfoqueue.Enqueue(plcwarn);
-                        TerminalQueues.warninfoqueue_local.Enqueue(plcwarn);
                         dataGridView_warn.Sort(dataGridView_warn.Columns[1], ListSortDirection.Descending);
                     }
                     displayWarninfo.Value = warntext;
                 }
             }
             ;
+            
+            if ((daq_input.aream_data["MB5"] & 0x08) == 0x08)
+            {
+                enableWarn = false;
+                led_warn.BlinkerEnabled = true;
+                led_warn.Value.AsBoolean = false;
+            }
+            else
+            {
+                enableWarn = true;
+                displayWarninfo.Value = "报警信息";
+                led_warn.BlinkerEnabled = false;
+                led_warn.Value.AsBoolean = false;
+            }
 
 
             if (tabControl_terminal.SelectedTab == tabPage_pg5)
@@ -473,19 +484,7 @@ namespace fangpu_terminal
                         break;
                 }
             }
-            if ((daq_input.aream_data["MB5"] & 0x08) == 0x08)
-            {
-                enableWarn = false;
-                led_warn.BlinkerEnabled = true;
-                led_warn.Value.AsBoolean = false;
-            }
-            else
-            {
-                enableWarn = true;
-                displayWarninfo.Value = "报警信息";
-                led_warn.BlinkerEnabled = false;
-                led_warn.Value.AsBoolean = false;
-            }
+
             if ((daq_input.aream_data["MB0"] & 0x01) == 0x01 && (led_manul.BlinkerEnabled = true))
             {
                 led_manul.BlinkerEnabled = false;
@@ -1120,8 +1119,11 @@ namespace fangpu_terminal
                             continue;
                         }
                         CycleUpdateGuiDisplay(plc_temp_data);
+                        WarnInfoProcess(plc_temp_data);
+
                         TerminalQueues.datacenterprocessqueue.Enqueue(plc_temp_data);
                         TerminalQueues.localdataqueue.Enqueue(plc_temp_data);
+                        
                     }
                 }
                 catch (Exception ex)
@@ -1145,7 +1147,6 @@ namespace fangpu_terminal
         public void DataCenterStorageThread()
         {
             var cfg = FluentNhibernateHelper.GetSessionConfig();
-
             var mysql = new FangpuDatacenterModelEntities();
             while (true)
             {
@@ -1257,15 +1258,17 @@ namespace fangpu_terminal
                             TerminalQueues.warninfoqueue.TryDequeue(out plc_warn_data);
                             if (plc_warn_data != null)
                             {
+                                foreach(string warninfo in plc_warn_data.warndata)
                                 try
                                 {
                                     warn_info.device_name = TerminalParameters.Default.terminal_name;
-                                    warn_info.warn_message = plc_warn_data.warndata;
+                                    warn_info.warn_message = warninfo;
                                     warn_info.storetime = plc_warn_data.warn_time;
                                     mysql.warn_info.Add(warn_info);
                                 }
-                                catch
+                                catch(Exception ex)
                                 {
+                                    log.Error("报警信息存储出错", ex);
                                 }
                             }
                         }
@@ -1314,7 +1317,7 @@ namespace fangpu_terminal
         }
 
         //==================================================================
-        //模块名： WarnInfoProcess
+        //模块名： GetWarnInfo
         //作者：    Yang Chuan
         //日期：    2015.12.02
         //功能：    报警信息处理
@@ -1322,7 +1325,7 @@ namespace fangpu_terminal
         //返回值：  相应的报警信息
         //修改记录：
         //==================================================================
-        public List<string> WarnInfoProcess(Dictionary<string, int> info)
+        public List<string> GetWarnInfo(Dictionary<string, int> info)
         {
             var results = new List<string>();
             var base_zero = 0;
@@ -1342,6 +1345,28 @@ namespace fangpu_terminal
                 }
             }
             return results;
+        }
+        //==================================================================
+        //模块名： WarnInfoProcess
+        //作者：    Yufei Zhang
+        //日期：    2016.05.03
+        //功能：    报警信息处理
+        //输入参数： 读数据实例
+        //返回值：  
+        //修改记录：
+        //==================================================================
+        public void WarnInfoProcess(PlcDAQCommunicationObject plc_data)
+        {            
+            if (warnflag && (plc_data.aream_data["MB5"] & 0x08) == 0x08)
+            {
+                PLCWarningObject plcwarn = new PLCWarningObject();
+                plcwarn.warn_time = plc_data.daq_time;                
+                var results=GetWarnInfo(plc_data.aream_data);
+                plcwarn.warndata = results;
+                TerminalQueues.warninfoqueue.Enqueue(plcwarn);
+                TerminalQueues.warninfoqueue_local.Enqueue(plcwarn);
+            }
+            warnflag = (plc_data.aream_data["MB5"] & 0x08) != 0x08;
         }
 
         //==================================================================
@@ -1457,19 +1482,22 @@ namespace fangpu_terminal
         //返回值：  
         //修改记录：
         //==================================================================
-        public void WarnInfoLocalStorage(string warninfo, DateTime warntime)
+        public void WarnInfoLocalStorage(List<string> warninfos, DateTime warntime)
         {
             var strSql = new StringBuilder();
             strSql.Append("insert into warninfo (");
             strSql.Append("warninfo,warntime)");
             strSql.Append(" values(");
             strSql.Append("@warninfo,@warntime)");
-            SQLiteParameter[] parameters =
+            foreach (string warninfo in warninfos)
             {
-                TerminalLocalDataStorage.MakeSQLiteParameter("@warninfo", DbType.String, 200, warninfo),
-                TerminalLocalDataStorage.MakeSQLiteParameter("@warntime", DbType.DateTime, 30, warntime)
-            };
-            TerminalLocalDataStorage.ExecuteSql(strSql.ToString(), parameters);
+                SQLiteParameter[] parameters =
+                    {
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@warninfo", DbType.String, 200, warninfo),
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@warntime", DbType.DateTime, 30, warntime)
+                    };
+                TerminalLocalDataStorage.ExecuteSql(strSql.ToString(), parameters);
+            }
         }
 
         #region 读取PLC状态
@@ -2007,10 +2035,10 @@ namespace fangpu_terminal
 
         private void button_pg3_shuayoushijianadd_Click(object sender, EventArgs e)
         {
-            if (vw2010 < Convert.ToInt32(shuayou_upper)*10)
+            if (vw68 < Convert.ToInt32(shuayou_upper)*10)
             {
-                vw2010 += 10;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2010, 2010);
+                vw68 += 10;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw68, 68);
                 shuayou_consume_fudong = true;
             }
         }
@@ -2026,10 +2054,10 @@ namespace fangpu_terminal
         //==================================================================
         private void button_pg3_shuayoushijianminus_Click(object sender, EventArgs e)
         {
-            if (vw2010 > -Convert.ToInt32(shuayou_lower)*10)
+            if (vw68 > -Convert.ToInt32(shuayou_lower)*10)
             {
-                vw2010 -= 10;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2010, 2010);
+                vw68 -= 10;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw68, 2010);
                 shuayou_consume_fudong = true;
             }
         }
@@ -2045,10 +2073,10 @@ namespace fangpu_terminal
         //==================================================================
         private void button_pg3_kaoliaoshijianadd_Click(object sender, EventArgs e)
         {
-            if (vw2016 < Convert.ToInt32(kaoliao_consume_upper)*10)
+            if (vw74 < Convert.ToInt32(kaoliao_consume_upper)*10)
             {
-                vw2016 += 10;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2016, 2016);
+                vw74 += 10;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw74, 74);
                 kaoliao_consume_fudong = true;
             }
         }
@@ -2064,10 +2092,10 @@ namespace fangpu_terminal
         //==================================================================
         private void button_pg3_kaoliaoshijianminus_Click(object sender, EventArgs e)
         {
-            if (vw2016 > -Convert.ToInt32(kaoliao_consume_lower)*10)
+            if (vw74 > -Convert.ToInt32(kaoliao_consume_lower)*10)
             {
-                vw2016 -= 10;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2016, 2016);
+                vw74 -= 10;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw74, 74);
                 kaoliao_consume_fudong = true;
             }
         }
@@ -2108,10 +2136,10 @@ namespace fangpu_terminal
         //==================================================================
         private void button_pg3_kaomushijianadd_Click(object sender, EventArgs e)
         {
-            if (vw2014 < Convert.ToInt32(kaomo_consume_upper)*10)
+            if (vw72 < Convert.ToInt32(kaomo_consume_upper)*10)
             {
-                vw2014 += 10;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2014, 2014);
+                vw72 += 10;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw72, 72);
                 kaomo_consume_fudong = true;
             }
         }
@@ -2127,10 +2155,10 @@ namespace fangpu_terminal
         //==================================================================
         private void button_pg3_kaomushijianminus_Click(object sender, EventArgs e)
         {
-            if (vw2014 > -Convert.ToInt32(kaomo_consume_lower)*10)
+            if (vw72 > -Convert.ToInt32(kaomo_consume_lower)*10)
             {
-                vw2014 -= 10;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2014, 2014);
+                vw72 -= 10;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw72, 2014);
                 kaomo_consume_fudong = true;
             }
         }
@@ -2146,10 +2174,10 @@ namespace fangpu_terminal
         //==================================================================
         private void button_pg3_lengqueshijianadd_Click(object sender, EventArgs e)
         {
-            if (vw2012 < Convert.ToInt32(lengque_consume_upper)*10)
+            if (vw70 < Convert.ToInt32(lengque_consume_upper)*10)
             {
-                vw2012 += 10;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2012, 2012);
+                vw70 += 10;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw70, 70);
                 lengque_consume_fudong = true;
             }
         }
@@ -2165,10 +2193,10 @@ namespace fangpu_terminal
         //==================================================================
         private void button_pg3_lengqueshijianminus_Click(object sender, EventArgs e)
         {
-            if (vw2012 > -Convert.ToInt32(lengque_consume_lower)*10)
+            if (vw70 > -Convert.ToInt32(lengque_consume_lower)*10)
             {
-                vw2012 -= 10;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2012, 2012);
+                vw70 -= 10;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw70, 80);
                 lengque_consume_fudong = true;
             }
         }
@@ -2990,15 +3018,15 @@ namespace fangpu_terminal
                     d.reason = Reasonform.upload_reason;
                     if (Convert.IsDBNull(kaomo_consume_base) == false)
                     {
-                        d.kaomo_consume_base = vw2014/10.0f + (float) Convert.ToDouble(kaomo_consume_base);
+                        d.kaomo_consume_base = vw72/10.0f + (float) Convert.ToDouble(kaomo_consume_base);
                     }
                     if (Convert.IsDBNull(lengque_consume_base) == false)
                     {
-                        d.lengque_consume_base = vw2012/10.0f + (float) Convert.ToDouble(lengque_consume_base);
+                        d.lengque_consume_base = vw70/10.0f + (float) Convert.ToDouble(lengque_consume_base);
                     }
                     if (Convert.IsDBNull(kaoliao_consume_base) == false)
                     {
-                        d.kaoliao_consume_base = vw2016/10.0f + (float) Convert.ToDouble(kaoliao_consume_base);
+                        d.kaoliao_consume_base = vw74/10.0f + (float) Convert.ToDouble(kaoliao_consume_base);
                     }
                     if (Convert.IsDBNull(jinliao_consume_base) == false)
                     {
@@ -3006,7 +3034,7 @@ namespace fangpu_terminal
                     }
                     if (Convert.IsDBNull(shuayou_base) == false)
                     {
-                        d.shuayou_base = vw2010/10.0f + (float) Convert.ToDouble(shuayou_base);
+                        d.shuayou_base = vw68/10.0f + (float) Convert.ToDouble(shuayou_base);
                     }
                     d.storetime = DateTime.Now;
                     mysql.proceduretechnologybase_work.Add(d);
@@ -3388,22 +3416,22 @@ namespace fangpu_terminal
             try
             {
                 SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord,
-                    Convert.ToInt16(Convert.ToDouble(shuayou_base)*10), 2000);
+                    Convert.ToInt16(Convert.ToDouble(shuayou_base)*10), 60);
                 SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord,
-                    Convert.ToInt16(Convert.ToDouble(kaomo_consume_base)*10), 2004);
+                    Convert.ToInt16(Convert.ToDouble(kaomo_consume_base)*10), 64);
                 SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord,
-                    Convert.ToInt16(Convert.ToDouble(kaoliao_consume_base)*10), 2006);
+                    Convert.ToInt16(Convert.ToDouble(kaoliao_consume_base)*10), 66);
                 SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord,
-                    Convert.ToInt16(Convert.ToDouble(lengque_consume_base)*10), 2002);
+                    Convert.ToInt16(Convert.ToDouble(lengque_consume_base)*10), 62);
                 productlabel.Text = Convert.ToString(typeselect.SelectedItem);
-                vw2010 = 0;
-                vw2012 = 0;
-                vw2014 = 0;
-                vw2016 = 0;
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2010, 2010);
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2012, 2012);
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2014, 2014);
-                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw2016, 2016);
+                vw68 = 0;
+                vw70 = 0;
+                vw72 = 0;
+                vw74 = 0;
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw68, 68);
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw70, 70);
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw72, 72);
+                SendCommandToPlc(TerminalCommon.S7200AreaV, TerminalCommon.S7200DataWord, vw74, 74);
                 shuayou_consume_fudong = true;
                 kaoliao_consume_fudong = true;
                 kaomo_consume_fudong = true;

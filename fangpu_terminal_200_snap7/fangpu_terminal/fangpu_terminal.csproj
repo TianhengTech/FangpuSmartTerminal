@@ -260,7 +260,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ultility\Nhibernate\FangpuHibernateGroup.cs" />
     <Compile Include="Ultility\Nhibernate\FluentNhibernateHelper.cs" />
-    <Compile Include="Ultility\Nhibernate\HibernateInit.cs" />
+    <Compile Include="Ultility\Nhibernate\NhibernateHelper.cs" />
     <Compile Include="Ultility\QuartzSchedule.cs" />
     <Compile Include="realtimedata.cs">
       <DependentUpon>FangpuDatacenter.tt</DependentUpon>

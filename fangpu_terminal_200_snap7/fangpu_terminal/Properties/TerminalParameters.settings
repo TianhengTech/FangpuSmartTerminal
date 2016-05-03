@@ -36,7 +36,7 @@
       <Value Profile="(Default)">D17</Value>
     </Setting>
     <Setting Name="terminal_server_ip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.0.53</Value>
+      <Value Profile="(Default)">192.168.1.25</Value>
     </Setting>
     <Setting Name="PLC_TSAP_Remote" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4096</Value>

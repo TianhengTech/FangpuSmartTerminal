@@ -157,7 +157,7 @@ namespace fangpu_terminal.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.53")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.25")]
         public string terminal_server_ip {
             get {
                 return ((string)(this["terminal_server_ip"]));

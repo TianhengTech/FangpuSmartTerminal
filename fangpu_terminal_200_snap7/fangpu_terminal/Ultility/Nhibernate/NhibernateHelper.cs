@@ -8,11 +8,11 @@ using NHibernate.Mapping;
 
 namespace fangpu_terminal.Ultility.Nhibernate
 {
-    public class NHibernateHelper
+    public class NhibernateHelper
     {
         private ISessionFactory _sessionFactory;
 
-        public NHibernateHelper()
+        public NhibernateHelper()
         {
             //创建ISessionFactory
             _sessionFactory = GetSessionFactory();
@@ -29,7 +29,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
             return (new Configuration()).Configure().BuildSessionFactory();
         }
 
-        public Configuration GetConfiguration()
+        public Configuration GetSessionConfig()
         {
             Configuration cfg = new Configuration().Configure();
             return cfg;
