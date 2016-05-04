@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Net; 
+using System.Net;
+using System.Windows.Forms;
 
 namespace fangpu_terminal
 {
@@ -55,6 +57,73 @@ namespace fangpu_terminal
                 }
             }
             return localIP;
+        }
+        public static bool isgoodnumber(TextBox box, KeyPressEventArgs e)
+        {
+            try
+            {
+                int kc = (int)e.KeyChar;
+                if ((kc < 48 || kc > 57) && kc != 8 && kc != 46)
+                {
+                    return true;
+                }
+                else if (kc == 46)
+                {
+                    if (box.Text.Length <= 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        float f;
+                        float oldf;
+                        bool b1 = false, b2 = false;
+                        b1 = float.TryParse(box.Text, out oldf);
+                        b2 = float.TryParse(box.Text + e.KeyChar.ToString(), out f);
+                        if (b2 == false)
+                        {
+                            if (b1 == true)
+                                return true;
+                            else
+                                return false;
+                        }
+                    }
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+
+        }
+
+        public static void AppRestart(FangpuTerminal terminal)
+        {
+            terminal.AbortAllThread();
+            terminal.restartbutton = true;
+            TerminalLogWriter.WriteInfoLog(typeof(TerminalCommon), "Application is about to restart...");
+            Application.ExitThread();
+            Application.Restart();
+        }
+
+        public static void SystemReboot()
+        {
+            terminal.AbortAllThread();
+            var startinfo = new ProcessStartInfo("shutdown.exe",
+                "-r -t 00");
+            TerminalLogWriter.WriteInfoLog(typeof(TerminalCommon), "System is about to reboot...");
+            Process.Start(startinfo);
+           
+        }
+
+        public static void SystemShutdown()
+        {
+            terminal.AbortAllThread();
+            var startinfo = new ProcessStartInfo("shutdown.exe",
+                " -t 00");
+            TerminalLogWriter.WriteInfoLog(typeof(TerminalCommon), "Terminal is about to shutdown...");
+            Process.Start(startinfo);
         }
 
     }

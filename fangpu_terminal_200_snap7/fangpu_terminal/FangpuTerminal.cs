@@ -19,6 +19,7 @@ using Iocomp.Classes;
 using log4net;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
+using NHibernate.Criterion;
 using Snap7;
 using Timer = System.Threading.Timer;
 
@@ -51,7 +52,6 @@ namespace fangpu_terminal
         private Thread datacenter_storage_thread; //数据库存储对象
         private Thread local_storage_thread; //本地数据缓存
         private Thread plcread_thread; //PLC读线程
-        private Thread proceduretimeread_thread; //读工艺时间线程
         private Thread controlcmdread_thread; //读WEB指令线程
         private Timer timer_read_interval_60s; //60s读一次
         private Timer timer_check_interval_60m;
@@ -204,6 +204,8 @@ namespace fangpu_terminal
             local_storage_thread.Priority = ThreadPriority.BelowNormal;
             local_storage_thread.Start();
             log.Info("PlcDataLocalStorage Thread Start");
+
+            //controlcmdread_thread=new Thread()
 
 
             timer_read_interval_60s = new Timer(new TimerCallback(Timer_60s_handler), null, 0, 60000);
@@ -1472,6 +1474,39 @@ namespace fangpu_terminal
             }
         }
 
+        public void WebCommand()
+        {
+            var session = FluentNhibernateHelper.GetSession();
+            while (true)
+            {
+                var results = session.CreateCriteria<terminalcmd>()
+                    .Add(Restrictions.Eq("device_name", "D17"))
+                    .Add(Restrictions.Eq("status","pending"))
+                    .AddOrder(Order.Desc("idterminalcmd"))
+                    .List<terminalcmd>();
+                foreach (var result in results)
+                {
+                    switch (result.command)
+                    {
+                        case("restart"):
+                        {
+                            break;
+                        }
+                        case ("reboot"):
+                        {
+                            break;
+                        }
+                        case("shutdown"):
+                        {
+                            break;
+                        }
+                        default:
+                        continue;
+                    }
+                }
+                Thread.Sleep(1500);
+            }
+        }
         //==================================================================
         //模块名： WarnInfoLocalStorage
         //作者：    Yang Chuan
@@ -2878,53 +2913,13 @@ namespace fangpu_terminal
         //返回值：  
         //修改记录：
         //==================================================================
-        private bool restartbutton;
+        public bool restartbutton;
 
         private void restart_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("确定要重启吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                try
-                {
-                    if (tcpuplink_dataprocess_thread.IsAlive)
-                    {
-                        tcpuplink_dataprocess_thread.Abort();
-                    }
-
-                    if (tcpdownlink_dataprocess_thread.IsAlive)
-                    {
-                        tcpdownlink_dataprocess_thread.Abort();
-                    }
-
-                    if (plccommunication_thread.IsAlive)
-                    {
-                        plccommunication_thread.Abort();
-                    }
-
-
-                    if (plcdatahandler_thread.IsAlive)
-                    {
-                        plcdatahandler_thread.Abort();
-                    }
-
-                    if (datacenter_storage_thread.IsAlive)
-                    {
-                        datacenter_storage_thread.Abort();
-                    }
-
-                    if (local_storage_thread.IsAlive)
-                    {
-                        local_storage_thread.Abort();
-                    }
-
-                    //if (PPI.SPort.IsOpen == true)
-                    //{
-                    //    PPI.SPort.Close();
-                    //}
-                }
-                catch
-                {
-                }
+                AbortAllThread();
                 restartbutton = true;
                 tcpobject.socket_stop_connect();
                 Application.ExitThread();
@@ -3571,6 +3566,47 @@ namespace fangpu_terminal
             else
             {
                 return;
+            }
+        }
+
+        public  void AbortAllThread()
+        {
+            try
+            {
+                if (tcpuplink_dataprocess_thread.IsAlive)
+                {
+                    tcpuplink_dataprocess_thread.Abort();
+                }
+
+                if (tcpdownlink_dataprocess_thread.IsAlive)
+                {
+                    tcpdownlink_dataprocess_thread.Abort();
+                }
+
+                if (plccommunication_thread.IsAlive)
+                {
+                    plccommunication_thread.Abort();
+                }
+
+
+                if (plcdatahandler_thread.IsAlive)
+                {
+                    plcdatahandler_thread.Abort();
+                }
+
+                if (datacenter_storage_thread.IsAlive)
+                {
+                    datacenter_storage_thread.Abort();
+                }
+
+                if (local_storage_thread.IsAlive)
+                {
+                    local_storage_thread.Abort();
+                }
+            }
+            catch(Exception ex)
+            {
+                log.Error("Abort Thread failure", ex);
             }
         }
 

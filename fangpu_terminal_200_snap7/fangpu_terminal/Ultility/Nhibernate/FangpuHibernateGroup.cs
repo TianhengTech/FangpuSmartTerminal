@@ -56,6 +56,25 @@ namespace fangpu_terminal.Ultility.Nhibernate
         public virtual string password { get; set; }
     }
 
+    public class terminalcmd
+    {
+        public virtual int idterminalcmd { set; get; }
+        public virtual string device_name { set; get; }
+        public virtual string command { set; get; }
+        public virtual DateTime time { set; get; }
+    }
+
+    public class terminalcmdMapping : ClassMap<terminalcmd>
+    {
+        public terminalcmdMapping()
+        {
+            Table("terminalcmd");
+            Id<int>("idterminalcmd").GeneratedBy.Identity();
+            Map(m => m.command).Nullable();
+            Map(m => m.device_name).Nullable();
+            Map(m => m.time).Nullable();
+        }
+    }
 
     public class warn_infoMapping : ClassMap<warn_info_hiber>
     {

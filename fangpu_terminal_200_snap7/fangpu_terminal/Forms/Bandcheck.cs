@@ -81,5 +81,22 @@ namespace fangpu_terminal
         {
             FangpuTerminal.bandcheck_open = false;
         }
+         
+
+         private void zhongliang_KeyPress(object sender, KeyPressEventArgs e)
+         {
+             e.Handled = TerminalCommon.isgoodnumber(zhongliang, e);
+         }
+
+         private void danzhong_KeyPress(object sender, KeyPressEventArgs e)
+         {
+             e.Handled = TerminalCommon.isgoodnumber(danzhong, e);
+         }
+
+         private void feipin_KeyPress(object sender, KeyPressEventArgs e)
+         {
+             e.Handled = TerminalCommon.isgoodnumber(feipin, e);
+         }
+
     }
 }

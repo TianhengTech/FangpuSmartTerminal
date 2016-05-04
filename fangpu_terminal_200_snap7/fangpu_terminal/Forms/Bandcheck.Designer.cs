@@ -150,6 +150,7 @@
             this.zhongliang.Name = "zhongliang";
             this.zhongliang.Size = new System.Drawing.Size(159, 38);
             this.zhongliang.TabIndex = 20;
+            this.zhongliang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.zhongliang_KeyPress);
             // 
             // label6
             // 
@@ -207,6 +208,7 @@
             this.danzhong.Name = "danzhong";
             this.danzhong.Size = new System.Drawing.Size(159, 38);
             this.danzhong.TabIndex = 30;
+            this.danzhong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.danzhong_KeyPress);
             // 
             // label8
             // 
@@ -243,6 +245,7 @@
             this.feipin.Name = "feipin";
             this.feipin.Size = new System.Drawing.Size(159, 38);
             this.feipin.TabIndex = 34;
+            this.feipin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.feipin_KeyPress);
             // 
             // label11
             // 
