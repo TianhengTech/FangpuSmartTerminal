@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.Drawing;
@@ -19,6 +20,7 @@ using Iocomp.Classes;
 using log4net;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
+using NHibernate;
 using NHibernate.Criterion;
 using Snap7;
 using Timer = System.Threading.Timer;
@@ -58,6 +60,7 @@ namespace fangpu_terminal
         private Timer timer_tcp_heart_connection; //tcp心跳连接
         private string mode = "manual";
         private string warntext = "报警信息";
+        private ISessionFactory sessionfactory;
 
 
         //读控制变量
@@ -140,13 +143,20 @@ namespace fangpu_terminal
             schedule = new QuartzSchedule();
             schedule.StartSchedule();
             log.Info("Schedule Start");
-
-
+            try
+            {
+                sessionfactory = FluentNhibernateHelper.GetSessionFactory();
+            }
+            catch(Exception ex)
+            {
+                log.Error("First touch on Database Error!", ex);
+            }
+            log.Info("session factory got!");
             //UpdateLoadGUIConfig("正在尝试连接...", 30);
             S7SNAP = new S7Client();
-            ushort localtsap = (ushort) Properties.TerminalParameters.Default.PLC_TSAP_Remote;
-            ushort remotetsap = (ushort) Properties.TerminalParameters.Default.PLC_TSAP_Local;
-            S7SNAP.SetConnectionParams(Properties.TerminalParameters.Default.plc1_tcp_ip, localtsap, remotetsap);
+            ushort localtsap = (ushort) TerminalParameters.Default.PLC_TSAP_Remote;
+            ushort remotetsap = (ushort) TerminalParameters.Default.PLC_TSAP_Local;
+            S7SNAP.SetConnectionParams(TerminalParameters.Default.plc1_tcp_ip, localtsap, remotetsap);
             int result = S7SNAP.Connect();
             if (result == 0)
             {
@@ -156,7 +166,7 @@ namespace fangpu_terminal
             {
                 log.Warn("First touch failed!");
             }
-
+            
             ////UpdateLoadGUIConfig("启动心跳连接...", 50);
             //thread_updateui_syncContext = SynchronizationContext.Current;
             //tcpobject = new TerminalTcpClientAsync();
@@ -205,7 +215,12 @@ namespace fangpu_terminal
             local_storage_thread.Start();
             log.Info("PlcDataLocalStorage Thread Start");
 
-            //controlcmdread_thread=new Thread()
+            controlcmdread_thread = new Thread(WebCommand);
+            controlcmdread_thread.IsBackground = true;
+            controlcmdread_thread.Priority = ThreadPriority.Lowest;
+            controlcmdread_thread.Start();
+            log.Info("WebCommand Thread");
+
 
 
             timer_read_interval_60s = new Timer(new TimerCallback(Timer_60s_handler), null, 0, 60000);
@@ -355,11 +370,11 @@ namespace fangpu_terminal
 
             if (tabControl_terminal.SelectedTab == tabPage_pg3)
             {
-                displayDouble_pg3_shuayoushijiandisplay.Value = daq_input.aream_data["VW50"]/10.0;
-                displayDouble_pg3_kaomushijiandisplay.Value = daq_input.aream_data["VW52"]/10.0;
-                displayDouble_pg3_kaoliaoshijiandisplay.Value = daq_input.aream_data["VW54"]/10.0;
-                displayDouble_pg3_lengqueshijiandisplay.Value = daq_input.aream_data["VW48"]/10.0;
-                displayDouble_pg3_jinliaoshijiandisplay.Value = daq_input.aream_data["VW56"]/10.0;
+                displayDouble_pg3_shuayoushijiandisplay.Value = daq_input.aream_data["VW50"]/10.0f;
+                displayDouble_pg3_kaomushijiandisplay.Value = daq_input.aream_data["VW52"]/10.0f;
+                displayDouble_pg3_kaoliaoshijiandisplay.Value = daq_input.aream_data["VW54"]/10.0f;
+                displayDouble_pg3_lengqueshijiandisplay.Value = daq_input.aream_data["VW48"]/10.0f;
+                displayDouble_pg3_jinliaoshijiandisplay.Value = daq_input.aream_data["VW56"]/10.0f;
 
                 displayDouble_pg3_shuayoushijianset.Value = daq_input.aream_data["VW0"]/10.0f;
                 displayDouble_pg3_kaomushijianset.Value = daq_input.aream_data["VW2"]/10.0f;
@@ -523,7 +538,6 @@ namespace fangpu_terminal
         //返回值：  无
         //修改记录：
         //==================================================================
-
         public void TcpToServerHeartConnect(object sender)
         {
             var heartinfo = new Dictionary<string, string>();
@@ -607,140 +621,95 @@ namespace fangpu_terminal
             var columns = "deviceid,value,shuayou_consume_seconds,kaomo_consume_seconds," +
                           "kaoliao_consume_seconds,lengque_consume_seconds,jinliao_consume_seconds,kaomo_temp,kaoliao_temp,cycletime,storetime,systus";
             var tablename = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
-            try
+            var cfg = FluentNhibernateHelper.GetSessionConfig();
+            FluentNhibernateHelper.MappingTablenames(cfg, typeof(historydata), tablename);
+            using (var mysql=cfg.BuildSessionFactory().OpenSession())
             {
-                var dbConn =
-                    new MySqlConnection(
-                        "Persist Security Info=False;server=192.168.0.53;database=fangpu_datacenter;uid=root;password=tianheng123");
-                var cmd = dbConn.CreateCommand();
-                cmd.CommandText = "select d.storetime,n.storetime from " + tablename + " d join " + tablename +
-                                  " n on(n.historydataid=d.historydataid+1) where timediff(n.storetime, d.storetime) >5 AND d.storetime BETWEEN DATE_SUB(now(), INTERVAL 1 HOUR ) AND NOW();";
-                dbConn.Open();
-                var reader = cmd.ExecuteReader();
-                var dTable = new DataTable();
-                dTable.Load(reader);
-
-                reader.Close();
-                dbConn.Close();
-                var i = dTable.Rows.Count;
-                int j;
                 try
                 {
-                    var mysql = new FangpuDatacenterModelEntities();
-                    var strSql = "select * from historydata where recordtime>@time1 and recordtime<@time2";
-                    for (j = 0; j < i; j++)
+                    var cmd = mysql.Connection.CreateCommand();
+                    cmd.CommandText = "select d.storetime,n.storetime from " + tablename + " d join " + tablename +
+                                      " n on(n.historydataid=d.historydataid+1) where timediff(n.storetime, d.storetime) >5 AND d.storetime BETWEEN DATE_SUB(now(), INTERVAL 1 HOUR ) AND NOW();";
+                    IDataReader reader = cmd.ExecuteReader();
+                    var dTable = new DataTable();
+                    dTable.Load(reader);
+                    var i = dTable.Rows.Count;
+                    int j;
+                    try
                     {
-                        SQLiteParameter[] parameters =
+                        var strSql = "select * from historydata where recordtime>@time1 and recordtime<@time2";
+                        for (j = 0; j < i; j++)
+                        {
+                            SQLiteParameter[] parameters =
                         {
                             new SQLiteParameter("@time1", dTable.Rows[j][0]),
                             new SQLiteParameter("@time2", dTable.Rows[j][1])
                         };
-                        var ds = new DataSet();
-                        ds = TerminalLocalDataStorage.Query(strSql, parameters);
-                        var synctable = new DataTable();
-                        synctable = ds.Tables[0];
-                        for (var n = 0; n < synctable.Rows.Count; n++)
-                        {
-                            var mytable = new historydata_hiber();
-                            var sqlstr = "insert into " + tablename + " (" + columns +
-                                         ") values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})";
-                            var paras = new object[12];
-                            paras[0] = TerminalParameters.Default.terminal_name;
-                            if (Convert.IsDBNull(synctable.Rows[n][1]) == false)
+                            var ds = new DataSet();
+                            ds = TerminalLocalDataStorage.Query(strSql, parameters);
+                            var synctable = new DataTable();
+                            synctable = ds.Tables[0];
+                            for (var n = 0; n < synctable.Rows.Count; n++)
                             {
-                                paras[1] = Convert.ToString(synctable.Rows[n][1]);
+                                var mytable = new historydata();
+                                mytable.deviceid = TerminalParameters.Default.terminal_name;
+                                if (Convert.IsDBNull(synctable.Rows[n][1]) == false)
+                                {
+                                    mytable.value = Convert.ToString(synctable.Rows[n][1]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][2]) == false)
+                                {
+                                    mytable.shuayou_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][2]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][3]) == false)
+                                {
+                                    mytable.kaomo_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][3]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][4]) == false)
+                                {
+                                    mytable.kaoliao_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][4]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][5]) == false)
+                                {
+                                    mytable.lengque_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][5]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][6]) == false)
+                                {
+                                    mytable.jinliao_consume_seconds = (float)Convert.ToDouble(synctable.Rows[n][6]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][7]) == false)
+                                {
+                                    mytable.kaomo_temp = (float)Convert.ToDouble(synctable.Rows[n][7]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][8]) == false)
+                                {
+                                    mytable.kaoliao_temp = (float)Convert.ToDouble(synctable.Rows[n][8]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][9]) == false)
+                                {
+                                    mytable.cycletime = (float)Convert.ToDouble(synctable.Rows[n][9]);
+                                }
+                                if (Convert.IsDBNull(synctable.Rows[n][10]) == false)
+                                {
+                                    mytable.storetime = Convert.ToDateTime(synctable.Rows[n][10]);
+                                }
+                                mytable.systus= Convert.ToString(synctable.Rows[n][11]);
+                                mysql.Save(mytable);
+                                mysql.Flush();
                             }
-                            else
-                            {
-                                paras[1] = synctable.Rows[n][1];
-                            }
-
-                            if (Convert.IsDBNull(synctable.Rows[n][2]) == false)
-                            {
-                                paras[2] = (float) Convert.ToDouble(synctable.Rows[n][2]);
-                            }
-                            else
-                            {
-                                paras[2] = synctable.Rows[n][2];
-                            }
-                            if (Convert.IsDBNull(synctable.Rows[n][3]) == false)
-                            {
-                                paras[3] = (float) Convert.ToDouble(synctable.Rows[n][3]);
-                            }
-                            else
-                            {
-                                paras[3] = synctable.Rows[n][3];
-                            }
-                            if (Convert.IsDBNull(synctable.Rows[n][4]) == false)
-                            {
-                                paras[4] = (float) Convert.ToDouble(synctable.Rows[n][4]);
-                            }
-                            else
-                            {
-                                paras[4] = synctable.Rows[n][4];
-                            }
-                            if (Convert.IsDBNull(synctable.Rows[n][5]) == false)
-                            {
-                                paras[5] = (float) Convert.ToDouble(synctable.Rows[n][5]);
-                            }
-                            else
-                            {
-                                paras[5] = synctable.Rows[n][5];
-                            }
-                            if (Convert.IsDBNull(synctable.Rows[n][6]) == false)
-                            {
-                                paras[6] = (float) Convert.ToDouble(synctable.Rows[n][6]);
-                            }
-                            else
-                            {
-                                paras[6] = synctable.Rows[n][6];
-                            }
-                            if (Convert.IsDBNull(synctable.Rows[n][7]) == false)
-                            {
-                                paras[7] = (float) Convert.ToDouble(synctable.Rows[n][7]);
-                            }
-                            else
-                            {
-                                paras[7] = synctable.Rows[n][7];
-                            }
-                            if (Convert.IsDBNull(synctable.Rows[n][8]) == false)
-                            {
-                                paras[8] = (float) Convert.ToDouble(synctable.Rows[n][8]);
-                            }
-                            else
-                            {
-                                paras[8] = synctable.Rows[n][8];
-                            }
-                            if (Convert.IsDBNull(synctable.Rows[n][9]) == false)
-                            {
-                                paras[9] = (float) Convert.ToDouble(synctable.Rows[n][9]);
-                            }
-                            else
-                            {
-                                paras[9] = synctable.Rows[n][9];
-                            }
-                            if (Convert.IsDBNull(synctable.Rows[n][10]) == false)
-                            {
-                                paras[10] = Convert.ToDateTime(synctable.Rows[n][10]);
-                            }
-                            else
-                            {
-                                paras[10] = synctable.Rows[n][10];
-                            }
-                            paras[11] = Convert.ToString(synctable.Rows[n][11]);
-                            mysql.Database.ExecuteSqlCommand(sqlstr, paras);
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error("同步出错", ex);
                     }
                 }
                 catch (Exception ex)
                 {
-                    log.Error("同步出错", ex);
+                    log.Error("同步查询阶段出错", ex);
                 }
             }
-            catch (Exception ex)
-            {
-                log.Error("同步查询阶段出错", ex);
-            }
+            
         }
 
         //==================================================================
@@ -943,12 +912,10 @@ namespace fangpu_terminal
                             }
                             continue;
                         }
-                        buffer = null;
                     }
                     TerminalQueues.plcdataprocessqueue.Enqueue(daq_data);
                     sw.Stop();
                     //Trace.WriteLine(sw.ElapsedMilliseconds);
-
                     if (sw.ElapsedMilliseconds >= 1000)
                         continue;
                     Thread.Sleep(1000 - Convert.ToInt32(sw.Elapsed.TotalMilliseconds));
@@ -1161,7 +1128,6 @@ namespace fangpu_terminal
         public void DataCenterStorageThread()
         {
             var cfg = FluentNhibernateHelper.GetSessionConfig();
-            var mysql = new FangpuDatacenterModelEntities();
             while (true)
             {
                 try
@@ -1174,111 +1140,112 @@ namespace fangpu_terminal
                         {
                             continue;
                         }
-                        // var realtimedata = new realtimedata();
-                        var warn_info = new warn_info();
-                        var jsonobj = new FangpuTerminalJsonModel();
-                        var jsonobj_2 = new FangpuTerminalJsonModel_systus();
-                        jsonobj.V4000 = plc_temp_data.aream_data["VB4000"];
-                        jsonobj.V4001 = plc_temp_data.aream_data["VB4001"];
-                        jsonobj.V4002 = plc_temp_data.aream_data["VB4002"];
-                        jsonobj.V4003 = plc_temp_data.aream_data["VB4003"];
-                        jsonobj.V4004 = plc_temp_data.aream_data["VB4004"];
-                        jsonobj.V4005 = plc_temp_data.aream_data["VB4005"];
-                        jsonobj.V4006 = plc_temp_data.aream_data["VB4006"];
-                        jsonobj.V4007 = plc_temp_data.aream_data["VB4007"];
-                        jsonobj.V4008 = plc_temp_data.aream_data["VB4008"];
-                        jsonobj.M53 = (plc_temp_data.aream_data["MB5"] & 0x08) == 0x08;
-                        jsonobj_2.M37 = (plc_temp_data.aream_data["MB3"] & 0x80) == 0x80;
-                        jsonobj_2.M42 = (plc_temp_data.aream_data["MB4"] & 0x04) == 0x04;
-                        jsonobj_2.M52 = (plc_temp_data.aream_data["MB5"] & 0x04) == 0x04;
-                        jsonobj_2.M44 = (plc_temp_data.aream_data["MB4"] & 0x10) == 0x10;
-                        jsonobj_2.M67 = (plc_temp_data.aream_data["MB6"] & 0x80) == 0x80;
-                        jsonobj_2.M00 = (plc_temp_data.aream_data["MB0"] & 0x01) == 0x01;
-                        jsonobj_2.M01 = (plc_temp_data.aream_data["MB0"] & 0x02) == 0x02;
 
                         var tablename = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
-                        FluentNhibernateHelper.MappingTablenames(cfg, typeof(Ultility.Nhibernate.historydata_hiber), tablename);
-                        Ultility.Nhibernate.historydata_hiber historyDb = new Ultility.Nhibernate.historydata_hiber
-                        {
-                            deviceid = TerminalParameters.Default.terminal_name,
-                            value = JsonConvert.SerializeObject(jsonobj),
-                            shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f,
-                            kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f,
-                            kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f,
-                            lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f,
-                            jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f,
-                            kaomo_temp = 0,
-                            kaoliao_temp = 0,
-                            cycletime = (float) zuomotime,
-                            storetime = plc_temp_data.daq_time,
-                            systus = JsonConvert.SerializeObject(jsonobj_2)
-                        };
-                        var historydata_json = new Dictionary<string, object>();
-                        historydata_json.Add("刷油时间", plc_temp_data.aream_data["VW50"]/10.0f);
-                        historydata_json.Add("烤模时间", plc_temp_data.aream_data["VW52"]/10.0f);
-                        historydata_json.Add("烤料时间", plc_temp_data.aream_data["VW54"]/10.0f);
-                        historydata_json.Add("浸料时间", plc_temp_data.aream_data["VW56"]/10.0f);
-                        historydata_json.Add("冷却时间", plc_temp_data.aream_data["VW48"]/10.0f);
-                        historydata_json.Add("一板模时间", (float) zuomotime);
-                        mysql.Database.ExecuteSqlCommand(
-                            "insert into historydata_jsoncopy (deviceid,data_json,storetime,systus) values ({0},{1},{2},{3})",
-                            TerminalParameters.Default.terminal_name,
-                            JsonConvert.SerializeObject(historydata_json), plc_temp_data.daq_time,
-                            JsonConvert.SerializeObject(jsonobj_2));
+                        FluentNhibernateHelper.MappingTablenames(cfg, typeof(historydata), tablename);
                         using (var sf = cfg.BuildSessionFactory().OpenSession())
                         {
-                        var realtimedata = sf.QueryOver<realtimedata_hiber>().Where(p => p.deviceid == "D17").SingleOrDefault();
-                        realtimedata.deviceid = TerminalParameters.Default.terminal_name;
-                        realtimedata.value = JsonConvert.SerializeObject(jsonobj);
-                        realtimedata.storetime = plc_temp_data.daq_time;
-                        realtimedata.shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f;
-                        realtimedata.kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f;
-                        realtimedata.kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f;
-                        realtimedata.jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f;
-                        realtimedata.lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f;
-                        realtimedata.device_on_time = plc_temp_data.aream_data["VW16"] + "小时" +
-                                                      plc_temp_data.aream_data["VW14"] + "分钟";
-                        realtimedata.furnace_on_time = plc_temp_data.aream_data["VW24"] + "小时" +
-                                                       plc_temp_data.aream_data["VW22"] + "分钟";
-                        realtimedata.produce_time = plc_temp_data.aream_data["VW20"] + "小时" +
-                                                    plc_temp_data.aream_data["VW18"] + "分钟";
-                        realtimedata.cycletime = (float) zuomotime;
-                        realtimedata.systus = JsonConvert.SerializeObject(jsonobj_2);
+                            var jsonobj = new FangpuTerminalJsonModel();
+                            var jsonobj_2 = new FangpuTerminalJsonModel_systus();
+                            jsonobj.V4000 = plc_temp_data.aream_data["VB4000"];
+                            jsonobj.V4001 = plc_temp_data.aream_data["VB4001"];
+                            jsonobj.V4002 = plc_temp_data.aream_data["VB4002"];
+                            jsonobj.V4003 = plc_temp_data.aream_data["VB4003"];
+                            jsonobj.V4004 = plc_temp_data.aream_data["VB4004"];
+                            jsonobj.V4005 = plc_temp_data.aream_data["VB4005"];
+                            jsonobj.V4006 = plc_temp_data.aream_data["VB4006"];
+                            jsonobj.V4007 = plc_temp_data.aream_data["VB4007"];
+                            jsonobj.V4008 = plc_temp_data.aream_data["VB4008"];
+                            jsonobj.M53 = (plc_temp_data.aream_data["MB5"] & 0x08) == 0x08;
+                            jsonobj_2.M37 = (plc_temp_data.aream_data["MB3"] & 0x80) == 0x80;
+                            jsonobj_2.M42 = (plc_temp_data.aream_data["MB4"] & 0x04) == 0x04;
+                            jsonobj_2.M52 = (plc_temp_data.aream_data["MB5"] & 0x04) == 0x04;
+                            jsonobj_2.M44 = (plc_temp_data.aream_data["MB4"] & 0x10) == 0x10;
+                            jsonobj_2.M67 = (plc_temp_data.aream_data["MB6"] & 0x80) == 0x80;
+                            jsonobj_2.M00 = (plc_temp_data.aream_data["MB0"] & 0x01) == 0x01;
+                            jsonobj_2.M01 = (plc_temp_data.aream_data["MB0"] & 0x02) == 0x02;
 
+                            historydata historyDb = new historydata
+                            {
+                                deviceid = TerminalParameters.Default.terminal_name,
+                                value = JsonConvert.SerializeObject(jsonobj),
+                                shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f,
+                                kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f,
+                                kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f,
+                                lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f,
+                                jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f,
+                                kaomo_temp = 0,
+                                kaoliao_temp = 0,
+                                cycletime = (float) zuomotime,
+                                storetime = plc_temp_data.daq_time,
+                                systus = JsonConvert.SerializeObject(jsonobj_2)
+                            };
+                            var historydata_json = new Dictionary<string, object>();
+                            historydata_json.Add("刷油时间", plc_temp_data.aream_data["VW50"]/10.0f);
+                            historydata_json.Add("烤模时间", plc_temp_data.aream_data["VW52"]/10.0f);
+                            historydata_json.Add("烤料时间", plc_temp_data.aream_data["VW54"]/10.0f);
+                            historydata_json.Add("浸料时间", plc_temp_data.aream_data["VW56"]/10.0f);
+                            historydata_json.Add("冷却时间", plc_temp_data.aream_data["VW48"]/10.0f);
+                            historydata_json.Add("一板模时间", (float) zuomotime);
+                            historydata_jsoncopy historydatajsonDb = new historydata_jsoncopy();
+                            historydatajsonDb.deviceid = TerminalParameters.Default.terminal_name;
+                            historydatajsonDb.data_json = JsonConvert.SerializeObject(historydata_json);
+                            historydatajsonDb.storetime = plc_temp_data.daq_time;
+                            historydatajsonDb.systus = JsonConvert.SerializeObject(jsonobj_2);
+                            
+
+                        
+                            var realtimedata = sf.QueryOver<realtimedata>().Where(p => p.deviceid == "D17").SingleOrDefault();
+                            realtimedata.deviceid = TerminalParameters.Default.terminal_name;
+                            realtimedata.value = JsonConvert.SerializeObject(jsonobj);
+                            realtimedata.storetime = plc_temp_data.daq_time;
+                            realtimedata.shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f;
+                            realtimedata.kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f;
+                            realtimedata.kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f;
+                            realtimedata.jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f;
+                            realtimedata.lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f;
+                            realtimedata.device_on_time = plc_temp_data.aream_data["VW16"] + "小时" +
+                                                          plc_temp_data.aream_data["VW14"] + "分钟";
+                            realtimedata.furnace_on_time = plc_temp_data.aream_data["VW24"] + "小时" +
+                                                           plc_temp_data.aream_data["VW22"] + "分钟";
+                            realtimedata.produce_time = plc_temp_data.aream_data["VW20"] + "小时" +
+                                                        plc_temp_data.aream_data["VW18"] + "分钟";
+                            realtimedata.cycletime = (float) zuomotime;
+                            realtimedata.systus = JsonConvert.SerializeObject(jsonobj_2);
+                            if (TerminalQueues.warninfoqueue.Count > 0)
+                            {
+                                var plc_warn_data = new PLCWarningObject();
+                                TerminalQueues.warninfoqueue.TryDequeue(out plc_warn_data);
+                                if (plc_warn_data != null)
+                                {
+                                    foreach(string warninfo in plc_warn_data.warndata)
+                                    try
+                                    {
+                                        warn_info warn_info=new warn_info();
+                                        warn_info.device_name = TerminalParameters.Default.terminal_name;
+                                        warn_info.warn_message = warninfo;
+                                        warn_info.storetime = plc_warn_data.warn_time;
+                                        sf.Save(warn_info);
+                                    }
+                                    catch(Exception ex)
+                                    {
+                                        log.Error("报警信息存储出错", ex);
+                                    }
+                                }
+                            }
                             using (var tran = sf.BeginTransaction())
                             {
+                                sf.Save(historydatajsonDb);
                                 sf.Save(historyDb);
                                 sf.SaveOrUpdate(realtimedata);
                                 tran.Commit();
                             }
                         }
-
-                        if (TerminalQueues.warninfoqueue.Count > 0)
-                        {
-                            var plc_warn_data = new PLCWarningObject();
-                            TerminalQueues.warninfoqueue.TryDequeue(out plc_warn_data);
-                            if (plc_warn_data != null)
-                            {
-                                foreach(string warninfo in plc_warn_data.warndata)
-                                try
-                                {
-                                    warn_info.device_name = TerminalParameters.Default.terminal_name;
-                                    warn_info.warn_message = warninfo;
-                                    warn_info.storetime = plc_warn_data.warn_time;
-                                    mysql.warn_info.Add(warn_info);
-                                }
-                                catch(Exception ex)
-                                {
-                                    log.Error("报警信息存储出错", ex);
-                                }
-                            }
-                        }
-                    }
-                    mysql.SaveChanges();
+                    }                  
                 }
                 catch (Exception ex)
                 {
-                    log.Error("数据中心存储线程出错！" + ex);
+                    log.Error("数据中心存储线程出错！" , ex);
                 }
             }
         }
@@ -1418,11 +1385,9 @@ namespace fangpu_terminal
 
                         var strSql = new StringBuilder();
                         strSql.Append("insert into historydata(");
-                        strSql.Append(
-                            "data,systus,recordtime,shuayou_consume_seconds,kaomo_consume_seconds,kaoliao_consume_seconds,jinliao_consume_seconds,lengque_consume_seconds,cycletime)");
-                        strSql.Append(" values(");
-                        strSql.Append(
-                            "@data,@systus,@recordtime,@shuayou_consume_seconds,@kaomo_consume_seconds,@kaoliao_consume_seconds,@jinliao_consume_seconds,@lengque_consume_seconds,@cycletime)");
+                        strSql.Append("data,systus,recordtime,shuayou_consume_seconds,kaomo_consume_seconds,kaoliao_consume_seconds,jinliao_consume_seconds,lengque_consume_seconds,cycletime)");
+                        strSql.Append("values(");
+                        strSql.Append("@data,@systus,@recordtime,@shuayou_consume_seconds,@kaomo_consume_seconds,@kaoliao_consume_seconds,@jinliao_consume_seconds,@lengque_consume_seconds,@cycletime)");
 
                         SQLiteParameter[] parameters =
                         {
@@ -1469,11 +1434,11 @@ namespace fangpu_terminal
                 {
                     log.Error("警告存储出错！" + ex);
                 }
-
-                //Thread.Sleep(10000);
             }
         }
-
+        /// <summary>
+        /// Get web command and execute
+        /// </summary>
         public void WebCommand()
         {
             var session = FluentNhibernateHelper.GetSession();
@@ -1490,14 +1455,17 @@ namespace fangpu_terminal
                     {
                         case("restart"):
                         {
+                            TerminalCommon.AppRestart(this);
                             break;
                         }
                         case ("reboot"):
                         {
+                            TerminalCommon.SystemReboot(this);
                             break;
                         }
                         case("shutdown"):
                         {
+                            TerminalCommon.SystemShutdown(this);
                             break;
                         }
                         default:
@@ -1506,6 +1474,7 @@ namespace fangpu_terminal
                 }
                 Thread.Sleep(1500);
             }
+
         }
         //==================================================================
         //模块名： WarnInfoLocalStorage
@@ -2712,44 +2681,46 @@ namespace fangpu_terminal
         //==================================================================
         private void cloudpara_Click(object sender, EventArgs e)
         {
-            var mysql = new FangpuDatacenterModelEntities();
-            var para = from d in mysql.proceduretechnologybase
-                where d.device_name.Equals(TerminalParameters.Default.terminal_name)
-                select d;
-
-            try
+            using (var mysql = sessionfactory.OpenSession())
             {
-                var strSql2 = "delete from proceduretechnologybase";
-                TerminalLocalDataStorage.ExecuteSql(strSql2);
-                foreach (var d in para)
+                var para = mysql.QueryOver<proceduretechnologybase>()
+                    .Where(x => x.device_name == TerminalParameters.Default.terminal_name)
+                    .List();
+
+                try
                 {
-                    var ret = 1;
-                    var strSql = new StringBuilder();
-                    strSql.Append("insert into proceduretechnologybase(");
-                    strSql.Append(
-                        "product_id,material,shuayou_base,shuayou_upper,shuayou_lower,yurelu_temp_base,yurelu_temp_upper,yurelu_temp_lower,kaomo_consume_base,kaomo_consume_upper,kaomo_consume_lower,");
-                    strSql.Append(
-                        "kaoliaolu_temp_base,kaoliaolu_temp_upper,kaoliaolu_temp_lower,kaoliao_consume_base,kaoliao_consume_upper,kaoliao_consume_lower,");
-                    strSql.Append(
-                        "qigangjinliao_consume_base,qigangjinliao_consume_upper,qigangjinliao_consume_lower,lengque_consume_base,lengque_consume_upper,lengque_consume_lower,");
-                    strSql.Append(
-                        "jinliao_consume_base,jinliao_consume_upper,jinliao_consume_lower,shangsheng_speed_base,shangsheng_speed_upper,shangsheng_speed_lower,");
-                    strSql.Append(
-                        "xiajiang_speed_base,xiajiang_speed_upper,xiajiang_speed_lower,hutao_length_base,hutao_length_upper,hutao_length_lower,yemian_distance_base,yemian_distance_upper,yemian_distance_lower)");
-                    strSql.Append(" values(");
-                    strSql.Append(
-                        "@product_id,@material,@shuayou_base,@shuayou_upper,@shuayou_lower,@yurelu_temp_base,@yurelu_temp_upper,@yurelu_temp_lower,@kaomo_consume_base,@kaomo_consume_upper,@kaomo_consume_lower,");
-                    strSql.Append(
-                        "@kaoliaolu_temp_base,@kaoliaolu_temp_upper,@kaoliaolu_temp_lower,@kaoliao_consume_base,@kaoliao_consume_upper,@kaoliao_consume_lower,");
-                    strSql.Append(
-                        "@qigangjinliao_consume_base,@qigangjinliao_consume_upper,@qigangjinliao_consume_lower,@lengque_consume_base,@lengque_consume_upper,@lengque_consume_lower,");
-                    strSql.Append(
-                        "@jinliao_consume_base,@jinliao_consume_upper,@jinliao_consume_lower,@shangsheng_speed_base,@shangsheng_speed_upper,@shangsheng_speed_lower,");
-                    strSql.Append(
-                        "@xiajiang_speed_base,@xiajiang_speed_upper,@xiajiang_speed_lower,@hutao_length_base,@hutao_length_upper,@hutao_length_lower,@yemian_distance_base,@yemian_distance_upper,@yemian_distance_lower)");
+                    var strSql2 = "delete from proceduretechnologybase";
+                    TerminalLocalDataStorage.ExecuteSql(strSql2);
+                    foreach (var d in para)
+                    {
+
+                        var ret = 1;
+                        var strSql = new StringBuilder();
+                        strSql.Append("insert into proceduretechnologybase(");
+                        strSql.Append(
+                            "product_id,material,shuayou_base,shuayou_upper,shuayou_lower,yurelu_temp_base,yurelu_temp_upper,yurelu_temp_lower,kaomo_consume_base,kaomo_consume_upper,kaomo_consume_lower,");
+                        strSql.Append(
+                            "kaoliaolu_temp_base,kaoliaolu_temp_upper,kaoliaolu_temp_lower,kaoliao_consume_base,kaoliao_consume_upper,kaoliao_consume_lower,");
+                        strSql.Append(
+                            "qigangjinliao_consume_base,qigangjinliao_consume_upper,qigangjinliao_consume_lower,lengque_consume_base,lengque_consume_upper,lengque_consume_lower,");
+                        strSql.Append(
+                            "jinliao_consume_base,jinliao_consume_upper,jinliao_consume_lower,shangsheng_speed_base,shangsheng_speed_upper,shangsheng_speed_lower,");
+                        strSql.Append(
+                            "xiajiang_speed_base,xiajiang_speed_upper,xiajiang_speed_lower,hutao_length_base,hutao_length_upper,hutao_length_lower,yemian_distance_base,yemian_distance_upper,yemian_distance_lower)");
+                        strSql.Append(" values(");
+                        strSql.Append(
+                            "@product_id,@material,@shuayou_base,@shuayou_upper,@shuayou_lower,@yurelu_temp_base,@yurelu_temp_upper,@yurelu_temp_lower,@kaomo_consume_base,@kaomo_consume_upper,@kaomo_consume_lower,");
+                        strSql.Append(
+                            "@kaoliaolu_temp_base,@kaoliaolu_temp_upper,@kaoliaolu_temp_lower,@kaoliao_consume_base,@kaoliao_consume_upper,@kaoliao_consume_lower,");
+                        strSql.Append(
+                            "@qigangjinliao_consume_base,@qigangjinliao_consume_upper,@qigangjinliao_consume_lower,@lengque_consume_base,@lengque_consume_upper,@lengque_consume_lower,");
+                        strSql.Append(
+                            "@jinliao_consume_base,@jinliao_consume_upper,@jinliao_consume_lower,@shangsheng_speed_base,@shangsheng_speed_upper,@shangsheng_speed_lower,");
+                        strSql.Append(
+                            "@xiajiang_speed_base,@xiajiang_speed_upper,@xiajiang_speed_lower,@hutao_length_base,@hutao_length_upper,@hutao_length_lower,@yemian_distance_base,@yemian_distance_upper,@yemian_distance_lower)");
 
 
-                    SQLiteParameter[] parameters =
+                        SQLiteParameter[] parameters =
                     {
                         new SQLiteParameter("@product_id", d.product_id),
                         new SQLiteParameter("@material", d.material),
@@ -2790,27 +2761,29 @@ namespace fangpu_terminal
                         new SQLiteParameter("@yemian_distance_upper", d.yemian_distance_upper),
                         new SQLiteParameter("@yemian_distance_lower", d.yemian_distance_lower)
                     };
-                    if (TerminalLocalDataStorage.ExecuteSql(strSql.ToString(), parameters) >= 1)
-                    {
-                        ret = 1;
+                        if (TerminalLocalDataStorage.ExecuteSql(strSql.ToString(), parameters) >= 1)
+                        {
+                            ret = 1;
+                        }
                     }
+                    MessageBox.Show("从中央数据库下载成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show("从中央数据库下载成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("数据库连接出错!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                log.Error("下载功能出错", ex);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("数据库连接出错!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    log.Error("下载功能出错", ex);
+                }
 
-            try
-            {
-                SelectUpdate();
+                try
+                {
+                    SelectUpdate();
+                }
+                catch
+                {
+                    MessageBox.Show("本地列表刷新失败", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            catch
-            {
-                MessageBox.Show("本地列表刷新失败", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
 
         //==================================================================
@@ -2946,45 +2919,47 @@ namespace fangpu_terminal
             try
             {
                 reason_frm = new Reasonform();
-
                 //MessageBox.Show("上传设置参数？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK
                 if (reason_frm.ShowDialog() == DialogResult.OK)
                 {
-                    var mysql = new FangpuDatacenterModelEntities();
-                    var d = new proceduretechnologybase_work();
-                    d.device_name = TerminalParameters.Default.terminal_name;
-                    d.product_id = Convert.ToString(product_id);
-                    d.material = Convert.ToString(material);
-                    d.reason = Reasonform.upload_reason;
-                    if (Convert.IsDBNull(kaomo_consume_base) == false)
+                    using (var mysql = sessionfactory.OpenSession())
                     {
-                        d.kaomo_consume_base = vw72/10.0f + (float) Convert.ToDouble(kaomo_consume_base);
-                    }
-                    if (Convert.IsDBNull(lengque_consume_base) == false)
-                    {
-                        d.lengque_consume_base = vw70/10.0f + (float) Convert.ToDouble(lengque_consume_base);
-                    }
-                    if (Convert.IsDBNull(kaoliao_consume_base) == false)
-                    {
-                        d.kaoliao_consume_base = vw74/10.0f + (float) Convert.ToDouble(kaoliao_consume_base);
-                    }
-                    if (Convert.IsDBNull(jinliao_consume_base) == false)
-                    {
-                        d.jinliao_consume_base = (float) Convert.ToDouble(jinliao_consume_base);
-                    }
-                    if (Convert.IsDBNull(shuayou_base) == false)
-                    {
-                        d.shuayou_base = vw68/10.0f + (float) Convert.ToDouble(shuayou_base);
-                    }
-                    d.storetime = DateTime.Now;
-                    mysql.proceduretechnologybase_work.Add(d);
-                    mysql.SaveChanges();
-                    MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        var d = new proceduretechnologybase_work();
+                        d.device_name = TerminalParameters.Default.terminal_name;
+                        d.product_id = Convert.ToString(product_id);
+                        d.material = Convert.ToString(material);
+                        d.reason = Reasonform.upload_reason;
+                        if (Convert.IsDBNull(kaomo_consume_base) == false)
+                        {
+                            d.kaomo_consume_base = vw72 / 10.0f + (float)Convert.ToDouble(kaomo_consume_base);
+                        }
+                        if (Convert.IsDBNull(lengque_consume_base) == false)
+                        {
+                            d.lengque_consume_base = vw70 / 10.0f + (float)Convert.ToDouble(lengque_consume_base);
+                        }
+                        if (Convert.IsDBNull(kaoliao_consume_base) == false)
+                        {
+                            d.kaoliao_consume_base = vw74 / 10.0f + (float)Convert.ToDouble(kaoliao_consume_base);
+                        }
+                        if (Convert.IsDBNull(jinliao_consume_base) == false)
+                        {
+                            d.jinliao_consume_base = (float)Convert.ToDouble(jinliao_consume_base);
+                        }
+                        if (Convert.IsDBNull(shuayou_base) == false)
+                        {
+                            d.shuayou_base = vw68 / 10.0f + (float)Convert.ToDouble(shuayou_base);
+                        }
+                        d.storetime = DateTime.Now;
+                        mysql.Save(d);
+                        MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        log.Info("上传工艺参数成功");
+                    }                   
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("上传失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                log.Error("上传工艺参数失败", ex);
             }
         }
 

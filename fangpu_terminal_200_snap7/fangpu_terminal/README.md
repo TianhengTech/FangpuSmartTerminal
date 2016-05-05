@@ -1,4 +1,6 @@
-2016/5/4 Common增加数字类型限定功能,增加接收重启/关机指令线程,FluentNhibernate配置文件输出到Mappings目录下
+2016/5/5 LogWriter增加Exception信息录入，删除所有EF，统一使用Nhibernate和SQL.
+
+2016/5/4 TerminalCommon.cs增加数字类型限定功能,增加接收重启/关机指令线程,FluentNhibernate配置文件输出到Mappings目录下
 
 2016/5/3 将报警信息检测移动到数据处理线程,增加每一轮浸料时间、脱模时间、刷油时间统计;程序结束时关闭Quartz.
 

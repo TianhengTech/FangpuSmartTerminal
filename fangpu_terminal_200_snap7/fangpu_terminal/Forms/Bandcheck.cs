@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using fangpu_terminal.Ultility.Nhibernate;
 
 namespace fangpu_terminal
 {
@@ -36,7 +37,7 @@ namespace fangpu_terminal
             try
             {
                 FangpuTerminal.HideInputPanel();
-                var mysql = new FangpuDatacenterModelEntities();
+                var mysql = FluentNhibernateHelper.GetSession();
                 var workerlist = new bandchecklist();
                 workerlist.deviceid = Properties.TerminalParameters.Default.terminal_name;
                 workerlist.sn=biaodanbianhao.Text;
@@ -59,8 +60,8 @@ namespace fangpu_terminal
                     workerlist.total = null;
                 else
                 workerlist.total = Convert.ToDouble(zhongliang.Text);
-                mysql.bandchecklist.Add(workerlist);
-                mysql.SaveChanges();
+                mysql.Save(workerlist);
+                mysql.Flush();
                 MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                
                 this.Close();

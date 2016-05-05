@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
+using fangpu_terminal.Ultility.Nhibernate;
 
 
 
@@ -104,15 +105,18 @@ namespace fangpu_terminal
             {               
                 try
                 {  
-                    var mysql = new FangpuDatacenterModelEntities();
+                    
                     var haltinfo = new haltinfo();
                     haltinfo.device_name = Properties.TerminalParameters.Default.terminal_name;
                     haltinfo.time_start = start;
                     haltinfo.time_end = end;
                     haltinfo.halt_reason = reason;
                     haltinfo.storetime = DateTime.Now;
-                    mysql.haltinfo.Add(haltinfo);
-                    mysql.SaveChanges();
+                    using (var mysql = FluentNhibernateHelper.GetSession())
+                    {
+                        mysql.Save(haltinfo);
+                        mysql.Flush();
+                    }
                     FangpuTerminal.HaltUI S1 = new FangpuTerminal.HaltUI(updateui);
                     FangpuTerminal.BeginInvoke(S1);                    
                     try
@@ -121,7 +125,7 @@ namespace fangpu_terminal
                     }
                     catch(Exception ex)
                     {
-                     
+                        TerminalLogWriter.WriteErroLog(typeof(stoptable), "上传失败");
                     }
                     break;
                 }

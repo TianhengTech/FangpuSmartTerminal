@@ -39,7 +39,6 @@ namespace fangpu_terminal
         public static string S7200DataWord = "word";
         public static string S7200DataDword = "dword";
 
-        public static Dictionary<string, string> realtime_gui = new Dictionary<string, string>();
         public static Dictionary<string, string> warn_info = new Dictionary<string, string>();
 
         //获取内网IP
@@ -97,7 +96,10 @@ namespace fangpu_terminal
             }
 
         }
-
+        /// <summary>
+        /// Restart the app
+        /// </summary>
+        /// <param name="terminal"></param>
         public static void AppRestart(FangpuTerminal terminal)
         {
             terminal.AbortAllThread();
@@ -106,8 +108,11 @@ namespace fangpu_terminal
             Application.ExitThread();
             Application.Restart();
         }
-
-        public static void SystemReboot()
+        /// <summary>
+        /// Reboot the system
+        /// </summary>
+        /// <param name="terminal"></param>
+        public static void SystemReboot(FangpuTerminal terminal)
         {
             terminal.AbortAllThread();
             var startinfo = new ProcessStartInfo("shutdown.exe",
@@ -116,8 +121,11 @@ namespace fangpu_terminal
             Process.Start(startinfo);
            
         }
-
-        public static void SystemShutdown()
+        /// <summary>
+        /// Shutdown the terminal
+        /// </summary>
+        /// <param name="terminal"></param>
+        public static void SystemShutdown(FangpuTerminal terminal)
         {
             terminal.AbortAllThread();
             var startinfo = new ProcessStartInfo("shutdown.exe",

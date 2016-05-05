@@ -38,7 +38,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
 
                 .Mappings(
                     m => m.FluentMappings
-                        .AddFromAssembly(System.Reflection.Assembly.Load("fangpu_terminal")).ExportTo("Mappings\\"));
+                        .AddFromAssembly(System.Reflection.Assembly.Load("fangpu_terminal")));
         }
         /// <summary>
         /// 创建ISessionFactory

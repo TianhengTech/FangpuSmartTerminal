@@ -14,22 +14,22 @@ namespace fangpu_terminal
         /// <param name="t">类</param>
         /// <param name="msg">消息</param>
 
-        public static void WriteErroLog(Type t, string msg)
+        public static void WriteErroLog(Type t, string msg,Exception ex=null)
         {
             log4net.ILog log = log4net.LogManager.GetLogger(t);
-            log.Error(msg);
+            log.Error(msg,ex);
         }
 
-        public static void WriteWarnLog(Type t, string msg)
+        public static void WriteWarnLog(Type t, string msg, Exception ex=null)
         {
             log4net.ILog log = log4net.LogManager.GetLogger(t);
-            log.Warn(msg);
+            log.Warn(msg, ex);
         }
 
-        public static void WriteInfoLog(Type t, string msg)
+        public static void WriteInfoLog(Type t, string msg,Exception ex=null)
         {
             log4net.ILog log = log4net.LogManager.GetLogger(t);
-            log.Info(msg);
+            log.Info(msg, ex);
         }
     }
 }
