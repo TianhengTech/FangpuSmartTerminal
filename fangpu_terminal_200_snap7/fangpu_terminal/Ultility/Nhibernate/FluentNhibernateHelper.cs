@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Mapping;
+using NHibernate.Tool.hbm2ddl;
 
 namespace fangpu_terminal.Ultility.Nhibernate
 {
@@ -39,6 +42,18 @@ namespace fangpu_terminal.Ultility.Nhibernate
                 .Mappings(
                     m => m.FluentMappings
                         .AddFromAssembly(System.Reflection.Assembly.Load("fangpu_terminal")));
+        }
+        public static FluentConfiguration GetLiteSessionConfig()
+        {
+            return FluentNHibernate.Cfg.Fluently.Configure()
+                //数据库配置
+                .Database(FluentNHibernate.Cfg.Db.SQLiteConfiguration.Standard
+                .UsingFile("data\\datalocal.db")
+                )
+                //映射程序集
+                .Mappings(
+                    m => m.FluentMappings.AddFromAssembly(System.Reflection.Assembly.Load("fangpu_terminal")))
+                    ;
         }
         /// <summary>
         /// 创建ISessionFactory

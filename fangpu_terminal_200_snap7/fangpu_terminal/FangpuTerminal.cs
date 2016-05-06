@@ -16,13 +16,17 @@ using System.Windows.Forms;
 using fangpu_terminal.Properties;
 using fangpu_terminal.Ultility;
 using fangpu_terminal.Ultility.Nhibernate;
+using fangpu_terminal.Ultility.Nhibernate.LiteGroup;
 using Iocomp.Classes;
 using log4net;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using NHibernate;
 using NHibernate.Criterion;
+using NHibernate.Linq;
 using Snap7;
+using historydata = fangpu_terminal.Ultility.Nhibernate.historydata;
+using proceduretechnologybase = fangpu_terminal.Ultility.Nhibernate.proceduretechnologybase;
 using Timer = System.Threading.Timer;
 
 //using DevExpress.XtraSplashScreen;
@@ -141,13 +145,13 @@ namespace fangpu_terminal
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
             InitGlobalParameter();
             schedule = new QuartzSchedule();
-            schedule.StartSchedule();
+           // schedule.StartSchedule();
             log.Info("Schedule Start");
             try
             {
-                sessionfactory = FluentNhibernateHelper.GetSessionFactory();
+                var cfg = FluentNhibernateHelper.GetSessionConfig();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 log.Error("First touch on Database Error!", ex);
             }
@@ -2681,7 +2685,7 @@ namespace fangpu_terminal
         //==================================================================
         private void cloudpara_Click(object sender, EventArgs e)
         {
-            using (var mysql = sessionfactory.OpenSession())
+            using (var mysql = FluentNhibernateHelper.GetSession())
             {
                 var para = mysql.QueryOver<proceduretechnologybase>()
                     .Where(x => x.device_name == TerminalParameters.Default.terminal_name)
@@ -2922,7 +2926,7 @@ namespace fangpu_terminal
                 //MessageBox.Show("上传设置参数？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK
                 if (reason_frm.ShowDialog() == DialogResult.OK)
                 {
-                    using (var mysql = sessionfactory.OpenSession())
+                    using (var mysql = FluentNhibernateHelper.GetSession())
                     {
                         var d = new proceduretechnologybase_work();
                         d.device_name = TerminalParameters.Default.terminal_name;

@@ -213,9 +213,15 @@
     <Compile Include="PlcCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ultility\Nhibernate\FangpuNHibernateGroup.cs" />
+    <Compile Include="Ultility\Nhibernate\FangpuNhibernateGroup.cs" />
     <Compile Include="Ultility\Nhibernate\FangpuNhibernateMapping.cs" />
     <Compile Include="Ultility\Nhibernate\FluentNhibernateHelper.cs" />
+    <Compile Include="Ultility\Nhibernate\LiteGroup\FangpuNhibernateLiteGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ultility\Nhibernate\LiteGroup\FangpuNhibernateLiteMapping.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Ultility\Nhibernate\NhibernateHelper.cs" />
     <Compile Include="Ultility\QuartzSchedule.cs" />
     <Compile Include="Forms\Reasonform.cs">
