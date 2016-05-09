@@ -263,8 +263,9 @@ namespace fangpu_terminal
             {
                 SelectUpdate();
             }
-            catch
+            catch(Exception ex)
             {
+                log.Error("本地参数显示刷新错误", ex);
             }
             WarnInfoRead(); //读取错误记录
             fangpu_config.ReadAddrIniFile("./fangpu_config.ini"); //读取地址信息
@@ -622,8 +623,8 @@ namespace fangpu_terminal
         //==================================================================
         public static void DataAutoSync()
         {
-            var columns = "deviceid,value,shuayou_consume_seconds,kaomo_consume_seconds," +
-                          "kaoliao_consume_seconds,lengque_consume_seconds,jinliao_consume_seconds,kaomo_temp,kaoliao_temp,cycletime,storetime,systus";
+            //var columns = "deviceid,value,shuayou_consume_seconds,kaomo_consume_seconds," +
+            //              "kaoliao_consume_seconds,lengque_consume_seconds,jinliao_consume_seconds,kaomo_temp,kaoliao_temp,cycletime,storetime,systus";
             var tablename = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
             var cfg = FluentNhibernateHelper.GetSessionConfig();
             FluentNhibernateHelper.MappingTablenames(cfg, typeof(historydata), tablename);
