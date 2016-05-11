@@ -58,15 +58,16 @@ namespace fangpu_terminal.Ultility
             sche.ScheduleJob(job1, trigger1);
             sche.ScheduleJob(job2, trigger2);
             sche.Start();
+            
         }
 
         public void Dispose()
         {
             if (sche!=null&&!sche.IsShutdown)
             {
+                sche.Shutdown();  
                 sche.Clear();
-                sche.Shutdown();
-                
+                             
             }
         }
     }

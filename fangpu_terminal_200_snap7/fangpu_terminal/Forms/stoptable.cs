@@ -117,8 +117,8 @@ namespace fangpu_terminal
                         mysql.Save(haltinfo);
                         mysql.Flush();
                     }
-                    FangpuTerminal.HaltUI S1 = new FangpuTerminal.HaltUI(updateui);
-                    FangpuTerminal.BeginInvoke(S1);                    
+                    FangpuTerminal.HaltUI updateUI = new FangpuTerminal.HaltUI(updateui);
+                    FangpuTerminal.BeginInvoke(updateUI);                    
                     try
                     {
                         TextCommand.DeleteFile("haltinfo.txt");

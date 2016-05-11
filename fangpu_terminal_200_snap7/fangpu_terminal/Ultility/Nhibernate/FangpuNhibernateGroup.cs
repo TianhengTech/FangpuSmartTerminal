@@ -61,6 +61,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
         public virtual int idterminalcmd { set; get; }
         public virtual string device_name { set; get; }
         public virtual string command { set; get; }
+        public virtual string status { set; get; }
         public virtual DateTime time { set; get; }
     }
     public class bandchecklist

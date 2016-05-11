@@ -105,7 +105,7 @@ namespace fangpu_terminal
             terminal.AbortAllThread();
             terminal.restartbutton = true;
             TerminalLogWriter.WriteInfoLog(typeof(TerminalCommon), "Application is about to restart...");
-            Application.ExitThread();
+          //  Application.ExitThread();
             Application.Restart();
         }
         /// <summary>
@@ -129,7 +129,7 @@ namespace fangpu_terminal
         {
             terminal.AbortAllThread();
             var startinfo = new ProcessStartInfo("shutdown.exe",
-                " -t 00");
+                "-s -t 00");
             TerminalLogWriter.WriteInfoLog(typeof(TerminalCommon), "Terminal is about to shutdown...");
             Process.Start(startinfo);
         }

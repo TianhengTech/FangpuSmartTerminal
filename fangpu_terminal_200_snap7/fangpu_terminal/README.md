@@ -1,3 +1,7 @@
+2016/5/10 数据库指令控制模块测试通过
+
+2016/5/9 增加一些错误记录日志文件
+
 2016/5/6 SQLITE Nhibernate模块
 
 2016/5/5 LogWriter增加Exception信息录入，删除所有EF，统一使用Nhibernate和SQL.

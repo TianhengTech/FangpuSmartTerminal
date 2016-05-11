@@ -49,6 +49,9 @@ namespace fangpu_terminal
 
         public delegate void UpdateText(PlcDAQCommunicationObject daq_input);
 
+        public delegate void WebCommandUI(string cmd);
+
+        public delegate void WebCommandProc();
         public delegate void HaltUI();
 
         private Thread tcpuplink_dataprocess_thread; //tcp数据上行线程队列
@@ -223,7 +226,7 @@ namespace fangpu_terminal
             controlcmdread_thread.IsBackground = true;
             controlcmdread_thread.Priority = ThreadPriority.Lowest;
             controlcmdread_thread.Start();
-            log.Info("WebCommand Thread");
+            //log.Info("WebCommand Thread Start");
 
 
 
@@ -890,9 +893,13 @@ namespace fangpu_terminal
                             size = 1;
                         }
                         if (item.Key.Contains("W"))
+                        {
                             Wordlen = 2;
+                        }                            
                         else if (item.Key.Contains("B") || item.Key.Contains("I"))
+                        {
                             Wordlen = 1;
+                        }                     
                         if (item.Key.Substring(0, 1).Equals("M"))
                         {
                             if (S7SNAP.MBRead(start, size, buffer) == 0)
@@ -1456,20 +1463,40 @@ namespace fangpu_terminal
                     .List<terminalcmd>();
                 foreach (var result in results)
                 {
+                    WebCommandUI updateweb = new WebCommandUI(WebCommandUpdate);
+
                     switch (result.command)
                     {
                         case("restart"):
                         {
+                            result.status = "processed";
+                            result.time = DateTime.Now;
+                            session.SaveOrUpdate(result);
+                            session.Flush();
+                            this.BeginInvoke(updateweb, "restart");
+                            Thread.Sleep(5000);
                             TerminalCommon.AppRestart(this);
                             break;
                         }
                         case ("reboot"):
                         {
+                            result.status = "processed";
+                            result.time = DateTime.Now;
+                            session.SaveOrUpdate(result);
+                            session.Flush();
+                            this.BeginInvoke(updateweb, "reboot");
+                            Thread.Sleep(5000);
                             TerminalCommon.SystemReboot(this);
                             break;
                         }
                         case("shutdown"):
                         {
+                            result.status = "processed";
+                            result.time = DateTime.Now;
+                            session.SaveOrUpdate(result);
+                            session.Flush();
+                            this.Invoke(updateweb, "shutdown");
+                            Thread.Sleep(5000);
                             TerminalCommon.SystemShutdown(this);
                             break;
                         }
@@ -1478,6 +1505,25 @@ namespace fangpu_terminal
                     }
                 }
                 Thread.Sleep(1500);
+            }
+
+        }
+
+        public void WebCommandUpdate(string cmd)
+        {
+            switch (cmd)
+            {
+                case("restart"):
+                    MessageBox.Show(this,"接收到堡垒机下达的程序重启指令\n程序即将重启...","通知",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    break;
+                case("reboot"):
+                    MessageBox.Show(this, "接收到堡垒机下达的重启指令\n终端即将重启...", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case("shutdown"):
+                    MessageBox.Show(this, "接收到堡垒机下达的关机指令\n终端即将关闭...", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                default:
+                    return;
             }
 
         }
@@ -2899,7 +2945,7 @@ namespace fangpu_terminal
             {
                 AbortAllThread();
                 restartbutton = true;
-                tcpobject.socket_stop_connect();
+                //tcpobject.socket_stop_connect();
                 Application.ExitThread();
                 Application.Restart();
                 //System.Diagnostics.ProcessStartInfo startinfo = new System.Diagnostics.ProcessStartInfo("shutdown.exe", "-r -t 00");
