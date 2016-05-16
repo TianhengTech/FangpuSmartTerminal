@@ -65,9 +65,9 @@ namespace fangpu_terminal.Ultility
         {
             if (sche!=null&&!sche.IsShutdown)
             {
-                sche.Shutdown();  
                 sche.Clear();
-                             
+                sche.Shutdown();  
+                                           
             }
         }
     }

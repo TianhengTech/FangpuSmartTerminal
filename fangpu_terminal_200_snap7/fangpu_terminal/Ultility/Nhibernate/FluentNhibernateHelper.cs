@@ -48,7 +48,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
             return FluentNHibernate.Cfg.Fluently.Configure()
                 //数据库配置
                 .Database(FluentNHibernate.Cfg.Db.SQLiteConfiguration.Standard
-                .UsingFile("data\\datalocal.db")
+                .UsingFile(Properties.TerminalParameters.Default.localdatapath)
                 )
                 //映射程序集
                 .Mappings(

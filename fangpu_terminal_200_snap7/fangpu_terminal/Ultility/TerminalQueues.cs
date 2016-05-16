@@ -11,7 +11,6 @@ namespace fangpu_terminal
     {
         public static Queue tcpdownlinkqueue = new Queue();  //tcp数据上行队列
         public static Queue tcpuplinkqueue = new Queue();  //tcp数据上行队列
-
         public static ConcurrentQueue<PlcCommand> plccommandqueue = new ConcurrentQueue<PlcCommand>();  //plc通信队列
         public static ConcurrentQueue<PlcDAQCommunicationObject> plcdataprocessqueue = new ConcurrentQueue<PlcDAQCommunicationObject>();    //plc数据处理队列
         public static ConcurrentQueue<PlcDAQCommunicationObject> localdataqueue = new ConcurrentQueue<PlcDAQCommunicationObject>();//本地数据处理队列

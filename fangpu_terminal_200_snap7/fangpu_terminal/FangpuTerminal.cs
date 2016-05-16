@@ -85,7 +85,10 @@ namespace fangpu_terminal
         private bool onetime = true;
         private bool buzuo = true;
         private bool jinliao = true;
-        private int cyclenum = -1;
+        private bool shiftflag_1;
+        private bool shiftflag_2;
+        private bool shiftflag_3;
+        private bool shiftflag_4;
         private int syncount;
         private double zuomotime;
         private int vw68, vw70, vw72, vw74;
@@ -148,7 +151,7 @@ namespace fangpu_terminal
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
             InitGlobalParameter();
             schedule = new QuartzSchedule();
-           // schedule.StartSchedule();
+            schedule.StartSchedule();
             log.Info("Schedule Start");
             try
             {
@@ -172,6 +175,7 @@ namespace fangpu_terminal
             else
             {
                 log.Warn("First touch failed!");
+
             }
             
             ////UpdateLoadGUIConfig("启动心跳连接...", 50);
@@ -187,7 +191,6 @@ namespace fangpu_terminal
             //tcpdownlink_dataprocess_thread = new Thread(TcpDownlickDataProcessThread);
             ////tcpdownlink_dataprocess_thread.IsBackground=true;
             ////tcpdownlink_dataprocess_thread.Start();
-
             //// UpdateLoadGUIConfig("载入中", 60);
             plcread_thread = new Thread(PlcReadCycle);
             plcread_thread.IsBackground = true;
@@ -199,7 +202,7 @@ namespace fangpu_terminal
             plccommunication_thread.IsBackground = true;
             plccommunication_thread.Priority = ThreadPriority.BelowNormal;
             //plccommunication_thread.Priority = ThreadPriority.Highest;
-            //        plccommunication_thread.Start();
+            plccommunication_thread.Start();
             log.Info("PlcCommunicationThread Thread Start");
 
             plcdatahandler_thread = new Thread(PlcDataProcessThread);
@@ -226,7 +229,7 @@ namespace fangpu_terminal
             controlcmdread_thread.IsBackground = true;
             controlcmdread_thread.Priority = ThreadPriority.Lowest;
             controlcmdread_thread.Start();
-            //log.Info("WebCommand Thread Start");
+            log.Info("WebCommand Thread Start");
 
 
 
@@ -455,62 +458,91 @@ namespace fangpu_terminal
                 displayDouble_chanliangtongji_jihua_count.Value = daq_input.aream_data["VW28"];
                 displayDouble_chanliangtongji_shiji_count.Value = daq_input.aream_data["VW30"];
 
-                displayDouble_tuomushijian.Value = (daq_input.aream_data["VB100"] & 0x02) == 0x02 ? daq_input.aream_data["VW38"] / 10.0d : daq_input.aream_data["VW36"] / 10.0d;
-                displayDouble_shuayoushijian.Value = (daq_input.aream_data["VB100"] & 0x04) == 0x04 ? daq_input.aream_data["VW42"] / 10.0d : daq_input.aream_data["VW40"] / 10.0d;
-                displayDouble_jinliaoshijian.Value = (daq_input.aream_data["VB100"] & 0x08) == 0x08 ? daq_input.aream_data["VW46"] / 10.0d : daq_input.aream_data["VW44"] / 10.0d;
-
-                //2024=1对应写2020,2024=0对应写2022
+                bool myflag;
                 if ((daq_input.aream_data["VB100"] & 0x01) == 0x01)
                 {
-                    zuomoshijian.Value = daq_input.aream_data["VW34"]/10.0f;
-                    zuomotime = daq_input.aream_data["VW34"]/10.0f;
-                    if (onetime == false)
+                    myflag = true;
+                    if (myflag != shiftflag_1)//这次和上次状态不一样
                     {
-                        cyclenum = (cyclenum + 1)%9;
-                        onetime = true;
+                        displayDouble_zuomushijian_1.Value = displayDouble_zuomushijian_2.Value;
                     }
+                    displayDouble_zuomushijian_2.Value = daq_input.aream_data["VW34"]/10.0f;
+                    zuomotime = daq_input.aream_data["VW34"]/10.0f;
+
                 }
                 else
                 {
-                    zuomoshijian.Value = daq_input.aream_data["VW32"]/10.0f;
-                    zuomotime = daq_input.aream_data["VW32"]/10.0f;
-                    if (onetime)
+                    myflag = false; ;
+                    if (myflag != shiftflag_1)//这次和上次状态不一样
                     {
-                        cyclenum = (cyclenum + 1)%9;
-                        onetime = false;
+                        displayDouble_zuomushijian_1.Value = displayDouble_zuomushijian_2.Value;
                     }
+                    displayDouble_zuomushijian_2.Value = daq_input.aream_data["VW32"]/10.0f;
+                    zuomotime = daq_input.aream_data["VW32"]/10.0f;                   
                 }
-                switch (cyclenum)
+                shiftflag_1 = myflag;
+
+                if ((daq_input.aream_data["VB100"] & 0x02) == 0x02)
                 {
-                    case 0:
-                        displayDouble_onceprocedure_time_no1.Value = zuomotime;
-                        break;
-                    case 1:
-                        displayDouble_onceprocedure_time_no2.Value = zuomotime;
-                        break;
-                    case 2:
-                        displayDouble_onceprocedure_time_no3.Value = zuomotime;
-                        break;
-                    case 3:
-                        displayDouble_onceprocedure_time_no4.Value = zuomotime;
-                        break;
-                    case 4:
-                        displayDouble_onceprocedure_time_no5.Value = zuomotime;
-                        break;
-                    case 5:
-                        displayDouble_onceprocedure_time_no6.Value = zuomotime;
-                        break;
-                    case 6:
-                        displayDouble_onceprocedure_time_no7.Value = zuomotime;
-                        break;
-                    case 7:
-                        displayDouble_onceprocedure_time_no8.Value = zuomotime;
-                        break;
-                    case 8:
-                        displayDouble_onceprocedure_time_no9.Value = zuomotime;
-                        break;
+                    myflag = true;
+                    if (myflag != shiftflag_2)//这次和上次状态不一样
+                    {
+                        displayDouble_tuomushijian_1.Value = displayDouble_tuomushijian_2.Value;
+                    }
+                    displayDouble_tuomushijian_2.Value = daq_input.aream_data["VW38"]/10.0d;                  
                 }
+                else
+                {
+                    myflag = false;
+                    if (myflag != shiftflag_2)//这次和上次状态不一样
+                    {
+                        displayDouble_tuomushijian_1.Value = displayDouble_tuomushijian_2.Value;
+                    }
+                    displayDouble_tuomushijian_2.Value=daq_input.aream_data["VW36"] / 10.0d;               
+                }
+                shiftflag_2 = myflag;
+
+                if ((daq_input.aream_data["VB100"] & 0x04) == 0x04)
+                {
+                    myflag = true;
+                    if (myflag != shiftflag_3)//这次和上次状态不一样
+                    {
+                        displayDouble_shuayoushijian_1.Value = displayDouble_shuayoushijian_2.Value;
+                    }
+                    displayDouble_shuayoushijian_2.Value = daq_input.aream_data["VW42"] / 10.0d;
+                }
+                else
+                {
+                    myflag = false;
+                    if (myflag != shiftflag_3)//这次和上次状态不一样
+                    {
+                        displayDouble_shuayoushijian_1.Value = displayDouble_shuayoushijian_2.Value;
+                    }
+                    displayDouble_shuayoushijian_2.Value = daq_input.aream_data["VW40"] / 10.0d;
+                }
+                shiftflag_3 = myflag;
+
+                if ((daq_input.aream_data["VB100"] & 0x08) == 0x08)
+                {
+                    myflag = true;
+                    if (myflag != shiftflag_4)//如果这次和上次状态不一样
+                    {
+                        displayDouble_jinliaoshijian_1.Value = displayDouble_jinliaoshijian_2.Value;
+                    }
+                    displayDouble_jinliaoshijian_2.Value = daq_input.aream_data["VW46"] / 10.0d;
+                }
+                else
+                {
+                    myflag = false;
+                    if (myflag != shiftflag_4)//如果这次和上次状态不一样
+                    {
+                        displayDouble_jinliaoshijian_1.Value = displayDouble_jinliaoshijian_2.Value;
+                    }
+                    displayDouble_jinliaoshijian_2.Value = daq_input.aream_data["VW44"] / 10.0d;
+                }
+                shiftflag_4 = myflag;
             }
+                
 
             if ((daq_input.aream_data["MB0"] & 0x01) == 0x01 && (led_manul.BlinkerEnabled = true))
             {
@@ -735,12 +767,11 @@ namespace fangpu_terminal
             {
                 if (restartbutton == false)
                 {
-                    if (tcpuplink_dataprocess_thread.IsAlive)
-                    {
-                        tcpuplink_dataprocess_thread.Abort();
-                        log.Info("tcpuplink_dataprocess_thread Abort");
-                    }
-
+                    //if (tcpuplink_dataprocess_thread.IsAlive)
+                    //{
+                    //    tcpuplink_dataprocess_thread.Abort();
+                    //    log.Info("tcpuplink_dataprocess_thread Abort");
+                    //}
 
                     if (tcpdownlink_dataprocess_thread.IsAlive)
                     {
@@ -775,9 +806,7 @@ namespace fangpu_terminal
                     if (S7SNAP.Connected())
                     {
                         S7SNAP.Disconnect();
-                    }
-
-                   
+                    }                   
                 }
             }
             catch(Exception ex)
@@ -858,6 +887,7 @@ namespace fangpu_terminal
         //==================================================================
         public void PlcReadCycle()
         {
+            bool readflag = true;
             while (true)
             {
                 if (S7SNAP.Connected() == false)
@@ -874,6 +904,7 @@ namespace fangpu_terminal
                     var daq_data = new PlcDAQCommunicationObject();
                     foreach (var item in fangpu_config.addr)
                     {
+                            
                         string[] range;
                         var buffer = new byte[2048];
                         var start = 0;
@@ -905,6 +936,12 @@ namespace fangpu_terminal
                             if (S7SNAP.MBRead(start, size, buffer) == 0)
                             {
                                 BufferConverter.BufferDump(daq_data, buffer, start, size, "M", Wordlen);
+                                readflag = true;
+                            }
+                            else
+                            {
+                                readflag = false;
+                                break;
                             }
                             continue;
                         }
@@ -913,6 +950,12 @@ namespace fangpu_terminal
                             if (S7SNAP.DBRead(1, start, size, buffer) == 0)
                             {
                                 BufferConverter.BufferDump(daq_data, buffer, start, size, "V", Wordlen);
+                                readflag = true;
+                            }
+                            else
+                            {
+                                readflag = false;
+                                break;
                             }
                             continue;
                         }
@@ -921,9 +964,19 @@ namespace fangpu_terminal
                             if (S7SNAP.EBRead(start, size, buffer) == 0)
                             {
                                 BufferConverter.BufferDump(daq_data, buffer, start, size, "I", Wordlen);
+                                readflag = true;
+                            }
+                            else
+                            {
+                                readflag = false;
+                                break;
                             }
                             continue;
                         }
+                    }
+                    if (readflag == false)
+                    {
+                        continue;
                     }
                     TerminalQueues.plcdataprocessqueue.Enqueue(daq_data);
                     sw.Stop();
@@ -960,8 +1013,9 @@ namespace fangpu_terminal
                     {
                         if (TerminalQueues.plccommandqueue.Count > 0)
                         {
-                            var buffer = new byte[100];
-
+                            byte[] buffer;
+                            byte[] sbuf=new byte[2];
+                            int result;
                             enableSync = false;
                             var temp_plccmd = new PlcCommand(TerminalCommon.S7200AreaI,
                                 TerminalCommon.S7200DataByte, 0, 0, 0);
@@ -971,11 +1025,11 @@ namespace fangpu_terminal
                                 buffer = BitConverter.GetBytes(temp_plccmd.data);
                                 if (temp_plccmd.area == "M")
                                 {
-                                    S7S.Write_Bit(S7S.AreaM, temp_plccmd.addr, temp_plccmd.bitaddr, temp_plccmd.data);
-                                    S7SNAP.WriteArea(S7Client.S7AreaMK, 0, temp_plccmd.addr*8 + temp_plccmd.bitaddr, 1,
+                                    result=S7SNAP.WriteArea(S7Client.S7AreaMK, 0, temp_plccmd.addr * 8 + temp_plccmd.bitaddr, 1,
                                         S7Client.S7WLBit, buffer);
                                     continue;
                                 }
+                                //Area V
                                 if (temp_plccmd.type == TerminalCommon.S7200DataByte)
                                 {
                                     S7SNAP.WriteArea(S7Client.S7AreaDB, 1, temp_plccmd.addr, 1, S7Client.S7WLByte,
@@ -983,12 +1037,11 @@ namespace fangpu_terminal
                                 }
                                 else if (temp_plccmd.type == TerminalCommon.S7200DataWord)
                                 {
-                                    if (temp_plccmd.data < 0)
-                                    {
-                                        temp_plccmd.data &= 0x0000ffff;
-                                    }
+                                    sbuf = new byte[2];
+                                    sbuf[0] = buffer[1];
+                                    sbuf[1] = buffer[0];
                                     S7SNAP.WriteArea(S7Client.S7AreaDB, 1, temp_plccmd.addr, 1, S7Client.S7WLWord,
-                                        buffer);
+                                        sbuf);
                                 }
                             }
                             enableSync = true;
@@ -1139,7 +1192,10 @@ namespace fangpu_terminal
         //==================================================================
         public void DataCenterStorageThread()
         {
-            var cfg = FluentNhibernateHelper.GetSessionConfig();
+            var cfg = FluentNhibernateHelper.GetSessionConfig();            
+            ISessionFactory sf=cfg.BuildSessionFactory();
+            ISession session = sf.OpenSession();
+            string tablename = "";
             while (true)
             {
                 try
@@ -1152,111 +1208,118 @@ namespace fangpu_terminal
                         {
                             continue;
                         }
-
-                        var tablename = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
-                        FluentNhibernateHelper.MappingTablenames(cfg, typeof(historydata), tablename);
-                        using (var sf = cfg.BuildSessionFactory().OpenSession())
+                        var tablename_new = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
+                        if (tablename_new != tablename)
                         {
-                            var jsonobj = new FangpuTerminalJsonModel();
-                            var jsonobj_2 = new FangpuTerminalJsonModel_systus();
-                            jsonobj.V4000 = plc_temp_data.aream_data["VB4000"];
-                            jsonobj.V4001 = plc_temp_data.aream_data["VB4001"];
-                            jsonobj.V4002 = plc_temp_data.aream_data["VB4002"];
-                            jsonobj.V4003 = plc_temp_data.aream_data["VB4003"];
-                            jsonobj.V4004 = plc_temp_data.aream_data["VB4004"];
-                            jsonobj.V4005 = plc_temp_data.aream_data["VB4005"];
-                            jsonobj.V4006 = plc_temp_data.aream_data["VB4006"];
-                            jsonobj.V4007 = plc_temp_data.aream_data["VB4007"];
-                            jsonobj.V4008 = plc_temp_data.aream_data["VB4008"];
-                            jsonobj.M53 = (plc_temp_data.aream_data["MB5"] & 0x08) == 0x08;
-                            jsonobj_2.M37 = (plc_temp_data.aream_data["MB3"] & 0x80) == 0x80;
-                            jsonobj_2.M42 = (plc_temp_data.aream_data["MB4"] & 0x04) == 0x04;
-                            jsonobj_2.M52 = (plc_temp_data.aream_data["MB5"] & 0x04) == 0x04;
-                            jsonobj_2.M44 = (plc_temp_data.aream_data["MB4"] & 0x10) == 0x10;
-                            jsonobj_2.M67 = (plc_temp_data.aream_data["MB6"] & 0x80) == 0x80;
-                            jsonobj_2.M00 = (plc_temp_data.aream_data["MB0"] & 0x01) == 0x01;
-                            jsonobj_2.M01 = (plc_temp_data.aream_data["MB0"] & 0x02) == 0x02;
+                            tablename = tablename_new;
+                            FluentNhibernateHelper.MappingTablenames(cfg, typeof(historydata), tablename);
+                            sf = cfg.BuildSessionFactory();//日期变化时重新打开连接
+                            session = sf.OpenSession();                                
+                        } 
+                                var jsonobj = new FangpuTerminalJsonModel();
+                                var jsonobj_2 = new FangpuTerminalJsonModel_systus();
+                                jsonobj.V4000 = plc_temp_data.aream_data["VB4000"];
+                                jsonobj.V4001 = plc_temp_data.aream_data["VB4001"];
+                                jsonobj.V4002 = plc_temp_data.aream_data["VB4002"];
+                                jsonobj.V4003 = plc_temp_data.aream_data["VB4003"];
+                                jsonobj.V4004 = plc_temp_data.aream_data["VB4004"];
+                                jsonobj.V4005 = plc_temp_data.aream_data["VB4005"];
+                                jsonobj.V4006 = plc_temp_data.aream_data["VB4006"];
+                                jsonobj.V4007 = plc_temp_data.aream_data["VB4007"];
+                                jsonobj.V4008 = plc_temp_data.aream_data["VB4008"];
+                                jsonobj.M53 = (plc_temp_data.aream_data["MB5"] & 0x08) == 0x08;
+                                jsonobj_2.M37 = (plc_temp_data.aream_data["MB3"] & 0x80) == 0x80;
+                                jsonobj_2.M42 = (plc_temp_data.aream_data["MB4"] & 0x04) == 0x04;
+                                jsonobj_2.M52 = (plc_temp_data.aream_data["MB5"] & 0x04) == 0x04;
+                                jsonobj_2.M44 = (plc_temp_data.aream_data["MB4"] & 0x10) == 0x10;
+                                jsonobj_2.M67 = (plc_temp_data.aream_data["MB6"] & 0x80) == 0x80;
+                                jsonobj_2.M00 = (plc_temp_data.aream_data["MB0"] & 0x01) == 0x01;
+                                jsonobj_2.M01 = (plc_temp_data.aream_data["MB0"] & 0x02) == 0x02;
 
-                            historydata historyDb = new historydata
-                            {
-                                deviceid = TerminalParameters.Default.terminal_name,
-                                value = JsonConvert.SerializeObject(jsonobj),
-                                shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f,
-                                kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f,
-                                kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f,
-                                lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f,
-                                jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f,
-                                kaomo_temp = 0,
-                                kaoliao_temp = 0,
-                                cycletime = (float) zuomotime,
-                                storetime = plc_temp_data.daq_time,
-                                systus = JsonConvert.SerializeObject(jsonobj_2)
-                            };
-                            var historydata_json = new Dictionary<string, object>();
-                            historydata_json.Add("刷油时间", plc_temp_data.aream_data["VW50"]/10.0f);
-                            historydata_json.Add("烤模时间", plc_temp_data.aream_data["VW52"]/10.0f);
-                            historydata_json.Add("烤料时间", plc_temp_data.aream_data["VW54"]/10.0f);
-                            historydata_json.Add("浸料时间", plc_temp_data.aream_data["VW56"]/10.0f);
-                            historydata_json.Add("冷却时间", plc_temp_data.aream_data["VW48"]/10.0f);
-                            historydata_json.Add("一板模时间", (float) zuomotime);
-                            historydata_jsoncopy historydatajsonDb = new historydata_jsoncopy();
-                            historydatajsonDb.deviceid = TerminalParameters.Default.terminal_name;
-                            historydatajsonDb.data_json = JsonConvert.SerializeObject(historydata_json);
-                            historydatajsonDb.storetime = plc_temp_data.daq_time;
-                            historydatajsonDb.systus = JsonConvert.SerializeObject(jsonobj_2);
-                            
-
-                        
-                            var realtimedata = sf.QueryOver<realtimedata>().Where(p => p.deviceid == "D17").SingleOrDefault();
-                            realtimedata.deviceid = TerminalParameters.Default.terminal_name;
-                            realtimedata.value = JsonConvert.SerializeObject(jsonobj);
-                            realtimedata.storetime = plc_temp_data.daq_time;
-                            realtimedata.shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f;
-                            realtimedata.kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f;
-                            realtimedata.kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f;
-                            realtimedata.jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f;
-                            realtimedata.lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f;
-                            realtimedata.device_on_time = plc_temp_data.aream_data["VW16"] + "小时" +
-                                                          plc_temp_data.aream_data["VW14"] + "分钟";
-                            realtimedata.furnace_on_time = plc_temp_data.aream_data["VW24"] + "小时" +
-                                                           plc_temp_data.aream_data["VW22"] + "分钟";
-                            realtimedata.produce_time = plc_temp_data.aream_data["VW20"] + "小时" +
-                                                        plc_temp_data.aream_data["VW18"] + "分钟";
-                            realtimedata.cycletime = (float) zuomotime;
-                            realtimedata.systus = JsonConvert.SerializeObject(jsonobj_2);
-                            if (TerminalQueues.warninfoqueue.Count > 0)
-                            {
-                                var plc_warn_data = new PLCWarningObject();
-                                TerminalQueues.warninfoqueue.TryDequeue(out plc_warn_data);
-                                if (plc_warn_data != null)
+                                historydata historyDb = new historydata
                                 {
-                                    foreach(string warninfo in plc_warn_data.warndata)
-                                    try
+                                    deviceid = TerminalParameters.Default.terminal_name,
+                                    value = JsonConvert.SerializeObject(jsonobj),
+                                    shuayou_consume_seconds = plc_temp_data.aream_data["VW50"]/10.0f,
+                                    kaomo_consume_seconds = plc_temp_data.aream_data["VW52"]/10.0f,
+                                    kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"]/10.0f,
+                                    lengque_consume_seconds = plc_temp_data.aream_data["VW48"]/10.0f,
+                                    jinliao_consume_seconds = plc_temp_data.aream_data["VW56"]/10.0f,
+                                    kaomo_temp = 0,
+                                    kaoliao_temp = 0,
+                                    cycletime = (float) zuomotime,
+                                    storetime = plc_temp_data.daq_time,
+                                    systus = JsonConvert.SerializeObject(jsonobj_2)
+                                };
+                                var historydata_json = new Dictionary<string, object>();
+                                historydata_json.Add("刷油时间", plc_temp_data.aream_data["VW50"]/10.0f);
+                                historydata_json.Add("烤模时间", plc_temp_data.aream_data["VW52"]/10.0f);
+                                historydata_json.Add("烤料时间", plc_temp_data.aream_data["VW54"]/10.0f);
+                                historydata_json.Add("浸料时间", plc_temp_data.aream_data["VW56"]/10.0f);
+                                historydata_json.Add("冷却时间", plc_temp_data.aream_data["VW48"]/10.0f);
+                                historydata_json.Add("一板模时间", (float) zuomotime);
+                                historydata_jsoncopy historydatajsonDb = new historydata_jsoncopy();
+                                historydatajsonDb.deviceid = TerminalParameters.Default.terminal_name;
+                                historydatajsonDb.data_json = JsonConvert.SerializeObject(historydata_json);
+                                historydatajsonDb.storetime = plc_temp_data.daq_time;
+                                historydatajsonDb.systus = JsonConvert.SerializeObject(jsonobj_2);
+
+
+                                var realtimedata = session.QueryOver<realtimedata>().Where(p => p.deviceid == "D17").SingleOrDefault();
+                                realtimedata.deviceid = TerminalParameters.Default.terminal_name;
+                                realtimedata.value = JsonConvert.SerializeObject(jsonobj);
+                                realtimedata.storetime = plc_temp_data.daq_time;
+                                realtimedata.shuayou_consume_seconds = plc_temp_data.aream_data["VW50"] / 10.0f;
+                                realtimedata.kaomo_consume_seconds = plc_temp_data.aream_data["VW52"] / 10.0f;
+                                realtimedata.kaoliao_consume_seconds = plc_temp_data.aream_data["VW54"] / 10.0f;
+                                realtimedata.jinliao_consume_seconds = plc_temp_data.aream_data["VW56"] / 10.0f;
+                                realtimedata.lengque_consume_seconds = plc_temp_data.aream_data["VW48"] / 10.0f;
+                                realtimedata.device_on_time = plc_temp_data.aream_data["VW16"] + "小时" +
+                                                              plc_temp_data.aream_data["VW14"] + "分钟";
+                                realtimedata.furnace_on_time = plc_temp_data.aream_data["VW24"] + "小时" +
+                                                               plc_temp_data.aream_data["VW22"] + "分钟";
+                                realtimedata.produce_time = plc_temp_data.aream_data["VW20"] + "小时" +
+                                                            plc_temp_data.aream_data["VW18"] + "分钟";
+                                realtimedata.cycletime = (float)zuomotime;
+                                realtimedata.systus = JsonConvert.SerializeObject(jsonobj_2);
+                                if (TerminalQueues.warninfoqueue.Count > 0)
+                                {
+                                    var plc_warn_data = new PLCWarningObject();
+                                    TerminalQueues.warninfoqueue.TryDequeue(out plc_warn_data);
+                                    if (plc_warn_data != null)
                                     {
-                                        warn_info warn_info=new warn_info();
-                                        warn_info.device_name = TerminalParameters.Default.terminal_name;
-                                        warn_info.warn_message = warninfo;
-                                        warn_info.storetime = plc_warn_data.warn_time;
-                                        sf.Save(warn_info);
-                                    }
-                                    catch(Exception ex)
-                                    {
-                                        log.Error("报警信息存储出错", ex);
+                                        foreach (string warninfo in plc_warn_data.warndata)
+                                            try
+                                            {
+                                                warn_info warn_info = new warn_info();
+                                                warn_info.device_name = TerminalParameters.Default.terminal_name;
+                                                warn_info.warn_message = warninfo;
+                                                warn_info.storetime = plc_warn_data.warn_time;
+                                                session.Save(warn_info);
+                                                session.Flush();
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                log.Error("报警信息存储出错", ex);
+                                            }
                                     }
                                 }
-                            }
-                            using (var tran = sf.BeginTransaction())
-                            {
-                                sf.Save(historydatajsonDb);
-                                sf.Save(historyDb);
-                                sf.SaveOrUpdate(realtimedata);
-                                tran.Commit();
+                                using (var tran = session.BeginTransaction())
+                                {
+                                    session.Save(historydatajsonDb);
+                                    session.Save(historyDb);
+                                    session.SaveOrUpdate(realtimedata);
+                                    tran.Commit();
+                                }
                             }
                         }
-                    }                  
-                }
+                              
+        
                 catch (Exception ex)
                 {
+
+                    if(!session.IsOpen)
+                    session = sf.OpenSession(); 
                     log.Error("数据中心存储线程出错！" , ex);
                 }
             }
@@ -1278,7 +1341,7 @@ namespace fangpu_terminal
         public void SendCommandToPlc(string area, string type, int data, int addr, int bitaddr = 0)
         {
             var cmd = new PlcCommand(area, type, data, addr, bitaddr);
-            //TerminalQueues.plccommandqueue.Enqueue(cmd);
+            TerminalQueues.plccommandqueue.Enqueue(cmd);
         }
 
         //==================================================================
@@ -1292,7 +1355,7 @@ namespace fangpu_terminal
         //==================================================================
         public void CycleUpdateGuiDisplay(PlcDAQCommunicationObject daq_input)
         {
-            UpdateText S1 = UpdateTextMethod;
+            UpdateText S1 = new UpdateText(UpdateTextMethod);
             BeginInvoke(S1, daq_input);
         }
 
@@ -1317,7 +1380,7 @@ namespace fangpu_terminal
                 {
                     for (i = 0; i <= 7; i++)
                     {
-                        if ((info["VB400" + j] & (base_zero | (1 << i))) == 1 << i)
+                        if ((info["VB400" + j] & ((1 << i))) == 1 << i)
                         {
                             results.Add(TerminalCommon.warn_info["400" + j + "_" + i]);
                         }
@@ -1394,7 +1457,8 @@ namespace fangpu_terminal
                         jsonobj_2.M67 = (plc_temp_data.aream_data["MB6"] & 0x80) == 0x80;
                         jsonobj_2.M00 = (plc_temp_data.aream_data["MB0"] & 0x01) == 0x01;
                         jsonobj_2.M01 = (plc_temp_data.aream_data["MB0"] & 0x02) == 0x02;
-
+                        fangpu_terminal.Ultility.Nhibernate.LiteGroup.historydata_lite n =
+                            new fangpu_terminal.Ultility.Nhibernate.LiteGroup.historydata_lite();
                         var strSql = new StringBuilder();
                         strSql.Append("insert into historydata(");
                         strSql.Append("data,systus,recordtime,shuayou_consume_seconds,kaomo_consume_seconds,kaoliao_consume_seconds,jinliao_consume_seconds,lengque_consume_seconds,cycletime)");
@@ -1454,78 +1518,98 @@ namespace fangpu_terminal
         public void WebCommand()
         {
             var session = FluentNhibernateHelper.GetSession();
-            while (true)
+            try
             {
-                var results = session.CreateCriteria<terminalcmd>()
-                    .Add(Restrictions.Eq("device_name", "D17"))
-                    .Add(Restrictions.Eq("status","pending"))
-                    .AddOrder(Order.Desc("idterminalcmd"))
-                    .List<terminalcmd>();
-                foreach (var result in results)
+                while (true)
                 {
-                    WebCommandUI updateweb = new WebCommandUI(WebCommandUpdate);
-
-                    switch (result.command)
+                    var results = session.CreateCriteria<terminalcmd>()
+                        .Add(Restrictions.Eq("device_name", "D17"))
+                        .Add(Restrictions.Eq("status", "pending"))
+                        .AddOrder(Order.Desc("idterminalcmd"))
+                        .List<terminalcmd>();
+                    foreach (var result in results)
                     {
-                        case("restart"):
+                        WebCommandUI cmdproc = new WebCommandUI(WebCommandExecute);//创建委托显示提示
+                        switch (result.command)
                         {
-                            result.status = "processed";
-                            result.time = DateTime.Now;
-                            session.SaveOrUpdate(result);
-                            session.Flush();
-                            this.BeginInvoke(updateweb, "restart");
-                            Thread.Sleep(5000);
-                            TerminalCommon.AppRestart(this);
-                            break;
+                            case ("restart"):
+                            {
+                                result.status = "processed";
+                                result.time = DateTime.Now;
+                                session.SaveOrUpdate(result);
+                                session.Flush();
+                                string msg = "接收到堡垒机下达的程序重启指令\n程序即将重启...";
+                                this.BeginInvoke(new MessageBoxShow(MessageBoxShow_F), new object[] { msg });
+                                Thread.Sleep(5000);
+                                this.BeginInvoke(cmdproc, "restart");                            
+                                break;
+                            }
+                            case ("reboot"):
+                            {
+                                result.status = "processed";
+                                result.time = DateTime.Now;
+                                session.SaveOrUpdate(result);
+                                session.Flush();
+                                string msg = "接收到堡垒机下达的重启指令\n终端即将重启...";
+                                this.BeginInvoke(new MessageBoxShow(MessageBoxShow_F), new object[] { msg });
+                                Thread.Sleep(5000);
+                                this.BeginInvoke(cmdproc, "reboot");
+                                TerminalCommon.SystemReboot(this);
+                                break;
+                            }
+                            case ("shutdown"):
+                            {
+                                result.status = "processed";
+                                result.time = DateTime.Now;
+                                session.SaveOrUpdate(result);
+                                session.Flush();
+                                string msg = "接收到堡垒机下达的关机指令\n终端即将关闭...";
+                                this.BeginInvoke(new MessageBoxShow(MessageBoxShow_F), new object[] { msg });
+                                Thread.Sleep(5000);
+                                this.BeginInvoke(cmdproc, "shutdown");                               
+                                TerminalCommon.SystemShutdown(this);
+                                break;
+                            }
+                            default:
+                                continue;
                         }
-                        case ("reboot"):
-                        {
-                            result.status = "processed";
-                            result.time = DateTime.Now;
-                            session.SaveOrUpdate(result);
-                            session.Flush();
-                            this.BeginInvoke(updateweb, "reboot");
-                            Thread.Sleep(5000);
-                            TerminalCommon.SystemReboot(this);
-                            break;
-                        }
-                        case("shutdown"):
-                        {
-                            result.status = "processed";
-                            result.time = DateTime.Now;
-                            session.SaveOrUpdate(result);
-                            session.Flush();
-                            this.Invoke(updateweb, "shutdown");
-                            Thread.Sleep(5000);
-                            TerminalCommon.SystemShutdown(this);
-                            break;
-                        }
-                        default:
-                        continue;
                     }
+                    Thread.Sleep(1500);
                 }
-                Thread.Sleep(1500);
             }
-
+            catch(Exception ex)
+            {
+                log.Error("数据中心指令获取失败", ex);
+                if (!session.IsOpen)
+                {
+                    session.Dispose();
+                    session = FluentNhibernateHelper.GetSession();
+                }
+            }
         }
 
-        public void WebCommandUpdate(string cmd)
+        public void WebCommandExecute(string cmd)
         {
             switch (cmd)
             {
-                case("restart"):
-                    MessageBox.Show(this,"接收到堡垒机下达的程序重启指令\n程序即将重启...","通知",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                case("restart"):                 
+                    TerminalCommon.AppRestart(this);
                     break;
                 case("reboot"):
-                    MessageBox.Show(this, "接收到堡垒机下达的重启指令\n终端即将重启...", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TerminalCommon.SystemReboot(this);
                     break;
                 case("shutdown"):
-                    MessageBox.Show(this, "接收到堡垒机下达的关机指令\n终端即将关闭...", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TerminalCommon.SystemShutdown(this);
                     break;
                 default:
                     return;
             }
 
+        }
+        delegate void MessageBoxShow(string msg);
+        void MessageBoxShow_F(string msg)
+        {
+            MessageBox.Show(this,msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         //==================================================================
         //模块名： WarnInfoLocalStorage

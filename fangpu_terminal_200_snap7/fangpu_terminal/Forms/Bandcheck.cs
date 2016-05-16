@@ -62,6 +62,7 @@ namespace fangpu_terminal
                 workerlist.total = Convert.ToDouble(zhongliang.Text);
                 mysql.Save(workerlist);
                 mysql.Flush();
+                mysql.Dispose();
                 MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                
                 this.Close();

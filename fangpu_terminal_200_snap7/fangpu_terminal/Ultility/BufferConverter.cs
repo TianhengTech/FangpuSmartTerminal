@@ -50,7 +50,7 @@ namespace fangpu_terminal
                 if (area.Equals("I"))
                     key = area + (start + i).ToString();
                 else
-                    key= area +wtype[Wordlen-1]+(start + i).ToString(); 
+                    key= area +wtype[Wordlen-1]+(start + i).ToString();
                 byte[] bytes = new byte[Wordlen];
                 Array.Copy(buffer, i, bytes, 0, Wordlen);
                 Array.Reverse(bytes);

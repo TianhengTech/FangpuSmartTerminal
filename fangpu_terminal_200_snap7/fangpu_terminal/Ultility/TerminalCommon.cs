@@ -33,7 +33,6 @@ namespace fangpu_terminal
         public static string S7200AreaM = "M";
         public static string S7200AreaV = "V";
         public static string S7200AreaT = "T";
-
         public static string S7200DataByte = "byte";
         public static string S7200DataBit = "bit";
         public static string S7200DataWord = "word";
@@ -105,7 +104,7 @@ namespace fangpu_terminal
             terminal.AbortAllThread();
             terminal.restartbutton = true;
             TerminalLogWriter.WriteInfoLog(typeof(TerminalCommon), "Application is about to restart...");
-          //  Application.ExitThread();
+            Application.ExitThread();
             Application.Restart();
         }
         /// <summary>

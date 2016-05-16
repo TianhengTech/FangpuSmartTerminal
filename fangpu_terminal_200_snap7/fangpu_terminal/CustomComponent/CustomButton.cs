@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,13 @@ namespace CustomGUI.Forms
             {
                 case WM_POINTERDOWN:
                     Debug.WriteLine("DOWN");
+                    this.BackColor = Color.Red;
                     this.ButtonTouchDownEvent(this, new EventArgs());
                     
                     break;
                 case WM_POINTERUP:
                     Debug.WriteLine("UP");
+                    this.BackColor = Color.Lime;
                     this.ButtonTouchUpEvent(this, new EventArgs());
                     break;
             }

@@ -1,8 +1,0 @@
-
- 
-记录时间：2015-12-17 15:51:37,791 
-线程ID:[8] 
-日志级别：  ERROR 
-出错类：fangpu_terminal.FangpuTerminal property: [(null)] - 
-错误描述：plc数据处理线程出错！
- 

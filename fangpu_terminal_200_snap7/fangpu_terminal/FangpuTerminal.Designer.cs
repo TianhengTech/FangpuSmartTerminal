@@ -213,28 +213,21 @@ namespace fangpu_terminal
             this.jinliaoshezhi_layer = new System.Windows.Forms.Button();
             this.tabPage_pg4 = new System.Windows.Forms.TabPage();
             this.dataGridView_warn = new System.Windows.Forms.DataGridView();
-            this.Column_warninfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage_pg5 = new System.Windows.Forms.TabPage();
-            this.zuomoshijian = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.displayDouble_onceprocedure_time_no9 = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label74 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_onceprocedure_time_no8 = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label75 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_onceprocedure_time_no7 = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label76 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_onceprocedure_time_no6 = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label71 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_onceprocedure_time_no5 = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label72 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_onceprocedure_time_no4 = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label73 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_onceprocedure_time_no3 = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label70 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_onceprocedure_time_no2 = new Iocomp.Instrumentation.Standard.DisplayDouble();
             this.label69 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_onceprocedure_time_no1 = new Iocomp.Instrumentation.Standard.DisplayDouble();
             this.label68 = new Iocomp.Instrumentation.Standard.Label();
+            this.displayDouble_zuomushijian_2 = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.displayDouble_zuomushijian_1 = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.label62 = new Iocomp.Instrumentation.Standard.Label();
+            this.displayDouble_jinliaoshijian_2 = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.displayDouble_shuayoushijian_2 = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.displayDouble_tuomushijian_2 = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.displayDouble_jinliaoshijian_1 = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.label82 = new Iocomp.Instrumentation.Standard.Label();
+            this.displayDouble_shuayoushijian_1 = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.label81 = new Iocomp.Instrumentation.Standard.Label();
+            this.displayDouble_tuomushijian_1 = new Iocomp.Instrumentation.Standard.DisplayDouble();
+            this.label80 = new Iocomp.Instrumentation.Standard.Label();
             this.label42 = new Iocomp.Instrumentation.Standard.Label();
             this.displayDouble_chanliangtongji_shiji_count = new Iocomp.Instrumentation.Standard.DisplayDouble();
             this.label66 = new Iocomp.Instrumentation.Standard.Label();
@@ -244,7 +237,6 @@ namespace fangpu_terminal
             this.label65 = new Iocomp.Instrumentation.Standard.Label();
             this.displayDouble_chanliangtongji_danmomotou_count = new Iocomp.Instrumentation.Standard.DisplayDouble();
             this.label63 = new Iocomp.Instrumentation.Standard.Label();
-            this.label62 = new Iocomp.Instrumentation.Standard.Label();
             this.label61 = new Iocomp.Instrumentation.Standard.Label();
             this.displayInteger_lastshift_kailushijian_minute = new Iocomp.Instrumentation.Standard.DisplayInteger();
             this.displayInteger_lastshift_kailushijian_hour = new Iocomp.Instrumentation.Standard.DisplayInteger();
@@ -286,12 +278,9 @@ namespace fangpu_terminal
             this.typelabel = new System.Windows.Forms.Label();
             this.typeselect = new System.Windows.Forms.ComboBox();
             this.button_resetwarn = new CustomGUI.Forms.CustomButton();
-            this.displayDouble_tuomushijian = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label80 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_shuayoushijian = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label81 = new Iocomp.Instrumentation.Standard.Label();
-            this.displayDouble_jinliaoshijian = new Iocomp.Instrumentation.Standard.DisplayDouble();
-            this.label82 = new Iocomp.Instrumentation.Standard.Label();
+            this.Column_warninfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.信息 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl_terminal.SuspendLayout();
             this.tabPage_pg1.SuspendLayout();
             this.tabPage_pg2.SuspendLayout();
@@ -2141,55 +2130,31 @@ namespace fangpu_terminal
             this.dataGridView_warn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_warn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_warninfo,
-            this.Column_datetime});
+            this.Column_datetime,
+            this.信息});
             this.dataGridView_warn.Location = new System.Drawing.Point(6, 6);
             this.dataGridView_warn.Name = "dataGridView_warn";
             this.dataGridView_warn.RowTemplate.Height = 23;
             this.dataGridView_warn.Size = new System.Drawing.Size(844, 540);
             this.dataGridView_warn.TabIndex = 0;
             // 
-            // Column_warninfo
-            // 
-            this.Column_warninfo.HeaderText = "报警项目";
-            this.Column_warninfo.Name = "Column_warninfo";
-            this.Column_warninfo.ReadOnly = true;
-            this.Column_warninfo.Width = 550;
-            // 
-            // Column_datetime
-            // 
-            this.Column_datetime.HeaderText = "时间";
-            this.Column_datetime.Name = "Column_datetime";
-            this.Column_datetime.ReadOnly = true;
-            this.Column_datetime.Width = 250;
-            // 
             // tabPage_pg5
             // 
             this.tabPage_pg5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabPage_pg5.Controls.Add(this.displayDouble_jinliaoshijian);
-            this.tabPage_pg5.Controls.Add(this.label82);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_shuayoushijian);
-            this.tabPage_pg5.Controls.Add(this.label81);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_tuomushijian);
-            this.tabPage_pg5.Controls.Add(this.label80);
-            this.tabPage_pg5.Controls.Add(this.zuomoshijian);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no9);
-            this.tabPage_pg5.Controls.Add(this.label74);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no8);
-            this.tabPage_pg5.Controls.Add(this.label75);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no7);
-            this.tabPage_pg5.Controls.Add(this.label76);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no6);
-            this.tabPage_pg5.Controls.Add(this.label71);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no5);
-            this.tabPage_pg5.Controls.Add(this.label72);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no4);
-            this.tabPage_pg5.Controls.Add(this.label73);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no3);
-            this.tabPage_pg5.Controls.Add(this.label70);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no2);
             this.tabPage_pg5.Controls.Add(this.label69);
-            this.tabPage_pg5.Controls.Add(this.displayDouble_onceprocedure_time_no1);
             this.tabPage_pg5.Controls.Add(this.label68);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_zuomushijian_2);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_zuomushijian_1);
+            this.tabPage_pg5.Controls.Add(this.label62);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_jinliaoshijian_2);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_shuayoushijian_2);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_tuomushijian_2);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_jinliaoshijian_1);
+            this.tabPage_pg5.Controls.Add(this.label82);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_shuayoushijian_1);
+            this.tabPage_pg5.Controls.Add(this.label81);
+            this.tabPage_pg5.Controls.Add(this.displayDouble_tuomushijian_1);
+            this.tabPage_pg5.Controls.Add(this.label80);
             this.tabPage_pg5.Controls.Add(this.label42);
             this.tabPage_pg5.Controls.Add(this.displayDouble_chanliangtongji_shiji_count);
             this.tabPage_pg5.Controls.Add(this.label66);
@@ -2199,7 +2164,6 @@ namespace fangpu_terminal
             this.tabPage_pg5.Controls.Add(this.label65);
             this.tabPage_pg5.Controls.Add(this.displayDouble_chanliangtongji_danmomotou_count);
             this.tabPage_pg5.Controls.Add(this.label63);
-            this.tabPage_pg5.Controls.Add(this.label62);
             this.tabPage_pg5.Controls.Add(this.label61);
             this.tabPage_pg5.Controls.Add(this.displayInteger_lastshift_kailushijian_minute);
             this.tabPage_pg5.Controls.Add(this.displayInteger_lastshift_kailushijian_hour);
@@ -2242,203 +2206,147 @@ namespace fangpu_terminal
             this.tabPage_pg5.TabIndex = 4;
             this.tabPage_pg5.Text = "   统计页面   ";
             // 
-            // zuomoshijian
-            // 
-            this.zuomoshijian.LoadingBegin();
-            this.zuomoshijian.AutoSize = false;
-            this.zuomoshijian.Location = new System.Drawing.Point(766, 287);
-            this.zuomoshijian.Name = "zuomoshijian";
-            this.zuomoshijian.Size = new System.Drawing.Size(74, 45);
-            this.zuomoshijian.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no9
-            // 
-            this.displayDouble_onceprocedure_time_no9.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no9.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no9.Location = new System.Drawing.Point(766, 438);
-            this.displayDouble_onceprocedure_time_no9.Name = "displayDouble_onceprocedure_time_no9";
-            this.displayDouble_onceprocedure_time_no9.Size = new System.Drawing.Size(74, 45);
-            this.displayDouble_onceprocedure_time_no9.LoadingEnd();
-            // 
-            // label74
-            // 
-            this.label74.LoadingBegin();
-            this.label74.AutoSize = false;
-            this.label74.BackColor = System.Drawing.Color.Yellow;
-            this.label74.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label74.Location = new System.Drawing.Point(715, 440);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(57, 41);
-            this.label74.Text = "9";
-            this.label74.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no8
-            // 
-            this.displayDouble_onceprocedure_time_no8.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no8.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no8.Location = new System.Drawing.Point(663, 440);
-            this.displayDouble_onceprocedure_time_no8.Name = "displayDouble_onceprocedure_time_no8";
-            this.displayDouble_onceprocedure_time_no8.Size = new System.Drawing.Size(57, 43);
-            this.displayDouble_onceprocedure_time_no8.LoadingEnd();
-            // 
-            // label75
-            // 
-            this.label75.LoadingBegin();
-            this.label75.AutoSize = false;
-            this.label75.BackColor = System.Drawing.Color.Yellow;
-            this.label75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label75.Location = new System.Drawing.Point(612, 440);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(57, 41);
-            this.label75.Text = "8";
-            this.label75.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no7
-            // 
-            this.displayDouble_onceprocedure_time_no7.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no7.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no7.Location = new System.Drawing.Point(557, 440);
-            this.displayDouble_onceprocedure_time_no7.Name = "displayDouble_onceprocedure_time_no7";
-            this.displayDouble_onceprocedure_time_no7.Size = new System.Drawing.Size(57, 43);
-            this.displayDouble_onceprocedure_time_no7.LoadingEnd();
-            // 
-            // label76
-            // 
-            this.label76.LoadingBegin();
-            this.label76.AutoSize = false;
-            this.label76.BackColor = System.Drawing.Color.Yellow;
-            this.label76.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label76.Location = new System.Drawing.Point(501, 440);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(57, 43);
-            this.label76.Text = "7";
-            this.label76.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no6
-            // 
-            this.displayDouble_onceprocedure_time_no6.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no6.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no6.Location = new System.Drawing.Point(766, 387);
-            this.displayDouble_onceprocedure_time_no6.Name = "displayDouble_onceprocedure_time_no6";
-            this.displayDouble_onceprocedure_time_no6.Size = new System.Drawing.Size(74, 45);
-            this.displayDouble_onceprocedure_time_no6.LoadingEnd();
-            // 
-            // label71
-            // 
-            this.label71.LoadingBegin();
-            this.label71.AutoSize = false;
-            this.label71.BackColor = System.Drawing.Color.Yellow;
-            this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label71.Location = new System.Drawing.Point(715, 389);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(57, 43);
-            this.label71.Text = "6";
-            this.label71.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no5
-            // 
-            this.displayDouble_onceprocedure_time_no5.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no5.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no5.Location = new System.Drawing.Point(663, 389);
-            this.displayDouble_onceprocedure_time_no5.Name = "displayDouble_onceprocedure_time_no5";
-            this.displayDouble_onceprocedure_time_no5.Size = new System.Drawing.Size(54, 45);
-            this.displayDouble_onceprocedure_time_no5.LoadingEnd();
-            // 
-            // label72
-            // 
-            this.label72.LoadingBegin();
-            this.label72.AutoSize = false;
-            this.label72.BackColor = System.Drawing.Color.Yellow;
-            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label72.Location = new System.Drawing.Point(612, 391);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(57, 43);
-            this.label72.Text = "5";
-            this.label72.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no4
-            // 
-            this.displayDouble_onceprocedure_time_no4.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no4.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no4.Location = new System.Drawing.Point(557, 391);
-            this.displayDouble_onceprocedure_time_no4.Name = "displayDouble_onceprocedure_time_no4";
-            this.displayDouble_onceprocedure_time_no4.Size = new System.Drawing.Size(57, 45);
-            this.displayDouble_onceprocedure_time_no4.LoadingEnd();
-            // 
-            // label73
-            // 
-            this.label73.LoadingBegin();
-            this.label73.AutoSize = false;
-            this.label73.BackColor = System.Drawing.Color.Yellow;
-            this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label73.Location = new System.Drawing.Point(501, 391);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(57, 43);
-            this.label73.Text = "4";
-            this.label73.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no3
-            // 
-            this.displayDouble_onceprocedure_time_no3.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no3.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no3.Location = new System.Drawing.Point(766, 338);
-            this.displayDouble_onceprocedure_time_no3.Name = "displayDouble_onceprocedure_time_no3";
-            this.displayDouble_onceprocedure_time_no3.Size = new System.Drawing.Size(74, 45);
-            this.displayDouble_onceprocedure_time_no3.LoadingEnd();
-            // 
-            // label70
-            // 
-            this.label70.LoadingBegin();
-            this.label70.AutoSize = false;
-            this.label70.BackColor = System.Drawing.Color.Yellow;
-            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label70.Location = new System.Drawing.Point(715, 338);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(57, 43);
-            this.label70.Text = "3";
-            this.label70.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no2
-            // 
-            this.displayDouble_onceprocedure_time_no2.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no2.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no2.Location = new System.Drawing.Point(663, 338);
-            this.displayDouble_onceprocedure_time_no2.Name = "displayDouble_onceprocedure_time_no2";
-            this.displayDouble_onceprocedure_time_no2.Size = new System.Drawing.Size(54, 45);
-            this.displayDouble_onceprocedure_time_no2.LoadingEnd();
-            // 
             // label69
             // 
             this.label69.LoadingBegin();
             this.label69.AutoSize = false;
-            this.label69.BackColor = System.Drawing.Color.Yellow;
             this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label69.Location = new System.Drawing.Point(612, 338);
+            this.label69.Location = new System.Drawing.Point(749, 272);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(57, 43);
-            this.label69.Text = "2";
+            this.label69.Size = new System.Drawing.Size(74, 43);
+            this.label69.Text = "当前";
             this.label69.LoadingEnd();
-            // 
-            // displayDouble_onceprocedure_time_no1
-            // 
-            this.displayDouble_onceprocedure_time_no1.LoadingBegin();
-            this.displayDouble_onceprocedure_time_no1.AutoSize = false;
-            this.displayDouble_onceprocedure_time_no1.Location = new System.Drawing.Point(557, 338);
-            this.displayDouble_onceprocedure_time_no1.Name = "displayDouble_onceprocedure_time_no1";
-            this.displayDouble_onceprocedure_time_no1.Size = new System.Drawing.Size(57, 45);
-            this.displayDouble_onceprocedure_time_no1.LoadingEnd();
             // 
             // label68
             // 
             this.label68.LoadingBegin();
             this.label68.AutoSize = false;
-            this.label68.BackColor = System.Drawing.Color.Yellow;
             this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label68.Location = new System.Drawing.Point(501, 338);
+            this.label68.Location = new System.Drawing.Point(640, 272);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(57, 43);
-            this.label68.Text = "1";
+            this.label68.Size = new System.Drawing.Size(74, 43);
+            this.label68.Text = "上一次";
             this.label68.LoadingEnd();
+            // 
+            // displayDouble_zuomushijian_2
+            // 
+            this.displayDouble_zuomushijian_2.LoadingBegin();
+            this.displayDouble_zuomushijian_2.AutoSize = false;
+            this.displayDouble_zuomushijian_2.Location = new System.Drawing.Point(734, 321);
+            this.displayDouble_zuomushijian_2.Name = "displayDouble_zuomushijian_2";
+            this.displayDouble_zuomushijian_2.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_zuomushijian_2.LoadingEnd();
+            // 
+            // displayDouble_zuomushijian_1
+            // 
+            this.displayDouble_zuomushijian_1.LoadingBegin();
+            this.displayDouble_zuomushijian_1.AutoSize = false;
+            this.displayDouble_zuomushijian_1.Location = new System.Drawing.Point(631, 321);
+            this.displayDouble_zuomushijian_1.Name = "displayDouble_zuomushijian_1";
+            this.displayDouble_zuomushijian_1.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_zuomushijian_1.LoadingEnd();
+            // 
+            // label62
+            // 
+            this.label62.LoadingBegin();
+            this.label62.AutoSize = false;
+            this.label62.BackColor = System.Drawing.Color.Peru;
+            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label62.Location = new System.Drawing.Point(501, 323);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(114, 43);
+            this.label62.Text = "做一模时间";
+            this.label62.LoadingEnd();
+            // 
+            // displayDouble_jinliaoshijian_2
+            // 
+            this.displayDouble_jinliaoshijian_2.LoadingBegin();
+            this.displayDouble_jinliaoshijian_2.AutoSize = false;
+            this.displayDouble_jinliaoshijian_2.Location = new System.Drawing.Point(734, 474);
+            this.displayDouble_jinliaoshijian_2.Name = "displayDouble_jinliaoshijian_2";
+            this.displayDouble_jinliaoshijian_2.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_jinliaoshijian_2.LoadingEnd();
+            // 
+            // displayDouble_shuayoushijian_2
+            // 
+            this.displayDouble_shuayoushijian_2.LoadingBegin();
+            this.displayDouble_shuayoushijian_2.AutoSize = false;
+            this.displayDouble_shuayoushijian_2.Location = new System.Drawing.Point(733, 421);
+            this.displayDouble_shuayoushijian_2.Name = "displayDouble_shuayoushijian_2";
+            this.displayDouble_shuayoushijian_2.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_shuayoushijian_2.LoadingEnd();
+            // 
+            // displayDouble_tuomushijian_2
+            // 
+            this.displayDouble_tuomushijian_2.LoadingBegin();
+            this.displayDouble_tuomushijian_2.AutoSize = false;
+            this.displayDouble_tuomushijian_2.Location = new System.Drawing.Point(734, 372);
+            this.displayDouble_tuomushijian_2.Name = "displayDouble_tuomushijian_2";
+            this.displayDouble_tuomushijian_2.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_tuomushijian_2.LoadingEnd();
+            // 
+            // displayDouble_jinliaoshijian_1
+            // 
+            this.displayDouble_jinliaoshijian_1.LoadingBegin();
+            this.displayDouble_jinliaoshijian_1.AutoSize = false;
+            this.displayDouble_jinliaoshijian_1.Location = new System.Drawing.Point(631, 474);
+            this.displayDouble_jinliaoshijian_1.Name = "displayDouble_jinliaoshijian_1";
+            this.displayDouble_jinliaoshijian_1.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_jinliaoshijian_1.LoadingEnd();
+            // 
+            // label82
+            // 
+            this.label82.LoadingBegin();
+            this.label82.AutoSize = false;
+            this.label82.BackColor = System.Drawing.Color.Peru;
+            this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label82.Location = new System.Drawing.Point(501, 476);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(114, 43);
+            this.label82.Text = "浸料时间";
+            this.label82.LoadingEnd();
+            // 
+            // displayDouble_shuayoushijian_1
+            // 
+            this.displayDouble_shuayoushijian_1.LoadingBegin();
+            this.displayDouble_shuayoushijian_1.AutoSize = false;
+            this.displayDouble_shuayoushijian_1.Location = new System.Drawing.Point(631, 421);
+            this.displayDouble_shuayoushijian_1.Name = "displayDouble_shuayoushijian_1";
+            this.displayDouble_shuayoushijian_1.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_shuayoushijian_1.LoadingEnd();
+            // 
+            // label81
+            // 
+            this.label81.LoadingBegin();
+            this.label81.AutoSize = false;
+            this.label81.BackColor = System.Drawing.Color.Peru;
+            this.label81.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label81.Location = new System.Drawing.Point(501, 425);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(114, 43);
+            this.label81.Text = "刷油时间";
+            this.label81.LoadingEnd();
+            // 
+            // displayDouble_tuomushijian_1
+            // 
+            this.displayDouble_tuomushijian_1.LoadingBegin();
+            this.displayDouble_tuomushijian_1.AutoSize = false;
+            this.displayDouble_tuomushijian_1.Location = new System.Drawing.Point(631, 372);
+            this.displayDouble_tuomushijian_1.Name = "displayDouble_tuomushijian_1";
+            this.displayDouble_tuomushijian_1.Size = new System.Drawing.Size(96, 45);
+            this.displayDouble_tuomushijian_1.LoadingEnd();
+            // 
+            // label80
+            // 
+            this.label80.LoadingBegin();
+            this.label80.AutoSize = false;
+            this.label80.BackColor = System.Drawing.Color.Peru;
+            this.label80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label80.Location = new System.Drawing.Point(501, 372);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(114, 43);
+            this.label80.Text = "脱模时间";
+            this.label80.LoadingEnd();
             // 
             // label42
             // 
@@ -2534,17 +2442,6 @@ namespace fangpu_terminal
             this.label63.Size = new System.Drawing.Size(57, 43);
             this.label63.Text = "个";
             this.label63.LoadingEnd();
-            // 
-            // label62
-            // 
-            this.label62.LoadingBegin();
-            this.label62.AutoSize = false;
-            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label62.Location = new System.Drawing.Point(585, 291);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(164, 43);
-            this.label62.Text = "做一模时间";
-            this.label62.LoadingEnd();
             // 
             // label61
             // 
@@ -3008,68 +2905,26 @@ namespace fangpu_terminal
             this.button_resetwarn.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_resetwarn_TouchDown);
             this.button_resetwarn.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_resetwarn_TouchUp);
             // 
-            // displayDouble_tuomushijian
+            // Column_warninfo
             // 
-            this.displayDouble_tuomushijian.LoadingBegin();
-            this.displayDouble_tuomushijian.AutoSize = false;
-            this.displayDouble_tuomushijian.Location = new System.Drawing.Point(244, 504);
-            this.displayDouble_tuomushijian.Name = "displayDouble_tuomushijian";
-            this.displayDouble_tuomushijian.Size = new System.Drawing.Size(96, 45);
-            this.displayDouble_tuomushijian.LoadingEnd();
+            this.Column_warninfo.HeaderText = "报警项目";
+            this.Column_warninfo.Name = "Column_warninfo";
+            this.Column_warninfo.ReadOnly = true;
+            this.Column_warninfo.Width = 500;
             // 
-            // label80
+            // Column_datetime
             // 
-            this.label80.LoadingBegin();
-            this.label80.AutoSize = false;
-            this.label80.BackColor = System.Drawing.Color.Peru;
-            this.label80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label80.Location = new System.Drawing.Point(123, 504);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(114, 43);
-            this.label80.Text = "脱模时间";
-            this.label80.LoadingEnd();
+            this.Column_datetime.HeaderText = "时间";
+            this.Column_datetime.Name = "Column_datetime";
+            this.Column_datetime.ReadOnly = true;
+            this.Column_datetime.Width = 240;
             // 
-            // displayDouble_shuayoushijian
+            // 信息
             // 
-            this.displayDouble_shuayoushijian.LoadingBegin();
-            this.displayDouble_shuayoushijian.AutoSize = false;
-            this.displayDouble_shuayoushijian.Location = new System.Drawing.Point(478, 504);
-            this.displayDouble_shuayoushijian.Name = "displayDouble_shuayoushijian";
-            this.displayDouble_shuayoushijian.Size = new System.Drawing.Size(96, 45);
-            this.displayDouble_shuayoushijian.LoadingEnd();
-            // 
-            // label81
-            // 
-            this.label81.LoadingBegin();
-            this.label81.AutoSize = false;
-            this.label81.BackColor = System.Drawing.Color.Peru;
-            this.label81.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label81.Location = new System.Drawing.Point(357, 504);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(114, 43);
-            this.label81.Text = "刷油时间";
-            this.label81.LoadingEnd();
-            // 
-            // displayDouble_jinliaoshijian
-            // 
-            this.displayDouble_jinliaoshijian.LoadingBegin();
-            this.displayDouble_jinliaoshijian.AutoSize = false;
-            this.displayDouble_jinliaoshijian.Location = new System.Drawing.Point(715, 504);
-            this.displayDouble_jinliaoshijian.Name = "displayDouble_jinliaoshijian";
-            this.displayDouble_jinliaoshijian.Size = new System.Drawing.Size(96, 45);
-            this.displayDouble_jinliaoshijian.LoadingEnd();
-            // 
-            // label82
-            // 
-            this.label82.LoadingBegin();
-            this.label82.AutoSize = false;
-            this.label82.BackColor = System.Drawing.Color.Peru;
-            this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label82.Location = new System.Drawing.Point(594, 504);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(114, 43);
-            this.label82.Text = "浸料时间";
-            this.label82.LoadingEnd();
+            this.信息.HeaderText = "信息";
+            this.信息.Name = "信息";
+            this.信息.ReadOnly = true;
+            this.信息.Width = 200;
             // 
             // FangpuTerminal
             // 
@@ -3265,7 +3120,6 @@ namespace fangpu_terminal
         private Iocomp.Instrumentation.Standard.Label label47;
         private Iocomp.Instrumentation.Standard.DisplayInteger displayInteger_currentshift_kaijishijian_minute;
         private Iocomp.Instrumentation.Standard.DisplayInteger displayInteger_currentshift_kaijishijian_hour;
-        private Iocomp.Instrumentation.Standard.Label label62;
         private Iocomp.Instrumentation.Standard.Label label61;
         private Iocomp.Instrumentation.Standard.Label label63;
         private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_chanliangtongji_danmomotou_count;
@@ -3276,35 +3130,14 @@ namespace fangpu_terminal
         private Iocomp.Instrumentation.Standard.Label label64;
         private Iocomp.Instrumentation.Standard.Label label65;
         private Iocomp.Instrumentation.Standard.Label label42;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no1;
-        private Iocomp.Instrumentation.Standard.Label label68;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no9;
-        private Iocomp.Instrumentation.Standard.Label label74;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no8;
-        private Iocomp.Instrumentation.Standard.Label label75;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no7;
-        private Iocomp.Instrumentation.Standard.Label label76;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no6;
-        private Iocomp.Instrumentation.Standard.Label label71;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no5;
-        private Iocomp.Instrumentation.Standard.Label label72;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no4;
-        private Iocomp.Instrumentation.Standard.Label label73;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no3;
-        private Iocomp.Instrumentation.Standard.Label label70;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_onceprocedure_time_no2;
-        private Iocomp.Instrumentation.Standard.Label label69;
         private CustomGUI.Forms.CustomButton button_system_init;
         private System.Windows.Forms.Button cloudpara;
         private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_pg3_lengqueshijian2;
         private System.Windows.Forms.Button paraupload;
         private System.Windows.Forms.Button formupload;
-        private Iocomp.Instrumentation.Standard.DisplayDouble zuomoshijian;
         private Iocomp.Instrumentation.Standard.Label label77;
         private System.Windows.Forms.Button keyboard;
         private System.Windows.Forms.Button restart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_warninfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_datetime;
         private System.Windows.Forms.Button formupload2;
         private System.Windows.Forms.Button formupload3;
         private System.Windows.Forms.TextBox kaoliaoluwen_text;
@@ -3334,12 +3167,23 @@ namespace fangpu_terminal
         private System.Windows.Forms.Button buzuoguan_layer;
         private System.Windows.Forms.Button jinliaoshezhi_layer;
         private System.Windows.Forms.Button button_localdataoutput;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_jinliaoshijian;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_jinliaoshijian_1;
         private Iocomp.Instrumentation.Standard.Label label82;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_shuayoushijian;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_shuayoushijian_1;
         private Iocomp.Instrumentation.Standard.Label label81;
-        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_tuomushijian;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_tuomushijian_1;
         private Iocomp.Instrumentation.Standard.Label label80;
+        private Iocomp.Instrumentation.Standard.Label label62;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_jinliaoshijian_2;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_shuayoushijian_2;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_tuomushijian_2;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_zuomushijian_2;
+        private Iocomp.Instrumentation.Standard.DisplayDouble displayDouble_zuomushijian_1;
+        private Iocomp.Instrumentation.Standard.Label label69;
+        private Iocomp.Instrumentation.Standard.Label label68;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_warninfo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_datetime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 信息;
 
     }
 }

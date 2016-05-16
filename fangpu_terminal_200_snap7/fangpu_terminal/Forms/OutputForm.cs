@@ -36,19 +36,23 @@ namespace fangpu_terminal
             this.Dispose();
             this.Close();           
         }
+
+        private Thread t;
         private void button_accept_Click(object sender, EventArgs e)
         {
-
-
-            //if((FangpuTerminal.isInsert==true)&&(FangpuTerminal.UsbName!=null))
-            //{
-            //    button_accept.Enabled = true;
-            //    OutputThread Excelexecuter = new OutputThread(this);
-            //    selectedtype = comboBox_type.SelectedItem.ToString();
-            //    Thread t = new Thread(Excelexecuter.output2excel);
-            //    t.IsBackground = true;
-            //    t.Start();
-            //}
+            if ((FangpuTerminal.isInsert == true) && (FangpuTerminal.UsbName != null))
+            {
+                button_accept.Enabled = true;
+                OutputThread Excelexecuter = new OutputThread(this);
+                selectedtype = comboBox_type.SelectedItem.ToString();
+                if (t.IsAlive)
+                {
+                    t.Abort();
+                }
+                t = new Thread(Excelexecuter.output2excel);
+                t.IsBackground = true;
+                t.Start();
+            }
         }
     }
     public class OutputThread
@@ -67,8 +71,6 @@ namespace fangpu_terminal
             {
                 OutputForm.OutputFormUI S1 = new OutputForm.OutputFormUI(updateui);
                 OutputForm.Invoke(S1, -1);
-
-
                 OutputForm.Invoke(S1, 0);
                 StringBuilder strSql = new StringBuilder();
                 string a = OutputForm.FangpuTerminal.UsbName + Properties.TerminalParameters.Default.terminal_name + OutputForm.selectedtype + "_" + string.Format("{0:yyyyMMddHHmmss}_{1:yyyyMMddHHmmss}.xls", start, end);

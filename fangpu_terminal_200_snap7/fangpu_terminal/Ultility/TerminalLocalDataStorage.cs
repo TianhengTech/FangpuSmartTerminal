@@ -356,8 +356,7 @@ namespace fangpu_terminal
                 try
                 {
                     connection.Open();
-                    SQLiteDataAdapter command = new SQLiteDataAdapter(SQLString, connection);
-                    
+                    SQLiteDataAdapter command = new SQLiteDataAdapter(SQLString, connection);                    
                     command.Fill(ds, "ds");
                 }
                 catch (System.Data.SQLite.SQLiteException ex)
