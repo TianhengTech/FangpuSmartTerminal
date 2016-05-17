@@ -252,6 +252,8 @@ namespace fangpu_terminal
         private void Timer_60s_handler(object sender)
         {
             GC.Collect();
+            var p = Process.GetCurrentProcess();
+            log.Info("当前内存:"+p.PagedMemorySize64);
         }
 
         //==================================================================
@@ -275,12 +277,8 @@ namespace fangpu_terminal
             }
             WarnInfoRead(); //读取错误记录
             fangpu_config.ReadAddrIniFile("./fangpu_config.ini"); //读取地址信息
-            fangpu_config.ReadInfoIniFile("./fangpu_warn.ini"); //读取报警信息
-            foreach (var item in fangpu_config.warnmsg)
-            {
-                TerminalCommon.warn_info[item.Key] = item.Value;
-            }
-            ;
+            TerminalCommon.warn_info = fangpu_config.ConvertToDictionary(fangpu_config.ReadIniAllKeys("warn", "./fangpu_warn.ini"));//读取报警信息
+            TerminalCommon.warn_stop_info=fangpu_config.ReadIniAllKeys("stopwarn", "./fangpu_warn.ini"); //读取停机信息
         }
 
         //==================================================================
@@ -421,9 +419,10 @@ namespace fangpu_terminal
                             dataGridView_warn.Rows.RemoveAt(499);
                         }
                         var index = dataGridView_warn.Rows.Add();
-                        dataGridView_warn.Rows[index].Cells[0].Value = Warn;
+                        dataGridView_warn.Rows[index].Cells[0].Value = Warn.Key;//报警信息
                         dataGridView_warn.Rows[index].Cells[1].Value = daq_input.daq_time;
-                        warntext = Warn;
+                        dataGridView_warn.Rows[index].Cells[2].Value = Warn.Value;//报警等级
+                        warntext = Warn.Key;
                         dataGridView_warn.Sort(dataGridView_warn.Columns[1], ListSortDirection.Descending);
                     }
                     displayWarninfo.Value = warntext;
@@ -457,8 +456,8 @@ namespace fangpu_terminal
                 displayDouble_chanliangtongji_danmomotou_count.Value = daq_input.aream_data["VW26"];
                 displayDouble_chanliangtongji_jihua_count.Value = daq_input.aream_data["VW28"];
                 displayDouble_chanliangtongji_shiji_count.Value = daq_input.aream_data["VW30"];
-
-                bool myflag;
+            }
+            bool myflag;
                 if ((daq_input.aream_data["VB100"] & 0x01) == 0x01)
                 {
                     myflag = true;
@@ -541,7 +540,7 @@ namespace fangpu_terminal
                     displayDouble_jinliaoshijian_2.Value = daq_input.aream_data["VW44"] / 10.0d;
                 }
                 shiftflag_4 = myflag;
-            }
+            
                 
 
             if ((daq_input.aream_data["MB0"] & 0x01) == 0x01 && (led_manul.BlinkerEnabled = true))
@@ -608,7 +607,7 @@ namespace fangpu_terminal
         //==================================================================
         public void WarnInfoRead()
         {
-            var strSql = "select warninfo,warntime from warninfo order by warninfoid desc limit 500";
+            var strSql = "select warninfo,warntime,warnlevel from warninfo order by warninfoid desc limit 500";
             var ds = new DataSet();
             var dTable = new DataTable();
             ds = TerminalLocalDataStorage.Query(strSql);
@@ -618,6 +617,7 @@ namespace fangpu_terminal
                 var index = dataGridView_warn.Rows.Add();
                 dataGridView_warn.Rows[index].Cells[0].Value = dTable.Rows[i]["warninfo"];
                 dataGridView_warn.Rows[index].Cells[1].Value = dTable.Rows[i]["warntime"];
+                dataGridView_warn.Rows[index].Cells[2].Value = dTable.Rows[i]["warnlevel"];
                 if (index >= 499)
                 {
                     break;
@@ -1288,12 +1288,13 @@ namespace fangpu_terminal
                                     TerminalQueues.warninfoqueue.TryDequeue(out plc_warn_data);
                                     if (plc_warn_data != null)
                                     {
-                                        foreach (string warninfo in plc_warn_data.warndata)
+                                        foreach (var warninfo in plc_warn_data.warndata)
                                             try
                                             {
                                                 warn_info warn_info = new warn_info();
                                                 warn_info.device_name = TerminalParameters.Default.terminal_name;
-                                                warn_info.warn_message = warninfo;
+                                                warn_info.warn_message = warninfo.Key;
+                                                warn_info.warn_level = warninfo.Value;
                                                 warn_info.storetime = plc_warn_data.warn_time;
                                                 session.Save(warn_info);
                                                 session.Flush();
@@ -1317,7 +1318,6 @@ namespace fangpu_terminal
         
                 catch (Exception ex)
                 {
-
                     if(!session.IsOpen)
                     session = sf.OpenSession(); 
                     log.Error("数据中心存储线程出错！" , ex);
@@ -1368,9 +1368,9 @@ namespace fangpu_terminal
         //返回值：  相应的报警信息
         //修改记录：
         //==================================================================
-        public List<string> GetWarnInfo(Dictionary<string, int> info)
+        public Dictionary<string,string> GetWarnInfo(Dictionary<string, int> info)
         {
-            var results = new List<string>();
+            var results = new Dictionary<string,string>();
             var base_zero = 0;
             var i = 0;
 
@@ -1381,8 +1381,16 @@ namespace fangpu_terminal
                     for (i = 0; i <= 7; i++)
                     {
                         if ((info["VB400" + j] & ((1 << i))) == 1 << i)
-                        {
-                            results.Add(TerminalCommon.warn_info["400" + j + "_" + i]);
+                        { 
+                            results[(TerminalCommon.warn_info["400" + j + "_" + i])] = null;
+                            foreach (string key in TerminalCommon.warn_stop_info)
+                            {
+                                if (key.Equals("400" + j + "_" + i))
+                                {
+                                    results[(TerminalCommon.warn_info["400" + j + "_" + i])] = "停机报警"; //是否是停机报警
+                                    break;
+                                }
+                            }
                         }
                     }
                 }
@@ -1410,6 +1418,24 @@ namespace fangpu_terminal
                 TerminalQueues.warninfoqueue_local.Enqueue(plcwarn);
             }
             warnflag = (plc_data.aream_data["MB5"] & 0x08) != 0x08;
+        }
+        public void WarnInfoLocalStorage(Dictionary<string,string> warninfos, DateTime warntime)
+        {
+            var strSql = new StringBuilder();
+            strSql.Append("insert into warninfo (");
+            strSql.Append("warninfo,warntime,warnlevel)");
+            strSql.Append(" values(");
+            strSql.Append("@warninfo,@warntime,@warnlevel)");
+            foreach (var item in warninfos)
+            {
+                SQLiteParameter[] parameters =
+                    {
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@warninfo", DbType.String, 200, item.Key),
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@warntime", DbType.DateTime, 30, warntime),
+                        TerminalLocalDataStorage.MakeSQLiteParameter("@warnlevel", DbType.String, 30, item.Value)
+                    };
+                TerminalLocalDataStorage.ExecuteSql(strSql.ToString(), parameters);
+            }
         }
 
         //==================================================================
@@ -1620,23 +1646,7 @@ namespace fangpu_terminal
         //返回值：  
         //修改记录：
         //==================================================================
-        public void WarnInfoLocalStorage(List<string> warninfos, DateTime warntime)
-        {
-            var strSql = new StringBuilder();
-            strSql.Append("insert into warninfo (");
-            strSql.Append("warninfo,warntime)");
-            strSql.Append(" values(");
-            strSql.Append("@warninfo,@warntime)");
-            foreach (string warninfo in warninfos)
-            {
-                SQLiteParameter[] parameters =
-                    {
-                        TerminalLocalDataStorage.MakeSQLiteParameter("@warninfo", DbType.String, 200, warninfo),
-                        TerminalLocalDataStorage.MakeSQLiteParameter("@warntime", DbType.DateTime, 30, warntime)
-                    };
-                TerminalLocalDataStorage.ExecuteSql(strSql.ToString(), parameters);
-            }
-        }
+     
 
         #region 读取PLC状态
 

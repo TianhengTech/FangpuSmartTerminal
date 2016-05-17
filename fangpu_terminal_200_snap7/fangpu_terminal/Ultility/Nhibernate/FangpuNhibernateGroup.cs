@@ -9,6 +9,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
         public virtual int idwarn_info { get; set; }
         public virtual string device_name { get; set; }
         public virtual string warn_message { get; set; }
+        public virtual string warn_level { get; set; }
         public virtual DateTime storetime { get; set; }
     }
 

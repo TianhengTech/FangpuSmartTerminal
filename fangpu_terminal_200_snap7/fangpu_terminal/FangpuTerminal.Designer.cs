@@ -2910,7 +2910,7 @@ namespace fangpu_terminal
             this.Column_warninfo.HeaderText = "报警项目";
             this.Column_warninfo.Name = "Column_warninfo";
             this.Column_warninfo.ReadOnly = true;
-            this.Column_warninfo.Width = 500;
+            this.Column_warninfo.Width = 450;
             // 
             // Column_datetime
             // 

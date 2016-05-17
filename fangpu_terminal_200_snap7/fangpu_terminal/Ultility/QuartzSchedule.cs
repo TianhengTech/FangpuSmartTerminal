@@ -21,6 +21,7 @@ namespace fangpu_terminal.Ultility
                 x.CommandText = sqlstr;
                 x.ExecuteNonQuery();
             }
+            entity.Dispose();
             TerminalLogWriter.WriteInfoLog(typeof(MySqlTableUpdate), "作业建立"+DateTime.Now);
         }
     }

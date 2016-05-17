@@ -32,8 +32,8 @@ namespace fangpu_terminal.Ultility.Nhibernate
                     .ConnectionString(
                         c => c.Server(Properties.TerminalParameters.Default.terminal_server_ip)
                             .Password("tianheng123")
-                            .Username("root")
-                            .Database("fangpu_datacenter")
+                            .Username(Properties.TerminalParameters.Default.terminal_server_id)
+                            .Database(Properties.TerminalParameters.Default.terminal_server_db)                          
                     ) //是否显示sql
                 //.ShowSql()
                 )

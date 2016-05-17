@@ -25,19 +25,7 @@ namespace fangpu_terminal.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10000")]
-        public int terminal_server_port {
-            get {
-                return ((int)(this["terminal_server_port"]));
-            }
-            set {
-                this["terminal_server_port"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.51")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.2.22")]
         public string plc1_tcp_ip {
             get {
                 return ((string)(this["plc1_tcp_ip"]));
@@ -157,7 +145,7 @@ namespace fangpu_terminal.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.25")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.53")]
         public string terminal_server_ip {
             get {
                 return ((string)(this["terminal_server_ip"]));
@@ -181,13 +169,49 @@ namespace fangpu_terminal.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4097")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4100")]
         public int PLC_TSAP_Local {
             get {
                 return ((int)(this["PLC_TSAP_Local"]));
             }
             set {
                 this["PLC_TSAP_Local"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
+        public string terminal_server_id {
+            get {
+                return ((string)(this["terminal_server_id"]));
+            }
+            set {
+                this["terminal_server_id"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10000")]
+        public int terminal_server_port {
+            get {
+                return ((int)(this["terminal_server_port"]));
+            }
+            set {
+                this["terminal_server_port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("fangpu_datacenter")]
+        public string terminal_server_db {
+            get {
+                return ((string)(this["terminal_server_db"]));
+            }
+            set {
+                this["terminal_server_db"] = value;
             }
         }
     }

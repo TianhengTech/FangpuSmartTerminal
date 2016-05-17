@@ -140,6 +140,23 @@ namespace fangpu_terminal
             }
 
         }
+        /// <summary>
+        /// Convert KeyValue Pairs into a Dictionary
+        /// </summary>
+        /// <param name="allKeyValue"></param>
+        /// <returns></returns>
+        public static Dictionary<string, string> ConvertToDictionary(string[] allKeyValue)
+        {
+            var results = new Dictionary<string, string>();
+            foreach (var Key_Value in allKeyValue)
+            {
+                var keyValue = Key_Value.Split('=');
+                var key = keyValue[0];
+                var value = keyValue[1];
+                results[key] = value;
+            }
+            return results;
+        }
     }
 
 

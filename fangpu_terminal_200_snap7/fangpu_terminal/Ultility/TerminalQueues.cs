@@ -20,7 +20,7 @@ namespace fangpu_terminal
     }
     public class PLCWarningObject
     {
-        public List<string> warndata;
+        public Dictionary<string,string> warndata;
         public DateTime warn_time;
     }
     //==================================================================

@@ -39,6 +39,7 @@ namespace fangpu_terminal
         public static string S7200DataDword = "dword";
 
         public static Dictionary<string, string> warn_info = new Dictionary<string, string>();
+        public static string[] warn_stop_info;
 
         //获取内网IP
         public static string GetInternalIP()

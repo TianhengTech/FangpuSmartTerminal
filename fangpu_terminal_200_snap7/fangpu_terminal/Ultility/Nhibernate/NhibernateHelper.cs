@@ -60,58 +60,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
         public ISession GetSession()
         {
             return _sessionFactory.OpenSession();
-        }
-
-        public void test()
-        {
-            Configuration cfg = new Configuration().Configure();
-            Mappings mappings = cfg.CreateMappings(null);
-            foreach (PersistentClass persistClass in cfg.ClassMappings)
-            {
-                if(persistClass.MappedClass == typeof(historydata))
-                persistClass.Table.Name = "historydata_20160426";
-            }
-            var sessionFactory = cfg.BuildSessionFactory();
-            warn_info wa = new warn_info();
-            wa.device_name = "dynamic";
-            wa.storetime = DateTime.Now;
-            wa.warn_message = "dynamic test";
-            historydata his =new historydata
-            {
-                deviceid="DXX",value="te",storetime=DateTime.Now
-            };
-            ISession session = sessionFactory.OpenSession();
-            session.Save(his);
-            session.Save(wa);
-            
-            session.Flush();
-
-        }
-
-        public void test2()
-        {
-            Configuration cfg = new Configuration().Configure();
-            Mappings mappings = cfg.CreateMappings(null);
-            ISession session = cfg.BuildSessionFactory().OpenSession();
-            warn_info wa = new warn_info();
-            wa.warn_message = "fluent";
-            wa.storetime = DateTime.Now;
-            wa.device_name = "test fluent";
-            using (var trans = session.BeginTransaction())
-            {
-                try
-                {
-                    session.Save(wa);
-                    session.Flush();
-                    trans.Commit();
-                }
-                catch (Exception)
-                {
-                    trans.Rollback();
-                }
-            }
-        }
-
+        }    
 
     }
 }

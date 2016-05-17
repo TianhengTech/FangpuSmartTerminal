@@ -2,11 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="fangpu_terminal.Properties" GeneratedClassName="TerminalParameters">
   <Profiles />
   <Settings>
-    <Setting Name="terminal_server_port" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10000</Value>
-    </Setting>
     <Setting Name="plc1_tcp_ip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.1.51</Value>
+      <Value Profile="(Default)">192.168.2.22</Value>
     </Setting>
     <Setting Name="plc1_tcp_port" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -36,13 +33,22 @@
       <Value Profile="(Default)">D17</Value>
     </Setting>
     <Setting Name="terminal_server_ip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.1.25</Value>
+      <Value Profile="(Default)">192.168.0.53</Value>
     </Setting>
     <Setting Name="PLC_TSAP_Remote" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4096</Value>
     </Setting>
     <Setting Name="PLC_TSAP_Local" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">4097</Value>
+      <Value Profile="(Default)">4100</Value>
+    </Setting>
+    <Setting Name="terminal_server_id" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="terminal_server_port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="terminal_server_db" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fangpu_datacenter</Value>
     </Setting>
   </Settings>
 </SettingsFile>
