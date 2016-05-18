@@ -2924,7 +2924,7 @@ namespace fangpu_terminal
             this.信息.HeaderText = "信息";
             this.信息.Name = "信息";
             this.信息.ReadOnly = true;
-            this.信息.Width = 200;
+            this.信息.Width = 110;
             // 
             // FangpuTerminal
             // 

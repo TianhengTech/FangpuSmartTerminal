@@ -138,7 +138,7 @@ namespace fangpu_terminal
             }
             catch (Exception ex)
             {
-                TerminalLogWriter.WriteErroLog(typeof(Dailycheck), "");
+                TerminalLogWriter.WriteErroLog(typeof(Dailycheck), "日常点检表上传失败",ex);
                 MessageBox.Show("上传失败!");
             }
             this.Close();

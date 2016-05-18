@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RoortLocal>
+  <Version version="1.00" remark="版本号"></Version>
+  <ApplicationName name="fangpu_terminal.exe"></ApplicationName>
+  <ServerDownloadUrl zipurl="http://10.2.6.88:80/f/26a0fc3886/?raw=1" xmlurl="http://10.2.6.88:80/f/26a0fc3886/?raw=1" remark="升级程序地址"></ServerDownloadUrl>
+  <HashValue hash="3360096FDB0E0C1172CE2E91C7F3B47E"></HashValue>
+</RoortLocal>

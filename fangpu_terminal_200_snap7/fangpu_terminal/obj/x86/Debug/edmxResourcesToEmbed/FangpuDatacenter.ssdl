@@ -110,24 +110,6 @@
     <Property Name="time_end" Type="datetime" Precision="0" />
     <Property Name="storetime" Type="datetime" Precision="0" />
   </EntityType>
-  <EntityType Name="historydata">
-    <Key>
-      <PropertyRef Name="historydataid" />
-    </Key>
-    <Property Name="historydataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="deviceid" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="value" Type="varchar" MaxLength="2000" Nullable="false" />
-    <Property Name="shuayou_consume_seconds" Type="float" />
-    <Property Name="kaomo_consume_seconds" Type="float" />
-    <Property Name="kaoliao_consume_seconds" Type="float" />
-    <Property Name="lengque_consume_seconds" Type="float" />
-    <Property Name="jinliao_consume_seconds" Type="float" />
-    <Property Name="kaomo_temp" Type="float" />
-    <Property Name="kaoliao_temp" Type="float" />
-    <Property Name="cycletime" Type="float" />
-    <Property Name="storetime" Type="datetime" Precision="0" Nullable="false" />
-    <Property Name="systus" Type="varchar" MaxLength="2000" />
-  </EntityType>
   <EntityType Name="historydata_1200">
     <Key>
       <PropertyRef Name="idhistorydata" />
@@ -288,10 +270,10 @@
     <Key>
       <PropertyRef Name="idwarn_info" />
     </Key>
-    <Property Name="idwarn_info" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="device_name" Type="varchar" MaxLength="45" />
-    <Property Name="warn_message" Type="varchar" MaxLength="100" />
-    <Property Name="storetime" Type="datetime" Precision="0" />
+    <Property Name="idwarn_info" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="device_name" MaxLength="45" Type="varchar" />
+    <Property Name="warn_message" MaxLength="100" Type="varchar" />
+    <Property Name="storetime" Precision="0" Type="datetime" />
   </EntityType>
   <EntityContainer Name="fangpu_datacenterModelStoreContainer">
     <EntitySet Name="bandchecklist" EntityType="Self.bandchecklist" Schema="fangpu_datacenter" store:Type="Tables" />
@@ -299,7 +281,6 @@
     <EntitySet Name="deviceinfo" EntityType="Self.deviceinfo" Schema="fangpu_datacenter" store:Type="Tables" />
     <EntitySet Name="fieldchecklist" EntityType="Self.fieldchecklist" Schema="fangpu_datacenter" store:Type="Tables" />
     <EntitySet Name="haltinfo" EntityType="Self.haltinfo" Schema="fangpu_datacenter" store:Type="Tables" />
-    <EntitySet Name="historydata" EntityType="Self.historydata" Schema="fangpu_datacenter" store:Type="Tables" />
     <EntitySet Name="historydata_1200" EntityType="Self.historydata_1200" Schema="fangpu_datacenter" store:Type="Tables" />
     <EntitySet Name="historydata_jsoncopy" EntityType="Self.historydata_jsoncopy" Schema="fangpu_datacenter" store:Type="Tables" />
     <EntitySet Name="operationlog" EntityType="Self.operationlog" Schema="fangpu_datacenter" store:Type="Tables" />

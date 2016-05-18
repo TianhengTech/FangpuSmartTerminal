@@ -25,7 +25,7 @@ namespace fangpu_terminal.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.2.22")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.51")]
         public string plc1_tcp_ip {
             get {
                 return ((string)(this["plc1_tcp_ip"]));
@@ -145,7 +145,7 @@ namespace fangpu_terminal.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.53")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.25")]
         public string terminal_server_ip {
             get {
                 return ((string)(this["terminal_server_ip"]));
@@ -169,7 +169,7 @@ namespace fangpu_terminal.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4097")]
         public int PLC_TSAP_Local {
             get {
                 return ((int)(this["PLC_TSAP_Local"]));

@@ -74,15 +74,15 @@ namespace fangpu_terminal
                     workerlist.name = jianyan.Text;
                     workerlist.datetime2 = dateTimePicker1.Value;
                     workerlist.confirm = queren.Text;
-
                     mysql.Save(workerlist);
                     mysql.Flush();
                     MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);        
                 }
                
             }
-            catch
+            catch(Exception ex)
             {
+                TerminalLogWriter.WriteErroLog(typeof(Fieldcheck), "现场点检表上传失败", ex);
                 MessageBox.Show("上传失败", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

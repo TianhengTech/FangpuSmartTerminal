@@ -25,7 +25,6 @@
     <EntitySet Name="bandchecklist" EntityType="fangpu_datacenterModel.bandchecklist" />
     <EntitySet Name="dailychecklist" EntityType="fangpu_datacenterModel.dailychecklist" />
     <EntitySet Name="fieldchecklist" EntityType="fangpu_datacenterModel.fieldchecklist" />
-    <EntitySet Name="historydata" EntityType="fangpu_datacenterModel.historydata" />
     <EntitySet Name="userinfo" EntityType="fangpu_datacenterModel.userinfo" />
     <EntitySet Name="proceduretechnologybase_work" EntityType="fangpu_datacenterModel.proceduretechnologybase_work" />
     <EntitySet Name="proceduretechnologybase" EntityType="fangpu_datacenterModel.proceduretechnologybase" />
@@ -123,24 +122,6 @@
     <Property Name="datetime2" Type="DateTime" />
     <Property Name="confirm" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="sn" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="historydata">
-    <Key>
-      <PropertyRef Name="historydataid" />
-    </Key>
-    <Property Name="historydataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="deviceid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="value" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
-    <Property Name="shuayou_consume_seconds" Type="Single" />
-    <Property Name="kaomo_consume_seconds" Type="Single" />
-    <Property Name="kaoliao_consume_seconds" Type="Single" />
-    <Property Name="lengque_consume_seconds" Type="Single" />
-    <Property Name="jinliao_consume_seconds" Type="Single" />
-    <Property Name="kaomo_temp" Type="Single" />
-    <Property Name="kaoliao_temp" Type="Single" />
-    <Property Name="cycletime" Type="Single" />
-    <Property Name="storetime" Type="DateTime" Nullable="false" />
-    <Property Name="systus" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="userinfo">
     <Key>
@@ -262,9 +243,9 @@
     <Key>
       <PropertyRef Name="idwarn_info" />
     </Key>
-    <Property Name="idwarn_info" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="device_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="warn_message" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idwarn_info" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="device_name" MaxLength="45" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="warn_message" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
     <Property Name="storetime" Type="DateTime" />
   </EntityType>
   <EntityType Name="haltinfo">

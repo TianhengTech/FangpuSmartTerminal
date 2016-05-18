@@ -114,25 +114,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="historydata">
-      <EntityTypeMapping TypeName="fangpu_datacenterModel.historydata">
-        <MappingFragment StoreEntitySet="historydata">
-          <ScalarProperty Name="systus" ColumnName="systus" />
-          <ScalarProperty Name="storetime" ColumnName="storetime" />
-          <ScalarProperty Name="cycletime" ColumnName="cycletime" />
-          <ScalarProperty Name="kaoliao_temp" ColumnName="kaoliao_temp" />
-          <ScalarProperty Name="kaomo_temp" ColumnName="kaomo_temp" />
-          <ScalarProperty Name="jinliao_consume_seconds" ColumnName="jinliao_consume_seconds" />
-          <ScalarProperty Name="lengque_consume_seconds" ColumnName="lengque_consume_seconds" />
-          <ScalarProperty Name="kaoliao_consume_seconds" ColumnName="kaoliao_consume_seconds" />
-          <ScalarProperty Name="kaomo_consume_seconds" ColumnName="kaomo_consume_seconds" />
-          <ScalarProperty Name="shuayou_consume_seconds" ColumnName="shuayou_consume_seconds" />
-          <ScalarProperty Name="value" ColumnName="value" />
-          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
-          <ScalarProperty Name="historydataid" ColumnName="historydataid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="userinfo">
       <EntityTypeMapping TypeName="fangpu_datacenterModel.userinfo">
         <MappingFragment StoreEntitySet="userinfo">

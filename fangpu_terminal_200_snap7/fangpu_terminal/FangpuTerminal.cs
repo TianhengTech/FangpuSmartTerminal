@@ -663,7 +663,8 @@ namespace fangpu_terminal
             var tablename = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
             var cfg = FluentNhibernateHelper.GetSessionConfig();
             FluentNhibernateHelper.MappingTablenames(cfg, typeof(historydata), tablename);
-            using (var mysql=cfg.BuildSessionFactory().OpenSession())
+            var sefactory = cfg.BuildSessionFactory();
+            using (var mysql=sefactory.OpenSession())
             {
                 try
                 {
@@ -736,6 +737,7 @@ namespace fangpu_terminal
                                 mytable.systus= Convert.ToString(synctable.Rows[n][11]);
                                 mysql.Save(mytable);
                                 mysql.Flush();
+                                mysql.Dispose();
                             }
                         }
                     }
@@ -749,7 +751,7 @@ namespace fangpu_terminal
                     log.Error("同步查询阶段出错", ex);
                 }
             }
-            
+            sefactory.Dispose();
         }
 
         //==================================================================
@@ -773,11 +775,11 @@ namespace fangpu_terminal
                     //    log.Info("tcpuplink_dataprocess_thread Abort");
                     //}
 
-                    if (tcpdownlink_dataprocess_thread.IsAlive)
-                    {
-                        tcpdownlink_dataprocess_thread.Abort();
-                        log.Info("tcpdownlink_dataprocess_thread Abort");
-                    }
+                    //if (tcpdownlink_dataprocess_thread.IsAlive)
+                    //{
+                    //    tcpdownlink_dataprocess_thread.Abort();
+                    //    log.Info("tcpdownlink_dataprocess_thread Abort");
+                    //}
 
                     if (plccommunication_thread.IsAlive)
                     {
@@ -3096,6 +3098,7 @@ namespace fangpu_terminal
                         }
                         d.storetime = DateTime.Now;
                         mysql.Save(d);
+                        mysql.Flush();
                         MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         log.Info("上传工艺参数成功");
                     }                   
