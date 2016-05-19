@@ -786,20 +786,16 @@ namespace fangpu_terminal
                         plccommunication_thread.Abort();
                         log.Info("plccommunication_thread Abort");
                     }
-
-
                     if (plcdatahandler_thread.IsAlive)
                     {
                         plcdatahandler_thread.Abort();
                         log.Info("plcdatahandler_thread Abort");
                     }
-
                     if (datacenter_storage_thread.IsAlive)
                     {
                         datacenter_storage_thread.Abort();
                         log.Info("datacenter_storage_thread Abort");
                     }
-
                     if (local_storage_thread.IsAlive)
                     {
                         local_storage_thread.Abort();
@@ -1421,6 +1417,11 @@ namespace fangpu_terminal
             }
             warnflag = (plc_data.aream_data["MB5"] & 0x08) != 0x08;
         }
+        /// <summary>
+        /// 本地存储警告数据
+        /// </summary>
+        /// <param name="warninfos"></param>
+        /// <param name="warntime"></param>
         public void WarnInfoLocalStorage(Dictionary<string,string> warninfos, DateTime warntime)
         {
             var strSql = new StringBuilder();
@@ -1569,6 +1570,7 @@ namespace fangpu_terminal
                                 string msg = "接收到堡垒机下达的程序重启指令\n程序即将重启...";
                                 this.BeginInvoke(new MessageBoxShow(MessageBoxShow_F), new object[] { msg });
                                 Thread.Sleep(5000);
+                                log.Info("收到重启程序指令");
                                 this.BeginInvoke(cmdproc, "restart");                            
                                 break;
                             }
@@ -1581,8 +1583,8 @@ namespace fangpu_terminal
                                 string msg = "接收到堡垒机下达的重启指令\n终端即将重启...";
                                 this.BeginInvoke(new MessageBoxShow(MessageBoxShow_F), new object[] { msg });
                                 Thread.Sleep(5000);
+                                log.Info("收到重启终端指令");
                                 this.BeginInvoke(cmdproc, "reboot");
-                                TerminalCommon.SystemReboot(this);
                                 break;
                             }
                             case ("shutdown"):
@@ -1594,8 +1596,43 @@ namespace fangpu_terminal
                                 string msg = "接收到堡垒机下达的关机指令\n终端即将关闭...";
                                 this.BeginInvoke(new MessageBoxShow(MessageBoxShow_F), new object[] { msg });
                                 Thread.Sleep(5000);
+                                log.Info("收到关机指令");
                                 this.BeginInvoke(cmdproc, "shutdown");                               
-                                TerminalCommon.SystemShutdown(this);
+                                break;
+                            }
+                            case ("update"):
+                            {
+                                string msg = "接收到堡垒机下达的更新指令\n是否进行更新？...";
+                                if ((bool)this.Invoke(new MessageBoxShow(MessageBoxShow_F), new object[] {msg}) == false)
+                                {
+                                    result.status = "refused";
+                                    result.time = DateTime.Now;
+                                    session.SaveOrUpdate(result);
+                                    session.Flush();
+                                    break;
+                                }
+                                else
+                                {
+                                    result.status = "processing";
+                                    result.time = DateTime.Now;                                   
+                                    session.SaveOrUpdate(result);
+                                    session.Flush();
+                                    log.Info("尝试进行更新");
+                                    Thread.Sleep(5000);
+                                    this.BeginInvoke(cmdproc, "update");
+                                }
+                                break;
+                            }
+                            case ("update_f"):
+                            {
+                                string msg = "接收到堡垒机下达的强制更新指令\n程序即将更新...更新过程将关闭程序";
+                                BeginInvoke(new MessageBoxShow(MessageBoxShow_F), new object[] {msg});
+                                result.status = "processing";
+                                result.time = DateTime.Now;
+                                session.SaveOrUpdate(result);
+                                session.Flush();
+                                log.Info("尝试进行强制更新");
+                                this.BeginInvoke(cmdproc, "update");
                                 break;
                             }
                             default:
@@ -1629,15 +1666,21 @@ namespace fangpu_terminal
                 case("shutdown"):
                     TerminalCommon.SystemShutdown(this);
                     break;
+                case("update"):
+                    TerminalCommon.ProcessStart(@"C:/UpdateService/UpdateService.exe", @"C:/UpdateService/)");
+                    break;
                 default:
                     return;
             }
 
         }
-        delegate void MessageBoxShow(string msg);
-        void MessageBoxShow_F(string msg)
+        delegate bool MessageBoxShow(string msg);
+        bool MessageBoxShow_F(string msg)
         {
-            MessageBox.Show(this,msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(DialogResult.OK==MessageBox.Show(this,msg, "提示信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Information))
+                return true;
+            else
+                return false;
         }
         //==================================================================
         //模块名： WarnInfoLocalStorage

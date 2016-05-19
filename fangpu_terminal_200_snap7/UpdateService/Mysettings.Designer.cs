@@ -25,13 +25,73 @@ namespace UpdateService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("c:/updatepkgs")]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:/downloadpkgs")]
         public string download_path {
             get {
                 return ((string)(this["download_path"]));
             }
             set {
                 this["download_path"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.25")]
+        public string terminal_server_ip {
+            get {
+                return ((string)(this["terminal_server_ip"]));
+            }
+            set {
+                this["terminal_server_ip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
+        public string terminal_server_id {
+            get {
+                return ((string)(this["terminal_server_id"]));
+            }
+            set {
+                this["terminal_server_id"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("fangpu_datacenter")]
+        public string terminal_server_db {
+            get {
+                return ((string)(this["terminal_server_db"]));
+            }
+            set {
+                this["terminal_server_db"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string localdatapath {
+            get {
+                return ((string)(this["localdatapath"]));
+            }
+            set {
+                this["localdatapath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D17")]
+        public string devicename {
+            get {
+                return ((string)(this["devicename"]));
+            }
+            set {
+                this["devicename"] = value;
             }
         }
     }

@@ -134,5 +134,15 @@ namespace fangpu_terminal
             Process.Start(startinfo);
         }
 
+        public static void ProcessStart(string filepath,string workingdir)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = filepath;
+            psi.UseShellExecute = false;
+            psi.WorkingDirectory = workingdir;
+            psi.CreateNoWindow = true;
+            Process.Start(psi);
+        }
+
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ICSharpCode.SharpZipLib.Checksums;
 using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Zip;
+using System.Windows.Forms;
 
 namespace UpdateService
 {
@@ -79,11 +80,10 @@ namespace UpdateService
 
                 ZipEntry theEntry;
                 while ((theEntry = s.GetNextEntry()) != null)
-                {
+                {                 
                     Console.WriteLine(theEntry.Name);
                     string directoryName = Path.GetDirectoryName(theEntry.Name);
                     string fileName = Path.GetFileName(theEntry.Name);
-
                     // create directory
                     if (directoryName.Length > 0)
                     {
@@ -95,6 +95,7 @@ namespace UpdateService
                         Directory.CreateDirectory(filepath);
                         using (FileStream streamWriter = File.Create(filepath+"\\"+theEntry.Name))
                         {
+                           // if (theEntry.Name == "datalocal.db") ;
                             int size = 2048;
                             byte[] data = new byte[2048];
                             while (true)

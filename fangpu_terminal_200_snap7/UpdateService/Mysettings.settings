@@ -3,7 +3,22 @@
   <Profiles />
   <Settings>
     <Setting Name="download_path" Type="System.String" Scope="User">
-      <Value Profile="(Default)">c:/updatepkgs</Value>
+      <Value Profile="(Default)">c:/downloadpkgs</Value>
+    </Setting>
+    <Setting Name="terminal_server_ip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.25</Value>
+    </Setting>
+    <Setting Name="terminal_server_id" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="terminal_server_db" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fangpu_datacenter</Value>
+    </Setting>
+    <Setting Name="localdatapath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="devicename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D17</Value>
     </Setting>
   </Settings>
 </SettingsFile>
