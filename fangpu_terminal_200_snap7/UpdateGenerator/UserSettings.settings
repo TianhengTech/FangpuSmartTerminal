@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="UpdateGenerator" GeneratedClassName="UserSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="outputpath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:/updatepkgs/</Value>
+    </Setting>
+    <Setting Name="author" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.00</Value>
+    </Setting>
+    <Setting Name="xmlPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">./version/version.xml</Value>
+    </Setting>
+    <Setting Name="appname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fangpu_terminal.exe</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
