@@ -54,6 +54,8 @@ namespace fangpu_terminal
         public delegate void WebCommandProc();
         public delegate void HaltUI();
 
+        public delegate void TextUI(string str);
+
         private Thread tcpuplink_dataprocess_thread; //tcp数据上行线程队列
         private Thread tcpdownlink_dataprocess_thread; //tcp数据下行处理
         private Thread plccommunication_thread; //plc数据通信处理
@@ -150,18 +152,9 @@ namespace fangpu_terminal
         {
             //SplashScreenManager.ShowForm(typeof(TianhengLogin));
             InitGlobalParameter();
-            schedule = new QuartzSchedule();
-            schedule.StartSchedule();
+            //schedule = new QuartzSchedule();
+            //schedule.StartSchedule();
             log.Info("Schedule Start");
-            try
-            {
-                var cfg = FluentNhibernateHelper.GetSessionConfig();
-            }
-            catch (Exception ex)
-            {
-                log.Error("First touch on Database Error!", ex);
-            }
-            log.Info("session factory got!");
             //UpdateLoadGUIConfig("正在尝试连接...", 30);
             S7SNAP = new S7Client();
             ushort localtsap = (ushort) TerminalParameters.Default.PLC_TSAP_Remote;
@@ -253,7 +246,7 @@ namespace fangpu_terminal
         {
             GC.Collect();
             var p = Process.GetCurrentProcess();
-            log.Info("当前内存:"+p.PagedMemorySize64);
+            log.Info("当前内存:"+(p.PagedMemorySize64/1024.0d/1024.0d).ToString("0.0")+"MB");
         }
 
         //==================================================================
@@ -886,18 +879,21 @@ namespace fangpu_terminal
         public void PlcReadCycle()
         {
             bool readflag = true;
+            var sw = new Stopwatch();
+            Thread.Sleep(1000);
             while (true)
             {
                 if (S7SNAP.Connected() == false)
                 {
                     log.Warn("Plc not connected!");
+                    Invoke(new TextUI(topbarupdate), "PLC连接中断");
                     Thread.Sleep(1000);
                     S7SNAP.Connect();
                     continue;
                 }
                 try
-                {
-                    var sw = new Stopwatch();
+                {               
+                    sw.Reset();
                     sw.Start();
                     var daq_data = new PlcDAQCommunicationObject();
                     foreach (var item in fangpu_config.addr)
@@ -974,6 +970,7 @@ namespace fangpu_terminal
                     }
                     if (readflag == false)
                     {
+                        sw.Reset();
                         continue;
                     }
                     TerminalQueues.plcdataprocessqueue.Enqueue(daq_data);
@@ -983,7 +980,6 @@ namespace fangpu_terminal
                         continue;
                     Thread.Sleep(1000 - Convert.ToInt32(sw.Elapsed.TotalMilliseconds));
                 }
-
                 catch (Exception ex)
                 {
                     log.Error("读数据线程出错！", ex);
@@ -1175,7 +1171,7 @@ namespace fangpu_terminal
                     log.Error("plc数据处理线程出错！", ex);
                     Thread.Sleep(200);
                 }
-                Thread.Sleep(200);
+                //Thread.Sleep(200);
             }
         }
 
@@ -1211,8 +1207,12 @@ namespace fangpu_terminal
                         {
                             tablename = tablename_new;
                             FluentNhibernateHelper.MappingTablenames(cfg, typeof(historydata), tablename);
+                            session.Clear();
+                            session.Dispose();
+                            sf.Close();
+                            sf.Dispose();
                             sf = cfg.BuildSessionFactory();//日期变化时重新打开连接
-                            session = sf.OpenSession();                                
+                            session = sf.OpenSession(); //建立新的连接                               
                         } 
                                 var jsonobj = new FangpuTerminalJsonModel();
                                 var jsonobj_2 = new FangpuTerminalJsonModel_systus();
@@ -1262,8 +1262,8 @@ namespace fangpu_terminal
                                 historydatajsonDb.storetime = plc_temp_data.daq_time;
                                 historydatajsonDb.systus = JsonConvert.SerializeObject(jsonobj_2);
 
-
-                                var realtimedata = session.QueryOver<realtimedata>().Where(p => p.deviceid == "D17").SingleOrDefault();
+                                var realtimedata = new realtimedata();
+                                realtimedata = session.QueryOver<realtimedata>().Where(p => p.deviceid == "D17").SingleOrDefault();
                                 realtimedata.deviceid = TerminalParameters.Default.terminal_name;
                                 realtimedata.value = JsonConvert.SerializeObject(jsonobj);
                                 realtimedata.storetime = plc_temp_data.daq_time;
@@ -1316,8 +1316,10 @@ namespace fangpu_terminal
         
                 catch (Exception ex)
                 {
-                    if(!session.IsOpen)
-                    session = sf.OpenSession(); 
+                    if (!session.IsConnected)
+                    {
+                        session.Reconnect();
+                    }
                     log.Error("数据中心存储线程出错！" , ex);
                 }
             }
@@ -1647,12 +1649,14 @@ namespace fangpu_terminal
                 log.Error("数据中心指令获取失败", ex);
                 if (!session.IsOpen)
                 {
-                    session.Dispose();
-                    session = FluentNhibernateHelper.GetSession();
+                    FluentNhibernateHelper.ResetSession();
                 }
             }
         }
-
+        /// <summary>
+        /// 执行WEB指令
+        /// </summary>
+        /// <param name="cmd"></param>
         public void WebCommandExecute(string cmd)
         {
             switch (cmd)
@@ -2873,107 +2877,115 @@ namespace fangpu_terminal
         {
             using (var mysql = FluentNhibernateHelper.GetSession())
             {
-                var para = mysql.QueryOver<proceduretechnologybase>()
-                    .Where(x => x.device_name == TerminalParameters.Default.terminal_name)
-                    .List();
-
                 try
                 {
-                    var strSql2 = "delete from proceduretechnologybase";
-                    TerminalLocalDataStorage.ExecuteSql(strSql2);
-                    foreach (var d in para)
+                    var para = mysql.QueryOver<proceduretechnologybase>()
+                        .Where(x => x.device_name == TerminalParameters.Default.terminal_name)
+                        .List();
+
+                    try
                     {
-
-                        var ret = 1;
-                        var strSql = new StringBuilder();
-                        strSql.Append("insert into proceduretechnologybase(");
-                        strSql.Append(
-                            "product_id,material,shuayou_base,shuayou_upper,shuayou_lower,yurelu_temp_base,yurelu_temp_upper,yurelu_temp_lower,kaomo_consume_base,kaomo_consume_upper,kaomo_consume_lower,");
-                        strSql.Append(
-                            "kaoliaolu_temp_base,kaoliaolu_temp_upper,kaoliaolu_temp_lower,kaoliao_consume_base,kaoliao_consume_upper,kaoliao_consume_lower,");
-                        strSql.Append(
-                            "qigangjinliao_consume_base,qigangjinliao_consume_upper,qigangjinliao_consume_lower,lengque_consume_base,lengque_consume_upper,lengque_consume_lower,");
-                        strSql.Append(
-                            "jinliao_consume_base,jinliao_consume_upper,jinliao_consume_lower,shangsheng_speed_base,shangsheng_speed_upper,shangsheng_speed_lower,");
-                        strSql.Append(
-                            "xiajiang_speed_base,xiajiang_speed_upper,xiajiang_speed_lower,hutao_length_base,hutao_length_upper,hutao_length_lower,yemian_distance_base,yemian_distance_upper,yemian_distance_lower)");
-                        strSql.Append(" values(");
-                        strSql.Append(
-                            "@product_id,@material,@shuayou_base,@shuayou_upper,@shuayou_lower,@yurelu_temp_base,@yurelu_temp_upper,@yurelu_temp_lower,@kaomo_consume_base,@kaomo_consume_upper,@kaomo_consume_lower,");
-                        strSql.Append(
-                            "@kaoliaolu_temp_base,@kaoliaolu_temp_upper,@kaoliaolu_temp_lower,@kaoliao_consume_base,@kaoliao_consume_upper,@kaoliao_consume_lower,");
-                        strSql.Append(
-                            "@qigangjinliao_consume_base,@qigangjinliao_consume_upper,@qigangjinliao_consume_lower,@lengque_consume_base,@lengque_consume_upper,@lengque_consume_lower,");
-                        strSql.Append(
-                            "@jinliao_consume_base,@jinliao_consume_upper,@jinliao_consume_lower,@shangsheng_speed_base,@shangsheng_speed_upper,@shangsheng_speed_lower,");
-                        strSql.Append(
-                            "@xiajiang_speed_base,@xiajiang_speed_upper,@xiajiang_speed_lower,@hutao_length_base,@hutao_length_upper,@hutao_length_lower,@yemian_distance_base,@yemian_distance_upper,@yemian_distance_lower)");
-
-
-                        SQLiteParameter[] parameters =
-                    {
-                        new SQLiteParameter("@product_id", d.product_id),
-                        new SQLiteParameter("@material", d.material),
-                        new SQLiteParameter("@shuayou_base", d.shuayou_base),
-                        new SQLiteParameter("@shuayou_upper", d.shuayou_upper),
-                        new SQLiteParameter("@shuayou_lower", d.shuayou_lower),
-                        new SQLiteParameter("@yurelu_temp_base", d.yurelu_temp_base),
-                        new SQLiteParameter("@yurelu_temp_upper", d.yurelu_temp_upper),
-                        new SQLiteParameter("@yurelu_temp_lower", d.yurelu_temp_lower),
-                        new SQLiteParameter("@kaomo_consume_base", d.kaomo_consume_base),
-                        new SQLiteParameter("@kaomo_consume_upper", d.kaomo_consume_upper),
-                        new SQLiteParameter("@kaomo_consume_lower", d.kaomo_consume_lower),
-                        new SQLiteParameter("@kaoliaolu_temp_base", d.kaoliaolu_temp_base),
-                        new SQLiteParameter("@kaoliaolu_temp_upper", d.kaoliaolu_temp_upper),
-                        new SQLiteParameter("@kaoliaolu_temp_lower", d.kaoliaolu_temp_lower),
-                        new SQLiteParameter("@kaoliao_consume_base", d.kaoliao_consume_base),
-                        new SQLiteParameter("@kaoliao_consume_upper", d.kaoliao_consume_upper),
-                        new SQLiteParameter("@kaoliao_consume_lower", d.kaoliao_consume_lower),
-                        new SQLiteParameter("@qigangjinliao_consume_base", d.qigangjinliao_consume_base),
-                        new SQLiteParameter("@qigangjinliao_consume_upper", d.qigangjinliao_consume_upper),
-                        new SQLiteParameter("@qigangjinliao_consume_lower", d.qigangjinliao_consume_lower),
-                        new SQLiteParameter("@lengque_consume_base", d.lengque_consume_base),
-                        new SQLiteParameter("@lengque_consume_upper", d.lengque_consume_upper),
-                        new SQLiteParameter("@lengque_consume_lower", d.lengque_consume_lower),
-                        new SQLiteParameter("@jinliao_consume_base", d.jinliao_consume_base),
-                        new SQLiteParameter("@jinliao_consume_upper", d.jinliao_consume_upper),
-                        new SQLiteParameter("@jinliao_consume_lower", d.jinliao_consume_lower),
-                        new SQLiteParameter("@shangsheng_speed_base", d.shangsheng_speed_base),
-                        new SQLiteParameter("@shangsheng_speed_upper", d.shangsheng_speed_upper),
-                        new SQLiteParameter("@shangsheng_speed_lower", d.shangsheng_speed_lower),
-                        new SQLiteParameter("@xiajiang_speed_base", d.xiajiang_speed_base),
-                        new SQLiteParameter("@xiajiang_speed_upper", d.xiajiang_speed_upper),
-                        new SQLiteParameter("@xiajiang_speed_lower", d.xiajiang_speed_lower),
-                        new SQLiteParameter("@hutao_length_base", d.hutao_length_base),
-                        new SQLiteParameter("@hutao_length_upper", d.hutao_length_upper),
-                        new SQLiteParameter("@hutao_length_lower", d.hutao_length_lower),
-                        new SQLiteParameter("@yemian_distance_base", d.yemian_distance_base),
-                        new SQLiteParameter("@yemian_distance_upper", d.yemian_distance_upper),
-                        new SQLiteParameter("@yemian_distance_lower", d.yemian_distance_lower)
-                    };
-                        if (TerminalLocalDataStorage.ExecuteSql(strSql.ToString(), parameters) >= 1)
+                        var strSql2 = "delete from proceduretechnologybase";
+                        TerminalLocalDataStorage.ExecuteSql(strSql2);
+                        foreach (var d in para)
                         {
-                            ret = 1;
+
+                            var ret = 1;
+                            var strSql = new StringBuilder();
+                            strSql.Append("insert into proceduretechnologybase(");
+                            strSql.Append(
+                                "product_id,material,shuayou_base,shuayou_upper,shuayou_lower,yurelu_temp_base,yurelu_temp_upper,yurelu_temp_lower,kaomo_consume_base,kaomo_consume_upper,kaomo_consume_lower,");
+                            strSql.Append(
+                                "kaoliaolu_temp_base,kaoliaolu_temp_upper,kaoliaolu_temp_lower,kaoliao_consume_base,kaoliao_consume_upper,kaoliao_consume_lower,");
+                            strSql.Append(
+                                "qigangjinliao_consume_base,qigangjinliao_consume_upper,qigangjinliao_consume_lower,lengque_consume_base,lengque_consume_upper,lengque_consume_lower,");
+                            strSql.Append(
+                                "jinliao_consume_base,jinliao_consume_upper,jinliao_consume_lower,shangsheng_speed_base,shangsheng_speed_upper,shangsheng_speed_lower,");
+                            strSql.Append(
+                                "xiajiang_speed_base,xiajiang_speed_upper,xiajiang_speed_lower,hutao_length_base,hutao_length_upper,hutao_length_lower,yemian_distance_base,yemian_distance_upper,yemian_distance_lower)");
+                            strSql.Append(" values(");
+                            strSql.Append(
+                                "@product_id,@material,@shuayou_base,@shuayou_upper,@shuayou_lower,@yurelu_temp_base,@yurelu_temp_upper,@yurelu_temp_lower,@kaomo_consume_base,@kaomo_consume_upper,@kaomo_consume_lower,");
+                            strSql.Append(
+                                "@kaoliaolu_temp_base,@kaoliaolu_temp_upper,@kaoliaolu_temp_lower,@kaoliao_consume_base,@kaoliao_consume_upper,@kaoliao_consume_lower,");
+                            strSql.Append(
+                                "@qigangjinliao_consume_base,@qigangjinliao_consume_upper,@qigangjinliao_consume_lower,@lengque_consume_base,@lengque_consume_upper,@lengque_consume_lower,");
+                            strSql.Append(
+                                "@jinliao_consume_base,@jinliao_consume_upper,@jinliao_consume_lower,@shangsheng_speed_base,@shangsheng_speed_upper,@shangsheng_speed_lower,");
+                            strSql.Append(
+                                "@xiajiang_speed_base,@xiajiang_speed_upper,@xiajiang_speed_lower,@hutao_length_base,@hutao_length_upper,@hutao_length_lower,@yemian_distance_base,@yemian_distance_upper,@yemian_distance_lower)");
+
+
+                            SQLiteParameter[] parameters =
+                            {
+                                new SQLiteParameter("@product_id", d.product_id),
+                                new SQLiteParameter("@material", d.material),
+                                new SQLiteParameter("@shuayou_base", d.shuayou_base),
+                                new SQLiteParameter("@shuayou_upper", d.shuayou_upper),
+                                new SQLiteParameter("@shuayou_lower", d.shuayou_lower),
+                                new SQLiteParameter("@yurelu_temp_base", d.yurelu_temp_base),
+                                new SQLiteParameter("@yurelu_temp_upper", d.yurelu_temp_upper),
+                                new SQLiteParameter("@yurelu_temp_lower", d.yurelu_temp_lower),
+                                new SQLiteParameter("@kaomo_consume_base", d.kaomo_consume_base),
+                                new SQLiteParameter("@kaomo_consume_upper", d.kaomo_consume_upper),
+                                new SQLiteParameter("@kaomo_consume_lower", d.kaomo_consume_lower),
+                                new SQLiteParameter("@kaoliaolu_temp_base", d.kaoliaolu_temp_base),
+                                new SQLiteParameter("@kaoliaolu_temp_upper", d.kaoliaolu_temp_upper),
+                                new SQLiteParameter("@kaoliaolu_temp_lower", d.kaoliaolu_temp_lower),
+                                new SQLiteParameter("@kaoliao_consume_base", d.kaoliao_consume_base),
+                                new SQLiteParameter("@kaoliao_consume_upper", d.kaoliao_consume_upper),
+                                new SQLiteParameter("@kaoliao_consume_lower", d.kaoliao_consume_lower),
+                                new SQLiteParameter("@qigangjinliao_consume_base", d.qigangjinliao_consume_base),
+                                new SQLiteParameter("@qigangjinliao_consume_upper", d.qigangjinliao_consume_upper),
+                                new SQLiteParameter("@qigangjinliao_consume_lower", d.qigangjinliao_consume_lower),
+                                new SQLiteParameter("@lengque_consume_base", d.lengque_consume_base),
+                                new SQLiteParameter("@lengque_consume_upper", d.lengque_consume_upper),
+                                new SQLiteParameter("@lengque_consume_lower", d.lengque_consume_lower),
+                                new SQLiteParameter("@jinliao_consume_base", d.jinliao_consume_base),
+                                new SQLiteParameter("@jinliao_consume_upper", d.jinliao_consume_upper),
+                                new SQLiteParameter("@jinliao_consume_lower", d.jinliao_consume_lower),
+                                new SQLiteParameter("@shangsheng_speed_base", d.shangsheng_speed_base),
+                                new SQLiteParameter("@shangsheng_speed_upper", d.shangsheng_speed_upper),
+                                new SQLiteParameter("@shangsheng_speed_lower", d.shangsheng_speed_lower),
+                                new SQLiteParameter("@xiajiang_speed_base", d.xiajiang_speed_base),
+                                new SQLiteParameter("@xiajiang_speed_upper", d.xiajiang_speed_upper),
+                                new SQLiteParameter("@xiajiang_speed_lower", d.xiajiang_speed_lower),
+                                new SQLiteParameter("@hutao_length_base", d.hutao_length_base),
+                                new SQLiteParameter("@hutao_length_upper", d.hutao_length_upper),
+                                new SQLiteParameter("@hutao_length_lower", d.hutao_length_lower),
+                                new SQLiteParameter("@yemian_distance_base", d.yemian_distance_base),
+                                new SQLiteParameter("@yemian_distance_upper", d.yemian_distance_upper),
+                                new SQLiteParameter("@yemian_distance_lower", d.yemian_distance_lower)
+                            };
+                            if (TerminalLocalDataStorage.ExecuteSql(strSql.ToString(), parameters) >= 1)
+                            {
+                                ret = 1;
+                            }
                         }
+                        MessageBox.Show("从中央数据库下载成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    MessageBox.Show("从中央数据库下载成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("数据库连接出错!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        log.Error("下载功能出错", ex);
+                    }
+
+                    try
+                    {
+                        SelectUpdate();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("本地列表刷新失败", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("数据库连接出错!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    log.Error("下载功能出错", ex);
+                    FluentNhibernateHelper.ResetSession();
+                    log.Error("下载工艺参数时无法查询", ex);
                 }
 
-                try
-                {
-                    SelectUpdate();
-                }
-                catch
-                {
-                    MessageBox.Show("本地列表刷新失败", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
-            
         }
 
         //==================================================================
@@ -3085,7 +3097,7 @@ namespace fangpu_terminal
                 AbortAllThread();
                 restartbutton = true;
                 //tcpobject.socket_stop_connect();
-                Application.ExitThread();
+               // Application.ExitThread();
                 Application.Restart();
                 //System.Diagnostics.ProcessStartInfo startinfo = new System.Diagnostics.ProcessStartInfo("shutdown.exe", "-r -t 00");
                 //System.Diagnostics.Process.Start(startinfo);
@@ -3472,15 +3484,15 @@ namespace fangpu_terminal
             {
                 try
                 {
-                    if (tcpuplink_dataprocess_thread.IsAlive)
-                    {
-                        tcpuplink_dataprocess_thread.Abort();
-                    }
+                    //if (tcpuplink_dataprocess_thread.IsAlive)
+                    //{
+                    //    tcpuplink_dataprocess_thread.Abort();
+                    //}
 
-                    if (tcpdownlink_dataprocess_thread.IsAlive)
-                    {
-                        tcpdownlink_dataprocess_thread.Abort();
-                    }
+                    //if (tcpdownlink_dataprocess_thread.IsAlive)
+                    //{
+                    //    tcpdownlink_dataprocess_thread.Abort();
+                    //}
 
                     if (plccommunication_thread.IsAlive)
                     {
@@ -3774,6 +3786,11 @@ namespace fangpu_terminal
             {
                 log.Error("Abort Thread failure", ex);
             }
+        }
+
+        public void topbarupdate(string str)
+        {
+            displayWarninfo.Value=str;
         }
 
 
