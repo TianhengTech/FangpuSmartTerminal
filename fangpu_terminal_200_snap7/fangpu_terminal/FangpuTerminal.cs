@@ -806,7 +806,7 @@ namespace fangpu_terminal
             }
             finally
             {
-                schedule.Dispose();
+                //schedule.Dispose();
                 log.Info("Application is about to exit.");
                 Application.ExitThread();
                 
@@ -1162,8 +1162,7 @@ namespace fangpu_terminal
                         WarnInfoProcess(plc_temp_data);
 
                         TerminalQueues.datacenterprocessqueue.Enqueue(plc_temp_data);
-                        TerminalQueues.localdataqueue.Enqueue(plc_temp_data);
-                        
+                        TerminalQueues.localdataqueue.Enqueue(plc_temp_data);                      
                     }
                 }
                 catch (Exception ex)
@@ -1649,7 +1648,7 @@ namespace fangpu_terminal
                 log.Error("数据中心指令获取失败", ex);
                 if (!session.IsOpen)
                 {
-                    FluentNhibernateHelper.ResetSession();
+                    FluentNhibernateHelper.ResetSession(ref session);
                 }
             }
         }
@@ -1678,8 +1677,24 @@ namespace fangpu_terminal
             }
 
         }
-        delegate bool MessageBoxShow(string msg);
-        bool MessageBoxShow_F(string msg)
+        delegate bool MessageBoxShow(string msg, string info = "提示信息", MessageBoxButtons buttontype = MessageBoxButtons.OK, MessageBoxIcon icontype = MessageBoxIcon.Information);
+        /// <summary>
+        /// 委托显示MessageBox
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="info"></param>
+        /// <param name="buttontype"></param>
+        /// <param name="icontype"></param>
+        void DelegateMessagebox(string msg, string info = "提示信息", MessageBoxButtons buttontype = MessageBoxButtons.OK, MessageBoxIcon icontype = MessageBoxIcon.Information)
+        {
+            this.Invoke(new MessageBoxShow(MessageBoxShow_C), new object[] { msg, info, buttontype, icontype });
+        }
+        bool MessageBoxShow_C(string msg, string info="提示信息",MessageBoxButtons buttontype = MessageBoxButtons.OK, MessageBoxIcon icontype = MessageBoxIcon.Information)
+        {
+            MessageBox.Show(msg, info, buttontype, icontype);
+            return true;
+        }
+        bool MessageBoxShow_F(string msg, string info = "提示信息", MessageBoxButtons buttontype = MessageBoxButtons.OK, MessageBoxIcon icontype = MessageBoxIcon.Information)
         {
             if(DialogResult.OK==MessageBox.Show(this,msg, "提示信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Information))
                 return true;
@@ -1695,7 +1710,24 @@ namespace fangpu_terminal
         //返回值：  
         //修改记录：
         //==================================================================
-     
+        public void UploadFormTable(object a)
+        {
+            try
+            {
+                using (var mysql = FluentNhibernateHelper.GetSession())
+                {
+                    mysql.Save(a);
+                    mysql.Flush();
+                    DelegateMessagebox("上传成功");
+                }
+            }
+            catch(Exception ex)
+            {
+                DelegateMessagebox("上传失败");
+                
+            }
+
+        }
 
         #region 读取PLC状态
 
@@ -2873,7 +2905,23 @@ namespace fangpu_terminal
         //返回值：  
         //修改记录：
         //==================================================================
+        private Thread cloudaquire;
         private void cloudpara_Click(object sender, EventArgs e)
+        {
+            if(cloudaquire==null)
+                cloudaquire = new Thread(get_cloudpara);
+            if (cloudaquire.IsAlive)
+            {
+                MessageBox.Show("下载已启动，结束之前请勿重复操作！");
+                return;
+            }             
+            cloudaquire = new Thread(get_cloudpara);
+            cloudaquire.IsBackground = true;
+            cloudaquire.Priority = ThreadPriority.Normal;
+            cloudaquire.Start();
+        }
+
+        private void get_cloudpara()
         {
             using (var mysql = FluentNhibernateHelper.GetSession())
             {
@@ -2882,7 +2930,6 @@ namespace fangpu_terminal
                     var para = mysql.QueryOver<proceduretechnologybase>()
                         .Where(x => x.device_name == TerminalParameters.Default.terminal_name)
                         .List();
-
                     try
                     {
                         var strSql2 = "delete from proceduretechnologybase";
@@ -2962,11 +3009,11 @@ namespace fangpu_terminal
                                 ret = 1;
                             }
                         }
-                        MessageBox.Show("从中央数据库下载成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DelegateMessagebox("从中央数据库下载成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("数据库连接出错!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DelegateMessagebox("数据库连接出错!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         log.Error("下载功能出错", ex);
                     }
 
@@ -2976,16 +3023,16 @@ namespace fangpu_terminal
                     }
                     catch
                     {
-                        MessageBox.Show("本地列表刷新失败", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DelegateMessagebox("本地列表刷新失败", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 catch (Exception ex)
                 {
-                    FluentNhibernateHelper.ResetSession();
                     log.Error("下载工艺参数时无法查询", ex);
                 }
 
             }
+            
         }
 
         //==================================================================

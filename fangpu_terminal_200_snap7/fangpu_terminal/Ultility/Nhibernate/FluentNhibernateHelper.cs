@@ -14,8 +14,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
 {
     public class FluentNhibernateHelper
     {
-        private static ISessionFactory _sessionFactory;
-        private static ISession _session;       
+        private static ISessionFactory _sessionFactory;       
         private static object _objLock = new object();
         private FluentConfiguration cfg;
         public FluentNhibernateHelper()
@@ -80,12 +79,12 @@ namespace fangpu_terminal.Ultility.Nhibernate
         /// 重置Session
         /// </summary>
         /// <returns></returns>
-        public static ISession ResetSession()
+        public static void ResetSession(ref ISession session)
         {
-            if (_session.IsOpen)
-                _session.Close();
-            _session = _sessionFactory.OpenSession();
-            return _session;
+            if (session.IsOpen)
+                session.Close();
+            session = _sessionFactory.OpenSession();
+            return;
         }
         /// <summary>
         /// 打开ISession
@@ -93,18 +92,9 @@ namespace fangpu_terminal.Ultility.Nhibernate
         /// <returns></returns>
         public static ISession GetSession()
         {
-            GetSessionFactory();            
-                if (_session == null)
-                {
-                    lock (_objLock)
-                    {
-                        if (_session == null)
-                        {
-                            _session = _sessionFactory.OpenSession();
-                        }
-                    }
-                }
-                return _session;            
+            GetSessionFactory();
+            ISession session = _sessionFactory.OpenSession();
+                return session;            
         }
         public static void MappingTablenames(FluentConfiguration cfg, Type t, string newtablename = "")
         {

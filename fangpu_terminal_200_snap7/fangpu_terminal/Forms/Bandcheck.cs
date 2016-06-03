@@ -37,35 +37,36 @@ namespace fangpu_terminal
             try
             {
                 FangpuTerminal.HideInputPanel();
-                var mysql = FluentNhibernateHelper.GetSession();
-                var workerlist = new bandchecklist();
-                workerlist.deviceid = Properties.TerminalParameters.Default.terminal_name;
-                workerlist.sn=biaodanbianhao.Text;
-                workerlist.date=dateTimePicker1.Value;
-                workerlist.position=luwei.Text;       
-                workerlist.name=xingmingbianhao.Text;
-                workerlist.producesn=shengchandanhao.Text;
-                workerlist.cardnumber = liuzhuankahao.Text;
-                workerlist.weight = zhongliang.Text;
-                workerlist.singleweight = danzhong.Text;
-                workerlist.materialnumber = liaopihao.Text;
-                workerlist.waste = feipin.Text;
-                workerlist.producttype = chanpinguige.Text;
-                workerlist.remark = beizhu.Text;
-                if (xiaoji.Text.Trim() == String.Empty)
-                    workerlist.subtotal = null;
-                else
-                workerlist.subtotal = Convert.ToDouble(xiaoji.Text);
-                if (zhongliang.Text.Trim() == String.Empty)
-                    workerlist.total = null;
-                else
-                workerlist.total = Convert.ToDouble(zhongliang.Text);
-                mysql.Save(workerlist);
-                mysql.Flush();
-                mysql.Dispose();
-                MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
-                this.Close();
+                using (var mysql = FluentNhibernateHelper.GetSession())
+                {
+                    var workerlist = new bandchecklist();
+                    workerlist.deviceid = Properties.TerminalParameters.Default.terminal_name;
+                    workerlist.sn = biaodanbianhao.Text;
+                    workerlist.date = dateTimePicker1.Value;
+                    workerlist.position = luwei.Text;
+                    workerlist.name = xingmingbianhao.Text;
+                    workerlist.producesn = shengchandanhao.Text;
+                    workerlist.cardnumber = liuzhuankahao.Text;
+                    workerlist.weight = zhongliang.Text;
+                    workerlist.singleweight = danzhong.Text;
+                    workerlist.materialnumber = liaopihao.Text;
+                    workerlist.waste = feipin.Text;
+                    workerlist.producttype = chanpinguige.Text;
+                    workerlist.remark = beizhu.Text;
+                    if (xiaoji.Text.Trim() == String.Empty)
+                        workerlist.subtotal = null;
+                    else
+                        workerlist.subtotal = Convert.ToDouble(xiaoji.Text);
+                    if (zhongliang.Text.Trim() == String.Empty)
+                        workerlist.total = null;
+                    else
+                        workerlist.total = Convert.ToDouble(zhongliang.Text);
+                    mysql.Save(workerlist);
+                    mysql.Flush();
+                    MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                
             }
             catch(Exception ex)
             {

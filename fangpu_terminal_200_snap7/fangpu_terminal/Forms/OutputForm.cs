@@ -45,6 +45,8 @@ namespace fangpu_terminal
                 button_accept.Enabled = true;
                 OutputThread Excelexecuter = new OutputThread(this);
                 selectedtype = comboBox_type.SelectedItem.ToString();
+                if(t==null)
+                    t = new Thread(Excelexecuter.output2excel);
                 if (t.IsAlive)
                 {
                     t.Abort();

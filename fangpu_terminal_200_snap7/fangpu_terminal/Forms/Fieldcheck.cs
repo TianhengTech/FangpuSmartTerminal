@@ -76,7 +76,8 @@ namespace fangpu_terminal
                     workerlist.confirm = queren.Text;
                     mysql.Save(workerlist);
                     mysql.Flush();
-                    MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);        
+                    MessageBox.Show("上传成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                
             }
@@ -90,6 +91,7 @@ namespace fangpu_terminal
         private void cancel_Click(object sender, EventArgs e)
         {
             FangpuTerminal.HideInputPanel();
+            
             this.Close();
         }
 
