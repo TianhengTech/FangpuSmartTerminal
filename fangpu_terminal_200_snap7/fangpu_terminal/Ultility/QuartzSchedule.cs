@@ -10,20 +10,29 @@ namespace fangpu_terminal.Ultility
     {
         public void Execute(IJobExecutionContext context)
         {
-            using (var entity = FluentNhibernateHelper.GetSession())
+            try
             {
-                string nextmonth = DateTime.Today.AddMonths(1).ToString("yyyyMM");
-                int days = DateTime.DaysInMonth(Convert.ToInt16(nextmonth.Substring(0, 4)), Convert.ToInt16(nextmonth.Substring(4, 2)));
-                for (int i = 1; i <= days; i++)
+                using (var entity = FluentNhibernateHelper.GetSession())
                 {
-                    string tablename = "historydata_" + nextmonth + i.ToString().PadLeft(2, '0');
-                    string sqlstr = "CREATE TABLE IF NOT EXISTS " + tablename + " LIKE historydata";
-                    var x = entity.Connection.CreateCommand();
-                    x.CommandText = sqlstr;
-                    x.ExecuteNonQuery();
+                    string nextmonth = DateTime.Today.AddMonths(1).ToString("yyyyMM");
+                    int days = DateTime.DaysInMonth(Convert.ToInt16(nextmonth.Substring(0, 4)),
+                        Convert.ToInt16(nextmonth.Substring(4, 2)));
+                    for (int i = 1; i <= days; i++)
+                    {
+                        string tablename = "historydata_" + nextmonth + i.ToString().PadLeft(2, '0');
+                        string sqlstr = "CREATE TABLE IF NOT EXISTS " + tablename + " LIKE historydata";
+                        var x = entity.Connection.CreateCommand();
+                        x.CommandText = sqlstr;
+                        x.ExecuteNonQuery();
+                    }
+                    TerminalLogWriter.WriteInfoLog(typeof (MySqlTableUpdate), "作业建立" + DateTime.Now);
                 }
-                TerminalLogWriter.WriteInfoLog(typeof(MySqlTableUpdate), "作业建立" + DateTime.Now);
             }
+            catch
+            {
+                TerminalLogWriter.WriteErroLog(typeof(MySqlTableUpdate), "创建表格出错");
+            }
+
         }
     }
     public class DataSync : IJob

@@ -40,6 +40,7 @@ namespace fangpu_terminal
         public static ILog log =
             LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
+        private object lockobject = new object();//数据库线程锁
         private TerminalTcpClientAsync tcpobject;
         private QuartzSchedule schedule;
         private S7_Socket S7S;
@@ -73,6 +74,7 @@ namespace fangpu_terminal
 
 
         //读控制变量
+        private bool datacenteronline=false;
         private bool shuayou_consume_fudong;
         private bool kaomo_consume_fudong;
         private bool kaoliao_consume_fudong;
@@ -133,7 +135,7 @@ namespace fangpu_terminal
         public FangpuTerminal()
         {
             InitializeComponent();
-            Init();
+            
             //MyMessager msg = new MyMessager(this);
             //Application.AddMessageFilter(msg);
             //timer1.Enabled = true; 
@@ -880,7 +882,7 @@ namespace fangpu_terminal
         {
             bool readflag = true;
             var sw = new Stopwatch();
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
             while (true)
             {
                 if (S7SNAP.Connected() == false)
@@ -1160,8 +1162,11 @@ namespace fangpu_terminal
                         }
                         CycleUpdateGuiDisplay(plc_temp_data);
                         WarnInfoProcess(plc_temp_data);
-
-                        TerminalQueues.datacenterprocessqueue.Enqueue(plc_temp_data);
+                        lock (lockobject)
+                        {
+                            if(datacenteronline)
+                                TerminalQueues.datacenterprocessqueue.Enqueue(plc_temp_data);
+                        }                        
                         TerminalQueues.localdataqueue.Enqueue(plc_temp_data);                      
                     }
                 }
@@ -1185,9 +1190,25 @@ namespace fangpu_terminal
         //==================================================================
         public void DataCenterStorageThread()
         {
-            var cfg = FluentNhibernateHelper.GetSessionConfig();            
-            ISessionFactory sf=cfg.BuildSessionFactory();
-            ISession session = sf.OpenSession();
+            var cfg = FluentNhibernateHelper.GetSessionConfig();
+            ISessionFactory sf;
+            ISession session;
+        again:
+            try
+            {              
+                sf = cfg.BuildSessionFactory();
+                session = sf.OpenSession();
+                datacenteronline = true;
+            }
+            catch
+            {
+                log.Error("首次连接数据中心失败");
+                lock (lockobject)
+                {
+                    datacenteronline = false;
+                }
+                goto again;
+            }
             string tablename = "";
             while (true)
             {
@@ -1201,12 +1222,14 @@ namespace fangpu_terminal
                         {
                             continue;
                         }
+
                         var tablename_new = "historydata_" + DateTime.Today.ToString("yyyyMMdd");
                         if (tablename_new != tablename)
                         {
                             tablename = tablename_new;
                             FluentNhibernateHelper.MappingTablenames(cfg, typeof(historydata), tablename);
-                            session.Clear();
+                            session.Disconnect();
+                            session.Close();
                             session.Dispose();
                             sf.Close();
                             sf.Dispose();
@@ -1307,7 +1330,11 @@ namespace fangpu_terminal
                                     session.Save(historydatajsonDb);
                                     session.Save(historyDb);
                                     session.SaveOrUpdate(realtimedata);
-                                    tran.Commit();
+                                    tran.Commit();                                    
+                                }
+                                lock (lockobject)
+                                {
+                                    datacenteronline = true;
                                 }
                             }
                         }
@@ -1317,7 +1344,17 @@ namespace fangpu_terminal
                 {
                     if (!session.IsConnected)
                     {
-                        session.Reconnect();
+                        
+                        try
+                        {
+                            session.Reconnect();
+                        
+                        }    
+                        catch{}
+                    }
+                    lock (lockobject)
+                    {
+                        datacenteronline = false;
                     }
                     log.Error("数据中心存储线程出错！" , ex);
                 }
@@ -1547,9 +1584,20 @@ namespace fangpu_terminal
         /// </summary>
         public void WebCommand()
         {
-            var session = FluentNhibernateHelper.GetSession();
+            ISession session;
+            again:
             try
             {
+                session = FluentNhibernateHelper.GetSession();
+            }
+            catch
+            {
+                goto again;
+            }
+            
+            try
+            {
+                
                 while (true)
                 {
                     var results = session.CreateCriteria<terminalcmd>()
@@ -1646,9 +1694,14 @@ namespace fangpu_terminal
             catch(Exception ex)
             {
                 log.Error("数据中心指令获取失败", ex);
-                if (!session.IsOpen)
+                if (!session.IsConnected)
                 {
-                    FluentNhibernateHelper.ResetSession(ref session);
+                    try
+                    {
+                        FluentNhibernateHelper.ResetSession(ref session);
+                    }
+                    catch { }
+                    
                 }
             }
         }
@@ -2896,6 +2949,26 @@ namespace fangpu_terminal
 
         #region 辅助功能定义
 
+        private int shuayou_module;
+        private int kaoliao_module;
+        private int jinliao_module;
+        private int tuomu_module;
+        private int lengque_module;
+
+        private void module_process(PlcDAQCommunicationObject data)
+        {
+            if ((data.aream_data["I5"] & 0x40) == 0x40)
+            {
+                tuomu_module = 1;
+                lengque_module = 2;
+                kaoliao_module = 3;
+
+            }
+            else
+            {
+            }
+
+        }
         //==================================================================
         //模块名： cloudpara_Click
         //作者：    Yufei Zhang
@@ -3566,8 +3639,7 @@ namespace fangpu_terminal
                 {
                 }
                 restartbutton = true;
-                tcpobject.socket_stop_connect();
-                //Application.Restart();
+                //tcpobject.socket_stop_connect();
                 var startinfo = new ProcessStartInfo("shutdown.exe",
                     "-r -t 00");
                 Process.Start(startinfo);
@@ -3683,6 +3755,7 @@ namespace fangpu_terminal
 
         private void FangpuTerminal_Load(object sender, EventArgs e)
         {
+            Init();
             //检测是否有停机操作
             if (TextCommand.Exists("haltinfo.txt") == false)
                 return;
@@ -3798,15 +3871,15 @@ namespace fangpu_terminal
         {
             try
             {
-                if (tcpuplink_dataprocess_thread.IsAlive)
-                {
-                    tcpuplink_dataprocess_thread.Abort();
-                }
+                //if (tcpuplink_dataprocess_thread.IsAlive)
+                //{
+                //    tcpuplink_dataprocess_thread.Abort();
+                //}
 
-                if (tcpdownlink_dataprocess_thread.IsAlive)
-                {
-                    tcpdownlink_dataprocess_thread.Abort();
-                }
+                //if (tcpdownlink_dataprocess_thread.IsAlive)
+                //{
+                //    tcpdownlink_dataprocess_thread.Abort();
+                //}
 
                 if (plccommunication_thread.IsAlive)
                 {

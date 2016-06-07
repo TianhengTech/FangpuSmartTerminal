@@ -16,7 +16,6 @@ namespace fangpu_terminal.Ultility.Nhibernate
     {
         private static ISessionFactory _sessionFactory;       
         private static object _objLock = new object();
-        private FluentConfiguration cfg;
         public FluentNhibernateHelper()
         {
 
@@ -37,7 +36,6 @@ namespace fangpu_terminal.Ultility.Nhibernate
                 //.ShowSql()
                 )
                 //映射程序集
-
                 .Mappings(
                     m => m.FluentMappings
                         .AddFromAssembly(System.Reflection.Assembly.Load("fangpu_terminal")));
@@ -81,8 +79,7 @@ namespace fangpu_terminal.Ultility.Nhibernate
         /// <returns></returns>
         public static void ResetSession(ref ISession session)
         {
-            if (session.IsOpen)
-                session.Close();
+            session.Close();
             session = _sessionFactory.OpenSession();
             return;
         }
