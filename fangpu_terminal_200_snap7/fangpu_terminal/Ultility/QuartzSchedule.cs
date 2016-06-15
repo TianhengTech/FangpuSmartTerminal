@@ -39,7 +39,7 @@ namespace fangpu_terminal.Ultility
     {
         public void Execute(IJobExecutionContext context)
         {
-            FangpuTerminal.DataAutoSync();
+            //FangpuTerminal.DataAutoSync();
         }
     }
 
