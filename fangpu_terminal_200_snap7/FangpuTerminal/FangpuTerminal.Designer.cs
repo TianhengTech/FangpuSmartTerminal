@@ -278,9 +278,14 @@ namespace fangpu_terminal
             this.typelabel = new System.Windows.Forms.Label();
             this.typeselect = new System.Windows.Forms.ComboBox();
             this.button_resetwarn = new CustomGUI.Forms.CustomButton();
+            this.tabPage_pg7 = new System.Windows.Forms.TabPage();
+            this.messageQueue1 = new System.Messaging.MessageQueue();
+            this.dataGridView_demould = new System.Windows.Forms.DataGridView();
             this.Column_warninfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.信息 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl_terminal.SuspendLayout();
             this.tabPage_pg1.SuspendLayout();
             this.tabPage_pg2.SuspendLayout();
@@ -289,6 +294,8 @@ namespace fangpu_terminal
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_warn)).BeginInit();
             this.tabPage_pg5.SuspendLayout();
             this.tabPage_pg6.SuspendLayout();
+            this.tabPage_pg7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_demould)).BeginInit();
             this.SuspendLayout();
             // 
             // keyboard
@@ -504,6 +511,7 @@ namespace fangpu_terminal
             this.tabControl_terminal.Controls.Add(this.tabPage_pg4);
             this.tabControl_terminal.Controls.Add(this.tabPage_pg5);
             this.tabControl_terminal.Controls.Add(this.tabPage_pg6);
+            this.tabControl_terminal.Controls.Add(this.tabPage_pg7);
             this.tabControl_terminal.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.tabControl_terminal.ItemSize = new System.Drawing.Size(114, 40);
             this.tabControl_terminal.Location = new System.Drawing.Point(12, 125);
@@ -557,7 +565,7 @@ namespace fangpu_terminal
             this.tabPage_pg1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_pg1.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg1.TabIndex = 0;
-            this.tabPage_pg1.Text = "  手动操作界面  ";
+            this.tabPage_pg1.Text = " 手动操作界面 ";
             this.tabPage_pg1.Click += new System.EventHandler(this.tabPage_pg1_Click);
             // 
             // label12
@@ -1097,7 +1105,7 @@ namespace fangpu_terminal
             this.tabPage_pg2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_pg2.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg2.TabIndex = 1;
-            this.tabPage_pg2.Text = "  手动运行界面  ";
+            this.tabPage_pg2.Text = " 手动运行界面 ";
             // 
             // switchSlider_pg2_jinliaoqigang
             // 
@@ -1454,7 +1462,7 @@ namespace fangpu_terminal
             this.tabPage_pg3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_pg3.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg3.TabIndex = 2;
-            this.tabPage_pg3.Text = "  运行操作界面  ";
+            this.tabPage_pg3.Text = " 运行操作界面 ";
             // 
             // displayDouble_pg3_buzuoguanshijianset
             // 
@@ -2122,7 +2130,7 @@ namespace fangpu_terminal
             this.tabPage_pg4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_pg4.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg4.TabIndex = 3;
-            this.tabPage_pg4.Text = "    报警信息    ";
+            this.tabPage_pg4.Text = " 报警信息 ";
             // 
             // dataGridView_warn
             // 
@@ -2132,10 +2140,10 @@ namespace fangpu_terminal
             this.Column_warninfo,
             this.Column_datetime,
             this.信息});
-            this.dataGridView_warn.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView_warn.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_warn.Name = "dataGridView_warn";
             this.dataGridView_warn.RowTemplate.Height = 23;
-            this.dataGridView_warn.Size = new System.Drawing.Size(844, 540);
+            this.dataGridView_warn.Size = new System.Drawing.Size(856, 552);
             this.dataGridView_warn.TabIndex = 0;
             // 
             // tabPage_pg5
@@ -2204,7 +2212,7 @@ namespace fangpu_terminal
             this.tabPage_pg5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_pg5.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg5.TabIndex = 4;
-            this.tabPage_pg5.Text = "   统计页面   ";
+            this.tabPage_pg5.Text = "  统计页面  ";
             // 
             // label69
             // 
@@ -2824,7 +2832,7 @@ namespace fangpu_terminal
             this.tabPage_pg6.Name = "tabPage_pg6";
             this.tabPage_pg6.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg6.TabIndex = 5;
-            this.tabPage_pg6.Text = "  产品规格   ";
+            this.tabPage_pg6.Text = "  产品规格  ";
             // 
             // button_localdataoutput
             // 
@@ -2905,6 +2913,36 @@ namespace fangpu_terminal
             this.button_resetwarn.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_resetwarn_TouchDown);
             this.button_resetwarn.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_resetwarn_TouchUp);
             // 
+            // tabPage_pg7
+            // 
+            this.tabPage_pg7.BackColor = System.Drawing.Color.Aqua;
+            this.tabPage_pg7.Controls.Add(this.dataGridView_demould);
+            this.tabPage_pg7.Location = new System.Drawing.Point(4, 44);
+            this.tabPage_pg7.Name = "tabPage_pg7";
+            this.tabPage_pg7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_pg7.Size = new System.Drawing.Size(856, 552);
+            this.tabPage_pg7.TabIndex = 6;
+            this.tabPage_pg7.Text = "  脱模检测   ";
+            // 
+            // messageQueue1
+            // 
+            this.messageQueue1.MessageReadPropertyFilter.LookupId = true;
+            this.messageQueue1.SynchronizingObject = this;
+            // 
+            // dataGridView_demould
+            // 
+            this.dataGridView_demould.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_demould.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView_demould.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_demould.Name = "dataGridView_demould";
+            this.dataGridView_demould.ReadOnly = true;
+            this.dataGridView_demould.RowTemplate.Height = 23;
+            this.dataGridView_demould.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView_demould.Size = new System.Drawing.Size(856, 552);
+            this.dataGridView_demould.TabIndex = 0;
+            // 
             // Column_warninfo
             // 
             this.Column_warninfo.HeaderText = "报警项目";
@@ -2924,7 +2962,21 @@ namespace fangpu_terminal
             this.信息.HeaderText = "信息";
             this.信息.Name = "信息";
             this.信息.ReadOnly = true;
-            this.信息.Width = 110;
+            this.信息.Width = 120;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "脱模报警";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 453;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "时间";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 380;
             // 
             // FangpuTerminal
             // 
@@ -2969,6 +3021,8 @@ namespace fangpu_terminal
             this.tabPage_pg5.ResumeLayout(false);
             this.tabPage_pg6.ResumeLayout(false);
             this.tabPage_pg6.PerformLayout();
+            this.tabPage_pg7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_demould)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3184,6 +3238,11 @@ namespace fangpu_terminal
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_warninfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_datetime;
         private System.Windows.Forms.DataGridViewTextBoxColumn 信息;
+        private System.Windows.Forms.TabPage tabPage_pg7;
+        private System.Windows.Forms.DataGridView dataGridView_demould;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Messaging.MessageQueue messageQueue1;
 
     }
 }

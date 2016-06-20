@@ -43,7 +43,6 @@ namespace fangpu_terminal
         private object lockobject = new object(); //数据库线程锁
         private TerminalTcpClientAsync tcpobject;
         private QuartzSchedule schedule;
-        private S7_Socket S7S;
         private S7Client S7SNAP;
         private S7_PPI PPI;
         private SynchronizationContext thread_updateui_syncContext = null;
@@ -415,6 +414,17 @@ namespace fangpu_terminal
                 {
                     foreach (var Warn in results)
                     {
+                        if (Warn.Key.Equals("请注意:这板模有管没脱掉"))
+                        {
+                            if (dataGridView_demould.Rows.Count >= 500)
+                            {
+                                dataGridView_demould.Rows.RemoveAt(499);
+                            }
+                            var index2 = dataGridView_demould.Rows.Add();
+                            dataGridView_warn.Rows[index2].Cells[0].Value = Warn.Key; //报警信息
+                            dataGridView_warn.Rows[index2].Cells[1].Value = daq_input.daq_time;
+                            continue;
+                        }
                         if (dataGridView_warn.Rows.Count >= 500)
                         {
                             dataGridView_warn.Rows.RemoveAt(499);
@@ -1165,7 +1175,7 @@ namespace fangpu_terminal
                             continue;
                         }
                         CycleUpdateGuiDisplay(plc_temp_data);
-                        WarnInfoProcess(plc_temp_data);
+                        WarnInfoProcess(plc_temp_data);               
                         TerminalQueues.localdataqueue.Enqueue(plc_temp_data);
                     }
                 }
@@ -1442,7 +1452,7 @@ namespace fangpu_terminal
                 TerminalQueues.warninfoqueue.Enqueue(plcwarn);
                 TerminalQueues.warninfoqueue_local.Enqueue(plcwarn);
             }
-            warnflag = (plc_data.aream_data["MB5"] & 0x08) != 0x08;
+            warnflag = (plc_data.aream_data["MB5"] & 0x08) != 0x08;//True if M5.3=0
         }
 
         /// <summary>
@@ -1578,6 +1588,7 @@ namespace fangpu_terminal
             {
                 
             }
+            return "1";
         }
 
         /// <summary>
@@ -1764,7 +1775,14 @@ namespace fangpu_terminal
             MessageBox.Show(msg, info, buttontype, icontype);
             return true;
         }
-
+        /// <summary>
+        /// 显示消息窗口
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="info"></param>
+        /// <param name="buttontype"></param>
+        /// <param name="icontype"></param>
+        /// <returns></returns>
         bool MessageBoxShow_F(string msg, string info = "提示信息", MessageBoxButtons buttontype = MessageBoxButtons.OK,
             MessageBoxIcon icontype = MessageBoxIcon.Information)
         {

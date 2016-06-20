@@ -70,6 +70,12 @@ namespace fangpu_terminal
             //按照指定编码将字节数组变为字符串
             return System.Text.Encoding.Default.GetString(b);
         }
+        /// <summary>
+        /// 十六进制数转为字符串
+        /// </summary>
+        /// <param name="argv"></param>
+        /// <param name="Len"></param>
+        /// <returns></returns>
         public String HexToStr(int argv,int Len){
             String Str=argv.ToString("X");
             if (Str.Length<Len){
@@ -78,15 +84,31 @@ namespace fangpu_terminal
             }
             return Str;
         }
+        /// <summary>
+        /// 十六进制字符串形式转为byte数组
+        /// </summary>
+        /// <param name="hex"></param>
+        /// <returns></returns>
         public static byte[] Hex2Bytes(string hex){
             byte[] result = new byte[hex.Length / 2];
             for (int i = 0; i < result.Length; i++)
                 result[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
             return result;
         }
+        /// <summary>
+        /// byte数组转为十六进制字符串
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
         public static string BytesToHex(byte[] bytes) {
             return BytesToHex(bytes, bytes.Length);
         }
+        /// <summary>
+        /// byte
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <param name="Len"></param>
+        /// <returns></returns>
         public static string BytesToHex(byte[] bytes,int Len)
         {
             StringBuilder result = new StringBuilder();
@@ -99,7 +121,12 @@ namespace fangpu_terminal
             }
             return result.ToString();
         }
-		//通过 Com 发送数据
+       
+		/// <summary>
+        /// 通过 Com 发送数据
+		/// </summary>
+		/// <param name="Cmd"></param>
+		/// <returns></returns>
         public string Send_Cmd(string Cmd)
         {
             if (Debug) Trace.WriteLine("服务器发送消息：" + BytesToHex(Hex2Bytes(Cmd)));
@@ -135,12 +162,16 @@ namespace fangpu_terminal
             }
             return "0000";
 		}
-
+        /// <summary>
+        /// 尝试连接
+        /// </summary>
+        /// <param name="Daddr"></param>
+        /// <returns></returns>
         public bool Connect(int Daddr){
             this.Daddr = Daddr;
            return Creat_Com();
         }
-        //只适用于S7-200
+        /*//只适用于S7-200*/
         public bool Set_Cpu_State(string State)
         { 
             string Cmd="",Str;
@@ -154,6 +185,7 @@ namespace fangpu_terminal
             Str = Send_Cmd(Cmd);
             return true;
         }
+
         public string Get_Cpu(){
             string GetCPUcmd = "681B1B68" + HexToStr(Daddr, 2) + "007C320100000000000E00000401120A10020014000003000000" + HexToStr((Daddr + 0x07) % 0x100, 2) + "16";
             string Str = Send_Cmd(GetCPUcmd);
@@ -161,6 +193,13 @@ namespace fangpu_terminal
                 Str=Str.Substring(Str.Length-44,40);
             return HexStringToString(Str);
         }
+        /// <summary>
+        /// 读位
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="addr"></param>
+        /// <param name="bitaddr"></param>
+        /// <returns></returns>
         public int Read_Bit(int type, int addr, int bitaddr)
         {
             if (bitaddr<=7)
@@ -168,10 +207,23 @@ namespace fangpu_terminal
             Trace.WriteLine("bitaddr ERROR");
             return 0;
         }
+        /// <summary>
+        /// 读
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="addr"></param>
+        /// <returns></returns>
         public int Read(int type, int addr)
         {
             return Read(type, addr, 1);
         }
+        /// <summary>
+        /// 读PLC数据
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="addr"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
         public int Read(int type,int addr,int size){
             int Len;
             string readCmd,rStr;
@@ -210,6 +262,14 @@ namespace fangpu_terminal
             }
             return len;
          }
+        /// <summary>
+        /// 写一位
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="addr"></param>
+        /// <param name="bitaddr"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public bool Write_Bit(int type, int addr, int bitaddr, int data)
         {
             if (data >= 1) data = 1;
@@ -224,6 +284,15 @@ namespace fangpu_terminal
              return Write( type,  addr,  data, size, 8);
         }
         //size 只能为1，2，4，表示Byte，Word，Double Word
+        /// <summary>
+        /// 写PLC数据
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="addr"></param>
+        /// <param name="data"></param>
+        /// <param name="size"></param>
+        /// <param name="bitaddr"></param>
+        /// <returns></returns>
         public bool Write(int type, int addr, int data, int size, int bitaddr)
         {
             int Len;
