@@ -1572,6 +1572,14 @@ namespace fangpu_terminal
             }
         }
 
+        public string ModuleSeparate(PlcDAQCommunicationObject data)
+        {
+            if ((data.aream_data["I5"] & 0x40) == 0x40)
+            {
+                
+            }
+        }
+
         /// <summary>
         /// Get web command and execute
         /// </summary>
@@ -3888,6 +3896,7 @@ namespace fangpu_terminal
                 //{
                 //    tcpdownlink_dataprocess_thread.Abort();
                 //}
+                S7SNAP.Disconnect();
 
                 if (plccommunication_thread.IsAlive)
                 {
