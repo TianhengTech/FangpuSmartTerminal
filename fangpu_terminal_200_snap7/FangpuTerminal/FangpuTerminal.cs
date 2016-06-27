@@ -82,9 +82,11 @@ namespace fangpu_terminal
         private bool isFirst = true;
         private bool stopSendCmdtoPLC;
         private bool enableWarn;
+        private bool tuomuWarn;
         private bool typeexist = true;
         private bool enableSync = true;
         private bool warnflag = true;
+        private bool tuomuflag = true;
         private bool onetime = true;
         private bool buzuo = true;
         private bool jinliao = true;
@@ -95,6 +97,7 @@ namespace fangpu_terminal
         private int syncount;
         private double zuomotime;
         private int vw68, vw70, vw72, vw74;
+        private int youguanno;
         public numberboard numberBoard;
 
 
@@ -151,12 +154,10 @@ namespace fangpu_terminal
         //==================================================================
         public void Init()
         {
-            //SplashScreenManager.ShowForm(typeof(TianhengLogin));
             InitGlobalParameter();
             schedule = new QuartzSchedule();
             schedule.StartSchedule();
             log.Info("Schedule Start");
-            //UpdateLoadGUIConfig("正在尝试连接...", 30);
             S7SNAP = new S7Client();
             ushort localtsap = (ushort) TerminalParameters.Default.PLC_TSAP_Remote;
             ushort remotetsap = (ushort) TerminalParameters.Default.PLC_TSAP_Local;
@@ -184,7 +185,6 @@ namespace fangpu_terminal
             //tcpdownlink_dataprocess_thread = new Thread(TcpDownlickDataProcessThread);
             ////tcpdownlink_dataprocess_thread.IsBackground=true;
             ////tcpdownlink_dataprocess_thread.Start();
-            //// UpdateLoadGUIConfig("载入中", 60);
             plcread_thread = new Thread(PlcReadCycle);
             plcread_thread.IsBackground = true;
             plcread_thread.Priority = ThreadPriority.BelowNormal;
@@ -200,7 +200,7 @@ namespace fangpu_terminal
 
             plcdatahandler_thread = new Thread(PlcDataProcessThread);
             plcdatahandler_thread.IsBackground = true;
-            plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
+            //plcdatahandler_thread.Priority = ThreadPriority.BelowNormal;
             plcdatahandler_thread.Start();
             log.Info("PlcDataProcessThread Thread Start");
 
@@ -279,6 +279,7 @@ namespace fangpu_terminal
             TerminalCommon.warn_info =
                 fangpu_config.ConvertToDictionary(fangpu_config.ReadIniAllKeys("warn", "./fangpu_warn.ini")); //读取报警信息
             TerminalCommon.warn_stop_info = fangpu_config.ReadIniAllKeys("stopwarn", "./fangpu_warn.ini"); //读取停机信息
+           
         }
 
         //==================================================================
@@ -414,17 +415,6 @@ namespace fangpu_terminal
                 {
                     foreach (var Warn in results)
                     {
-                        if (Warn.Key.Equals("请注意:这板模有管没脱掉"))
-                        {
-                            if (dataGridView_demould.Rows.Count >= 500)
-                            {
-                                dataGridView_demould.Rows.RemoveAt(499);
-                            }
-                            var index2 = dataGridView_demould.Rows.Add();
-                            dataGridView_warn.Rows[index2].Cells[0].Value = Warn.Key; //报警信息
-                            dataGridView_warn.Rows[index2].Cells[1].Value = daq_input.daq_time;
-                            continue;
-                        }
                         if (dataGridView_warn.Rows.Count >= 500)
                         {
                             dataGridView_warn.Rows.RemoveAt(499);
@@ -439,8 +429,29 @@ namespace fangpu_terminal
                     displayWarninfo.Value = warntext;
                 }
             }
-            ;
 
+            if (tuomuWarn && (daq_input.aream_data["I5"] & 0x40) == 0x40)
+            {
+                if (dataGridView_demould.Rows.Count >= 500)
+                {
+                    dataGridView_demould.Rows.RemoveAt(499);
+                }
+                var index = dataGridView_demould.Rows.Add();
+                dataGridView_demould.Rows[index].Cells[0].Value = "这一板模没有脱掉";
+                dataGridView_demould.Rows[index].Cells[1].Value = daq_input.daq_time;
+                dataGridView_demould.Sort(dataGridView_demould.Columns[1], ListSortDirection.Descending);
+                tuomucount.Text=(++youguanno).ToString();
+            }
+
+            if ((daq_input.aream_data["I5"] & 0x40) == 0x40)
+            {
+                tuomuWarn = false;
+            }
+            else
+            {
+                tuomuWarn = true;
+            }
+            
             if ((daq_input.aream_data["MB5"] & 0x08) == 0x08)
             {
                 enableWarn = false;
@@ -632,8 +643,29 @@ namespace fangpu_terminal
                 {
                     break;
                 }
+               
             }
             dataGridView_warn.Sort(dataGridView_warn.Columns[1], ListSortDirection.Descending);
+
+            strSql = "select warninfo,warntime from warninfo where warnlevel='脱模报警' order by warninfoid desc limit 500";
+            ds = new DataSet();
+            dTable = new DataTable();
+            ds = TerminalLocalDataStorage.Query(strSql);
+            dTable = ds.Tables[0];
+            for (var i = 0; i < dTable.Rows.Count; i++)
+            {
+                var index = dataGridView_demould.Rows.Add();
+                dataGridView_demould.Rows[index].Cells[0].Value = dTable.Rows[i]["warninfo"];
+                dataGridView_demould.Rows[index].Cells[1].Value = dTable.Rows[i]["warntime"];
+                if (index >= 499)
+                {
+                    break;
+                }        
+            }
+
+            
+            dataGridView_demould.Sort(dataGridView_demould.Columns[1], ListSortDirection.Descending);
+            
         }
 
         //==================================================================
@@ -1161,14 +1193,14 @@ namespace fangpu_terminal
         //修改记录：用异步方式刷新GUI界面
         //==================================================================
         public void PlcDataProcessThread()
-        {
-            var plc_temp_data = new PlcDAQCommunicationObject();                  
+        {                        
             while (true)
             {
                 try
                 {
                     while (TerminalQueues.plcdataprocessqueue.Count > 0)
                     {
+                        var plc_temp_data = new PlcDAQCommunicationObject(); 
                         TerminalQueues.plcdataprocessqueue.TryDequeue(out plc_temp_data);
                         if (plc_temp_data == null)
                         {
@@ -1177,6 +1209,7 @@ namespace fangpu_terminal
                         CycleUpdateGuiDisplay(plc_temp_data);
                         WarnInfoProcess(plc_temp_data);               
                         TerminalQueues.localdataqueue.Enqueue(plc_temp_data);
+                        TerminalQueues.datacenterprocessqueue.Enqueue(plc_temp_data);
                     }
                 }
                 catch (Exception ex)
@@ -1226,7 +1259,7 @@ namespace fangpu_terminal
                     sf.Close();
                     sf.Dispose();
                     sf = cfg.BuildSessionFactory(); //日期变化时重新打开连接
-                    session = sf.OpenSession(); //建立新的连接                               
+                    session = sf.OpenSession(); //建立新的连接         
                 }
 
                 if (TerminalQueues.datacenterprocessqueue.Count > 0)
@@ -1404,7 +1437,7 @@ namespace fangpu_terminal
         //==================================================================
         public Dictionary<string, string> GetWarnInfo(Dictionary<string, int> info)
         {
-            var results = new Dictionary<string, string>();
+            var results = new Dictionary<string, string>();//key 报警信息 value 报警等级
             var base_zero = 0;
             var i = 0;
 
@@ -1417,6 +1450,9 @@ namespace fangpu_terminal
                         if ((info["VB400" + j] & ((1 << i))) == 1 << i)
                         {
                             results[(TerminalCommon.warn_info["400" + j + "_" + i])] = null;
+                            if (j == 8 && i == 5)
+                                results[(TerminalCommon.warn_info["400" + j + "_" + i])] = "脱模报警";
+                            else
                             foreach (string key in TerminalCommon.warn_stop_info)
                             {
                                 if (key.Equals("400" + j + "_" + i))
@@ -1449,6 +1485,14 @@ namespace fangpu_terminal
                 plcwarn.warn_time = plc_data.daq_time;
                 var results = GetWarnInfo(plc_data.aream_data);
                 plcwarn.warndata = results;
+                TerminalQueues.warninfoqueue.Enqueue(plcwarn);
+                TerminalQueues.warninfoqueue_local.Enqueue(plcwarn);
+            }
+            if (tuomuflag && (plc_data.aream_data["I5"] & 0x40) == 0x40)
+            {
+                PLCWarningObject plcwarn = new PLCWarningObject();
+                plcwarn.warn_time = plc_data.daq_time;
+                plcwarn.warndata["这一板模没有脱掉"] = "脱模报警";
                 TerminalQueues.warninfoqueue.Enqueue(plcwarn);
                 TerminalQueues.warninfoqueue_local.Enqueue(plcwarn);
             }
@@ -1582,14 +1626,7 @@ namespace fangpu_terminal
             }
         }
 
-        public string ModuleSeparate(PlcDAQCommunicationObject data)
-        {
-            if ((data.aream_data["I5"] & 0x40) == 0x40)
-            {
-                
-            }
-            return "1";
-        }
+
 
         /// <summary>
         /// Get web command and execute
@@ -1743,7 +1780,14 @@ namespace fangpu_terminal
                     return;
             }
         }
-
+        /// <summary>
+        /// 委托显示messagebox
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="info"></param>
+        /// <param name="buttontype"></param>
+        /// <param name="icontype"></param>
+        /// <returns></returns>
         delegate bool MessageBoxShow(
             string msg, string info = "提示信息", MessageBoxButtons buttontype = MessageBoxButtons.OK,
             MessageBoxIcon icontype = MessageBoxIcon.Information);
@@ -3946,6 +3990,12 @@ namespace fangpu_terminal
         public void topbarupdata(string str)
         {
             displayWarninfo.Value = str;
+        }
+
+        private void tuomucount_clear_Click(object sender, EventArgs e)
+        {
+            tuomucount.Text = "0";
+            youguanno = 0;
         }
 
 

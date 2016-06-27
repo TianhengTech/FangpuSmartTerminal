@@ -89,6 +89,7 @@ namespace fangpu_terminal
             this.led_pause = new Iocomp.Instrumentation.Standard.Led();
             this.displayWarninfo = new Iocomp.Instrumentation.Standard.DisplayString();
             this.led_manul = new Iocomp.Instrumentation.Standard.Led();
+            this.messageQueue1 = new System.Messaging.MessageQueue();
             this.button_system_init = new CustomGUI.Forms.CustomButton();
             this.tabControl_terminal = new WfGUI.Forms.NoFlashTabControl();
             this.tabPage_pg1 = new System.Windows.Forms.TabPage();
@@ -213,6 +214,9 @@ namespace fangpu_terminal
             this.jinliaoshezhi_layer = new System.Windows.Forms.Button();
             this.tabPage_pg4 = new System.Windows.Forms.TabPage();
             this.dataGridView_warn = new System.Windows.Forms.DataGridView();
+            this.Column_warninfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.信息 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage_pg5 = new System.Windows.Forms.TabPage();
             this.label69 = new Iocomp.Instrumentation.Standard.Label();
             this.label68 = new Iocomp.Instrumentation.Standard.Label();
@@ -277,15 +281,14 @@ namespace fangpu_terminal
             this.type_accept = new System.Windows.Forms.Button();
             this.typelabel = new System.Windows.Forms.Label();
             this.typeselect = new System.Windows.Forms.ComboBox();
-            this.button_resetwarn = new CustomGUI.Forms.CustomButton();
             this.tabPage_pg7 = new System.Windows.Forms.TabPage();
-            this.messageQueue1 = new System.Messaging.MessageQueue();
+            this.tuomucount = new System.Windows.Forms.Label();
+            this.tuomucount_clear = new System.Windows.Forms.Button();
+            this.label71 = new System.Windows.Forms.Label();
             this.dataGridView_demould = new System.Windows.Forms.DataGridView();
-            this.Column_warninfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.信息 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_resetwarn = new CustomGUI.Forms.CustomButton();
             this.tabControl_terminal.SuspendLayout();
             this.tabPage_pg1.SuspendLayout();
             this.tabPage_pg2.SuspendLayout();
@@ -490,6 +493,11 @@ namespace fangpu_terminal
             this.led_manul.Size = new System.Drawing.Size(60, 60);
             this.led_manul.LoadingEnd();
             // 
+            // messageQueue1
+            // 
+            this.messageQueue1.MessageReadPropertyFilter.LookupId = true;
+            this.messageQueue1.SynchronizingObject = this;
+            // 
             // button_system_init
             // 
             this.button_system_init.BackColor = System.Drawing.Color.Red;
@@ -522,7 +530,7 @@ namespace fangpu_terminal
             // 
             // tabPage_pg1
             // 
-            this.tabPage_pg1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage_pg1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.tabPage_pg1.Controls.Add(this.label12);
             this.tabPage_pg1.Controls.Add(this.label11);
             this.tabPage_pg1.Controls.Add(this.switchSlider_pg1_kaoliaoluhoumen);
@@ -1078,7 +1086,7 @@ namespace fangpu_terminal
             // 
             // tabPage_pg2
             // 
-            this.tabPage_pg2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage_pg2.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.tabPage_pg2.Controls.Add(this.switchSlider_pg2_jinliaoqigang);
             this.tabPage_pg2.Controls.Add(this.label20);
             this.tabPage_pg2.Controls.Add(this.label19);
@@ -1394,7 +1402,7 @@ namespace fangpu_terminal
             // 
             // tabPage_pg3
             // 
-            this.tabPage_pg3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage_pg3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.tabPage_pg3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tabPage_pg3.Controls.Add(this.displayDouble_pg3_buzuoguanshijianset);
             this.tabPage_pg3.Controls.Add(this.yincang);
@@ -2146,9 +2154,30 @@ namespace fangpu_terminal
             this.dataGridView_warn.Size = new System.Drawing.Size(856, 552);
             this.dataGridView_warn.TabIndex = 0;
             // 
+            // Column_warninfo
+            // 
+            this.Column_warninfo.HeaderText = "报警项目";
+            this.Column_warninfo.Name = "Column_warninfo";
+            this.Column_warninfo.ReadOnly = true;
+            this.Column_warninfo.Width = 450;
+            // 
+            // Column_datetime
+            // 
+            this.Column_datetime.HeaderText = "时间";
+            this.Column_datetime.Name = "Column_datetime";
+            this.Column_datetime.ReadOnly = true;
+            this.Column_datetime.Width = 240;
+            // 
+            // 信息
+            // 
+            this.信息.HeaderText = "信息";
+            this.信息.Name = "信息";
+            this.信息.ReadOnly = true;
+            this.信息.Width = 120;
+            // 
             // tabPage_pg5
             // 
-            this.tabPage_pg5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage_pg5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.tabPage_pg5.Controls.Add(this.label69);
             this.tabPage_pg5.Controls.Add(this.label68);
             this.tabPage_pg5.Controls.Add(this.displayDouble_zuomushijian_2);
@@ -2822,7 +2851,7 @@ namespace fangpu_terminal
             // 
             // tabPage_pg6
             // 
-            this.tabPage_pg6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage_pg6.BackColor = System.Drawing.Color.Silver;
             this.tabPage_pg6.Controls.Add(this.button_localdataoutput);
             this.tabPage_pg6.Controls.Add(this.type_accept);
             this.tabPage_pg6.Controls.Add(this.typelabel);
@@ -2900,37 +2929,55 @@ namespace fangpu_terminal
             this.typeselect.SelectedIndexChanged += new System.EventHandler(this.typeselect_SelectedIndexChanged);
             this.typeselect.Click += new System.EventHandler(this.typeselect_Click_1);
             // 
-            // button_resetwarn
-            // 
-            this.button_resetwarn.BackColor = System.Drawing.Color.Lime;
-            this.button_resetwarn.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
-            this.button_resetwarn.Location = new System.Drawing.Point(882, 12);
-            this.button_resetwarn.Name = "button_resetwarn";
-            this.button_resetwarn.Size = new System.Drawing.Size(114, 60);
-            this.button_resetwarn.TabIndex = 5;
-            this.button_resetwarn.Text = "复位报警";
-            this.button_resetwarn.UseVisualStyleBackColor = false;
-            this.button_resetwarn.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_resetwarn_TouchDown);
-            this.button_resetwarn.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_resetwarn_TouchUp);
-            // 
             // tabPage_pg7
             // 
-            this.tabPage_pg7.BackColor = System.Drawing.Color.Aqua;
+            this.tabPage_pg7.BackColor = System.Drawing.Color.Turquoise;
+            this.tabPage_pg7.Controls.Add(this.tuomucount);
+            this.tabPage_pg7.Controls.Add(this.tuomucount_clear);
+            this.tabPage_pg7.Controls.Add(this.label71);
             this.tabPage_pg7.Controls.Add(this.dataGridView_demould);
             this.tabPage_pg7.Location = new System.Drawing.Point(4, 44);
             this.tabPage_pg7.Name = "tabPage_pg7";
             this.tabPage_pg7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_pg7.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg7.TabIndex = 6;
-            this.tabPage_pg7.Text = "  脱模检测   ";
+            this.tabPage_pg7.Text = "  脱模检测    ";
             // 
-            // messageQueue1
+            // tuomucount
             // 
-            this.messageQueue1.MessageReadPropertyFilter.LookupId = true;
-            this.messageQueue1.SynchronizingObject = this;
+            this.tuomucount.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold);
+            this.tuomucount.ForeColor = System.Drawing.Color.IndianRed;
+            this.tuomucount.Location = new System.Drawing.Point(757, 131);
+            this.tuomucount.Name = "tuomucount";
+            this.tuomucount.Size = new System.Drawing.Size(96, 36);
+            this.tuomucount.TabIndex = 3;
+            this.tuomucount.Text = "0";
+            this.tuomucount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tuomucount_clear
+            // 
+            this.tuomucount_clear.Location = new System.Drawing.Point(766, 189);
+            this.tuomucount_clear.Name = "tuomucount_clear";
+            this.tuomucount_clear.Size = new System.Drawing.Size(75, 62);
+            this.tuomucount_clear.TabIndex = 2;
+            this.tuomucount_clear.Text = "清零";
+            this.tuomucount_clear.UseVisualStyleBackColor = true;
+            this.tuomucount_clear.Click += new System.EventHandler(this.tuomucount_clear_Click);
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(765, 74);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(76, 16);
+            this.label71.TabIndex = 1;
+            this.label71.Text = "有管次数";
             // 
             // dataGridView_demould
             // 
+            this.dataGridView_demould.AllowUserToAddRows = false;
+            this.dataGridView_demould.AllowUserToDeleteRows = false;
+            this.dataGridView_demould.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView_demould.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_demould.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -2940,29 +2987,8 @@ namespace fangpu_terminal
             this.dataGridView_demould.ReadOnly = true;
             this.dataGridView_demould.RowTemplate.Height = 23;
             this.dataGridView_demould.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView_demould.Size = new System.Drawing.Size(856, 552);
+            this.dataGridView_demould.Size = new System.Drawing.Size(751, 556);
             this.dataGridView_demould.TabIndex = 0;
-            // 
-            // Column_warninfo
-            // 
-            this.Column_warninfo.HeaderText = "报警项目";
-            this.Column_warninfo.Name = "Column_warninfo";
-            this.Column_warninfo.ReadOnly = true;
-            this.Column_warninfo.Width = 450;
-            // 
-            // Column_datetime
-            // 
-            this.Column_datetime.HeaderText = "时间";
-            this.Column_datetime.Name = "Column_datetime";
-            this.Column_datetime.ReadOnly = true;
-            this.Column_datetime.Width = 240;
-            // 
-            // 信息
-            // 
-            this.信息.HeaderText = "信息";
-            this.信息.Name = "信息";
-            this.信息.ReadOnly = true;
-            this.信息.Width = 120;
             // 
             // Column1
             // 
@@ -2977,6 +3003,19 @@ namespace fangpu_terminal
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 380;
+            // 
+            // button_resetwarn
+            // 
+            this.button_resetwarn.BackColor = System.Drawing.Color.Lime;
+            this.button_resetwarn.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
+            this.button_resetwarn.Location = new System.Drawing.Point(882, 12);
+            this.button_resetwarn.Name = "button_resetwarn";
+            this.button_resetwarn.Size = new System.Drawing.Size(114, 60);
+            this.button_resetwarn.TabIndex = 5;
+            this.button_resetwarn.Text = "复位报警";
+            this.button_resetwarn.UseVisualStyleBackColor = false;
+            this.button_resetwarn.ButtonTouchDownEvent += new CustomGUI.Forms.CustomButton.ButtonTouchDownHandler(this.button_resetwarn_TouchDown);
+            this.button_resetwarn.ButtonTouchUpEvent += new CustomGUI.Forms.CustomButton.ButtonTouchUpHandler(this.button_resetwarn_TouchUp);
             // 
             // FangpuTerminal
             // 
@@ -3022,6 +3061,7 @@ namespace fangpu_terminal
             this.tabPage_pg6.ResumeLayout(false);
             this.tabPage_pg6.PerformLayout();
             this.tabPage_pg7.ResumeLayout(false);
+            this.tabPage_pg7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_demould)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -3243,6 +3283,9 @@ namespace fangpu_terminal
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Messaging.MessageQueue messageQueue1;
+        public System.Windows.Forms.Label tuomucount;
+        private System.Windows.Forms.Button tuomucount_clear;
+        private System.Windows.Forms.Label label71;
 
     }
 }

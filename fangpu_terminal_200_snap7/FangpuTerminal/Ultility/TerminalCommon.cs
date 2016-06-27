@@ -40,6 +40,7 @@ namespace fangpu_terminal
 
         public static Dictionary<string, string> warn_info = new Dictionary<string, string>();
         public static string[] warn_stop_info;
+        public static string[] demould_info;
 
         //获取内网IP
         public static string GetInternalIP()

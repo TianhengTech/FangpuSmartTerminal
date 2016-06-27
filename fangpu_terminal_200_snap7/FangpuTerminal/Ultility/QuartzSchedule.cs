@@ -6,6 +6,9 @@ using fangpu_terminal.Ultility.Nhibernate;
 
 namespace fangpu_terminal.Ultility
 {
+    /// <summary>
+    ///创建一个月内每天的表格
+    /// </summary>
     public class MySqlTableUpdate : IJob
     {
         public void Execute(IJobExecutionContext context)
@@ -31,10 +34,14 @@ namespace fangpu_terminal.Ultility
             catch
             {
                 TerminalLogWriter.WriteErroLog(typeof(MySqlTableUpdate), "创建表格出错");
+  
             }
 
         }
     }
+    /// <summary>
+    /// 执行同步
+    /// </summary>
     public class DataSync : IJob
     {
         public void Execute(IJobExecutionContext context)
@@ -42,7 +49,9 @@ namespace fangpu_terminal.Ultility
             //FangpuTerminal.DataAutoSync();
         }
     }
-
+    /// <summary>
+    /// 设置启动定时Quartz
+    /// </summary>
     public class QuartzSchedule
     {
         IScheduler sche;
@@ -77,8 +86,7 @@ namespace fangpu_terminal.Ultility
             if (sche!=null&&!sche.IsShutdown)
             {
                 sche.Clear();
-                sche.Shutdown();  
-                                           
+                sche.Shutdown();                                           
             }
         }
     }

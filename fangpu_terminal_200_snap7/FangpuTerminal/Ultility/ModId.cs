@@ -5,8 +5,7 @@ using System.Text;
 
 namespace fangpu_terminal.Ultility
 {
-    class DemouldDetect
+    class ModId
     {
-       
     }
 }

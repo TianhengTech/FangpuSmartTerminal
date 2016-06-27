@@ -74,6 +74,7 @@ namespace fangpu_terminal
                 fs.Write(data, 0, data.Length);
                 fs.Flush();
                 data = null;
+                
             }
         }
     }
