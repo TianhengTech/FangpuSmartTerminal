@@ -222,7 +222,6 @@
     <Compile Include="PlcCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ultility\ModId.cs" />
     <Compile Include="Ultility\Nhibernate\FangpuNhibernateGroup.cs" />
     <Compile Include="Ultility\Nhibernate\FangpuNhibernateMapping.cs" />
     <Compile Include="Ultility\Nhibernate\FluentNhibernateHelper.cs" />

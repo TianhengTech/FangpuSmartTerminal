@@ -71,6 +71,7 @@ namespace fangpu_terminal
         private string mode = "manual";
         private string warntext = "报警信息";
         private ISessionFactory sessionfactory;
+        private List<Label> positioner;
 
 
         //读控制变量
@@ -266,6 +267,7 @@ namespace fangpu_terminal
 
         private void InitGlobalParameter()
         {
+            List<Label> positioner=new List<Label>(){pos0,pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8};
             try
             {
                 SelectUpdate();
@@ -304,6 +306,12 @@ namespace fangpu_terminal
                 {
                     syncount++;
                 }
+            }
+            modschedule.Text = Convert.ToString(daq_input.aream_data["VB84"], 2).PadLeft(8,'0') + "I:" + Convert.ToString(daq_input.aream_data["I5"], 2).PadLeft(8,'0');
+            moduleschedule2.Text = Convert.ToString(daq_input.aream_data["VB80"], 2).PadLeft(8, '0') + " " + Convert.ToString(daq_input.aream_data["VB81"], 2).PadLeft(8, '0') + " " + Convert.ToString(daq_input.aream_data["VB82"], 2).PadLeft(8, '0') + " " + Convert.ToString(daq_input.aream_data["VB83"], 2).PadLeft(8, '0');
+            lock (poslocker)
+            {
+                SetPosColor();
             }
             if (tabControl_terminal.SelectedTab == tabPage_pg2)
             {

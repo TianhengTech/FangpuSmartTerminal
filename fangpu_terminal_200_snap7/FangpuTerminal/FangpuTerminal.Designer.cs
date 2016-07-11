@@ -90,6 +90,15 @@ namespace fangpu_terminal
             this.displayWarninfo = new Iocomp.Instrumentation.Standard.DisplayString();
             this.led_manul = new Iocomp.Instrumentation.Standard.Led();
             this.messageQueue1 = new System.Messaging.MessageQueue();
+            this.pos0 = new System.Windows.Forms.Label();
+            this.pos1 = new System.Windows.Forms.Label();
+            this.pos2 = new System.Windows.Forms.Label();
+            this.pos5 = new System.Windows.Forms.Label();
+            this.pos4 = new System.Windows.Forms.Label();
+            this.pos3 = new System.Windows.Forms.Label();
+            this.pos8 = new System.Windows.Forms.Label();
+            this.pos7 = new System.Windows.Forms.Label();
+            this.pos6 = new System.Windows.Forms.Label();
             this.button_system_init = new CustomGUI.Forms.CustomButton();
             this.tabControl_terminal = new WfGUI.Forms.NoFlashTabControl();
             this.tabPage_pg1 = new System.Windows.Forms.TabPage();
@@ -277,6 +286,8 @@ namespace fangpu_terminal
             this.label77 = new Iocomp.Instrumentation.Standard.Label();
             this.label43 = new Iocomp.Instrumentation.Standard.Label();
             this.tabPage_pg6 = new System.Windows.Forms.TabPage();
+            this.moduleschedule2 = new System.Windows.Forms.Label();
+            this.modschedule = new System.Windows.Forms.Label();
             this.button_localdataoutput = new System.Windows.Forms.Button();
             this.type_accept = new System.Windows.Forms.Button();
             this.typelabel = new System.Windows.Forms.Label();
@@ -497,6 +508,87 @@ namespace fangpu_terminal
             // 
             this.messageQueue1.MessageReadPropertyFilter.LookupId = true;
             this.messageQueue1.SynchronizingObject = this;
+            // 
+            // pos0
+            // 
+            this.pos0.AutoSize = true;
+            this.pos0.Location = new System.Drawing.Point(27, 747);
+            this.pos0.Name = "pos0";
+            this.pos0.Size = new System.Drawing.Size(41, 12);
+            this.pos0.TabIndex = 152;
+            this.pos0.Text = "脱模机";
+            // 
+            // pos1
+            // 
+            this.pos1.AutoSize = true;
+            this.pos1.Location = new System.Drawing.Point(92, 747);
+            this.pos1.Name = "pos1";
+            this.pos1.Size = new System.Drawing.Size(41, 12);
+            this.pos1.TabIndex = 153;
+            this.pos1.Text = "刷油机";
+            // 
+            // pos2
+            // 
+            this.pos2.AutoSize = true;
+            this.pos2.Location = new System.Drawing.Point(156, 747);
+            this.pos2.Name = "pos2";
+            this.pos2.Size = new System.Drawing.Size(47, 12);
+            this.pos2.TabIndex = 154;
+            this.pos2.Text = "预热炉1";
+            // 
+            // pos5
+            // 
+            this.pos5.AutoSize = true;
+            this.pos5.Location = new System.Drawing.Point(346, 747);
+            this.pos5.Name = "pos5";
+            this.pos5.Size = new System.Drawing.Size(29, 12);
+            this.pos5.TabIndex = 157;
+            this.pos5.Text = "空位";
+            // 
+            // pos4
+            // 
+            this.pos4.AutoSize = true;
+            this.pos4.Location = new System.Drawing.Point(282, 747);
+            this.pos4.Name = "pos4";
+            this.pos4.Size = new System.Drawing.Size(41, 12);
+            this.pos4.TabIndex = 156;
+            this.pos4.Text = "浸料位";
+            // 
+            // pos3
+            // 
+            this.pos3.AutoSize = true;
+            this.pos3.Location = new System.Drawing.Point(217, 747);
+            this.pos3.Name = "pos3";
+            this.pos3.Size = new System.Drawing.Size(47, 12);
+            this.pos3.TabIndex = 155;
+            this.pos3.Text = "预热炉2";
+            // 
+            // pos8
+            // 
+            this.pos8.AutoSize = true;
+            this.pos8.Location = new System.Drawing.Point(537, 747);
+            this.pos8.Name = "pos8";
+            this.pos8.Size = new System.Drawing.Size(29, 12);
+            this.pos8.TabIndex = 160;
+            this.pos8.Text = "水箱";
+            // 
+            // pos7
+            // 
+            this.pos7.AutoSize = true;
+            this.pos7.Location = new System.Drawing.Point(473, 747);
+            this.pos7.Name = "pos7";
+            this.pos7.Size = new System.Drawing.Size(47, 12);
+            this.pos7.TabIndex = 159;
+            this.pos7.Text = "烤料炉2";
+            // 
+            // pos6
+            // 
+            this.pos6.AutoSize = true;
+            this.pos6.Location = new System.Drawing.Point(399, 747);
+            this.pos6.Name = "pos6";
+            this.pos6.Size = new System.Drawing.Size(47, 12);
+            this.pos6.TabIndex = 158;
+            this.pos6.Text = "烤料炉1";
             // 
             // button_system_init
             // 
@@ -2852,6 +2944,8 @@ namespace fangpu_terminal
             // tabPage_pg6
             // 
             this.tabPage_pg6.BackColor = System.Drawing.Color.Silver;
+            this.tabPage_pg6.Controls.Add(this.moduleschedule2);
+            this.tabPage_pg6.Controls.Add(this.modschedule);
             this.tabPage_pg6.Controls.Add(this.button_localdataoutput);
             this.tabPage_pg6.Controls.Add(this.type_accept);
             this.tabPage_pg6.Controls.Add(this.typelabel);
@@ -2862,6 +2956,24 @@ namespace fangpu_terminal
             this.tabPage_pg6.Size = new System.Drawing.Size(856, 552);
             this.tabPage_pg6.TabIndex = 5;
             this.tabPage_pg6.Text = "  产品规格  ";
+            // 
+            // moduleschedule2
+            // 
+            this.moduleschedule2.AutoSize = true;
+            this.moduleschedule2.Location = new System.Drawing.Point(128, 200);
+            this.moduleschedule2.Name = "moduleschedule2";
+            this.moduleschedule2.Size = new System.Drawing.Size(174, 20);
+            this.moduleschedule2.TabIndex = 155;
+            this.moduleschedule2.Text = "moduleschedule2";
+            // 
+            // modschedule
+            // 
+            this.modschedule.AutoSize = true;
+            this.modschedule.Location = new System.Drawing.Point(128, 166);
+            this.modschedule.Name = "modschedule";
+            this.modschedule.Size = new System.Drawing.Size(86, 20);
+            this.modschedule.TabIndex = 154;
+            this.modschedule.Text = "label70";
             // 
             // button_localdataoutput
             // 
@@ -3023,6 +3135,15 @@ namespace fangpu_terminal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pos8);
+            this.Controls.Add(this.pos7);
+            this.Controls.Add(this.pos6);
+            this.Controls.Add(this.pos5);
+            this.Controls.Add(this.pos4);
+            this.Controls.Add(this.pos3);
+            this.Controls.Add(this.pos2);
+            this.Controls.Add(this.pos1);
+            this.Controls.Add(this.pos0);
             this.Controls.Add(this.sevenSegmentClock_start);
             this.Controls.Add(this.sevenSegmentClock_end);
             this.Controls.Add(this.ledArrow1);
@@ -3286,6 +3407,17 @@ namespace fangpu_terminal
         public System.Windows.Forms.Label tuomucount;
         private System.Windows.Forms.Button tuomucount_clear;
         private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label modschedule;
+        private System.Windows.Forms.Label moduleschedule2;
+        private System.Windows.Forms.Label pos8;
+        private System.Windows.Forms.Label pos7;
+        private System.Windows.Forms.Label pos6;
+        private System.Windows.Forms.Label pos5;
+        private System.Windows.Forms.Label pos4;
+        private System.Windows.Forms.Label pos3;
+        private System.Windows.Forms.Label pos2;
+        private System.Windows.Forms.Label pos1;
+        private System.Windows.Forms.Label pos0;
 
     }
 }
