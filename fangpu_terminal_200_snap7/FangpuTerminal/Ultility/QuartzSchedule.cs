@@ -29,12 +29,13 @@ namespace fangpu_terminal.Ultility
                         x.ExecuteNonQuery();
                     }
                     TerminalLogWriter.WriteInfoLog(typeof (MySqlTableUpdate), "作业建立" + DateTime.Now);
+                    return;
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 TerminalLogWriter.WriteErroLog(typeof(MySqlTableUpdate), "创建表格出错");
-  
+                return;
             }
 
         }
@@ -46,6 +47,7 @@ namespace fangpu_terminal.Ultility
     {
         public void Execute(IJobExecutionContext context)
         {
+            return;
             //FangpuTerminal.DataAutoSync();
         }
     }

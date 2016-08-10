@@ -143,7 +143,6 @@ namespace fangpu_terminal
             //Application.AddMessageFilter(msg);
             //timer1.Enabled = true; 
         }
-
         //==================================================================
         //模块名：  Init
         //作者：    Yang Chuan
@@ -155,6 +154,7 @@ namespace fangpu_terminal
         //==================================================================
         public void Init()
         {
+
             InitGlobalParameter();
             schedule = new QuartzSchedule();
             schedule.StartSchedule();
@@ -267,7 +267,7 @@ namespace fangpu_terminal
 
         private void InitGlobalParameter()
         {
-            List<Label> positioner=new List<Label>(){pos0,pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8};
+            positioner=new List<Label>(){pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10};
             try
             {
                 SelectUpdate();
@@ -292,7 +292,6 @@ namespace fangpu_terminal
         //返回值：  无
         //修改记录：
         //==================================================================
-
         public void UpdateTextMethod(PlcDAQCommunicationObject daq_input)
         {
             if (enableSync)
@@ -307,10 +306,13 @@ namespace fangpu_terminal
                     syncount++;
                 }
             }
-            modschedule.Text = Convert.ToString(daq_input.aream_data["VB84"], 2).PadLeft(8,'0') + "I:" + Convert.ToString(daq_input.aream_data["I5"], 2).PadLeft(8,'0');
-            moduleschedule2.Text = Convert.ToString(daq_input.aream_data["VB80"], 2).PadLeft(8, '0') + " " + Convert.ToString(daq_input.aream_data["VB81"], 2).PadLeft(8, '0') + " " + Convert.ToString(daq_input.aream_data["VB82"], 2).PadLeft(8, '0') + " " + Convert.ToString(daq_input.aream_data["VB83"], 2).PadLeft(8, '0');
+
+            moduleschedule2.Text = Convert.ToString(daq_input.aream_data["VB81"], 2).PadLeft(4, '0') + " " + Convert.ToString(daq_input.aream_data["VB82"], 2).PadLeft(8, '0') + " " + Convert.ToString(daq_input.aream_data["VB83"], 2).PadLeft(8, '0');
+            ModuleID(daq_input);
             lock (poslocker)
             {
+
+                modschedule.Text = "模1：" + NostringPos[0] + "\n" + "模2：" + NostringPos[1] + "\n" + "模3：" + NostringPos[2] + "\n" + "模4：" + NostringPos[3] + "\n" + "模5：" + NostringPos[4] + "\n" + "模6：" + NostringPos[5] + "\n";
                 SetPosColor();
             }
             if (tabControl_terminal.SelectedTab == tabPage_pg2)
@@ -936,7 +938,7 @@ namespace fangpu_terminal
         {
             bool readflag = true;
             var sw = new Stopwatch();
-            Thread.Sleep(1500);
+            Thread.Sleep(2500);
             while (true)
             {
                 if (S7SNAP.Connected() == false)
@@ -1200,6 +1202,7 @@ namespace fangpu_terminal
         //返回值：  无
         //修改记录：用异步方式刷新GUI界面
         //==================================================================
+        string modinfo="";
         public void PlcDataProcessThread()
         {                        
             while (true)
@@ -1214,10 +1217,29 @@ namespace fangpu_terminal
                         {
                             continue;
                         }
+
                         CycleUpdateGuiDisplay(plc_temp_data);
-                        WarnInfoProcess(plc_temp_data);               
+                        WarnInfoProcess(plc_temp_data);
                         TerminalQueues.localdataqueue.Enqueue(plc_temp_data);
                         TerminalQueues.datacenterprocessqueue.Enqueue(plc_temp_data);
+
+                        int VD80 = plc_temp_data.aream_data["VB83"] + (plc_temp_data.aream_data["VB82"] << 8) + (plc_temp_data.aream_data["VB81"] << 16) + (plc_temp_data.aream_data["VB80"] << 24);
+                        string info = Convert.ToString(plc_temp_data.aream_data["VB81"], 2).PadLeft(4, '0') + " " + Convert.ToString(plc_temp_data.aream_data["VB82"], 2).PadLeft(8, '0') + " " + Convert.ToString(plc_temp_data.aream_data["VB83"], 2).PadLeft(8, '0');
+                        if (modinfo.Equals(info))
+                        {
+                            continue;
+                        }
+                        modinfo = info;
+                        if (NumOf1inBit(VD80) != 6)
+                        {
+                            log.Info(info + " " + "非6");
+                            log.Error(info);
+                        }
+                        else
+                        {
+                            log.Info(info);
+                        }
+                        //ModuleID(plc_temp_data);
                     }
                 }
                 catch (Exception ex)
@@ -4004,6 +4026,11 @@ namespace fangpu_terminal
         {
             tuomucount.Text = "0";
             youguanno = 0;
+        }
+
+        private void offscreen_Click(object sender, EventArgs e)
+        {
+            TerminalCommon.TurnOff();
         }
 
 

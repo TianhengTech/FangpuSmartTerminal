@@ -5,11 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace fangpu_terminal
 {
     class TerminalCommon
     {
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+        private static readonly IntPtr HWND_BROADCAST = new IntPtr(0xffff);
+        private const uint WM_SYSCOMMAND = 0x0112;
+        private const int SC_MONITORPOWER = 0xf170;
         /*
         S7-200
         04-S 05-SM 06-AI 07-AQ 1E-C 81-I 82-Q 83-M 184-V 1F-T
@@ -144,6 +150,11 @@ namespace fangpu_terminal
             psi.CreateNoWindow = true;
             Process.Start(psi);
         }
+        public static void TurnOff()
+        {
+            SendMessage(HWND_BROADCAST, WM_SYSCOMMAND, SC_MONITORPOWER, 2);
+        }
+
 
     }
 }

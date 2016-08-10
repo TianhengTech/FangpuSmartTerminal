@@ -33,7 +33,7 @@ namespace CustomGUI.Forms
    
             switch (msg.Msg)
             {
-                case WM_POINTERDOWN:
+                case WM_LBUTTONDOWN:
                     Debug.WriteLine("DOWN");
                     if (_first)
                     {
@@ -43,7 +43,7 @@ namespace CustomGUI.Forms
                     this.BackColor = Color.Red;
                     this.ButtonTouchDownEvent(this, new EventArgs());                   
                     break;
-                case WM_POINTERUP:
+                case WM_LBUTTONUP:
                     Debug.WriteLine("UP");
                     this.BackColor = this.baseColor;
                     this.ButtonTouchUpEvent(this, new EventArgs());
